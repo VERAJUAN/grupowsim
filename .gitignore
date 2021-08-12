@@ -1,0 +1,10 @@
+﻿################################################################################
+# Este archivo .gitignore ha sido creado automáticamente por Microsoft(R) Visual Studio.
+################################################################################
+
+*.ini
+/TP1/TP1/obj/Debug
+/TP1/TP1/Properties
+/TP1/.vs/TP1/v16
+/TP1/obj/Debug
+/TP1/Properties
