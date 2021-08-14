@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace TP1
+namespace SIMULACION_TP1
 {
-    public partial class EjercicioC : Form
+    public partial class Ejercicio__C : System.Windows.Forms.Form
     {
-        public EjercicioC()
+        public Ejercicio__C()
         {
             InitializeComponent();
         }

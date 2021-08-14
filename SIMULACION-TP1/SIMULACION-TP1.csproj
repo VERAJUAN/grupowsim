@@ -4,15 +4,17 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{E32F9614-0819-4F2C-84DB-CCC9BBEADF94}</ProjectGuid>
-    <OutputType>Library</OutputType>
-    <RootNamespace>TP1</RootNamespace>
-    <AssemblyName>TP1</AssemblyName>
+    <ProjectGuid>{A04CDA5B-E701-4D36-8F90-5DC632DE710E}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>SIMULACION_TP1</RootNamespace>
+    <AssemblyName>SIMULACION-TP1</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -22,6 +24,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -36,32 +39,66 @@
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Ejercicio  B.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ejercicio  B.Designer.cs">
+      <DependentUpon>Ejercicio  B.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ejercicio  C.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ejercicio  C.Designer.cs">
+      <DependentUpon>Ejercicio  C.cs</DependentUpon>
+    </Compile>
     <Compile Include="EjercicioA.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="EjercicioA.Designer.cs">
       <DependentUpon>EjercicioA.cs</DependentUpon>
     </Compile>
-    <Compile Include="EjercicioB.cs">
+    <Compile Include="Mixto.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="EjercicioB.Designer.cs">
-      <DependentUpon>EjercicioB.cs</DependentUpon>
+    <Compile Include="Mixto.Designer.cs">
+      <DependentUpon>Mixto.cs</DependentUpon>
     </Compile>
-    <Compile Include="EjercicioC.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="EjercicioC.Designer.cs">
-      <DependentUpon>EjercicioC.cs</DependentUpon>
-    </Compile>
+    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Service Include="{94E38DFF-614B-4cbd-B67C-F211BB35CE8B}" />
+    <EmbeddedResource Include="EjercicioA.resx">
+      <DependentUpon>EjercicioA.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Mixto.resx">
+      <DependentUpon>Mixto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
