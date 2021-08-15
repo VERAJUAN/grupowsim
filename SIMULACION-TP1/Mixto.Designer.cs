@@ -29,7 +29,7 @@ namespace SIMULACION_TP1
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             this.GroupBox1 = new System.Windows.Forms.GroupBox();
             this.Label1 = new System.Windows.Forms.Label();
             this.btnLimpiar = new System.Windows.Forms.Button();
@@ -86,7 +86,7 @@ namespace SIMULACION_TP1
             this.btnLimpiar.Enabled = false;
             this.btnLimpiar.Location = new System.Drawing.Point(631, 402);
             this.btnLimpiar.Name = "btnLimpiar";
-            this.btnLimpiar.Size = new System.Drawing.Size(78, 23);
+            this.btnLimpiar.Size = new System.Drawing.Size(78, 31);
             this.btnLimpiar.TabIndex = 7;
             this.btnLimpiar.Text = "Limpiar";
             this.btnLimpiar.UseVisualStyleBackColor = true;
@@ -106,10 +106,11 @@ namespace SIMULACION_TP1
             this.btnAgregar.Enabled = false;
             this.btnAgregar.Location = new System.Drawing.Point(517, 402);
             this.btnAgregar.Name = "btnAgregar";
-            this.btnAgregar.Size = new System.Drawing.Size(77, 23);
+            this.btnAgregar.Size = new System.Drawing.Size(77, 31);
             this.btnAgregar.TabIndex = 6;
             this.btnAgregar.Text = "Agregar";
             this.btnAgregar.UseVisualStyleBackColor = true;
+            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
             // Label3
             // 
@@ -124,7 +125,7 @@ namespace SIMULACION_TP1
             // 
             this.btnGenerar.Location = new System.Drawing.Point(406, 402);
             this.btnGenerar.Name = "btnGenerar";
-            this.btnGenerar.Size = new System.Drawing.Size(77, 23);
+            this.btnGenerar.Size = new System.Drawing.Size(77, 31);
             this.btnGenerar.TabIndex = 5;
             this.btnGenerar.Text = "Generar";
             this.btnGenerar.UseVisualStyleBackColor = true;
@@ -163,9 +164,9 @@ namespace SIMULACION_TP1
             // random
             // 
             this.random.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle2.Format = "N4";
-            dataGridViewCellStyle2.NullValue = null;
-            this.random.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle8.Format = "N4";
+            dataGridViewCellStyle8.NullValue = null;
+            this.random.DefaultCellStyle = dataGridViewCellStyle8;
             this.random.HeaderText = "Aleatorio";
             this.random.Name = "random";
             this.random.ReadOnly = true;
@@ -177,6 +178,7 @@ namespace SIMULACION_TP1
             this.txtA.Size = new System.Drawing.Size(45, 26);
             this.txtA.TabIndex = 1;
             this.txtA.Text = "0";
+            this.txtA.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtA_KeyPress);
             // 
             // txtS
             // 
@@ -185,6 +187,7 @@ namespace SIMULACION_TP1
             this.txtS.Size = new System.Drawing.Size(45, 26);
             this.txtS.TabIndex = 4;
             this.txtS.Text = "0";
+            this.txtS.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtS_KeyPress);
             // 
             // txtC
             // 
@@ -193,6 +196,7 @@ namespace SIMULACION_TP1
             this.txtC.Size = new System.Drawing.Size(45, 26);
             this.txtC.TabIndex = 2;
             this.txtC.Text = "0";
+            this.txtC.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtC_KeyPress);
             // 
             // txtM
             // 
@@ -201,6 +205,7 @@ namespace SIMULACION_TP1
             this.txtM.Size = new System.Drawing.Size(45, 26);
             this.txtM.TabIndex = 3;
             this.txtM.Text = "0";
+            this.txtM.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtM_KeyPress);
             // 
             // Mixto
             // 
