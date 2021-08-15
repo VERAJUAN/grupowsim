@@ -3,8 +3,12 @@
 ################################################################################
 
 *.ini
+*.suo
 /TP1/TP1/obj/Debug
 /TP1/TP1/Properties
 /TP1/.vs/TP1/v16
 /TP1/obj/Debug
 /TP1/Properties
+.vs/SIMULACION-TP1/v16
+.vs/TP1/v16
+/SIMULACION-TP1/obj/Debug
