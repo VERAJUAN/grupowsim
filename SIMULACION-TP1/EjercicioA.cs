@@ -22,5 +22,11 @@ namespace SIMULACION_TP1
             Mixto ventana = new Mixto();
             ventana.Show();
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Multiplicativo ventana = new Multiplicativo();
+            ventana.Show();
+        }
     }
 }
