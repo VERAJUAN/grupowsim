@@ -17,9 +17,15 @@ namespace SIMULACION_TP1
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnMixto_Click(object sender, EventArgs e)
         {
             Mixto ventana = new Mixto();
+            ventana.Show();
+        }
+
+        private void btnMultiplicativo_Click(object sender, EventArgs e)
+        {
+            Multiplicativo ventana = new Multiplicativo();
             ventana.Show();
         }
     }

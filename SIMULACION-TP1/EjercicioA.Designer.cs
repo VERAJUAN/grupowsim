@@ -29,42 +29,43 @@ namespace SIMULACION_TP1
         /// </summary>
         private void InitializeComponent()
         {
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnMixto = new System.Windows.Forms.Button();
+            this.btnMultiplicativo = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // button1
+            // btnMixto
             // 
-            this.button1.BackColor = System.Drawing.Color.Silver;
-            this.button1.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(205, 95);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(412, 71);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "CONGRUENCIAL MIXTO";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnMixto.BackColor = System.Drawing.Color.Silver;
+            this.btnMixto.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMixto.Location = new System.Drawing.Point(205, 95);
+            this.btnMixto.Name = "btnMixto";
+            this.btnMixto.Size = new System.Drawing.Size(412, 71);
+            this.btnMixto.TabIndex = 0;
+            this.btnMixto.Text = "CONGRUENCIAL MIXTO";
+            this.btnMixto.UseVisualStyleBackColor = false;
+            this.btnMixto.Click += new System.EventHandler(this.btnMixto_Click);
             // 
-            // button2
+            // btnMultiplicativo
             // 
-            this.button2.BackColor = System.Drawing.Color.Silver;
-            this.button2.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(205, 218);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(412, 71);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "CONGRUENCIAL MULTIPLICATIVO";
-            this.button2.UseVisualStyleBackColor = false;
+            this.btnMultiplicativo.BackColor = System.Drawing.Color.Silver;
+            this.btnMultiplicativo.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMultiplicativo.Location = new System.Drawing.Point(205, 218);
+            this.btnMultiplicativo.Name = "btnMultiplicativo";
+            this.btnMultiplicativo.Size = new System.Drawing.Size(412, 71);
+            this.btnMultiplicativo.TabIndex = 1;
+            this.btnMultiplicativo.Text = "CONGRUENCIAL MULTIPLICATIVO";
+            this.btnMultiplicativo.UseVisualStyleBackColor = false;
+            this.btnMultiplicativo.Click += new System.EventHandler(this.btnMultiplicativo_Click);
             // 
-            // Form1
+            // EjercicioA
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.CadetBlue;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
-            this.Name = "Form1";
+            this.Controls.Add(this.btnMultiplicativo);
+            this.Controls.Add(this.btnMixto);
+            this.Name = "EjercicioA";
             this.Text = "EjercicioA";
             this.ResumeLayout(false);
 
@@ -72,7 +73,7 @@ namespace SIMULACION_TP1
 
         #endregion
 
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnMixto;
+        private System.Windows.Forms.Button btnMultiplicativo;
     }
 }
