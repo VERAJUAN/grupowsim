@@ -16,7 +16,7 @@ namespace SIMULACION_TP1
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Mixto());
+            Application.Run(new EjercicioA());
         }
     }
 }
