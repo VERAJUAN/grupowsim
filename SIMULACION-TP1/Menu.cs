@@ -10,23 +10,34 @@ using System.Windows.Forms;
 
 namespace SIMULACION_TP1
 {
-    public partial class EjercicioA : System.Windows.Forms.Form
+    public partial class Menu : Form
     {
-        public EjercicioA()
+        public Menu()
         {
             InitializeComponent();
         }
 
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
         private void button1_Click(object sender, EventArgs e)
         {
-            Mixto ventana = new Mixto();
-            ventana.Show();
+            Ejercicio__A ej = new Ejercicio__A();
+            ej.Show();
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            Multiplicativo ventana = new Multiplicativo();
-            ventana.Show();
+            Ejercicio__B ej = new Ejercicio__B();
+            ej.Show();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            Ejercicio__C ej = new Ejercicio__C();
+            ej.Show();
         }
     }
 }

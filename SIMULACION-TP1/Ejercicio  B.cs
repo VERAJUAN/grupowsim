@@ -16,6 +16,12 @@ namespace SIMULACION_TP1
     {
 
         double[] limiteInferior, limiteSuperior, frecuenciaObservada, estadistico, estadisticoAcumulado;
+
+        private void cboSignificancia_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
         public Ejercicio__B()
         {
             InitializeComponent();
@@ -25,6 +31,23 @@ namespace SIMULACION_TP1
         }
 
         private void btn_generar_Click(object sender, EventArgs e)
+        {
+            int m = int.Parse(txt_m.Text);
+            int k = int.Parse(txt_k.Text);
+
+            // Corroboramos que k sea menor o igual a m
+            if (k > 4)
+            {
+                realizarTest();
+            }
+            else
+            {
+                MessageBox.Show("K debe ser mayor a 4 y se sugiere que sea raíz cuadrada de M", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+
+        }
+
+        private void realizarTest()
         {
             // Limpiamos Tablas y Grafico
             tablaanalisis.Rows.Clear();
@@ -45,7 +68,10 @@ namespace SIMULACION_TP1
             for (int i = 0; i < k; i++)
             {
                 double doble = (double)(i + 1) / k;
-                try { limiteInferior[i + 1] = Math.Round(doble, 2); } catch { }
+                if(i != k-1)
+                {
+                    limiteInferior[i + 1] = Math.Round(doble, 2);
+                }
                 limiteSuperior[i] = Math.Round(doble, 2);
             }
 
@@ -59,20 +85,28 @@ namespace SIMULACION_TP1
             {
                 // frecuenciaEsperada = cantidadNrosAleatorios / cantidadIntervalos
                 double frecuenciaEsperada = m / k;
-                
+
                 // Calculo del valor de C
                 estadistico[i] = (double)Math.Pow(frecuenciaObservada[i] - frecuenciaEsperada, 2) / frecuenciaEsperada;
 
                 // Calculo del valor de C Acumulado
-                try { estadisticoAcumulado[i] = estadistico[i] + estadisticoAcumulado[i - 1]; } catch { }
+                if (i != 0) // Primera vuelta no se fija en anterior
+                {
+                    estadisticoAcumulado[i] = estadistico[i] + estadisticoAcumulado[i - 1];
+                }
 
                 // Agrego los valores a la tabla
                 tablaanalisis.Rows.Add(limiteInferior[i], limiteSuperior[i], frecuenciaObservada[i], frecuenciaEsperada, estadistico[i], estadisticoAcumulado[i]);
             }
 
             // Genera Grafico
+            if (Grafico.Titles.Count == 0)
+                Grafico.Titles.Add("Frecuencias observadas");
+
             Series series = Grafico.Series.Add("Frecuencia Observada");
             series.ChartType = SeriesChartType.Column;
+            Grafico.ChartAreas[0].AxisX.Title = "Datos obtenidos";
+            Grafico.ChartAreas[0].AxisY.Title = "Frecuencias";
 
             // Cargo los intervalos con sus respectivos valores
             for (int i = 0; i < limiteSuperior.Length; i++)
@@ -84,15 +118,16 @@ namespace SIMULACION_TP1
             txt_resul.Text = Math.Round(estadisticoAcumulado[k - 1], 4).ToString();
 
             // Calculo el valor y obtengo el valor tabulado.
-            double chi = ChiSquared.InvCDF(k - 1, Convert.ToDouble(cboSignificancia.SelectedItem));
-            tbChi.Text = Math.Round(chi,2).ToString();
+            var p = 1 - Convert.ToDouble(cboSignificancia.SelectedItem);
+            double chi = ChiSquared.InvCDF(k - 1, p);
+            tbChi.Text = Math.Round(chi, 4).ToString();
 
             // Si el estadístico de prueba es menor o igual que el valor
             // crítico, no se puede rechazar la hipótesis nula
 
-
         }
 
+        // Generacion de los numeros aleatorios
         private void GeneracionNrosAleatoreos(int cant)
         {
             Random rnd = new Random();
