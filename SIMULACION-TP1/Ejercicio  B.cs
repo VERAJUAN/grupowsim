@@ -32,6 +32,23 @@ namespace SIMULACION_TP1
 
         private void btn_generar_Click(object sender, EventArgs e)
         {
+            int m = int.Parse(txt_m.Text);
+            int k = int.Parse(txt_k.Text);
+
+            // Corroboramos que k sea menor o igual a m
+            if (k <= m)
+            {
+                realizarTest();
+            }
+            else
+            {
+                MessageBox.Show("K debe ser menor o igual a M", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+
+        }
+
+        private void realizarTest()
+        {
             // Limpiamos Tablas y Grafico
             tablaanalisis.Rows.Clear();
             tablaaleatorios.Rows.Clear();
@@ -65,7 +82,7 @@ namespace SIMULACION_TP1
             {
                 // frecuenciaEsperada = cantidadNrosAleatorios / cantidadIntervalos
                 double frecuenciaEsperada = m / k;
-                
+
                 // Calculo del valor de C
                 estadistico[i] = (double)Math.Pow(frecuenciaObservada[i] - frecuenciaEsperada, 2) / frecuenciaEsperada;
 
@@ -77,10 +94,9 @@ namespace SIMULACION_TP1
             }
 
             // Genera Grafico
-            if (Grafico.Titles.Count > 0)
-                Grafico.Titles.RemoveAt(0);
-                
-            Grafico.Titles.Add("Frecuencias observadas");
+            if (Grafico.Titles.Count == 0)
+                Grafico.Titles.Add("Frecuencias observadas");
+
             Series series = Grafico.Series.Add("Frecuencia Observada");
             series.ChartType = SeriesChartType.Column;
             Grafico.ChartAreas[0].AxisX.Title = "Datos obtenidos";
@@ -97,14 +113,14 @@ namespace SIMULACION_TP1
 
             // Calculo el valor y obtengo el valor tabulado.
             double chi = ChiSquared.InvCDF(k - 1, Convert.ToDouble(cboSignificancia.SelectedItem));
-            tbChi.Text = Math.Round(chi,2).ToString();
+            tbChi.Text = Math.Round(chi, 2).ToString();
 
             // Si el estadístico de prueba es menor o igual que el valor
             // crítico, no se puede rechazar la hipótesis nula
 
-
         }
 
+        // Generacion de los numeros aleatorios
         private void GeneracionNrosAleatoreos(int cant)
         {
             Random rnd = new Random();
