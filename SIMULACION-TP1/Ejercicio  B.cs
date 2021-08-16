@@ -36,13 +36,13 @@ namespace SIMULACION_TP1
             int k = int.Parse(txt_k.Text);
 
             // Corroboramos que k sea menor o igual a m
-            if (k <= m)
+            if (k > 4)
             {
                 realizarTest();
             }
             else
             {
-                MessageBox.Show("K debe ser menor o igual a M", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("K debe ser mayor a 4 y se sugiere que sea raíz cuadrada de M", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
 
         }
