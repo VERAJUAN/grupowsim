@@ -31,24 +31,25 @@ namespace SIMULACION_TP1
             m = int.Parse(txtM.Text);
             decimal xi = int.Parse(txtS.Text);
 
+            // Genera los 50mil numeros aleatorios
             for (int i = 1; i <= 50000; i++)
             {
                 do
                 {
                     if (radioButton1.Checked)
                     {
-                        xi = ((a * xi)) % m;
+                        xi = ((a * xi)) % m; //Si es multiplicativo
                     }
                     else
                     {
-                        xi = ((a * xi) + c) % m;
+                        xi = ((a * xi) + c) % m; //Si es mixto
                     }
-                } while (xi / (m - 1) == 1);
+                } while (xi / (m - 1) == 1); //Entre 0 y 0,9999
 
-                numAleatorios.Add(xi);
+                numAleatorios.Add(xi); //Agregamos a la lista
                 if (i < 21)
                 {
-                    dgvLista.Rows.Add(i, xi / (m - 1));
+                    dgvLista.Rows.Add(i, xi / (m - 1)); //Mostramos los primeros 20
                 }
             }
 
@@ -60,21 +61,19 @@ namespace SIMULACION_TP1
             txtDesde.Enabled = true;
             txtHasta.Enabled = true;
         }
+
+        // Mostramos los siguientes 20 numeros aleatorios
         private void btnAgregar_Click(object sender, EventArgs e)
         {
 
             for (int i = 1; i <= 20; i++)
             {
                 decimal xi = numAleatorios.ElementAt(posicion - 1 + i);
-                ///aleatorios.Insert(i, (int)(z % m));
                 dgvLista.Rows.Add(posicion + i, xi / (m - 1));
             }
 
             posicion += 20;
         }
-
-
-
 
         // Lista desde la posición que quedó hasta el 50mil
         private void button1_Click(object sender, EventArgs e)
@@ -82,7 +81,6 @@ namespace SIMULACION_TP1
             while (posicion <= 50000)
             {
                 decimal xi = numAleatorios.ElementAt(posicion - 1);
-                ///aleatorios.Insert(i, (int)(z % m));
                 dgvLista.Rows.Add(posicion, xi / (m - 1));
                 posicion++;
             }
