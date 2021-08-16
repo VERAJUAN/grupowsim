@@ -16,6 +16,12 @@ namespace SIMULACION_TP1
     {
 
         double[] limiteInferior, limiteSuperior, frecuenciaObservada, estadistico, estadisticoAcumulado;
+
+        private void cboSignificancia_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
         public Ejercicio__B()
         {
             InitializeComponent();
@@ -71,8 +77,14 @@ namespace SIMULACION_TP1
             }
 
             // Genera Grafico
+            if (Grafico.Titles.Count > 0)
+                Grafico.Titles.RemoveAt(0);
+                
+            Grafico.Titles.Add("Frecuencias observadas");
             Series series = Grafico.Series.Add("Frecuencia Observada");
             series.ChartType = SeriesChartType.Column;
+            Grafico.ChartAreas[0].AxisX.Title = "Datos obtenidos";
+            Grafico.ChartAreas[0].AxisY.Title = "Frecuencias";
 
             // Cargo los intervalos con sus respectivos valores
             for (int i = 0; i < limiteSuperior.Length; i++)

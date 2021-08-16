@@ -29,10 +29,15 @@ namespace SIMULACION_TP1
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.GroupBox1 = new System.Windows.Forms.GroupBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.tbChi = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.cboSignificancia = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.txt_resul = new System.Windows.Forms.Label();
             this.Label7 = new System.Windows.Forms.Label();
@@ -52,11 +57,6 @@ namespace SIMULACION_TP1
             this.txt_m = new System.Windows.Forms.TextBox();
             this.btn_generar = new System.Windows.Forms.Button();
             this.Grafico = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.cboSignificancia = new System.Windows.Forms.ComboBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.tbChi = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
             this.GroupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tablaanalisis)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tablaaleatorios)).BeginInit();
@@ -86,6 +86,60 @@ namespace SIMULACION_TP1
             this.GroupBox1.TabIndex = 4;
             this.GroupBox1.TabStop = false;
             this.GroupBox1.Text = "Test de Chi Cuadrado: Método del Lenguaje";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(393, 392);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(19, 13);
+            this.label8.TabIndex = 428;
+            this.label8.Text = "Vs";
+            // 
+            // tbChi
+            // 
+            this.tbChi.BackColor = System.Drawing.Color.White;
+            this.tbChi.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.tbChi.Enabled = false;
+            this.tbChi.Location = new System.Drawing.Point(417, 388);
+            this.tbChi.Name = "tbChi";
+            this.tbChi.Size = new System.Drawing.Size(34, 20);
+            this.tbChi.TabIndex = 427;
+            this.tbChi.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(459, 392);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(61, 13);
+            this.label4.TabIndex = 426;
+            this.label4.Text = "Valor Tabla";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(303, 29);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(70, 13);
+            this.label2.TabIndex = 425;
+            this.label2.Text = "Significancia:";
+            // 
+            // cboSignificancia
+            // 
+            this.cboSignificancia.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboSignificancia.FormattingEnabled = true;
+            this.cboSignificancia.Items.AddRange(new object[] {
+            "0,95",
+            "0,75",
+            "0,50",
+            "0,25",
+            "0,05"});
+            this.cboSignificancia.Location = new System.Drawing.Point(379, 26);
+            this.cboSignificancia.Name = "cboSignificancia";
+            this.cboSignificancia.Size = new System.Drawing.Size(121, 21);
+            this.cboSignificancia.TabIndex = 424;
+            this.cboSignificancia.SelectedIndexChanged += new System.EventHandler(this.cboSignificancia_SelectedIndexChanged);
             // 
             // label1
             // 
@@ -244,72 +298,19 @@ namespace SIMULACION_TP1
             // 
             // Grafico
             // 
-            chartArea4.Name = "ChartArea1";
-            this.Grafico.ChartAreas.Add(chartArea4);
-            legend4.Name = "Legend1";
-            this.Grafico.Legends.Add(legend4);
+            chartArea1.Name = "ChartArea1";
+            this.Grafico.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.Grafico.Legends.Add(legend1);
             this.Grafico.Location = new System.Drawing.Point(17, 444);
             this.Grafico.Name = "Grafico";
-            series4.ChartArea = "ChartArea1";
-            series4.Legend = "Legend1";
-            series4.Name = "Series1";
-            this.Grafico.Series.Add(series4);
+            series1.ChartArea = "ChartArea1";
+            series1.Legend = "Legend1";
+            series1.Name = "Series1";
+            this.Grafico.Series.Add(series1);
             this.Grafico.Size = new System.Drawing.Size(766, 350);
             this.Grafico.TabIndex = 5;
             this.Grafico.Text = "Frecuencia Observada";
-            // 
-            // cboSignificancia
-            // 
-            this.cboSignificancia.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboSignificancia.FormattingEnabled = true;
-            this.cboSignificancia.Items.AddRange(new object[] {
-            "0,95",
-            "0,75",
-            "0,50",
-            "0,25",
-            "0,05"});
-            this.cboSignificancia.Location = new System.Drawing.Point(379, 26);
-            this.cboSignificancia.Name = "cboSignificancia";
-            this.cboSignificancia.Size = new System.Drawing.Size(121, 21);
-            this.cboSignificancia.TabIndex = 424;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(303, 29);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(70, 13);
-            this.label2.TabIndex = 425;
-            this.label2.Text = "Significancia:";
-            // 
-            // tbChi
-            // 
-            this.tbChi.BackColor = System.Drawing.Color.White;
-            this.tbChi.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.tbChi.Enabled = false;
-            this.tbChi.Location = new System.Drawing.Point(417, 388);
-            this.tbChi.Name = "tbChi";
-            this.tbChi.Size = new System.Drawing.Size(34, 20);
-            this.tbChi.TabIndex = 427;
-            this.tbChi.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(459, 392);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(61, 13);
-            this.label4.TabIndex = 426;
-            this.label4.Text = "Valor Tabla";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(393, 392);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(19, 13);
-            this.label8.TabIndex = 428;
-            this.label8.Text = "Vs";
             // 
             // Ejercicio__B
             // 
