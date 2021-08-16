@@ -29,9 +29,9 @@ namespace SIMULACION_TP1
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea13 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend13 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series13 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.GroupBox1 = new System.Windows.Forms.GroupBox();
             this.label8 = new System.Windows.Forms.Label();
             this.tbChi = new System.Windows.Forms.Label();
@@ -57,6 +57,7 @@ namespace SIMULACION_TP1
             this.txt_m = new System.Windows.Forms.TextBox();
             this.btn_generar = new System.Windows.Forms.Button();
             this.Grafico = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.label3 = new System.Windows.Forms.Label();
             this.GroupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tablaanalisis)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tablaaleatorios)).BeginInit();
@@ -65,6 +66,7 @@ namespace SIMULACION_TP1
             // 
             // GroupBox1
             // 
+            this.GroupBox1.Controls.Add(this.label3);
             this.GroupBox1.Controls.Add(this.label8);
             this.GroupBox1.Controls.Add(this.tbChi);
             this.GroupBox1.Controls.Add(this.label4);
@@ -90,7 +92,7 @@ namespace SIMULACION_TP1
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(393, 392);
+            this.label8.Location = new System.Drawing.Point(378, 372);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(19, 13);
             this.label8.TabIndex = 428;
@@ -101,16 +103,16 @@ namespace SIMULACION_TP1
             this.tbChi.BackColor = System.Drawing.Color.White;
             this.tbChi.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.tbChi.Enabled = false;
-            this.tbChi.Location = new System.Drawing.Point(417, 388);
+            this.tbChi.Location = new System.Drawing.Point(402, 368);
             this.tbChi.Name = "tbChi";
-            this.tbChi.Size = new System.Drawing.Size(34, 20);
+            this.tbChi.Size = new System.Drawing.Size(64, 20);
             this.tbChi.TabIndex = 427;
             this.tbChi.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(459, 392);
+            this.label4.Location = new System.Drawing.Point(472, 372);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(61, 13);
             this.label4.TabIndex = 426;
@@ -155,7 +157,7 @@ namespace SIMULACION_TP1
             this.txt_resul.BackColor = System.Drawing.Color.White;
             this.txt_resul.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txt_resul.Enabled = false;
-            this.txt_resul.Location = new System.Drawing.Point(352, 388);
+            this.txt_resul.Location = new System.Drawing.Point(337, 368);
             this.txt_resul.Name = "txt_resul";
             this.txt_resul.Size = new System.Drawing.Size(36, 20);
             this.txt_resul.TabIndex = 422;
@@ -164,7 +166,7 @@ namespace SIMULACION_TP1
             // Label7
             // 
             this.Label7.AutoSize = true;
-            this.Label7.Location = new System.Drawing.Point(246, 392);
+            this.Label7.Location = new System.Drawing.Point(231, 372);
             this.Label7.Name = "Label7";
             this.Label7.Size = new System.Drawing.Size(105, 13);
             this.Label7.TabIndex = 421;
@@ -186,7 +188,7 @@ namespace SIMULACION_TP1
             this.tablaanalisis.Location = new System.Drawing.Point(219, 74);
             this.tablaanalisis.Name = "tablaanalisis";
             this.tablaanalisis.ReadOnly = true;
-            this.tablaanalisis.Size = new System.Drawing.Size(531, 301);
+            this.tablaanalisis.Size = new System.Drawing.Size(531, 279);
             this.tablaanalisis.TabIndex = 420;
             // 
             // inferior
@@ -237,7 +239,7 @@ namespace SIMULACION_TP1
             this.tablaaleatorios.Location = new System.Drawing.Point(18, 74);
             this.tablaaleatorios.Name = "tablaaleatorios";
             this.tablaaleatorios.ReadOnly = true;
-            this.tablaaleatorios.Size = new System.Drawing.Size(171, 301);
+            this.tablaaleatorios.Size = new System.Drawing.Size(171, 279);
             this.tablaaleatorios.TabIndex = 419;
             // 
             // Nro
@@ -298,19 +300,30 @@ namespace SIMULACION_TP1
             // 
             // Grafico
             // 
-            chartArea1.Name = "ChartArea1";
-            this.Grafico.ChartAreas.Add(chartArea1);
-            legend1.Name = "Legend1";
-            this.Grafico.Legends.Add(legend1);
+            chartArea13.Name = "ChartArea1";
+            this.Grafico.ChartAreas.Add(chartArea13);
+            legend13.Name = "Legend1";
+            this.Grafico.Legends.Add(legend13);
             this.Grafico.Location = new System.Drawing.Point(17, 444);
             this.Grafico.Name = "Grafico";
-            series1.ChartArea = "ChartArea1";
-            series1.Legend = "Legend1";
-            series1.Name = "Series1";
-            this.Grafico.Series.Add(series1);
+            series13.ChartArea = "ChartArea1";
+            series13.Legend = "Legend1";
+            series13.Name = "Series1";
+            this.Grafico.Series.Add(series13);
             this.Grafico.Size = new System.Drawing.Size(766, 350);
             this.Grafico.TabIndex = 5;
             this.Grafico.Text = "Frecuencia Observada";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(107, 398);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(604, 15);
+            this.label3.TabIndex = 429;
+            this.label3.Text = "Si el valor calculado de prueba es menor o igual que el valor tabulado, no se pue" +
+    "de rechazar la hipótesis nula";
             // 
             // Ejercicio__B
             // 
@@ -357,5 +370,6 @@ namespace SIMULACION_TP1
         internal System.Windows.Forms.Label label8;
         internal System.Windows.Forms.Label tbChi;
         internal System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label3;
     }
 }

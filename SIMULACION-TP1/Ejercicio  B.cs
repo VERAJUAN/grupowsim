@@ -112,8 +112,9 @@ namespace SIMULACION_TP1
             txt_resul.Text = Math.Round(estadisticoAcumulado[k - 1], 4).ToString();
 
             // Calculo el valor y obtengo el valor tabulado.
-            double chi = ChiSquared.InvCDF(k - 1, Convert.ToDouble(cboSignificancia.SelectedItem));
-            tbChi.Text = Math.Round(chi, 2).ToString();
+            var p = 1 - Convert.ToDouble(cboSignificancia.SelectedItem);
+            double chi = ChiSquared.InvCDF(k - 1, p);
+            tbChi.Text = Math.Round(chi, 4).ToString();
 
             // Si el estadístico de prueba es menor o igual que el valor
             // crítico, no se puede rechazar la hipótesis nula
