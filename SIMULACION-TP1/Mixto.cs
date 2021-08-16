@@ -19,12 +19,16 @@ namespace SIMULACION_TP1
 
         List<decimal> numAleatorios = new List<decimal>();
         int posicion = 0;
+        int a;
+        int c;
+        int m;
 
         private void btnGenerar_Click_1(object sender, EventArgs e)
         {
-            int a = int.Parse(txtA.Text);
-            int c = int.Parse(txtC.Text);
-            int m = int.Parse(txtM.Text);
+            limpiar();
+            a = int.Parse(txtA.Text);
+            c = int.Parse(txtC.Text);
+            m = int.Parse(txtM.Text);
             decimal xi = int.Parse(txtS.Text);
 
             for (int i = 1; i <= 50000; i++)
@@ -32,10 +36,10 @@ namespace SIMULACION_TP1
                 do
                 {
                     xi = ((a * xi) + c) % m;
-                }while(xi / (m - 1) == 1);
+                } while (xi / (m - 1) == 1);
 
                 numAleatorios.Add(xi);
-                if(i < 21)
+                if (i < 21)
                 {
                     dgvLista.Rows.Add(i, xi / (m - 1));
                 }
@@ -44,13 +48,13 @@ namespace SIMULACION_TP1
             posicion = 20;
 
             btnAgregar.Enabled = true;
-            btnLimpiar.Enabled = true;
+            btnListarFinal.Enabled = true;
+            btnListar.Enabled = true;
+            txtDesde.Enabled = true;
+            txtHasta.Enabled = true;
         }
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-            int a = int.Parse(txtA.Text);
-            int c = int.Parse(txtC.Text);
-            int m = int.Parse(txtM.Text);
 
             for (int i = 1; i <= 20; i++)
             {
@@ -62,12 +66,60 @@ namespace SIMULACION_TP1
             posicion += 20;
         }
 
-        private void btnLimpiar_Click(object sender, EventArgs e)
+
+
+
+        // Lista desde la posición que quedó hasta el 50mil
+        private void button1_Click(object sender, EventArgs e)
         {
-            btnAgregar.Enabled = false;
-            btnLimpiar.Enabled = false;
+            while (posicion <= 50000)
+            {
+                decimal xi = numAleatorios.ElementAt(posicion - 1);
+                ///aleatorios.Insert(i, (int)(z % m));
+                dgvLista.Rows.Add(posicion, xi / (m - 1));
+                posicion++;
+            }
 
         }
+
+        // Listar desde - hasta
+        private void button2_Click(object sender, EventArgs e)
+        {
+            int desde = int.Parse(txtDesde.Text);
+            int hasta = int.Parse(txtHasta.Text);
+
+            if (desde < hasta)
+            {
+                dgvLista.Rows.Clear();
+                posicion = desde;
+
+                while (posicion <= hasta)
+                {
+                    decimal xi = numAleatorios.ElementAt(posicion - 1);
+                    ///aleatorios.Insert(i, (int)(z % m));
+                    dgvLista.Rows.Add(posicion, xi / (m - 1));
+                    posicion++;
+                }
+            }
+            else
+            {
+                MessageBox.Show("El valor DESDE es mayor a HASTA ", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+            }
+        }
+
+
+
+        private void limpiar()
+        {
+            btnAgregar.Enabled = false;
+            btnListarFinal.Enabled = false;
+            txtDesde.Enabled = false;
+            txtHasta.Enabled = false;
+            dgvLista.Rows.Clear();
+        }
+
+        // Keypress
 
         private void txtA_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -82,7 +134,8 @@ namespace SIMULACION_TP1
             else
             {
                 e.Handled = true;
-                MessageBox.Show("El caracter ingresado no es un número ( " + e.KeyChar + " )", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("El caracter ingresado no es un número ", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
             }
         }
 
@@ -99,7 +152,8 @@ namespace SIMULACION_TP1
             else
             {
                 e.Handled = true;
-                MessageBox.Show("El caracter ingresado no es un número ( " + e.KeyChar + " )", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("El caracter ingresado no es un número ", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
             }
         }
 
@@ -107,7 +161,15 @@ namespace SIMULACION_TP1
         {
             if (char.IsDigit(e.KeyChar))
             {
-                e.Handled = false;
+                if ((int)e.KeyChar < 50)
+                {
+                    e.Handled = true;
+                    MessageBox.Show("El caracter ingresado no debe ser menor a 2 ", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                else
+                {
+                    e.Handled = false;
+                }
             }
             else if (char.IsControl(e.KeyChar))
             {
@@ -116,7 +178,7 @@ namespace SIMULACION_TP1
             else
             {
                 e.Handled = true;
-                MessageBox.Show("El caracter ingresado no es un número ( " + e.KeyChar + " )", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("El caracter ingresado no es un número ", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
@@ -133,10 +195,47 @@ namespace SIMULACION_TP1
             else
             {
                 e.Handled = true;
-                MessageBox.Show("El caracter ingresado no es un número ( " + e.KeyChar + " )", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("El caracter ingresado no es un número ", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
             }
         }
 
-        
+        private void txtDesde_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (char.IsDigit(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else if (char.IsControl(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                e.Handled = true;
+                MessageBox.Show("El caracter ingresado no es un número ", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+            }
+        }
+
+        private void txtHasta_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (char.IsDigit(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else if (char.IsControl(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                e.Handled = true;
+                MessageBox.Show("El caracter ingresado no es un número ", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+            }
+        }
+
+
     }
 }
