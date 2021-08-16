@@ -68,7 +68,10 @@ namespace SIMULACION_TP1
             for (int i = 0; i < k; i++)
             {
                 double doble = (double)(i + 1) / k;
-                try { limiteInferior[i + 1] = Math.Round(doble, 2); } catch { }
+                if(i != k-1)
+                {
+                    limiteInferior[i + 1] = Math.Round(doble, 2);
+                }
                 limiteSuperior[i] = Math.Round(doble, 2);
             }
 
@@ -87,7 +90,10 @@ namespace SIMULACION_TP1
                 estadistico[i] = (double)Math.Pow(frecuenciaObservada[i] - frecuenciaEsperada, 2) / frecuenciaEsperada;
 
                 // Calculo del valor de C Acumulado
-                try { estadisticoAcumulado[i] = estadistico[i] + estadisticoAcumulado[i - 1]; } catch { }
+                if (i != 0) // Primera vuelta no se fija en anterior
+                {
+                    estadisticoAcumulado[i] = estadistico[i] + estadisticoAcumulado[i - 1];
+                }
 
                 // Agrego los valores a la tabla
                 tablaanalisis.Rows.Add(limiteInferior[i], limiteSuperior[i], frecuenciaObservada[i], frecuenciaEsperada, estadistico[i], estadisticoAcumulado[i]);
