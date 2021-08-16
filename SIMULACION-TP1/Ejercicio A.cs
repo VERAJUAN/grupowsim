@@ -16,7 +16,7 @@ namespace SIMULACION_TP1
         {
             InitializeComponent();
         }
-
+        
         List<decimal> numAleatorios = new List<decimal>();
         int posicion = 0;
         int a;
@@ -35,7 +35,14 @@ namespace SIMULACION_TP1
             {
                 do
                 {
-                    xi = ((a * xi) + c) % m;
+                    if (radioButton1.Checked)
+                    {
+                        xi = ((a * xi)) % m;
+                    }
+                    else
+                    {
+                        xi = ((a * xi) + c) % m;
+                    }
                 } while (xi / (m - 1) == 1);
 
                 numAleatorios.Add(xi);
@@ -236,6 +243,21 @@ namespace SIMULACION_TP1
             }
         }
 
+        // Salir al menú
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            this.Close();
+        }
 
+        // Activación de métodos
+        private void radioButton1_CheckedChanged(object sender, EventArgs e)
+        {
+            txtC.Enabled = true;
+        }
+
+        private void radioButton2_CheckedChanged(object sender, EventArgs e)
+        {
+            txtC.Enabled = false;
+        }
     }
 }

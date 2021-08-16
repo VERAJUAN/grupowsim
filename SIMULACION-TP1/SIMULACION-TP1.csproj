@@ -64,37 +64,19 @@
     <Compile Include="Ejercicio  C.Designer.cs">
       <DependentUpon>Ejercicio  C.cs</DependentUpon>
     </Compile>
-    <Compile Include="EjercicioA.cs">
+    <Compile Include="Ejercicio A.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="EjercicioA.Designer.cs">
-      <DependentUpon>EjercicioA.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Mixto.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Mixto.Designer.cs">
-      <DependentUpon>Mixto.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Multiplicativo.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Multiplicativo.Designer.cs">
-      <DependentUpon>Multiplicativo.cs</DependentUpon>
+    <Compile Include="Ejercicio A.Designer.cs">
+      <DependentUpon>Ejercicio A.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Ejercicio  B.resx">
       <DependentUpon>Ejercicio  B.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="EjercicioA.resx">
-      <DependentUpon>EjercicioA.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Mixto.resx">
-      <DependentUpon>Mixto.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Multiplicativo.resx">
-      <DependentUpon>Multiplicativo.cs</DependentUpon>
+    <EmbeddedResource Include="Ejercicio A.resx">
+      <DependentUpon>Ejercicio A.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

@@ -29,7 +29,7 @@ namespace SIMULACION_TP1
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             this.GroupBox1 = new System.Windows.Forms.GroupBox();
             this.btnListar = new System.Windows.Forms.Button();
             this.txtHasta = new System.Windows.Forms.TextBox();
@@ -50,6 +50,9 @@ namespace SIMULACION_TP1
             this.txtM = new System.Windows.Forms.TextBox();
             this.count = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.random = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.button1 = new System.Windows.Forms.Button();
+            this.radioButton1 = new System.Windows.Forms.RadioButton();
+            this.radioButton2 = new System.Windows.Forms.RadioButton();
             this.GroupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLista)).BeginInit();
             this.SuspendLayout();
@@ -57,6 +60,9 @@ namespace SIMULACION_TP1
             // GroupBox1
             // 
             this.GroupBox1.BackColor = System.Drawing.Color.PeachPuff;
+            this.GroupBox1.Controls.Add(this.radioButton2);
+            this.GroupBox1.Controls.Add(this.radioButton1);
+            this.GroupBox1.Controls.Add(this.button1);
             this.GroupBox1.Controls.Add(this.btnListar);
             this.GroupBox1.Controls.Add(this.txtHasta);
             this.GroupBox1.Controls.Add(this.txtDesde);
@@ -146,7 +152,7 @@ namespace SIMULACION_TP1
             // Label1
             // 
             this.Label1.AutoSize = true;
-            this.Label1.Location = new System.Drawing.Point(6, 44);
+            this.Label1.Location = new System.Drawing.Point(18, 113);
             this.Label1.Name = "Label1";
             this.Label1.Size = new System.Drawing.Size(18, 18);
             this.Label1.TabIndex = 78;
@@ -155,7 +161,7 @@ namespace SIMULACION_TP1
             // Label2
             // 
             this.Label2.AutoSize = true;
-            this.Label2.Location = new System.Drawing.Point(9, 87);
+            this.Label2.Location = new System.Drawing.Point(18, 156);
             this.Label2.Name = "Label2";
             this.Label2.Size = new System.Drawing.Size(18, 18);
             this.Label2.TabIndex = 79;
@@ -175,7 +181,7 @@ namespace SIMULACION_TP1
             // Label3
             // 
             this.Label3.AutoSize = true;
-            this.Label3.Location = new System.Drawing.Point(9, 129);
+            this.Label3.Location = new System.Drawing.Point(15, 198);
             this.Label3.Name = "Label3";
             this.Label3.Size = new System.Drawing.Size(21, 18);
             this.Label3.TabIndex = 288;
@@ -194,7 +200,7 @@ namespace SIMULACION_TP1
             // Label4
             // 
             this.Label4.AutoSize = true;
-            this.Label4.Location = new System.Drawing.Point(9, 173);
+            this.Label4.Location = new System.Drawing.Point(5, 242);
             this.Label4.Name = "Label4";
             this.Label4.Size = new System.Drawing.Size(64, 18);
             this.Label4.TabIndex = 389;
@@ -215,7 +221,7 @@ namespace SIMULACION_TP1
             // 
             // txtA
             // 
-            this.txtA.Location = new System.Drawing.Point(55, 41);
+            this.txtA.Location = new System.Drawing.Point(51, 110);
             this.txtA.Name = "txtA";
             this.txtA.Size = new System.Drawing.Size(45, 26);
             this.txtA.TabIndex = 1;
@@ -224,7 +230,7 @@ namespace SIMULACION_TP1
             // 
             // txtS
             // 
-            this.txtS.Location = new System.Drawing.Point(55, 194);
+            this.txtS.Location = new System.Drawing.Point(51, 263);
             this.txtS.Name = "txtS";
             this.txtS.Size = new System.Drawing.Size(45, 26);
             this.txtS.TabIndex = 4;
@@ -233,7 +239,8 @@ namespace SIMULACION_TP1
             // 
             // txtC
             // 
-            this.txtC.Location = new System.Drawing.Point(55, 84);
+            this.txtC.Enabled = false;
+            this.txtC.Location = new System.Drawing.Point(51, 153);
             this.txtC.Name = "txtC";
             this.txtC.Size = new System.Drawing.Size(45, 26);
             this.txtC.TabIndex = 2;
@@ -242,7 +249,7 @@ namespace SIMULACION_TP1
             // 
             // txtM
             // 
-            this.txtM.Location = new System.Drawing.Point(55, 126);
+            this.txtM.Location = new System.Drawing.Point(51, 195);
             this.txtM.Name = "txtM";
             this.txtM.Size = new System.Drawing.Size(45, 26);
             this.txtM.TabIndex = 3;
@@ -260,12 +267,47 @@ namespace SIMULACION_TP1
             // random
             // 
             this.random.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle2.Format = "N4";
-            dataGridViewCellStyle2.NullValue = null;
-            this.random.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle8.Format = "N4";
+            dataGridViewCellStyle8.NullValue = null;
+            this.random.DefaultCellStyle = dataGridViewCellStyle8;
             this.random.HeaderText = "Aleatorio";
             this.random.Name = "random";
             this.random.ReadOnly = true;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(570, 338);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(139, 59);
+            this.button1.TabIndex = 901;
+            this.button1.Text = "Salir al menú";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
+            // 
+            // radioButton1
+            // 
+            this.radioButton1.AutoSize = true;
+            this.radioButton1.Location = new System.Drawing.Point(8, 63);
+            this.radioButton1.Name = "radioButton1";
+            this.radioButton1.Size = new System.Drawing.Size(68, 22);
+            this.radioButton1.TabIndex = 902;
+            this.radioButton1.TabStop = true;
+            this.radioButton1.Text = "Mixto";
+            this.radioButton1.UseVisualStyleBackColor = true;
+            this.radioButton1.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
+            // 
+            // radioButton2
+            // 
+            this.radioButton2.AutoSize = true;
+            this.radioButton2.Checked = true;
+            this.radioButton2.Location = new System.Drawing.Point(8, 42);
+            this.radioButton2.Name = "radioButton2";
+            this.radioButton2.Size = new System.Drawing.Size(129, 22);
+            this.radioButton2.TabIndex = 903;
+            this.radioButton2.TabStop = true;
+            this.radioButton2.Text = "Multiplicativo";
+            this.radioButton2.UseVisualStyleBackColor = true;
+            this.radioButton2.CheckedChanged += new System.EventHandler(this.radioButton2_CheckedChanged);
             // 
             // Mixto
             // 
@@ -304,5 +346,8 @@ namespace SIMULACION_TP1
         private System.Windows.Forms.Button btnListar;
         private System.Windows.Forms.DataGridViewTextBoxColumn count;
         private System.Windows.Forms.DataGridViewTextBoxColumn random;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.RadioButton radioButton2;
+        private System.Windows.Forms.RadioButton radioButton1;
     }
 }
