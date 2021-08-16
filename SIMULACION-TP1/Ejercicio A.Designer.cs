@@ -1,7 +1,7 @@
 ﻿
 namespace SIMULACION_TP1
 {
-    partial class Mixto
+    partial class Ejercicio__A
     {
         /// <summary>
         /// Required designer variable.

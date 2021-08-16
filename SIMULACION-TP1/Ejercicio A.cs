@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace SIMULACION_TP1
 {
-    public partial class Mixto : System.Windows.Forms.Form
+    public partial class Ejercicio__A : System.Windows.Forms.Form
     {
-        public Mixto()
+        public Ejercicio__A()
         {
             InitializeComponent();
         }
