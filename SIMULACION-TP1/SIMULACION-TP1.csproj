@@ -85,7 +85,7 @@
       <DependentUpon>Ejercicio  C.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Ejercicio A.resx">
-      <DependentUpon>EjercicioA.cs</DependentUpon>
+      <DependentUpon>Ejercicio A.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Menu.resx">
       <DependentUpon>Menu.cs</DependentUpon>
