@@ -28,9 +28,9 @@ namespace SIMULACION_TP1
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.GroupBox1 = new System.Windows.Forms.GroupBox();
             this.txt_mag = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
@@ -62,6 +62,8 @@ namespace SIMULACION_TP1
             this.txt_m = new System.Windows.Forms.TextBox();
             this.btn_generar = new System.Windows.Forms.Button();
             this.Grafico = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.txt_semilla = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
             this.GroupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tablaanalisis)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tablaaleatorios)).BeginInit();
@@ -70,7 +72,9 @@ namespace SIMULACION_TP1
             // 
             // GroupBox1
             // 
+            this.GroupBox1.Controls.Add(this.txt_semilla);
             this.GroupBox1.Controls.Add(this.txt_mag);
+            this.GroupBox1.Controls.Add(this.label11);
             this.GroupBox1.Controls.Add(this.label10);
             this.GroupBox1.Controls.Add(this.txt_cM);
             this.GroupBox1.Controls.Add(this.label9);
@@ -359,19 +363,36 @@ namespace SIMULACION_TP1
             // 
             // Grafico
             // 
-            chartArea2.Name = "ChartArea1";
-            this.Grafico.ChartAreas.Add(chartArea2);
-            legend2.Name = "Legend1";
-            this.Grafico.Legends.Add(legend2);
+            chartArea1.Name = "ChartArea1";
+            this.Grafico.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.Grafico.Legends.Add(legend1);
             this.Grafico.Location = new System.Drawing.Point(17, 444);
             this.Grafico.Name = "Grafico";
-            series2.ChartArea = "ChartArea1";
-            series2.Legend = "Legend1";
-            series2.Name = "Series1";
-            this.Grafico.Series.Add(series2);
+            series1.ChartArea = "ChartArea1";
+            series1.Legend = "Legend1";
+            series1.Name = "Series1";
+            this.Grafico.Series.Add(series1);
             this.Grafico.Size = new System.Drawing.Size(766, 253);
             this.Grafico.TabIndex = 6;
             this.Grafico.Text = "Frecuencia Observada";
+            // 
+            // txt_semilla
+            // 
+            this.txt_semilla.Location = new System.Drawing.Point(343, 38);
+            this.txt_semilla.Name = "txt_semilla";
+            this.txt_semilla.Size = new System.Drawing.Size(45, 20);
+            this.txt_semilla.TabIndex = 436;
+            this.txt_semilla.Text = "0";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(270, 41);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(43, 13);
+            this.label11.TabIndex = 435;
+            this.label11.Text = "Semilla ";
             // 
             // Ejercicio__C
             // 
@@ -424,5 +445,7 @@ namespace SIMULACION_TP1
         internal System.Windows.Forms.Label label9;
         internal System.Windows.Forms.TextBox txt_cA;
         internal System.Windows.Forms.Label label3;
+        internal System.Windows.Forms.TextBox txt_semilla;
+        internal System.Windows.Forms.Label label11;
     }
 }
