@@ -29,7 +29,7 @@ namespace SIMULACION_TP1
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.GroupBox1 = new System.Windows.Forms.GroupBox();
             this.radioButton2 = new System.Windows.Forms.RadioButton();
             this.radioButton1 = new System.Windows.Forms.RadioButton();
@@ -265,9 +265,9 @@ namespace SIMULACION_TP1
             // random
             // 
             this.random.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle1.Format = "N4";
-            dataGridViewCellStyle1.NullValue = null;
-            this.random.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Format = "N4";
+            dataGridViewCellStyle2.NullValue = null;
+            this.random.DefaultCellStyle = dataGridViewCellStyle2;
             this.random.HeaderText = "Aleatorio";
             this.random.Name = "random";
             this.random.ReadOnly = true;
@@ -316,7 +316,7 @@ namespace SIMULACION_TP1
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.GroupBox1);
             this.Name = "Ejercicio__A";
-            this.Text = "Mixto";
+            this.Text = "Ejercicio A";
             this.GroupBox1.ResumeLayout(false);
             this.GroupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLista)).EndInit();
