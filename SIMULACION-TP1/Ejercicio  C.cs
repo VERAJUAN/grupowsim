@@ -37,7 +37,6 @@ namespace SIMULACION_TP1
         {
             int m = int.Parse(txt_m.Text);
             int k = int.Parse(txt_k.Text);
-
             // Corroboramos que k sea menor o igual a m
             if (k > 4)
             {
@@ -61,6 +60,7 @@ namespace SIMULACION_TP1
             // y k (cantidad de intervalos)
             int m = int.Parse(txt_m.Text);
             int k = int.Parse(txt_k.Text);
+            int semilla = int.Parse(txt_semilla.Text);
 
             ///int cantidad, decimal semilla, int constanteAditiva, int constanteMultiplicativa,int magnitudModulo
             int constanteAditiva = int.Parse(txt_cA.Text);
@@ -82,7 +82,7 @@ namespace SIMULACION_TP1
                 limiteSuperior[i] = Math.Round(doble, 2);
             }
 
-            GenenerarMetodoCongruencialMixto(k, m, constanteAditiva, constatnteMultiplicativa, magModulo);
+            GenenerarMetodoCongruencialMixto(m, semilla, constanteAditiva, constatnteMultiplicativa, magModulo);
 
             estadistico = new double[k];
             estadisticoAcumulado = new double[k];
@@ -97,7 +97,11 @@ namespace SIMULACION_TP1
                 estadistico[i] = (double)Math.Pow(frecuenciaObservada[i] - frecuenciaEsperada, 2) / frecuenciaEsperada;
 
                 // Calculo del valor de C Acumulado
-                if (i != 0) // Primera vuelta no se fija en anterior
+                if (i == 0) // Primera vuelta guarda el mismo valor de c
+                {
+                    estadisticoAcumulado[i] = estadistico[i];
+                }
+                else // acumula C
                 {
                     estadisticoAcumulado[i] = estadistico[i] + estadisticoAcumulado[i - 1];
                 }
@@ -133,7 +137,7 @@ namespace SIMULACION_TP1
             // crítico, no se puede rechazar la hipótesis nula
         }
 
-        private void GenenerarMetodoCongruencialMixto(int cantidad, decimal semilla, int constanteAditiva, int constanteMultiplicativa,int magnitudModulo)
+        private void GenenerarMetodoCongruencialMixto(int cantidad, decimal semilla, int constanteAditiva, int constanteMultiplicativa, int magnitudModulo)
         {   //𝑥𝑛+1 ≡ (𝑎 ∙ 𝑥𝑛 + 𝑐)𝑚𝑜𝑑 𝑚 0 ≤ 𝑥𝑛 ≤ m
             //valoresX = secuencia Valores Numeros Pseudoaleatorios
             int[] valoresX = new int[cantidad];
@@ -146,19 +150,19 @@ namespace SIMULACION_TP1
             int magModulo = magnitudModulo;
 
             //Realiza calculo del metodo congruencial Mixto
-            for(int i = 0; i < cantidad; i++)
+            for (int i = 0; i < cantidad; i++)
             {
                 decimal xi = 0;
                 decimal xi1 = 0;
 
-                if(i == 0)
+                if (i == 0)
                 {
                     xi1 = valorSemilla;
                 }
                 else
                 // calcula el valor con respecto al numero anterior
                 {
-                    xi1 = decimal.Parse(valoresX[i-1].ToString());
+                    xi1 = decimal.Parse(valoresX[i - 1].ToString());
                 }
 
                 //calculo del termino (𝑎 ∙ 𝑥𝑛 + 𝑐)
@@ -168,8 +172,14 @@ namespace SIMULACION_TP1
                 xi1 = Convert.ToInt32(xi % magModulo);
 
                 // Calcula el termino (Xi+1)/(m-1) y toma  4 decimales
-                
-                decimal numAleat = Math.Truncate((xi1 / magModulo)* 10000)/ 10000;
+
+                decimal numAleat = Math.Truncate((xi1 / (magModulo - 1)) * 10000) / 10000;
+
+                // TODO: Preguntar si dejamos 0.9999 en vez de 1.
+                if (numAleat == 1)
+                {
+                    numAleat = (decimal)0.9999;
+                }
 
                 valoresX[i] = Convert.ToInt32(xi1);
 
@@ -187,8 +197,8 @@ namespace SIMULACION_TP1
             valoresX = null;
 
         }
-        
-        
-        
+
+
+
     }
 }

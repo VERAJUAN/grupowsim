@@ -67,17 +67,19 @@ namespace SIMULACION_TP1
             // Asigno los valores de los intervalos
             for (int i = 0; i < k; i++)
             {
-                double doble = (double)(i + 1) / k;
+                double paso = (double)(i + 1) / k; // Paso o longitud de cada intervalo
                 if(i != k-1)
                 {
-                    limiteInferior[i + 1] = Math.Round(doble, 2);
+                    limiteInferior[i + 1] = Math.Round(paso, 2);
                 }
-                limiteSuperior[i] = Math.Round(doble, 2);
+                limiteSuperior[i] = Math.Round(paso, 2);
             }
 
             GeneracionNrosAleatoreos(m);
 
+            // C
             estadistico = new double[k];
+            // C Ac
             estadisticoAcumulado = new double[k];
 
             // Asigno valores a la tabla
@@ -90,7 +92,10 @@ namespace SIMULACION_TP1
                 estadistico[i] = (double)Math.Pow(frecuenciaObservada[i] - frecuenciaEsperada, 2) / frecuenciaEsperada;
 
                 // Calculo del valor de C Acumulado
-                if (i != 0) // Primera vuelta no se fija en anterior
+                if (i == 0) // Primera vuelta guarda el mismo valor de c
+                {
+                    estadisticoAcumulado[i] = estadistico[i];
+                } else // acumula C
                 {
                     estadisticoAcumulado[i] = estadistico[i] + estadisticoAcumulado[i - 1];
                 }
@@ -134,10 +139,10 @@ namespace SIMULACION_TP1
             double numAleatorios;
 
             for (int i = 0; i < cant; i++) { 
-            
+                // Genera los numeros y los agrega a la tabla
                 numAleatorios = Math.Round(rnd.NextDouble(), 4);
                 tablaaleatorios.Rows.Add(i+1, numAleatorios);
-
+                // Calcula la cantidad de numeros por cada intervalo (frecuenciaObservada)
                 int contador = 0;
                 while (numAleatorios > limiteSuperior[contador])
                 {
