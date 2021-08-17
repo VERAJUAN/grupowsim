@@ -44,12 +44,12 @@ namespace SIMULACION_TP1
                     {
                         xi = ((a * xi) + c) % m; //Si es mixto
                     }
-                } while (xi / (m - 1) == 1); //Entre 0 y 0,9999
+                } while (xi / m == 1); //Entre 0 y 0,9999
 
                 numAleatorios.Add(xi); //Agregamos a la lista
                 if (i < 21)
                 {
-                    dgvLista.Rows.Add(i, Math.Truncate(xi / (m - 1) * 10000) / 10000); //Mostramos los primeros 20
+                    dgvLista.Rows.Add(i, Math.Truncate(xi / m * 10000) / 10000); //Mostramos los primeros 20
                 }
             }
 
@@ -69,7 +69,7 @@ namespace SIMULACION_TP1
             for (int i = 1; i <= 20; i++)
             {
                 decimal xi = numAleatorios.ElementAt(posicion - 1 + i);
-                dgvLista.Rows.Add(posicion + i, xi / (m - 1));
+                dgvLista.Rows.Add(posicion + i, xi / (m));
             }
 
             posicion += 20;
@@ -81,7 +81,7 @@ namespace SIMULACION_TP1
             while (posicion <= 50000)
             {
                 decimal xi = numAleatorios.ElementAt(posicion - 1);
-                dgvLista.Rows.Add(posicion, xi / (m - 1));
+                dgvLista.Rows.Add(posicion, xi / (m));
                 posicion++;
             }
 
@@ -102,7 +102,7 @@ namespace SIMULACION_TP1
                 {
                     decimal xi = numAleatorios.ElementAt(posicion - 1);
                     ///aleatorios.Insert(i, (int)(z % m));
-                    dgvLista.Rows.Add(posicion, xi / (m - 1));
+                    dgvLista.Rows.Add(posicion, xi / (m));
                     posicion++;
                 }
             }
