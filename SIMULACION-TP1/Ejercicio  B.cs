@@ -20,7 +20,7 @@ namespace SIMULACION_TP1
         private void cboSignificancia_SelectedIndexChanged(object sender, EventArgs e)
         {
 
-        }
+        }        
 
         public Ejercicio__B()
         {
@@ -149,6 +149,43 @@ namespace SIMULACION_TP1
                     contador++;
                 }
                 frecuenciaObservada[contador] += 1;
+            }
+        }
+
+        //Keypress
+        private void txt_m_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (char.IsDigit(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else if (char.IsControl(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                e.Handled = true;
+                MessageBox.Show("El caracter ingresado no es un número ", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+            }
+        }
+
+        private void txt_k_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (char.IsDigit(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else if (char.IsControl(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                e.Handled = true;
+                MessageBox.Show("El caracter ingresado no es un número ", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
             }
         }
     }

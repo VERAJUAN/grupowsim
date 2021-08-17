@@ -29,10 +29,11 @@ namespace SIMULACION_TP1
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea14 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend14 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series14 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.GroupBox1 = new System.Windows.Forms.GroupBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.tbChi = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -57,7 +58,6 @@ namespace SIMULACION_TP1
             this.txt_m = new System.Windows.Forms.TextBox();
             this.btn_generar = new System.Windows.Forms.Button();
             this.Grafico = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.label3 = new System.Windows.Forms.Label();
             this.GroupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tablaanalisis)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tablaaleatorios)).BeginInit();
@@ -88,6 +88,17 @@ namespace SIMULACION_TP1
             this.GroupBox1.TabIndex = 4;
             this.GroupBox1.TabStop = false;
             this.GroupBox1.Text = "Test de Chi Cuadrado: Método del Lenguaje";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(107, 398);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(604, 15);
+            this.label3.TabIndex = 429;
+            this.label3.Text = "Si el valor calculado de prueba es menor o igual que el valor tabulado, no se pue" +
+    "de rechazar la hipótesis nula";
             // 
             // label8
             // 
@@ -270,6 +281,7 @@ namespace SIMULACION_TP1
             this.txt_k.Size = new System.Drawing.Size(45, 20);
             this.txt_k.TabIndex = 412;
             this.txt_k.Text = "5";
+            this.txt_k.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_k_KeyPress);
             // 
             // Label6
             // 
@@ -287,6 +299,7 @@ namespace SIMULACION_TP1
             this.txt_m.Size = new System.Drawing.Size(45, 20);
             this.txt_m.TabIndex = 411;
             this.txt_m.Text = "0";
+            this.txt_m.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_m_KeyPress);
             // 
             // btn_generar
             // 
@@ -300,30 +313,19 @@ namespace SIMULACION_TP1
             // 
             // Grafico
             // 
-            chartArea14.Name = "ChartArea1";
-            this.Grafico.ChartAreas.Add(chartArea14);
-            legend14.Name = "Legend1";
-            this.Grafico.Legends.Add(legend14);
+            chartArea2.Name = "ChartArea1";
+            this.Grafico.ChartAreas.Add(chartArea2);
+            legend2.Name = "Legend1";
+            this.Grafico.Legends.Add(legend2);
             this.Grafico.Location = new System.Drawing.Point(17, 444);
             this.Grafico.Name = "Grafico";
-            series14.ChartArea = "ChartArea1";
-            series14.Legend = "Legend1";
-            series14.Name = "Series1";
-            this.Grafico.Series.Add(series14);
+            series2.ChartArea = "ChartArea1";
+            series2.Legend = "Legend1";
+            series2.Name = "Series1";
+            this.Grafico.Series.Add(series2);
             this.Grafico.Size = new System.Drawing.Size(766, 350);
             this.Grafico.TabIndex = 5;
             this.Grafico.Text = "Frecuencia Observada";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(107, 398);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(604, 15);
-            this.label3.TabIndex = 429;
-            this.label3.Text = "Si el valor calculado de prueba es menor o igual que el valor tabulado, no se pue" +
-    "de rechazar la hipótesis nula";
             // 
             // Ejercicio__B
             // 

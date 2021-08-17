@@ -28,9 +28,9 @@ namespace SIMULACION_TP1
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea9 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend9 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series9 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea15 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend15 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series15 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.GroupBox1 = new System.Windows.Forms.GroupBox();
             this.txt_semilla = new System.Windows.Forms.TextBox();
             this.txt_mag = new System.Windows.Forms.TextBox();
@@ -111,6 +111,7 @@ namespace SIMULACION_TP1
             this.txt_semilla.Size = new System.Drawing.Size(45, 20);
             this.txt_semilla.TabIndex = 436;
             this.txt_semilla.Text = "0";
+            this.txt_semilla.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_semilla_KeyPress);
             // 
             // txt_mag
             // 
@@ -119,6 +120,7 @@ namespace SIMULACION_TP1
             this.txt_mag.Size = new System.Drawing.Size(45, 20);
             this.txt_mag.TabIndex = 434;
             this.txt_mag.Text = "2";
+            this.txt_mag.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_mag_KeyPress);
             // 
             // label11
             // 
@@ -145,6 +147,7 @@ namespace SIMULACION_TP1
             this.txt_cM.Size = new System.Drawing.Size(45, 20);
             this.txt_cM.TabIndex = 432;
             this.txt_cM.Text = "0";
+            this.txt_cM.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_cM_KeyPress);
             // 
             // label9
             // 
@@ -162,6 +165,7 @@ namespace SIMULACION_TP1
             this.txt_cA.Size = new System.Drawing.Size(45, 20);
             this.txt_cA.TabIndex = 430;
             this.txt_cA.Text = "0";
+            this.txt_cA.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_cA_KeyPress);
             // 
             // label3
             // 
@@ -352,6 +356,7 @@ namespace SIMULACION_TP1
             this.txt_k.Size = new System.Drawing.Size(45, 20);
             this.txt_k.TabIndex = 412;
             this.txt_k.Text = "5";
+            this.txt_k.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_k_KeyPress);
             // 
             // Label6
             // 
@@ -369,6 +374,7 @@ namespace SIMULACION_TP1
             this.txt_m.Size = new System.Drawing.Size(45, 20);
             this.txt_m.TabIndex = 411;
             this.txt_m.Text = "2";
+            this.txt_m.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_m_KeyPress);
             // 
             // btn_generar
             // 
@@ -382,16 +388,16 @@ namespace SIMULACION_TP1
             // 
             // Grafico
             // 
-            chartArea9.Name = "ChartArea1";
-            this.Grafico.ChartAreas.Add(chartArea9);
-            legend9.Name = "Legend1";
-            this.Grafico.Legends.Add(legend9);
+            chartArea15.Name = "ChartArea1";
+            this.Grafico.ChartAreas.Add(chartArea15);
+            legend15.Name = "Legend1";
+            this.Grafico.Legends.Add(legend15);
             this.Grafico.Location = new System.Drawing.Point(17, 444);
             this.Grafico.Name = "Grafico";
-            series9.ChartArea = "ChartArea1";
-            series9.Legend = "Legend1";
-            series9.Name = "Series1";
-            this.Grafico.Series.Add(series9);
+            series15.ChartArea = "ChartArea1";
+            series15.Legend = "Legend1";
+            series15.Name = "Series1";
+            this.Grafico.Series.Add(series15);
             this.Grafico.Size = new System.Drawing.Size(766, 253);
             this.Grafico.TabIndex = 6;
             this.Grafico.Text = "Frecuencia Observada";
