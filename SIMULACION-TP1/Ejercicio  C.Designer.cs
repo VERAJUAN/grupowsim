@@ -28,9 +28,9 @@ namespace SIMULACION_TP1
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea15 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend15 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series15 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea16 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend16 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series16 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.GroupBox1 = new System.Windows.Forms.GroupBox();
             this.txt_semilla = new System.Windows.Forms.TextBox();
             this.txt_mag = new System.Windows.Forms.TextBox();
@@ -102,7 +102,7 @@ namespace SIMULACION_TP1
             this.GroupBox1.Size = new System.Drawing.Size(766, 426);
             this.GroupBox1.TabIndex = 5;
             this.GroupBox1.TabStop = false;
-            this.GroupBox1.Text = "Test de Chi Cuadrado: Método del Lenguaje";
+            this.GroupBox1.Text = "Test de Chi Cuadrado: Método Mixto";
             // 
             // txt_semilla
             // 
@@ -388,16 +388,16 @@ namespace SIMULACION_TP1
             // 
             // Grafico
             // 
-            chartArea15.Name = "ChartArea1";
-            this.Grafico.ChartAreas.Add(chartArea15);
-            legend15.Name = "Legend1";
-            this.Grafico.Legends.Add(legend15);
+            chartArea16.Name = "ChartArea1";
+            this.Grafico.ChartAreas.Add(chartArea16);
+            legend16.Name = "Legend1";
+            this.Grafico.Legends.Add(legend16);
             this.Grafico.Location = new System.Drawing.Point(17, 444);
             this.Grafico.Name = "Grafico";
-            series15.ChartArea = "ChartArea1";
-            series15.Legend = "Legend1";
-            series15.Name = "Series1";
-            this.Grafico.Series.Add(series15);
+            series16.ChartArea = "ChartArea1";
+            series16.Legend = "Legend1";
+            series16.Name = "Series1";
+            this.Grafico.Series.Add(series16);
             this.Grafico.Size = new System.Drawing.Size(766, 253);
             this.Grafico.TabIndex = 6;
             this.Grafico.Text = "Frecuencia Observada";
