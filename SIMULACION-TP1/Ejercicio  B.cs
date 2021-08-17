@@ -35,7 +35,7 @@ namespace SIMULACION_TP1
             int m = int.Parse(txt_m.Text);
             int k = int.Parse(txt_k.Text);
 
-            // Corroboramos que k sea menor o igual a m
+            // Corroboramos que k sea mayor a 4
             if (k > 4)
             {
                 realizarTest();

@@ -29,8 +29,11 @@ namespace SIMULACION_TP1
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.GroupBox1 = new System.Windows.Forms.GroupBox();
+            this.radioButton2 = new System.Windows.Forms.RadioButton();
+            this.radioButton1 = new System.Windows.Forms.RadioButton();
+            this.button1 = new System.Windows.Forms.Button();
             this.btnListar = new System.Windows.Forms.Button();
             this.txtHasta = new System.Windows.Forms.TextBox();
             this.txtDesde = new System.Windows.Forms.TextBox();
@@ -44,15 +47,12 @@ namespace SIMULACION_TP1
             this.btnGenerar = new System.Windows.Forms.Button();
             this.Label4 = new System.Windows.Forms.Label();
             this.dgvLista = new System.Windows.Forms.DataGridView();
+            this.count = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.random = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtA = new System.Windows.Forms.TextBox();
             this.txtS = new System.Windows.Forms.TextBox();
             this.txtC = new System.Windows.Forms.TextBox();
             this.txtM = new System.Windows.Forms.TextBox();
-            this.count = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.random = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.button1 = new System.Windows.Forms.Button();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
             this.GroupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLista)).BeginInit();
             this.SuspendLayout();
@@ -87,6 +87,41 @@ namespace SIMULACION_TP1
             this.GroupBox1.TabIndex = 91;
             this.GroupBox1.TabStop = false;
             this.GroupBox1.Text = "Generador de números aleatorios";
+            // 
+            // radioButton2
+            // 
+            this.radioButton2.AutoSize = true;
+            this.radioButton2.Checked = true;
+            this.radioButton2.Location = new System.Drawing.Point(8, 42);
+            this.radioButton2.Name = "radioButton2";
+            this.radioButton2.Size = new System.Drawing.Size(129, 22);
+            this.radioButton2.TabIndex = 903;
+            this.radioButton2.TabStop = true;
+            this.radioButton2.Text = "Multiplicativo";
+            this.radioButton2.UseVisualStyleBackColor = true;
+            this.radioButton2.CheckedChanged += new System.EventHandler(this.radioButton2_CheckedChanged);
+            // 
+            // radioButton1
+            // 
+            this.radioButton1.AutoSize = true;
+            this.radioButton1.Location = new System.Drawing.Point(8, 63);
+            this.radioButton1.Name = "radioButton1";
+            this.radioButton1.Size = new System.Drawing.Size(68, 22);
+            this.radioButton1.TabIndex = 902;
+            this.radioButton1.TabStop = true;
+            this.radioButton1.Text = "Mixto";
+            this.radioButton1.UseVisualStyleBackColor = true;
+            this.radioButton1.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(570, 338);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(139, 59);
+            this.button1.TabIndex = 901;
+            this.button1.Text = "Salir al menú";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
             // 
             // btnListar
             // 
@@ -219,43 +254,6 @@ namespace SIMULACION_TP1
             this.dgvLista.Size = new System.Drawing.Size(538, 291);
             this.dgvLista.TabIndex = 894;
             // 
-            // txtA
-            // 
-            this.txtA.Location = new System.Drawing.Point(51, 110);
-            this.txtA.Name = "txtA";
-            this.txtA.Size = new System.Drawing.Size(45, 26);
-            this.txtA.TabIndex = 1;
-            this.txtA.Text = "0";
-            this.txtA.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtA_KeyPress);
-            // 
-            // txtS
-            // 
-            this.txtS.Location = new System.Drawing.Point(51, 263);
-            this.txtS.Name = "txtS";
-            this.txtS.Size = new System.Drawing.Size(45, 26);
-            this.txtS.TabIndex = 4;
-            this.txtS.Text = "0";
-            this.txtS.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtS_KeyPress);
-            // 
-            // txtC
-            // 
-            this.txtC.Enabled = false;
-            this.txtC.Location = new System.Drawing.Point(51, 153);
-            this.txtC.Name = "txtC";
-            this.txtC.Size = new System.Drawing.Size(45, 26);
-            this.txtC.TabIndex = 2;
-            this.txtC.Text = "0";
-            this.txtC.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtC_KeyPress);
-            // 
-            // txtM
-            // 
-            this.txtM.Location = new System.Drawing.Point(51, 195);
-            this.txtM.Name = "txtM";
-            this.txtM.Size = new System.Drawing.Size(45, 26);
-            this.txtM.TabIndex = 3;
-            this.txtM.Text = "2";
-            this.txtM.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtM_KeyPress);
-            // 
             // count
             // 
             this.count.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
@@ -267,55 +265,57 @@ namespace SIMULACION_TP1
             // random
             // 
             this.random.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle8.Format = "N4";
-            dataGridViewCellStyle8.NullValue = null;
-            this.random.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle1.Format = "N4";
+            dataGridViewCellStyle1.NullValue = null;
+            this.random.DefaultCellStyle = dataGridViewCellStyle1;
             this.random.HeaderText = "Aleatorio";
             this.random.Name = "random";
             this.random.ReadOnly = true;
             // 
-            // button1
+            // txtA
             // 
-            this.button1.Location = new System.Drawing.Point(570, 338);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(139, 59);
-            this.button1.TabIndex = 901;
-            this.button1.Text = "Salir al menú";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click_1);
+            this.txtA.Location = new System.Drawing.Point(51, 110);
+            this.txtA.Name = "txtA";
+            this.txtA.Size = new System.Drawing.Size(86, 26);
+            this.txtA.TabIndex = 1;
+            this.txtA.Text = "0";
+            this.txtA.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtA_KeyPress);
             // 
-            // radioButton1
+            // txtS
             // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(8, 63);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(68, 22);
-            this.radioButton1.TabIndex = 902;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "Mixto";
-            this.radioButton1.UseVisualStyleBackColor = true;
-            this.radioButton1.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
+            this.txtS.Location = new System.Drawing.Point(51, 263);
+            this.txtS.Name = "txtS";
+            this.txtS.Size = new System.Drawing.Size(86, 26);
+            this.txtS.TabIndex = 4;
+            this.txtS.Text = "0";
+            this.txtS.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtS_KeyPress);
             // 
-            // radioButton2
+            // txtC
             // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Checked = true;
-            this.radioButton2.Location = new System.Drawing.Point(8, 42);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(129, 22);
-            this.radioButton2.TabIndex = 903;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "Multiplicativo";
-            this.radioButton2.UseVisualStyleBackColor = true;
-            this.radioButton2.CheckedChanged += new System.EventHandler(this.radioButton2_CheckedChanged);
+            this.txtC.Enabled = false;
+            this.txtC.Location = new System.Drawing.Point(51, 153);
+            this.txtC.Name = "txtC";
+            this.txtC.Size = new System.Drawing.Size(86, 26);
+            this.txtC.TabIndex = 2;
+            this.txtC.Text = "0";
+            this.txtC.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtC_KeyPress);
             // 
-            // Mixto
+            // txtM
+            // 
+            this.txtM.Location = new System.Drawing.Point(51, 195);
+            this.txtM.Name = "txtM";
+            this.txtM.Size = new System.Drawing.Size(86, 26);
+            this.txtM.TabIndex = 3;
+            this.txtM.Text = "2";
+            this.txtM.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtM_KeyPress);
+            // 
+            // Ejercicio__A
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.GroupBox1);
-            this.Name = "Mixto";
+            this.Name = "Ejercicio__A";
             this.Text = "Mixto";
             this.GroupBox1.ResumeLayout(false);
             this.GroupBox1.PerformLayout();

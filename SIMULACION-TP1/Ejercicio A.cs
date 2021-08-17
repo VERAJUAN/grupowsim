@@ -17,7 +17,7 @@ namespace SIMULACION_TP1
             InitializeComponent();
         }
         
-        List<decimal> numAleatorios = new List<decimal>();
+        List<decimal> numAleatorios;
         int posicion = 0;
         int a;
         int c;
@@ -36,11 +36,11 @@ namespace SIMULACION_TP1
             {
                 do
                 {
-                    if (radioButton1.Checked)
+                    if (radioButton2.Checked)
                     {
                         xi = ((a * xi)) % m; //Si es multiplicativo
                     }
-                    else
+                    if(radioButton1.Checked)
                     {
                         xi = ((a * xi) + c) % m; //Si es mixto
                     }
@@ -49,7 +49,7 @@ namespace SIMULACION_TP1
                 numAleatorios.Add(xi); //Agregamos a la lista
                 if (i < 21)
                 {
-                    dgvLista.Rows.Add(i, xi / (m - 1)); //Mostramos los primeros 20
+                    dgvLista.Rows.Add(i, Math.Truncate(xi / (m - 1) * 10000) / 10000); //Mostramos los primeros 20
                 }
             }
 
@@ -117,6 +117,7 @@ namespace SIMULACION_TP1
 
         private void limpiar()
         {
+            numAleatorios = new List<decimal>();
             btnAgregar.Enabled = false;
             btnListarFinal.Enabled = false;
             txtDesde.Enabled = false;
@@ -164,27 +165,27 @@ namespace SIMULACION_TP1
 
         private void txtM_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (char.IsDigit(e.KeyChar))
-            {
-                if ((int)e.KeyChar < 50)
-                {
-                    e.Handled = true;
-                    MessageBox.Show("El caracter ingresado no debe ser menor a 2 ", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                }
-                else
-                {
-                    e.Handled = false;
-                }
-            }
-            else if (char.IsControl(e.KeyChar))
-            {
-                e.Handled = false;
-            }
-            else
-            {
-                e.Handled = true;
-                MessageBox.Show("El caracter ingresado no es un número ", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
+            //if (char.IsDigit(e.KeyChar))
+            //{
+            //    if ((int)e.KeyChar < 50)
+            //    {
+            //        e.Handled = true;
+            //        MessageBox.Show("El caracter ingresado no debe ser menor a 2 ", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            //    }
+            //    else
+            //    {
+            //        e.Handled = false;
+            //    }
+            //}
+            //else if (char.IsControl(e.KeyChar))
+            //{
+            //    e.Handled = false;
+            //}
+            //else
+            //{
+            //    e.Handled = true;
+            //    MessageBox.Show("El caracter ingresado no es un número ", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            //}
         }
 
         private void txtS_KeyPress(object sender, KeyPressEventArgs e)

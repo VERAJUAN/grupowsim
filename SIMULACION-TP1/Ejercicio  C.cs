@@ -37,7 +37,10 @@ namespace SIMULACION_TP1
         {
             int m = int.Parse(txt_m.Text);
             int k = int.Parse(txt_k.Text);
-            // Corroboramos que k sea menor o igual a m
+
+
+
+            // Corroboramos que k sea mayor a 4
             if (k > 4)
             {
                 realizarTest();
@@ -66,75 +69,94 @@ namespace SIMULACION_TP1
             int constanteAditiva = int.Parse(txt_cA.Text);
             int constatnteMultiplicativa = int.Parse(txt_cM.Text);
             int magModulo = int.Parse(txt_mag.Text);
-            // Asignamos k (cantidad de intervalos) a los vectores
-            limiteInferior = new double[k];
-            limiteSuperior = new double[k];
-            frecuenciaObservada = new double[k];
 
-            // Asigno los valores de los intervalos
-            for (int i = 0; i < k; i++)
+            // magModulo mayor a todo lo demás
+            if (
+                //magModulo > m && magModulo > k
+                //&& magModulo > constanteAditiva
+                //&& magModulo > semilla &&
+                magModulo > 0
+                && m > 0
+                && semilla > 0
+                && constanteAditiva > 0
+                && k > 0)
             {
-                double doble = (double)(i + 1) / k;
-                if (i != k - 1)
+
+                // Asignamos k (cantidad de intervalos) a los vectores
+                limiteInferior = new double[k];
+                limiteSuperior = new double[k];
+                frecuenciaObservada = new double[k];
+
+                // Asigno los valores de los intervalos
+                for (int i = 0; i < k; i++)
                 {
-                    limiteInferior[i + 1] = Math.Round(doble, 2);
-                }
-                limiteSuperior[i] = Math.Round(doble, 2);
-            }
-
-            GenenerarMetodoCongruencialMixto(m, semilla, constanteAditiva, constatnteMultiplicativa, magModulo);
-
-            estadistico = new double[k];
-            estadisticoAcumulado = new double[k];
-
-            // Asigno valores a la tabla
-            for (int i = 0; i < k; i++)
-            {
-                // frecuenciaEsperada = cantidadNrosAleatorios / cantidadIntervalos
-                double frecuenciaEsperada = m / k;
-
-                // Calculo del valor de C
-                estadistico[i] = (double)Math.Pow(frecuenciaObservada[i] - frecuenciaEsperada, 2) / frecuenciaEsperada;
-
-                // Calculo del valor de C Acumulado
-                if (i == 0) // Primera vuelta guarda el mismo valor de c
-                {
-                    estadisticoAcumulado[i] = estadistico[i];
-                }
-                else // acumula C
-                {
-                    estadisticoAcumulado[i] = estadistico[i] + estadisticoAcumulado[i - 1];
+                    double doble = (double)(i + 1) / k;
+                    if (i != k - 1)
+                    {
+                        limiteInferior[i + 1] = Math.Round(doble, 2);
+                    }
+                    limiteSuperior[i] = Math.Round(doble, 2);
                 }
 
-                // Agrego los valores a la tabla
-                tablaanalisis.Rows.Add(limiteInferior[i], limiteSuperior[i], frecuenciaObservada[i], frecuenciaEsperada, estadistico[i], estadisticoAcumulado[i]);
+                GenenerarMetodoCongruencialMixto(m, semilla, constanteAditiva, constatnteMultiplicativa, magModulo);
+
+                estadistico = new double[k];
+                estadisticoAcumulado = new double[k];
+
+                // Asigno valores a la tabla
+                for (int i = 0; i < k; i++)
+                {
+                    // frecuenciaEsperada = cantidadNrosAleatorios / cantidadIntervalos
+                    double frecuenciaEsperada = m / k;
+
+                    // Calculo del valor de C
+                    estadistico[i] = (double)Math.Pow(frecuenciaObservada[i] - frecuenciaEsperada, 2) / frecuenciaEsperada;
+
+                    // Calculo del valor de C Acumulado
+                    if (i == 0) // Primera vuelta guarda el mismo valor de c
+                    {
+                        estadisticoAcumulado[i] = estadistico[i];
+                    }
+                    else // acumula C
+                    {
+                        estadisticoAcumulado[i] = estadistico[i] + estadisticoAcumulado[i - 1];
+                    }
+
+                    // Agrego los valores a la tabla
+                    tablaanalisis.Rows.Add(limiteInferior[i], limiteSuperior[i], frecuenciaObservada[i], frecuenciaEsperada, estadistico[i], estadisticoAcumulado[i]);
+                }
+
+                // Genera Grafico
+                if (Grafico.Titles.Count == 0)
+                    Grafico.Titles.Add("Frecuencias observadas");
+
+                Series series = Grafico.Series.Add("Frecuencia Observada");
+                series.ChartType = SeriesChartType.Column;
+                Grafico.ChartAreas[0].AxisX.Title = "Datos obtenidos";
+                Grafico.ChartAreas[0].AxisY.Title = "Frecuencias";
+
+                // Cargo los intervalos con sus respectivos valores
+                for (int i = 0; i < limiteSuperior.Length; i++)
+                {
+                    series.Points.AddXY(limiteSuperior[i], frecuenciaObservada[i]);
+                }
+
+                // Calculo lambda y lo muestro
+                txt_resul.Text = Math.Round(estadisticoAcumulado[k - 1], 4).ToString();
+
+                // Calculo el valor y obtengo el valor tabulado.
+                var p = 1 - Convert.ToDouble(cboSignificancia.SelectedItem);
+                double chi = ChiSquared.InvCDF(k - 1, p);
+                tbChi.Text = Math.Round(chi, 4).ToString();
+
+                // Si el estadístico de prueba es menor o igual que el valor
+                // crítico, no se puede rechazar la hipótesis nula
             }
-
-            // Genera Grafico
-            if (Grafico.Titles.Count == 0)
-                Grafico.Titles.Add("Frecuencias observadas");
-
-            Series series = Grafico.Series.Add("Frecuencia Observada");
-            series.ChartType = SeriesChartType.Column;
-            Grafico.ChartAreas[0].AxisX.Title = "Datos obtenidos";
-            Grafico.ChartAreas[0].AxisY.Title = "Frecuencias";
-
-            // Cargo los intervalos con sus respectivos valores
-            for (int i = 0; i < limiteSuperior.Length; i++)
+            else
             {
-                series.Points.AddXY(limiteSuperior[i], frecuenciaObservada[i]);
+                MessageBox.Show("Todos deben positivos", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
 
-            // Calculo lambda y lo muestro
-            txt_resul.Text = Math.Round(estadisticoAcumulado[k - 1], 4).ToString();
-
-            // Calculo el valor y obtengo el valor tabulado.
-            var p = 1 - Convert.ToDouble(cboSignificancia.SelectedItem);
-            double chi = ChiSquared.InvCDF(k - 1, p);
-            tbChi.Text = Math.Round(chi, 4).ToString();
-
-            // Si el estadístico de prueba es menor o igual que el valor
-            // crítico, no se puede rechazar la hipótesis nula
         }
 
         private void GenenerarMetodoCongruencialMixto(int cantidad, decimal semilla, int constanteAditiva, int constanteMultiplicativa, int magnitudModulo)
@@ -168,7 +190,7 @@ namespace SIMULACION_TP1
                 //calculo del termino (𝑎 ∙ 𝑥𝑛 + 𝑐)
 
                 xi = (constMultiplicativa * xi1) + constanteAditiva;
-                //calcular termino X(i+1) reemplza a valor semilla
+                //calcular termino X(i+1) reemplaza a valor semilla
                 xi1 = Convert.ToInt32(xi % magModulo);
 
                 // Calcula el termino (Xi+1)/(m-1) y toma  4 decimales
@@ -176,10 +198,10 @@ namespace SIMULACION_TP1
                 decimal numAleat = Math.Truncate((xi1 / (magModulo - 1)) * 10000) / 10000;
 
                 // TODO: Preguntar si dejamos 0.9999 en vez de 1.
-                if (numAleat == 1)
-                {
-                    numAleat = (decimal)0.9999;
-                }
+                //if (numAleat == 1)
+                //{
+                //    numAleat = (decimal)0.9999;
+                //}
 
                 valoresX[i] = Convert.ToInt32(xi1);
 
