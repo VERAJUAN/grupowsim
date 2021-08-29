@@ -24,8 +24,7 @@ namespace SIMULACION_TP1
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Ejercicio__A ej = new Ejercicio__A();
-            ej.Show();
+           
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -36,8 +35,7 @@ namespace SIMULACION_TP1
 
         private void button3_Click(object sender, EventArgs e)
         {
-            Ejercicio__C ej = new Ejercicio__C();
-            ej.Show();
+         
         }
     }
 }

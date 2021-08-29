@@ -58,6 +58,12 @@ namespace SIMULACION_TP1
             this.txt_m = new System.Windows.Forms.TextBox();
             this.btn_generar = new System.Windows.Forms.Button();
             this.Grafico = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.textBox2 = new System.Windows.Forms.TextBox();
             this.GroupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tablaanalisis)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tablaaleatorios)).BeginInit();
@@ -66,6 +72,12 @@ namespace SIMULACION_TP1
             // 
             // GroupBox1
             // 
+            this.GroupBox1.Controls.Add(this.textBox2);
+            this.GroupBox1.Controls.Add(this.label11);
+            this.GroupBox1.Controls.Add(this.label10);
+            this.GroupBox1.Controls.Add(this.textBox1);
+            this.GroupBox1.Controls.Add(this.label9);
+            this.GroupBox1.Controls.Add(this.comboBox1);
             this.GroupBox1.Controls.Add(this.label3);
             this.GroupBox1.Controls.Add(this.label8);
             this.GroupBox1.Controls.Add(this.tbChi);
@@ -87,7 +99,8 @@ namespace SIMULACION_TP1
             this.GroupBox1.Size = new System.Drawing.Size(766, 426);
             this.GroupBox1.TabIndex = 4;
             this.GroupBox1.TabStop = false;
-            this.GroupBox1.Text = "Test de Chi Cuadrado: Método del Lenguaje";
+            this.GroupBox1.Text = "Parametros";
+            this.GroupBox1.Enter += new System.EventHandler(this.GroupBox1_Enter);
             // 
             // label3
             // 
@@ -132,7 +145,7 @@ namespace SIMULACION_TP1
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(303, 29);
+            this.label2.Location = new System.Drawing.Point(552, 15);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(70, 13);
             this.label2.TabIndex = 425;
@@ -148,7 +161,7 @@ namespace SIMULACION_TP1
             "0,50",
             "0,25",
             "0,05"});
-            this.cboSignificancia.Location = new System.Drawing.Point(379, 26);
+            this.cboSignificancia.Location = new System.Drawing.Point(555, 31);
             this.cboSignificancia.Name = "cboSignificancia";
             this.cboSignificancia.Size = new System.Drawing.Size(121, 21);
             this.cboSignificancia.TabIndex = 424;
@@ -268,15 +281,16 @@ namespace SIMULACION_TP1
             // Label5
             // 
             this.Label5.AutoSize = true;
-            this.Label5.Location = new System.Drawing.Point(151, 29);
+            this.Label5.Location = new System.Drawing.Point(21, 29);
             this.Label5.Name = "Label5";
             this.Label5.Size = new System.Drawing.Size(15, 13);
             this.Label5.TabIndex = 413;
             this.Label5.Text = "m";
+            this.Label5.Click += new System.EventHandler(this.Label5_Click);
             // 
             // txt_k
             // 
-            this.txt_k.Location = new System.Drawing.Point(242, 26);
+            this.txt_k.Location = new System.Drawing.Point(112, 26);
             this.txt_k.Name = "txt_k";
             this.txt_k.Size = new System.Drawing.Size(45, 20);
             this.txt_k.TabIndex = 412;
@@ -286,15 +300,16 @@ namespace SIMULACION_TP1
             // Label6
             // 
             this.Label6.AutoSize = true;
-            this.Label6.Location = new System.Drawing.Point(222, 29);
+            this.Label6.Location = new System.Drawing.Point(93, 29);
             this.Label6.Name = "Label6";
             this.Label6.Size = new System.Drawing.Size(13, 13);
             this.Label6.TabIndex = 414;
             this.Label6.Text = "k";
+            this.Label6.Click += new System.EventHandler(this.Label6_Click);
             // 
             // txt_m
             // 
-            this.txt_m.Location = new System.Drawing.Point(171, 26);
+            this.txt_m.Location = new System.Drawing.Point(42, 26);
             this.txt_m.Name = "txt_m";
             this.txt_m.Size = new System.Drawing.Size(45, 20);
             this.txt_m.TabIndex = 411;
@@ -303,7 +318,7 @@ namespace SIMULACION_TP1
             // 
             // btn_generar
             // 
-            this.btn_generar.Location = new System.Drawing.Point(517, 24);
+            this.btn_generar.Location = new System.Drawing.Point(682, 29);
             this.btn_generar.Name = "btn_generar";
             this.btn_generar.Size = new System.Drawing.Size(78, 23);
             this.btn_generar.TabIndex = 1;
@@ -326,6 +341,64 @@ namespace SIMULACION_TP1
             this.Grafico.Size = new System.Drawing.Size(766, 350);
             this.Grafico.TabIndex = 5;
             this.Grafico.Text = "Frecuencia Observada";
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "0,95",
+            "0,75",
+            "0,50",
+            "0,25",
+            "0,05"});
+            this.comboBox1.Location = new System.Drawing.Point(234, 31);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(121, 21);
+            this.comboBox1.TabIndex = 430;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(231, 15);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(65, 13);
+            this.label9.TabIndex = 431;
+            this.label9.Text = "Distribución:";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(434, 12);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(45, 20);
+            this.textBox1.TabIndex = 433;
+            this.textBox1.Text = "0";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(390, 15);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(38, 13);
+            this.label10.TabIndex = 434;
+            this.label10.Text = "label1:";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(390, 39);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(38, 13);
+            this.label11.TabIndex = 435;
+            this.label11.Text = "label2:";
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(434, 36);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(45, 20);
+            this.textBox2.TabIndex = 436;
+            this.textBox2.Text = "0";
             // 
             // Ejercicio__B
             // 
@@ -373,5 +446,11 @@ namespace SIMULACION_TP1
         internal System.Windows.Forms.Label tbChi;
         internal System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
+        internal System.Windows.Forms.Label label9;
+        private System.Windows.Forms.ComboBox comboBox1;
+        internal System.Windows.Forms.TextBox textBox2;
+        internal System.Windows.Forms.Label label11;
+        internal System.Windows.Forms.Label label10;
+        internal System.Windows.Forms.TextBox textBox1;
     }
 }

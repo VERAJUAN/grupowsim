@@ -47,6 +47,21 @@ namespace SIMULACION_TP1
 
         }
 
+        private void Label5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Label6_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void GroupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
+
         private void realizarTest()
         {
             // Limpiamos Tablas y Grafico

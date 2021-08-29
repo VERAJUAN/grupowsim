@@ -52,11 +52,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Ejercicio  B.cs">
+    <Compile Include="Ejercicio.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Ejercicio  B.Designer.cs">
-      <DependentUpon>Ejercicio  B.cs</DependentUpon>
+    <Compile Include="Ejercicio.Designer.cs">
+      <DependentUpon>Ejercicio.cs</DependentUpon>
     </Compile>
     <Compile Include="Menu.cs">
       <SubType>Form</SubType>
@@ -66,8 +66,8 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Ejercicio  B.resx">
-      <DependentUpon>Ejercicio  B.cs</DependentUpon>
+    <EmbeddedResource Include="Ejercicio.resx">
+      <DependentUpon>Ejercicio.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Menu.resx">
       <DependentUpon>Menu.cs</DependentUpon>
