@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
 
+
 namespace SIMULACION_TP1
 {
     public partial class Ejercicio__B : System.Windows.Forms.Form
@@ -62,6 +63,110 @@ namespace SIMULACION_TP1
 
         }
 
+        private void comboDist_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
+            switch (comboDist.SelectedIndex)
+            {
+                case 0:
+                    label10.Text = "Media";
+                    label11.Text = "Desviación";
+                    label10.Visible = true;
+                    label11.Visible = true;
+                    constante1.Visible = true;
+                    constante2.Visible = true;
+                    break;
+
+                case 1:
+                    label10.Text = "Lambda";
+                    //label11.Text = "Desviación";
+                    label10.Visible = true;
+                    label11.Visible = false;
+                    constante1.Visible = true;
+                    constante2.Visible = false;
+                    break;
+                case 2:
+                    label10.Text = "Lambda";
+                    //label11.Text = "Desviación";
+                    label10.Visible = true;
+                    label11.Visible = false;
+                    constante1.Visible = true;
+                    constante2.Visible = false;
+                    break;
+                case 3:
+                    label10.Text = "Desde";
+                    label11.Text = "Hasta";
+                    label10.Visible = true;
+                    label11.Visible = true;
+                    constante1.Visible = true;
+                    constante2.Visible = true;
+                    break;
+                default:
+                   
+                    label10.Visible = false;
+                    label11.Visible = false;
+                    constante1.Visible = false;
+                    constante2.Visible = false;
+                    break;
+            }
+
+        }
+        public void distUniforme(double desde,double hasta, int  m )
+        {
+            Random random = new Random();
+            double[] vecValores = new double[m];
+            double numAleatorios = 0, operacion = 0;
+
+           
+
+            for (int i = 0; i < vecValores.Length; i++)
+            {
+                //Math.Round(rnd.NextDouble(), 4);
+                numAleatorios = Math.Round(random.NextDouble(),4);
+                operacion = desde + (numAleatorios * (hasta - desde));
+                vecValores[i] = operacion;
+                tablaaleatorios.Rows.Add(i + 1, operacion);
+                // Calcula la cantidad de numeros por cada intervalo (frecuenciaObservada)
+               // int contador = 0;
+                /*while (operacion > limiteSuperior[contador])
+                {
+                    contador++;
+                }
+                frecuenciaObservada[contador] += 1;*/
+            }
+
+
+
+
+            /*            //Calculo el valor de los intervalos y los asigno a su correspondiente vector
+            object intermedio = tablaAleatorio.Compute("Max([Num Rnd])", ""); double max = Convert.ToDouble(intermedio);
+            intermedio = tablaAleatorio.Compute("Min([Num Rnd])", ""); double min = Convert.ToDouble(intermedio);
+
+            double desplazamiento = Math.Round((max - min) / cintervalos, 2);
+            for (int j = 0; j < cintervalos; j++)
+            {
+                if (j == 0) { limInf[j] = min; } else { limInf[j] = limSup[j - 1]; }
+                limSup[j] = limInf[j] + desplazamiento;
+            }
+             * 
+             * 
+             * 
+             * 
+             * Random random = new Random();
+            float[] vecValores = new float[size];
+            float randomValue = 0, operacion = 0;
+
+
+            for (int i = 0; i < vecValores.length; i++)
+            {
+                randomValue = random.nextFloat();
+                operacion = desde + (randomValue * (hasta - desde));
+                vecValores[i] = operacion;
+            }
+            Uniforme uniformeValues = new Uniforme(vecValores, desde, hasta);
+            UniformeTable table = new UniformeTable(this, uniformeValues);
+            table.setVisible(true);*/
+        }
         private void realizarTest()
         {
             // Limpiamos Tablas y Grafico
@@ -73,6 +178,7 @@ namespace SIMULACION_TP1
             // y k (cantidad de intervalos)
             int m = int.Parse(txt_m.Text);
             int k = int.Parse(txt_k.Text);
+
 
             // Asignamos k (cantidad de intervalos) a los vectores
             limiteInferior = new double[k];
@@ -90,7 +196,55 @@ namespace SIMULACION_TP1
                 limiteSuperior[i] = Math.Round(paso, 2);
             }
 
-            GeneracionNrosAleatoreos(m);
+
+            //GeneracionNrosAleatoreos(m);
+            switch (comboDist.SelectedIndex)
+            {
+                case 0:
+                    //distUniforme(double.Parse(constante1.Text), double.Parse(constante2.Text), m);
+                    break;
+
+                case 1:
+                    label10.Text = "Lambda";
+                    //label11.Text = "Desviación";
+                    label10.Visible = true;
+                    label11.Visible = false;
+                    constante1.Visible = true;
+                    constante2.Visible = false;
+                    break;
+                case 2:
+                    label10.Text = "Lambda";
+                    //label11.Text = "Desviación";
+                    label10.Visible = true;
+                    label11.Visible = false;
+                    constante1.Visible = true;
+                    constante2.Visible = false;
+                    break;
+                case 3:
+                    distUniforme(double.Parse(constante1.Text), double.Parse(constante2.Text), m);
+                    break;
+                default:
+
+                    label10.Visible = false;
+                    label11.Visible = false;
+                    constante1.Visible = false;
+                    constante2.Visible = false;
+                    break;
+            }
+
+
+
+
+                    //Calculo el valor de los intervalos y los asigno a su correspondiente vector
+            object intermedio = tablaaleatorios.Compute("Max([Aleatorio])", ""); double max = Convert.ToDouble(intermedio);
+            intermedio = tablaaleatorios.Compute("Min([Aleatorio])", ""); double min = Convert.ToDouble(intermedio);
+
+            double desplazamiento = Math.Round((max - min) / cintervalos, 2);
+            for (int j = 0; j < cintervalos; j++)
+            {
+                if (j == 0) { limInf[j] = min; } else { limInf[j] = limSup[j - 1]; }
+                limSup[j] = limInf[j] + desplazamiento;
+
 
             // C
             estadistico = new double[k];
@@ -203,5 +357,6 @@ namespace SIMULACION_TP1
 
             }
         }
+
     }
 }

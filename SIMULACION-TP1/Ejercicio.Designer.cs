@@ -29,9 +29,9 @@ namespace SIMULACION_TP1
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.GroupBox1 = new System.Windows.Forms.GroupBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
@@ -58,12 +58,12 @@ namespace SIMULACION_TP1
             this.txt_m = new System.Windows.Forms.TextBox();
             this.btn_generar = new System.Windows.Forms.Button();
             this.Grafico = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.comboDist = new System.Windows.Forms.ComboBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.constante1 = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.constante2 = new System.Windows.Forms.TextBox();
             this.GroupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tablaanalisis)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tablaaleatorios)).BeginInit();
@@ -72,12 +72,12 @@ namespace SIMULACION_TP1
             // 
             // GroupBox1
             // 
-            this.GroupBox1.Controls.Add(this.textBox2);
+            this.GroupBox1.Controls.Add(this.constante2);
             this.GroupBox1.Controls.Add(this.label11);
             this.GroupBox1.Controls.Add(this.label10);
-            this.GroupBox1.Controls.Add(this.textBox1);
+            this.GroupBox1.Controls.Add(this.constante1);
             this.GroupBox1.Controls.Add(this.label9);
-            this.GroupBox1.Controls.Add(this.comboBox1);
+            this.GroupBox1.Controls.Add(this.comboDist);
             this.GroupBox1.Controls.Add(this.label3);
             this.GroupBox1.Controls.Add(this.label8);
             this.GroupBox1.Controls.Add(this.tbChi);
@@ -328,34 +328,34 @@ namespace SIMULACION_TP1
             // 
             // Grafico
             // 
-            chartArea2.Name = "ChartArea1";
-            this.Grafico.ChartAreas.Add(chartArea2);
-            legend2.Name = "Legend1";
-            this.Grafico.Legends.Add(legend2);
+            chartArea1.Name = "ChartArea1";
+            this.Grafico.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.Grafico.Legends.Add(legend1);
             this.Grafico.Location = new System.Drawing.Point(17, 444);
             this.Grafico.Name = "Grafico";
-            series2.ChartArea = "ChartArea1";
-            series2.Legend = "Legend1";
-            series2.Name = "Series1";
-            this.Grafico.Series.Add(series2);
+            series1.ChartArea = "ChartArea1";
+            series1.Legend = "Legend1";
+            series1.Name = "Series1";
+            this.Grafico.Series.Add(series1);
             this.Grafico.Size = new System.Drawing.Size(766, 350);
             this.Grafico.TabIndex = 5;
             this.Grafico.Text = "Frecuencia Observada";
             // 
-            // comboBox1
+            // comboDist
             // 
-            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
-            "0,95",
-            "0,75",
-            "0,50",
-            "0,25",
-            "0,05"});
-            this.comboBox1.Location = new System.Drawing.Point(234, 31);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 21);
-            this.comboBox1.TabIndex = 430;
+            this.comboDist.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboDist.FormattingEnabled = true;
+            this.comboDist.Items.AddRange(new object[] {
+            "Normal",
+            "Exponencial",
+            "Poisson",
+            "Uniforme"});
+            this.comboDist.Location = new System.Drawing.Point(234, 31);
+            this.comboDist.Name = "comboDist";
+            this.comboDist.Size = new System.Drawing.Size(121, 21);
+            this.comboDist.TabIndex = 430;
+            this.comboDist.SelectedIndexChanged += new System.EventHandler(this.comboDist_SelectedIndexChanged);
             // 
             // label9
             // 
@@ -366,13 +366,14 @@ namespace SIMULACION_TP1
             this.label9.TabIndex = 431;
             this.label9.Text = "Distribución:";
             // 
-            // textBox1
+            // constante1
             // 
-            this.textBox1.Location = new System.Drawing.Point(434, 12);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(45, 20);
-            this.textBox1.TabIndex = 433;
-            this.textBox1.Text = "0";
+            this.constante1.Location = new System.Drawing.Point(434, 12);
+            this.constante1.Name = "constante1";
+            this.constante1.Size = new System.Drawing.Size(45, 20);
+            this.constante1.TabIndex = 433;
+            this.constante1.Text = "0";
+            this.constante1.Visible = false;
             // 
             // label10
             // 
@@ -382,6 +383,7 @@ namespace SIMULACION_TP1
             this.label10.Size = new System.Drawing.Size(38, 13);
             this.label10.TabIndex = 434;
             this.label10.Text = "label1:";
+            this.label10.Visible = false;
             // 
             // label11
             // 
@@ -391,14 +393,16 @@ namespace SIMULACION_TP1
             this.label11.Size = new System.Drawing.Size(38, 13);
             this.label11.TabIndex = 435;
             this.label11.Text = "label2:";
+            this.label11.Visible = false;
             // 
-            // textBox2
+            // constante2
             // 
-            this.textBox2.Location = new System.Drawing.Point(434, 36);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(45, 20);
-            this.textBox2.TabIndex = 436;
-            this.textBox2.Text = "0";
+            this.constante2.Location = new System.Drawing.Point(434, 36);
+            this.constante2.Name = "constante2";
+            this.constante2.Size = new System.Drawing.Size(45, 20);
+            this.constante2.TabIndex = 436;
+            this.constante2.Text = "0";
+            this.constante2.Visible = false;
             // 
             // Ejercicio__B
             // 
@@ -447,10 +451,10 @@ namespace SIMULACION_TP1
         internal System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         internal System.Windows.Forms.Label label9;
-        private System.Windows.Forms.ComboBox comboBox1;
-        internal System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.ComboBox comboDist;
+        internal System.Windows.Forms.TextBox constante2;
         internal System.Windows.Forms.Label label11;
         internal System.Windows.Forms.Label label10;
-        internal System.Windows.Forms.TextBox textBox1;
+        internal System.Windows.Forms.TextBox constante1;
     }
 }
