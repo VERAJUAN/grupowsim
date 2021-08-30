@@ -16,12 +16,12 @@ namespace SIMULACION_TP1
     public partial class Ejercicio__B : System.Windows.Forms.Form
     {
 
-        double[] limiteInferior, limiteSuperior, frecuenciaObservada, estadistico, estadisticoAcumulado;
+        double[] limiteInferior, limiteSuperior, frecuenciaObservada, estadistico, estadisticoAcumulado, numerosAleatorios;
 
         private void cboSignificancia_SelectedIndexChanged(object sender, EventArgs e)
         {
 
-        }        
+        }
 
         public Ejercicio__B()
         {
@@ -65,7 +65,7 @@ namespace SIMULACION_TP1
 
         private void comboDist_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
+
             switch (comboDist.SelectedIndex)
             {
                 case 0:
@@ -102,7 +102,7 @@ namespace SIMULACION_TP1
                     constante2.Visible = true;
                     break;
                 default:
-                   
+
                     label10.Visible = false;
                     label11.Visible = false;
                     constante1.Visible = false;
@@ -111,61 +111,28 @@ namespace SIMULACION_TP1
             }
 
         }
-        public void distUniforme(double desde,double hasta, int  m )
+        public void distUniforme(double desde, double hasta, int m)
         {
             Random random = new Random();
-            double[] vecValores = new double[m];
+            numerosAleatorios = new double[m];
             double numAleatorios = 0, operacion = 0;
 
-           
 
-            for (int i = 0; i < vecValores.Length; i++)
+
+            for (int i = 0; i < numerosAleatorios.Length; i++)
             {
-                //Math.Round(rnd.NextDouble(), 4);
-                numAleatorios = Math.Round(random.NextDouble(),4);
+                numAleatorios = Math.Round(random.NextDouble(), 4);
                 operacion = desde + (numAleatorios * (hasta - desde));
-                vecValores[i] = operacion;
+                numerosAleatorios[i] = operacion;
                 tablaaleatorios.Rows.Add(i + 1, operacion);
-                // Calcula la cantidad de numeros por cada intervalo (frecuenciaObservada)
-               // int contador = 0;
-                /*while (operacion > limiteSuperior[contador])
-                {
-                    contador++;
-                }
-                frecuenciaObservada[contador] += 1;*/
+                //// Calcula la cantidad de numeros por cada intervalo(frecuenciaObservada)
+                // int contador = 0;
+                //while (operacion > limiteSuperior[contador])
+                //{
+                //    contador++;
+                //}
+                //frecuenciaObservada[contador] += 1;
             }
-
-
-
-
-            /*            //Calculo el valor de los intervalos y los asigno a su correspondiente vector
-            object intermedio = tablaAleatorio.Compute("Max([Num Rnd])", ""); double max = Convert.ToDouble(intermedio);
-            intermedio = tablaAleatorio.Compute("Min([Num Rnd])", ""); double min = Convert.ToDouble(intermedio);
-
-            double desplazamiento = Math.Round((max - min) / cintervalos, 2);
-            for (int j = 0; j < cintervalos; j++)
-            {
-                if (j == 0) { limInf[j] = min; } else { limInf[j] = limSup[j - 1]; }
-                limSup[j] = limInf[j] + desplazamiento;
-            }
-             * 
-             * 
-             * 
-             * 
-             * Random random = new Random();
-            float[] vecValores = new float[size];
-            float randomValue = 0, operacion = 0;
-
-
-            for (int i = 0; i < vecValores.length; i++)
-            {
-                randomValue = random.nextFloat();
-                operacion = desde + (randomValue * (hasta - desde));
-                vecValores[i] = operacion;
-            }
-            Uniforme uniformeValues = new Uniforme(vecValores, desde, hasta);
-            UniformeTable table = new UniformeTable(this, uniformeValues);
-            table.setVisible(true);*/
         }
         private void realizarTest()
         {
@@ -173,6 +140,7 @@ namespace SIMULACION_TP1
             tablaanalisis.Rows.Clear();
             tablaaleatorios.Rows.Clear();
             Grafico.Series.Clear();
+            //TODO: HAY QUE LIMPIAR EL ARRAY DE numerosAleatorios
 
             // Tomamos los valores de m (cantidad de numeros aleatorios)
             // y k (cantidad de intervalos)
@@ -185,16 +153,16 @@ namespace SIMULACION_TP1
             limiteSuperior = new double[k];
             frecuenciaObservada = new double[k];
 
-            // Asigno los valores de los intervalos
-            for (int i = 0; i < k; i++)
-            {
-                double paso = (double)(i + 1) / k; // Paso o longitud de cada intervalo
-                if(i != k-1)
-                {
-                    limiteInferior[i + 1] = Math.Round(paso, 2);
-                }
-                limiteSuperior[i] = Math.Round(paso, 2);
-            }
+            //// Asigno los valores de los intervalos
+            //for (int i = 0; i < k; i++)
+            //{
+            //    double paso = (double)(i + 1) / k; // Paso o longitud de cada intervalo
+            //    if (i != k - 1)
+            //    {
+            //        limiteInferior[i + 1] = Math.Round(paso, 2);
+            //    }
+            //    limiteSuperior[i] = Math.Round(paso, 2);
+            //}
 
 
             //GeneracionNrosAleatoreos(m);
@@ -233,18 +201,35 @@ namespace SIMULACION_TP1
             }
 
 
+            //Calculo maximo y minimo de los numeros aleatorios
+            double maximo = numerosAleatorios.Max();
+            double minimo = numerosAleatorios.Min();
 
+            //Calculo el paso de cada intervalo
+            double paso = Math.Round((maximo - minimo) / k, 2);
 
-                    //Calculo el valor de los intervalos y los asigno a su correspondiente vector
-            object intermedio = tablaaleatorios.Compute("Max([Aleatorio])", ""); double max = Convert.ToDouble(intermedio);
-            intermedio = tablaaleatorios.Compute("Min([Aleatorio])", ""); double min = Convert.ToDouble(intermedio);
-
-            double desplazamiento = Math.Round((max - min) / cintervalos, 2);
-            for (int j = 0; j < cintervalos; j++)
+            //Asigno valor a los limites
+            for (int i = 0; i < k; i++)
             {
-                if (j == 0) { limInf[j] = min; } else { limInf[j] = limSup[j - 1]; }
-                limSup[j] = limInf[j] + desplazamiento;
+                //Primer limite inferior: valor minimo
+                if (i == 0) limiteInferior[i] = minimo;
+                //Otros limites inferiores igual al limite superior anterior
+                else limiteInferior[i] = limiteSuperior[i - 1];
+                //Limite superior igual al inferior mas el paso
+                limiteSuperior[i] = limiteInferior[i] + paso;
+            }
 
+            for (int i = 0; i < numerosAleatorios.Length; i++)
+            {
+                // Calcula la cantidad de numeros por cada intervalo(frecuenciaObservada)
+                int contador = 0;
+                while (numerosAleatorios[i] > limiteSuperior[contador])
+                {
+                    contador++;
+                    if (contador == 5) contador = 0;
+                }
+                frecuenciaObservada[contador] += 1;
+            }
 
             // C
             estadistico = new double[k];
@@ -264,7 +249,8 @@ namespace SIMULACION_TP1
                 if (i == 0) // Primera vuelta guarda el mismo valor de c
                 {
                     estadisticoAcumulado[i] = estadistico[i];
-                } else // acumula C
+                }
+                else // acumula C
                 {
                     estadisticoAcumulado[i] = estadistico[i] + estadisticoAcumulado[i - 1];
                 }
@@ -307,10 +293,11 @@ namespace SIMULACION_TP1
             Random rnd = new Random();
             double numAleatorios;
 
-            for (int i = 0; i < cant; i++) { 
+            for (int i = 0; i < cant; i++)
+            {
                 // Genera los numeros y los agrega a la tabla
                 numAleatorios = Math.Round(rnd.NextDouble(), 4);
-                tablaaleatorios.Rows.Add(i+1, numAleatorios);
+                tablaaleatorios.Rows.Add(i + 1, numAleatorios);
                 // Calcula la cantidad de numeros por cada intervalo (frecuenciaObservada)
                 int contador = 0;
                 while (numAleatorios > limiteSuperior[contador])
