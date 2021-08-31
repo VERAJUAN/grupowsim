@@ -51,7 +51,7 @@ namespace SIMULACION_TP1.Libreria
                 numAleatorio = Math.Round(random.NextDouble(), 4);
                 operacion = Math.Round(desde + (numAleatorio * (hasta - desde)), 4);
                 listado.Add(operacion); //Agregamos a la lista
-                
+
                 //// Calcula la cantidad de numeros por cada intervalo(frecuenciaObservada)
                 // int contador = 0;
                 //while (operacion > limiteSuperior[contador])

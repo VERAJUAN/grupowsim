@@ -58,7 +58,6 @@
     <Compile Include="Ejercicio.Designer.cs">
       <DependentUpon>Ejercicio.cs</DependentUpon>
     </Compile>
-    <Compile Include="Libreria\Distribucion.cs" />
     <Compile Include="Menu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -95,6 +94,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Distribuciones\Distribuciones.csproj">
+      <Project>{e7a9c907-d829-4e83-b737-708607186e73}</Project>
+      <Name>Distribuciones</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
