@@ -16,7 +16,8 @@ namespace SIMULACION_TP1
     public partial class Ejercicio__B : System.Windows.Forms.Form
     {
 
-        double[] limiteInferior, limiteSuperior, frecuenciaObservada, estadistico, estadisticoAcumulado, numerosAleatorios;
+        double[] limiteInferior, limiteSuperior, frecuenciaObservada, estadistico, estadisticoAcumulado;
+        List<double> numerosAleatorios;
 
         private void cboSignificancia_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -114,16 +115,16 @@ namespace SIMULACION_TP1
         public void distUniforme(double desde, double hasta, int m)
         {
             Random random = new Random();
-            numerosAleatorios = new double[m];
+            // numerosAleatorios = new double[m];
             double numAleatorios = 0, operacion = 0;
 
 
 
-            for (int i = 0; i < numerosAleatorios.Length; i++)
+            for (int i = 0; i < m; i++)
             {
                 numAleatorios = Math.Round(random.NextDouble(), 4);
-                operacion = desde + (numAleatorios * (hasta - desde));
-                numerosAleatorios[i] = operacion;
+                operacion = Math.Round(desde + (numAleatorios * (hasta - desde)), 4);
+                numerosAleatorios.Add(operacion); //Agregamos a la lista
                 tablaaleatorios.Rows.Add(i + 1, operacion);
                 //// Calcula la cantidad de numeros por cada intervalo(frecuenciaObservada)
                 // int contador = 0;
@@ -140,7 +141,7 @@ namespace SIMULACION_TP1
             tablaanalisis.Rows.Clear();
             tablaaleatorios.Rows.Clear();
             Grafico.Series.Clear();
-            //TODO: HAY QUE LIMPIAR EL ARRAY DE numerosAleatorios
+            numerosAleatorios = new List<double>();
 
             // Tomamos los valores de m (cantidad de numeros aleatorios)
             // y k (cantidad de intervalos)
@@ -169,24 +170,14 @@ namespace SIMULACION_TP1
             switch (comboDist.SelectedIndex)
             {
                 case 0:
-                    //distUniforme(double.Parse(constante1.Text), double.Parse(constante2.Text), m);
+                    //Normal
                     break;
 
                 case 1:
-                    label10.Text = "Lambda";
-                    //label11.Text = "Desviación";
-                    label10.Visible = true;
-                    label11.Visible = false;
-                    constante1.Visible = true;
-                    constante2.Visible = false;
+                   //Exponencial
                     break;
                 case 2:
-                    label10.Text = "Lambda";
-                    //label11.Text = "Desviación";
-                    label10.Visible = true;
-                    label11.Visible = false;
-                    constante1.Visible = true;
-                    constante2.Visible = false;
+                    //Poisson
                     break;
                 case 3:
                     distUniforme(double.Parse(constante1.Text), double.Parse(constante2.Text), m);
@@ -212,21 +203,26 @@ namespace SIMULACION_TP1
             for (int i = 0; i < k; i++)
             {
                 //Primer limite inferior: valor minimo
-                if (i == 0) limiteInferior[i] = minimo;
+                if (i == 0) limiteInferior[i] = Math.Round(minimo, 2);
                 //Otros limites inferiores igual al limite superior anterior
-                else limiteInferior[i] = limiteSuperior[i - 1];
+                else limiteInferior[i] = Math.Round(limiteSuperior[i - 1], 2);
                 //Limite superior igual al inferior mas el paso
-                limiteSuperior[i] = limiteInferior[i] + paso;
+                limiteSuperior[i] = Math.Round(limiteInferior[i] + paso, 2);
             }
 
-            for (int i = 0; i < numerosAleatorios.Length; i++)
+            for (int i = 0; i < m; i++)
             {
                 // Calcula la cantidad de numeros por cada intervalo(frecuenciaObservada)
                 int contador = 0;
                 while (numerosAleatorios[i] > limiteSuperior[contador])
                 {
                     contador++;
-                    if (contador == 5) contador = 0;
+                    if (contador == k)
+                    {
+                        frecuenciaObservada[contador - 1] += 1;
+                        i++;
+                        contador = 0;
+                    }
                 }
                 frecuenciaObservada[contador] += 1;
             }
