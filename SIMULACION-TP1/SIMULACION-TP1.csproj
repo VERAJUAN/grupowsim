@@ -58,6 +58,7 @@
     <Compile Include="Ejercicio.Designer.cs">
       <DependentUpon>Ejercicio.cs</DependentUpon>
     </Compile>
+    <Compile Include="Libreria\Distribucion.cs" />
     <Compile Include="Menu.cs">
       <SubType>Form</SubType>
     </Compile>

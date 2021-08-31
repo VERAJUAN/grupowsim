@@ -1,4 +1,5 @@
 ﻿using MathNet.Numerics.Distributions;
+using SIMULACION_TP1.Libreria;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -114,26 +115,7 @@ namespace SIMULACION_TP1
         }
         public void distUniforme(double desde, double hasta, int m)
         {
-            Random random = new Random();
-            // numerosAleatorios = new double[m];
-            double numAleatorios = 0, operacion = 0;
-
-
-
-            for (int i = 0; i < m; i++)
-            {
-                numAleatorios = Math.Round(random.NextDouble(), 4);
-                operacion = Math.Round(desde + (numAleatorios * (hasta - desde)), 4);
-                numerosAleatorios.Add(operacion); //Agregamos a la lista
-                tablaaleatorios.Rows.Add(i + 1, operacion);
-                //// Calcula la cantidad de numeros por cada intervalo(frecuenciaObservada)
-                // int contador = 0;
-                //while (operacion > limiteSuperior[contador])
-                //{
-                //    contador++;
-                //}
-                //frecuenciaObservada[contador] += 1;
-            }
+            
         }
         private void realizarTest()
         {
@@ -165,25 +147,27 @@ namespace SIMULACION_TP1
             //    limiteSuperior[i] = Math.Round(paso, 2);
             //}
 
-
+           
             //GeneracionNrosAleatoreos(m);
             switch (comboDist.SelectedIndex)
             {
                 case 0:
                     //Normal
+                    numerosAleatorios = Distribucion.Normal();
                     break;
-
                 case 1:
-                   //Exponencial
+                    //Exponencial
+                    numerosAleatorios = Distribucion.Exponencial();
                     break;
                 case 2:
                     //Poisson
+                    numerosAleatorios = Distribucion.Poisson();
                     break;
                 case 3:
-                    distUniforme(double.Parse(constante1.Text), double.Parse(constante2.Text), m);
+                    numerosAleatorios = Distribucion.Uniforme(
+                        double.Parse(constante1.Text), double.Parse(constante2.Text), m);
                     break;
                 default:
-
                     label10.Visible = false;
                     label11.Visible = false;
                     constante1.Visible = false;
@@ -191,6 +175,10 @@ namespace SIMULACION_TP1
                     break;
             }
 
+            for(int i = 0; i < m; i++)
+            {
+                tablaaleatorios.Rows.Add(i + 1, numerosAleatorios.ElementAt(i));
+            }
 
             //Calculo maximo y minimo de los numeros aleatorios
             double maximo = numerosAleatorios.Max();
