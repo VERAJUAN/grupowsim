@@ -113,10 +113,7 @@ namespace SIMULACION_TP1
             }
 
         }
-        public void distUniforme(double desde, double hasta, int m)
-        {
-            
-        }
+
         private void realizarTest()
         {
             // Limpiamos Tablas y Grafico
@@ -135,18 +132,6 @@ namespace SIMULACION_TP1
             limiteInferior = new double[k];
             limiteSuperior = new double[k];
             frecuenciaObservada = new double[k];
-
-            //// Asigno los valores de los intervalos
-            //for (int i = 0; i < k; i++)
-            //{
-            //    double paso = (double)(i + 1) / k; // Paso o longitud de cada intervalo
-            //    if (i != k - 1)
-            //    {
-            //        limiteInferior[i + 1] = Math.Round(paso, 2);
-            //    }
-            //    limiteSuperior[i] = Math.Round(paso, 2);
-            //}
-
            
             //GeneracionNrosAleatoreos(m);
             switch (comboDist.SelectedIndex)
@@ -271,26 +256,6 @@ namespace SIMULACION_TP1
 
         }
 
-        // Generacion de los numeros aleatorios
-        private void GeneracionNrosAleatoreos(int cant)
-        {
-            Random rnd = new Random();
-            double numAleatorios;
-
-            for (int i = 0; i < cant; i++)
-            {
-                // Genera los numeros y los agrega a la tabla
-                numAleatorios = Math.Round(rnd.NextDouble(), 4);
-                tablaaleatorios.Rows.Add(i + 1, numAleatorios);
-                // Calcula la cantidad de numeros por cada intervalo (frecuenciaObservada)
-                int contador = 0;
-                while (numAleatorios > limiteSuperior[contador])
-                {
-                    contador++;
-                }
-                frecuenciaObservada[contador] += 1;
-            }
-        }
 
         //Keypress
         private void txt_m_KeyPress(object sender, KeyPressEventArgs e)
