@@ -29,9 +29,9 @@ namespace SIMULACION_TP1
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.GroupBox1 = new System.Windows.Forms.GroupBox();
             this.constante2 = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
@@ -111,6 +111,7 @@ namespace SIMULACION_TP1
             this.constante2.Text = "0";
             this.constante2.Visible = false;
             this.constante2.TextChanged += new System.EventHandler(this.constante2_TextChanged);
+            this.constante2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.constante2_KeyPress);
             // 
             // label11
             // 
@@ -141,6 +142,7 @@ namespace SIMULACION_TP1
             this.constante1.Text = "0";
             this.constante1.Visible = false;
             this.constante1.TextChanged += new System.EventHandler(this.constante1_TextChanged);
+            this.constante1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.constante1_KeyPress);
             // 
             // label9
             // 
@@ -394,16 +396,16 @@ namespace SIMULACION_TP1
             // 
             // Grafico
             // 
-            chartArea4.Name = "ChartArea1";
-            this.Grafico.ChartAreas.Add(chartArea4);
-            legend4.Name = "Legend1";
-            this.Grafico.Legends.Add(legend4);
+            chartArea2.Name = "ChartArea1";
+            this.Grafico.ChartAreas.Add(chartArea2);
+            legend2.Name = "Legend1";
+            this.Grafico.Legends.Add(legend2);
             this.Grafico.Location = new System.Drawing.Point(17, 444);
             this.Grafico.Name = "Grafico";
-            series4.ChartArea = "ChartArea1";
-            series4.Legend = "Legend1";
-            series4.Name = "Series1";
-            this.Grafico.Series.Add(series4);
+            series2.ChartArea = "ChartArea1";
+            series2.Legend = "Legend1";
+            series2.Name = "Series1";
+            this.Grafico.Series.Add(series2);
             this.Grafico.Size = new System.Drawing.Size(766, 350);
             this.Grafico.TabIndex = 5;
             this.Grafico.Text = "Frecuencia Observada";

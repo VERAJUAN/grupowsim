@@ -22,7 +22,7 @@ namespace SIMULACION_TP1
 
         private void cboSignificancia_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            comboDist.SelectedIndex = 0;
         }
 
         public Ejercicio__B()
@@ -39,103 +39,18 @@ namespace SIMULACION_TP1
             int k = int.Parse(txt_k.Text);
 
             // Corroboramos que k sea mayor a 4
-            if (k > 4)
+            if (k > 4 && m >= k)
             {
                 realizarTest();
             }
             else
             {
-                MessageBox.Show("K debe ser mayor a 4 y se sugiere que sea raíz cuadrada de M", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("K debe ser mayor a 4 y se sugiere que sea raíz cuadrada de M. M debe ser igual o mayor a K", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
 
         }
 
-        private void Label5_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Label6_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void GroupBox1_Enter(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txt_m_TextChanged(object sender, EventArgs e)
-        {
-            if (char.IsDigit(e.KeyChar))
-            {
-                e.Handled = false;
-            }
-            else if (char.IsControl(e.KeyChar))
-            {
-                e.Handled = false;
-            }
-            else
-            {
-                e.Handled = true;
-                MessageBox.Show("El caracter ingresado no es un número ", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-
-            }
-        }
-
-        private void txt_k_TextChanged(object sender, EventArgs e)
-        {
-            if (char.IsDigit(e.KeyChar))
-            {
-                e.Handled = false;
-            }
-            else if (char.IsControl(e.KeyChar))
-            {
-                e.Handled = false;
-            }
-            else
-            {
-                e.Handled = true;
-                MessageBox.Show("El caracter ingresado no es un número ", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-
-            }
-        }
-
-        private void constante1_TextChanged(object sender, EventArgs e)
-        {
-            if (char.IsDigit(e.KeyChar))
-            {
-                e.Handled = false;
-            }
-            else if (char.IsControl(e.KeyChar))
-            {
-                e.Handled = false;
-            }
-            else
-            {
-                e.Handled = true;
-                MessageBox.Show("El caracter ingresado no es un número ", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-
-            }
-        }
-
-        private void constante2_TextChanged(object sender, EventArgs e)
-        {
-            if (char.IsDigit(e.KeyChar))
-            {
-                e.Handled = false;
-            }
-            else if (char.IsControl(e.KeyChar))
-            {
-                e.Handled = false;
-            }
-            else
-            {
-                e.Handled = true;
-                MessageBox.Show("El caracter ingresado no es un número ", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-
-            }
-        }
+        
 
         private void comboDist_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -341,7 +256,6 @@ namespace SIMULACION_TP1
 
             }
         }
-
         private void txt_k_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (char.IsDigit(e.KeyChar))
@@ -359,6 +273,74 @@ namespace SIMULACION_TP1
 
             }
         }
+        private void constante1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (char.IsDigit(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else if (char.IsControl(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                e.Handled = true;
+                MessageBox.Show("El caracter ingresado no es un número ", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
+            }
+        }
+        private void constante2_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (char.IsDigit(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else if (char.IsControl(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                e.Handled = true;
+                MessageBox.Show("El caracter ingresado no es un número ", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+            }
+        }
+
+        private void Label5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Label6_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void GroupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txt_m_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txt_k_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void constante1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void constante2_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
