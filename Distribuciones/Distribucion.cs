@@ -20,7 +20,7 @@ namespace SIMULACION_TP1.Libreria
             for (int i = 0; i < m; i++)
             {
                 numAleatorio = 0;
-                for (int j = 0; j < listado.Count; j++)
+                for (int j = 0; j < m; j++)
                 {
                     numAleatorio += random.NextDouble();
                 }
