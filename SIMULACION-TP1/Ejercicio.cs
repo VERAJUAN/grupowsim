@@ -72,7 +72,7 @@ namespace SIMULACION_TP1
             {
                 case 0:
                     label10.Text = "Media";
-                    label11.Text = "Desviación";
+                    label11.Text = "Varianza";
                     label10.Visible = true;
                     label11.Visible = true;
                     constante1.Visible = true;
@@ -81,7 +81,6 @@ namespace SIMULACION_TP1
 
                 case 1:
                     label10.Text = "Lambda";
-                    //label11.Text = "Desviación";
                     label10.Visible = true;
                     label11.Visible = false;
                     constante1.Visible = true;
@@ -89,7 +88,6 @@ namespace SIMULACION_TP1
                     break;
                 case 2:
                     label10.Text = "Lambda";
-                    //label11.Text = "Desviación";
                     label10.Visible = true;
                     label11.Visible = false;
                     constante1.Visible = true;
@@ -138,15 +136,15 @@ namespace SIMULACION_TP1
             {
                 case 0:
                     //Normal
-                    numerosAleatorios = Distribucion.Normal();
+                    numerosAleatorios = Distribucion.Normal(m, double.Parse(constante1.Text), double.Parse(constante2.Text));
                     break;
                 case 1:
                     //Exponencial
-                    numerosAleatorios = Distribucion.Exponencial();
+                    numerosAleatorios = Distribucion.Exponencial(m, double.Parse(constante1.Text));
                     break;
                 case 2:
                     //Poisson
-                    numerosAleatorios = Distribucion.Poisson();
+                    numerosAleatorios = Distribucion.Poisson(m, double.Parse(constante1.Text));
                     break;
                 case 3:
                     numerosAleatorios = Distribucion.Uniforme(
@@ -170,17 +168,19 @@ namespace SIMULACION_TP1
             double minimo = numerosAleatorios.Min();
 
             //Calculo el paso de cada intervalo
-            double paso = Math.Round((maximo - minimo) / k, 2);
+            double paso = Math.Round((maximo - minimo) / k, 4);
 
             //Asigno valor a los limites
             for (int i = 0; i < k; i++)
             {
                 //Primer limite inferior: valor minimo
-                if (i == 0) limiteInferior[i] = Math.Round(minimo, 2);
+                if (i == 0) limiteInferior[i] = Math.Round(minimo, 4);
                 //Otros limites inferiores igual al limite superior anterior
-                else limiteInferior[i] = Math.Round(limiteSuperior[i - 1], 2);
+                else limiteInferior[i] = Math.Round(limiteSuperior[i - 1], 4);
+                //Si es el ultimo limite
+                if(i == k-1) limiteSuperior[i] = Math.Round(maximo, 4);
                 //Limite superior igual al inferior mas el paso
-                limiteSuperior[i] = Math.Round(limiteInferior[i] + paso, 2);
+                else limiteSuperior[i] = Math.Round(limiteInferior[i] + paso, 4);
             }
 
             for (int i = 0; i < m; i++)
@@ -190,12 +190,6 @@ namespace SIMULACION_TP1
                 while (numerosAleatorios[i] > limiteSuperior[contador])
                 {
                     contador++;
-                    if (contador == k)
-                    {
-                        frecuenciaObservada[contador - 1] += 1;
-                        i++;
-                        contador = 0;
-                    }
                 }
                 frecuenciaObservada[contador] += 1;
             }
