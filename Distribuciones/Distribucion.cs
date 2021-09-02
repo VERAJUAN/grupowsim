@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SIMULACION_TP1.Libreria
+namespace Distribuciones
 {
     public static class Distribucion
     {

@@ -1,5 +1,5 @@
-﻿using MathNet.Numerics.Distributions;
-using SIMULACION_TP1.Libreria;
+﻿using Distribuciones;
+using MathNet.Numerics.Distributions;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -189,8 +189,28 @@ namespace SIMULACION_TP1
             // Asigno valores a la tabla
             for (int i = 0; i < k; i++)
             {
-                // frecuenciaEsperada = cantidadNrosAleatorios / cantidadIntervalos
-                double frecuenciaEsperada = m / k;
+                double frecuenciaEsperada = 0;
+                //Frecuencia esperada por distribución
+                switch (comboDist.SelectedIndex)
+                {
+                    case 0:
+                        //Normal
+                        frecuenciaEsperada = Frecuencia.Normal(m, k, double.Parse(constante1.Text), double.Parse(constante2.Text), paso);
+                        break;
+                    case 1:
+                        //Exponencial
+                        frecuenciaEsperada = Frecuencia.Exponencial(k, m, double.Parse(constante1.Text));
+                        break;
+                    case 2:
+                        //Poisson
+                        frecuenciaEsperada = Frecuencia.Poisson(m, k, double.Parse(constante1.Text));
+                        break;
+                    case 3:
+                        //Uniforme
+                        frecuenciaEsperada = Frecuencia.Uniforme(m, k);
+                        break;
+                }
+
 
                 // Calculo del valor de C
                 estadistico[i] = (double)Math.Pow(frecuenciaObservada[i] - frecuenciaEsperada, 2) / frecuenciaEsperada;
