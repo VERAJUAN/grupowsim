@@ -295,20 +295,20 @@ namespace SIMULACION_TP1
         }
         private void constante1_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (char.IsDigit(e.KeyChar))
-            {
-                e.Handled = false;
-            }
-            else if (char.IsControl(e.KeyChar))
-            {
-                e.Handled = false;
-            }
-            else
-            {
-                e.Handled = true;
-                MessageBox.Show("El caracter ingresado no es un número ", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            //if (char.IsDigit(e.KeyChar))
+            //{
+            //    e.Handled = false;
+            //}
+            //else if (char.IsControl(e.KeyChar))
+            //{
+            //    e.Handled = false;
+            //}
+            //else
+            //{
+            //    e.Handled = true;
+            //    MessageBox.Show("El caracter ingresado no es un número ", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
-            }
+            //}
         }
         private void constante2_KeyPress(object sender, KeyPressEventArgs e)
         {

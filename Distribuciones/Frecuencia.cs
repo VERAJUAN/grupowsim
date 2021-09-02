@@ -17,6 +17,7 @@ namespace Distribuciones
         public static double Exponencial(double k, double m, double lambda)
         {
             double fe = (lambda * Math.Pow(Math.E, lambda * k * -1)) * m;
+
             return Math.Round(fe, 3);
         }
 
@@ -28,8 +29,8 @@ namespace Distribuciones
 
         public static double Poisson(double m, double k, double lambda)
         {
-            double fe = ((Math.Pow(lambda, k) * Math.Pow(Math.E, lambda * -1)) / Factorial(k)) * m;
-            return Math.Round(fe, 3);
+            double fe = ((Math.Exp(lambda * -1) * Math.Pow(lambda, k)) / Factorial(k)) * m;
+            return Math.Round(fe, 0);
         }
 
         private static double Factorial(double f)
