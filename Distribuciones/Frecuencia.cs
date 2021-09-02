@@ -40,7 +40,4 @@ namespace Distribuciones
                 return f * Factorial(f - 1);
         }
     }
-
-    
-}
 }

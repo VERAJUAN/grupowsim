@@ -29,9 +29,9 @@ namespace SIMULACION_TP1
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.GroupBox1 = new System.Windows.Forms.GroupBox();
             this.constante2 = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
@@ -182,7 +182,7 @@ namespace SIMULACION_TP1
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(378, 372);
+            this.label8.Location = new System.Drawing.Point(412, 372);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(19, 13);
             this.label8.TabIndex = 428;
@@ -193,7 +193,7 @@ namespace SIMULACION_TP1
             this.tbChi.BackColor = System.Drawing.Color.White;
             this.tbChi.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.tbChi.Enabled = false;
-            this.tbChi.Location = new System.Drawing.Point(402, 368);
+            this.tbChi.Location = new System.Drawing.Point(436, 368);
             this.tbChi.Name = "tbChi";
             this.tbChi.Size = new System.Drawing.Size(64, 20);
             this.tbChi.TabIndex = 427;
@@ -202,7 +202,7 @@ namespace SIMULACION_TP1
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(472, 372);
+            this.label4.Location = new System.Drawing.Point(506, 372);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(61, 13);
             this.label4.TabIndex = 426;
@@ -249,7 +249,7 @@ namespace SIMULACION_TP1
             this.txt_resul.Enabled = false;
             this.txt_resul.Location = new System.Drawing.Point(337, 368);
             this.txt_resul.Name = "txt_resul";
-            this.txt_resul.Size = new System.Drawing.Size(36, 20);
+            this.txt_resul.Size = new System.Drawing.Size(69, 20);
             this.txt_resul.TabIndex = 422;
             this.txt_resul.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
@@ -396,16 +396,16 @@ namespace SIMULACION_TP1
             // 
             // Grafico
             // 
-            chartArea2.Name = "ChartArea1";
-            this.Grafico.ChartAreas.Add(chartArea2);
-            legend2.Name = "Legend1";
-            this.Grafico.Legends.Add(legend2);
+            chartArea1.Name = "ChartArea1";
+            this.Grafico.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.Grafico.Legends.Add(legend1);
             this.Grafico.Location = new System.Drawing.Point(17, 444);
             this.Grafico.Name = "Grafico";
-            series2.ChartArea = "ChartArea1";
-            series2.Legend = "Legend1";
-            series2.Name = "Series1";
-            this.Grafico.Series.Add(series2);
+            series1.ChartArea = "ChartArea1";
+            series1.Legend = "Legend1";
+            series1.Name = "Series1";
+            this.Grafico.Series.Add(series1);
             this.Grafico.Size = new System.Drawing.Size(766, 350);
             this.Grafico.TabIndex = 5;
             this.Grafico.Text = "Frecuencia Observada";

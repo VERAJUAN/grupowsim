@@ -59,7 +59,7 @@ namespace SIMULACION_TP1
             {
                 case 0:
                     label10.Text = "Media";
-                    label11.Text = "Varianza";
+                    label11.Text = "Desviación";
                     label10.Visible = true;
                     label11.Visible = true;
                     constante1.Visible = true;
