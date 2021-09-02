@@ -17,7 +17,7 @@ namespace SIMULACION_TP1
     public partial class Ejercicio__B : System.Windows.Forms.Form
     {
 
-        double[] limiteInferior, limiteSuperior, frecuenciaObservada, estadistico, estadisticoAcumulado;
+        double[] limiteInferior, limiteSuperior, frecuenciaObservada, frecuenciaEsperada, estadistico, estadisticoAcumulado;
         List<double> numerosAleatorios;
 
         private void cboSignificancia_SelectedIndexChanged(object sender, EventArgs e)
@@ -117,7 +117,8 @@ namespace SIMULACION_TP1
             limiteInferior = new double[k];
             limiteSuperior = new double[k];
             frecuenciaObservada = new double[k];
-           
+            frecuenciaEsperada = new double[k];
+
             //GeneracionNrosAleatoreos(m);
             switch (comboDist.SelectedIndex)
             {
@@ -189,31 +190,30 @@ namespace SIMULACION_TP1
             // Asigno valores a la tabla
             for (int i = 0; i < k; i++)
             {
-                double frecuenciaEsperada = 0;
                 //Frecuencia esperada por distribución
                 switch (comboDist.SelectedIndex)
                 {
                     case 0:
                         //Normal
-                        frecuenciaEsperada = Frecuencia.Normal(m, k, double.Parse(constante1.Text), double.Parse(constante2.Text), paso);
+                        frecuenciaEsperada[i] = Frecuencia.Normal(m, k, double.Parse(constante1.Text), double.Parse(constante2.Text), paso);
                         break;
                     case 1:
                         //Exponencial
-                        frecuenciaEsperada = Frecuencia.Exponencial(k, m, double.Parse(constante1.Text));
+                        frecuenciaEsperada[i] = Frecuencia.Exponencial(k, m, double.Parse(constante1.Text));
                         break;
                     case 2:
                         //Poisson
-                        frecuenciaEsperada = Frecuencia.Poisson(m, k, double.Parse(constante1.Text));
+                        frecuenciaEsperada[i] = Frecuencia.Poisson(m, k, double.Parse(constante1.Text));
                         break;
                     case 3:
                         //Uniforme
-                        frecuenciaEsperada = Frecuencia.Uniforme(m, k);
+                        frecuenciaEsperada[i] = Frecuencia.Uniforme(m, k);
                         break;
                 }
 
 
                 // Calculo del valor de C
-                estadistico[i] = (double)Math.Pow(frecuenciaObservada[i] - frecuenciaEsperada, 2) / frecuenciaEsperada;
+                estadistico[i] = (double)Math.Pow(frecuenciaObservada[i] - frecuenciaEsperada[i], 2) / frecuenciaEsperada[i];
 
                 // Calculo del valor de C Acumulado
                 if (i == 0) // Primera vuelta guarda el mismo valor de c
@@ -226,7 +226,7 @@ namespace SIMULACION_TP1
                 }
 
                 // Agrego los valores a la tabla
-                tablaanalisis.Rows.Add(limiteInferior[i], limiteSuperior[i], frecuenciaObservada[i], frecuenciaEsperada, estadistico[i], estadisticoAcumulado[i]);
+                tablaanalisis.Rows.Add(limiteInferior[i], limiteSuperior[i], frecuenciaObservada[i], frecuenciaEsperada[i], estadistico[i], estadisticoAcumulado[i]);
             }
 
             // Genera Grafico
