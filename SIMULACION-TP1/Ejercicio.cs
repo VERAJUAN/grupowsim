@@ -124,17 +124,46 @@ namespace SIMULACION_TP1
             {
                 case 0:
                     //Normal
+                   if ( double.Parse(constante2.Text) < 0)
+                    {
+                        MessageBox.Show("No puedes ingresar esos valores", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                        // constante1.Text = "1"; 
+                        //constante2.Text = "2" ;
+                    }
                     numerosAleatorios = Distribucion.Normal(m, double.Parse(constante1.Text), double.Parse(constante2.Text));
                     break;
                 case 1:
                     //Exponencial
+                    if (double.Parse(constante1.Text) <= 0)
+                    {
+                        MessageBox.Show("Lambda tiene que ser positivo", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                        //constante1.Text = "1"; 
+                        //constante2.Text = "2" ;
+                    }
                     numerosAleatorios = Distribucion.Exponencial(m, double.Parse(constante1.Text));
                     break;
                 case 2:
                     //Poisson
+                     if (double.Parse(constante1.Text) <= 0)
+                    {
+                        MessageBox.Show("Lambda tiene que ser positivo", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                        //constante1.Text = "1";
+                        //constante2.Text = "2" ;
+                    }
                     numerosAleatorios = Distribucion.Poisson(m, double.Parse(constante1.Text));
                     break;
                 case 3:
+                    // uniforme 
+                     if (double.Parse(constante1.Text) > double.Parse(constante2.Text) )
+                    {
+                        MessageBox.Show("No puedes ingresar esos valores", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                        // constante1.Text = "1"; 
+                        //constante2.Text = "2" ;
+                    }
                     numerosAleatorios = Distribucion.Uniforme(
                         double.Parse(constante1.Text), double.Parse(constante2.Text), m);
                     break;
@@ -195,15 +224,16 @@ namespace SIMULACION_TP1
                 {
                     case 0:
                         //Normal
+                       
                         frecuenciaEsperada[i] = Frecuencia.Normal(m, k, double.Parse(constante1.Text), double.Parse(constante2.Text), paso);
                         break;
                     case 1:
                         //Exponencial
-                        frecuenciaEsperada[i] = Frecuencia.Exponencial(k, m, double.Parse(constante1.Text));
+                        frecuenciaEsperada[i] = Frecuencia.Exponencial(paso, m, double.Parse(constante1.Text));
                         break;
                     case 2:
                         //Poisson
-                        frecuenciaEsperada[i] = Frecuencia.Poisson(m, k, double.Parse(constante1.Text));
+                        frecuenciaEsperada[i] = Frecuencia.Poisson((int)paso, double.Parse(constante1.Text), (int)m);
                         break;
                     case 3:
                         //Uniforme

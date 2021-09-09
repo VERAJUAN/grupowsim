@@ -14,11 +14,11 @@ namespace Distribuciones
             return fe;
         }
 
-        public static double Exponencial(double k, double m, double lambda)
+        public static double Exponencial(double paso, double m, double lambda)
         {
-            double fe = (lambda * Math.Pow(Math.E, lambda * k * -1)) * m;
+            double fe = (lambda * Math.Pow(Math.E, - lambda * paso  )) * m;
 
-            return Math.Round(fe, 3);
+            return Math.Round(fe,3);
         }
 
         public static double Uniforme(double m, double k)
@@ -27,10 +27,10 @@ namespace Distribuciones
             return Math.Round(fe, 3);
         }
 
-        public static double Poisson(double m, double k, double lambda)
+        public static double Poisson(int paso, double lambda, int m)
         {
-            double fe = ((Math.Exp(lambda * -1) * Math.Pow(lambda, k)) / Factorial(k)) * m;
-            return Math.Round(fe, 0);
+            double fe = ((Math.Pow(Math.E , lambda * -1) * Math.Pow(lambda, paso)) / Factorial(paso)) * m;
+            return Math.Round(fe, 3);
         }
 
         private static double Factorial(double f)
