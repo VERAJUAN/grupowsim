@@ -265,6 +265,7 @@ namespace SIMULACION_TP1
 
             Series series = Grafico.Series.Add("Frecuencia Observada");
             series.ChartType = SeriesChartType.Column;
+            series.Points.Clear();
             Grafico.ChartAreas[0].AxisX.Title = "Datos obtenidos";
             Grafico.ChartAreas[0].AxisY.Title = "Frecuencias";
 
@@ -273,6 +274,7 @@ namespace SIMULACION_TP1
             {
                 series.Points.AddXY(limiteSuperior[i], frecuenciaObservada[i]);
             }
+
 
             // Calculo lambda y lo muestro
             txt_resul.Text = Math.Round(estadisticoAcumulado[k - 1], 4).ToString();
