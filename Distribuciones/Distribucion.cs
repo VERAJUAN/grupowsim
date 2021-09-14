@@ -20,10 +20,12 @@ namespace Distribuciones
             for (int i = 0; i < m; i++)
             {
                 numAleatorio = 0;
+                // Sumatoria de los numeros aleatorios generados por el lenguaje
                 for (int j = 0; j < m; j++)
                 {
                     numAleatorio += random.NextDouble();
                 }
+                // (la sumatoria de los numeros aleatorios - 6) * varianza + media
                 operacion = Math.Round(((numAleatorio - 6 ) * varianza) + media, 4);
                 listado.Add(operacion); //Agregamos a la lista
             }
@@ -40,7 +42,9 @@ namespace Distribuciones
 
             for (int i = 0; i < m; i++)
             {
+                // Generamos el numero con el lenguaje
                 numAleatorio = random.NextDouble();
+                // mediaNegativa * ln(1-numeroAleatorio)
                 operacion = Math.Round(mediaNegativa * Math.Log(1 - numAleatorio), 4);
                 listado.Add(operacion); //Agregamos a la lista
             }
@@ -60,10 +64,12 @@ namespace Distribuciones
                 int operacion = -1;
                 do
                 {
+                    //Generamos el aleatorio
                     double numAleatorio = random.NextDouble();
+                    // multiplicamos p por el numero aleatorio
                     p = p * numAleatorio;
                     operacion++;
-                } while (p >= a);
+                } while (p >= a); //cuando p sea mayor o igual a 'a' (-lambda)
 
                 listado.Add(operacion); //Agregamos a la lista
             }
@@ -76,16 +82,16 @@ namespace Distribuciones
             List<double> listado = new List<double>();
 
             Random random = new Random();
-            // numerosAleatorios = new double[m];
             double numAleatorio = 0, operacion = 0;
 
             for (int i = 0; i < m; i++)
             {
+                //generamos el numAleatorio
                 numAleatorio = Math.Round(random.NextDouble(), 4);
+                // el numAleatorio final va ser (desde + (numAleatorio * (hasta - desde))
                 operacion = Math.Round(desde + (numAleatorio * (hasta - desde)), 4);
                 listado.Add(operacion); //Agregamos a la lista
             }
-
 
             return listado;
         }
