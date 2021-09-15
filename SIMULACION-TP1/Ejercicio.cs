@@ -344,7 +344,7 @@ namespace SIMULACION_TP1
         }
         private void constante2_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (char.IsDigit(e.KeyChar))
+           /* if (char.IsDigit(e.KeyChar))
             {
                 e.Handled = false;
             }
@@ -357,7 +357,7 @@ namespace SIMULACION_TP1
                 e.Handled = true;
                 MessageBox.Show("El caracter ingresado no es un número ", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
-            }
+            }*/
         }
 
         private void Label5_Click(object sender, EventArgs e)

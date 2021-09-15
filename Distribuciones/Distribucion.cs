@@ -8,29 +8,44 @@ namespace Distribuciones
 {
     public static class Distribucion
     {
-        public static List<double> Normal(int m, double media, double varianza)
-        {
-            List<double> listado = new List<double>();
-            Random random = new Random();
-            double numAleatorio = 0, operacion = 0;
-            media = m / 2;
-            varianza = m / 12;
 
+
+
+       
+        public static List<double> Normal(int m, double media, double desviacion)
+        {
+
+
+            Random r = new Random();
+            List<double> listado = new List<double>();
+       
 
             for (int i = 0; i < m; i++)
             {
-                numAleatorio = 0;
-                // Sumatoria de los numeros aleatorios generados por el lenguaje
-                for (int j = 0; j < m; j++)
-                {
-                    numAleatorio += random.NextDouble();
-                }
-                // (la sumatoria de los numeros aleatorios - 6) * varianza + media
-                operacion = Math.Round(((numAleatorio - 6 ) * varianza) + media, 4);
-                listado.Add(operacion); //Agregamos a la lista
-            }
+                // Obtener dos nros aleatorios de entrada
+                double RND1 = r.NextDouble();
+                double RND2 = r.NextDouble();
 
+                // Aplicar la formula de Box-Muller
+                double N1 = ((Math.Sqrt(-2 * Math.Log(RND1, 2))) * Math.Cos(2 * Math.PI * RND2)) * desviacion + media;
+                double N2 = ((Math.Sqrt(-2 * Math.Log(RND1, 2))) * Math.Sin(2 * Math.PI * RND2)) * desviacion + media;
+
+                // Guardar los valores, controlando que no sean mas de los que se piden debido que este metodo genera dos nros aleatorios, en la lista intermedia
+                if (!(listado.Count == m))
+                {
+                    listado.Add(Math.Round(N1,4));
+                    
+
+                    if (!(listado.Count == m))
+                    {
+                        listado.Add(Math.Round(N2,4));
+                       
+
+                    }
+                }
+            }
             return listado;
+           
         }
 
         public static List<double> Exponencial(int m, double lambda)
