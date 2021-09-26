@@ -73,14 +73,14 @@ namespace SIMULACION_TP1
                     constante1.Visible = true;
                     constante2.Visible = false;
                     break;
+                //case 2:
+                //    label10.Text = "Lambda";
+                //    label10.Visible = true;
+                //    label11.Visible = false;
+                //    constante1.Visible = true;
+                //    constante2.Visible = false;
+                //    break;
                 case 2:
-                    label10.Text = "Lambda";
-                    label10.Visible = true;
-                    label11.Visible = false;
-                    constante1.Visible = true;
-                    constante2.Visible = false;
-                    break;
-                case 3:
                     label10.Text = "Desde";
                     label11.Text = "Hasta";
                     label10.Visible = true;
@@ -114,10 +114,10 @@ namespace SIMULACION_TP1
 
 
             // Asignamos k (cantidad de intervalos) a los vectores
-            limiteInferior = new double[k];
-            limiteSuperior = new double[k];
-            frecuenciaObservada = new double[k];
-            frecuenciaEsperada = new double[k];
+            //limiteInferior = new double[k];
+            //limiteSuperior = new double[k];
+            //frecuenciaObservada = new double[k];
+            //frecuenciaEsperada = new double[k];
 
             //GeneracionNrosAleatoreos(m);
             switch (comboDist.SelectedIndex)
@@ -144,18 +144,18 @@ namespace SIMULACION_TP1
                     }
                     numerosAleatorios = Distribucion.Exponencial(m, double.Parse(constante1.Text));
                     break;
+                //case 2:
+                //    //Poisson
+                //     if (double.Parse(constante1.Text) <= 0)
+                //    {
+                //        MessageBox.Show("Lambda tiene que ser positivo", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                //        return;
+                //        //constante1.Text = "1";
+                //        //constante2.Text = "2" ;
+                //    }
+                //    numerosAleatorios = Distribucion.Poisson(m, double.Parse(constante1.Text));
+                //    break;
                 case 2:
-                    //Poisson
-                     if (double.Parse(constante1.Text) <= 0)
-                    {
-                        MessageBox.Show("Lambda tiene que ser positivo", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        return;
-                        //constante1.Text = "1";
-                        //constante2.Text = "2" ;
-                    }
-                    numerosAleatorios = Distribucion.Poisson(m, double.Parse(constante1.Text));
-                    break;
-                case 3:
                     // uniforme 
                      if (double.Parse(constante1.Text) > double.Parse(constante2.Text) )
                     {
@@ -180,112 +180,112 @@ namespace SIMULACION_TP1
                 tablaaleatorios.Rows.Add(i + 1, numerosAleatorios.ElementAt(i));
             }
 
-            //Calculo maximo y minimo de los numeros aleatorios
-            double maximo = numerosAleatorios.Max();
-            double minimo = numerosAleatorios.Min();
+            ////Calculo maximo y minimo de los numeros aleatorios
+            //double maximo = numerosAleatorios.Max();
+            //double minimo = numerosAleatorios.Min();
 
-            //Calculo el paso de cada intervalo
-            double paso = Math.Round((maximo - minimo) / k, 4);
+            ////Calculo el paso de cada intervalo
+            //double paso = Math.Round((maximo - minimo) / k, 4);
 
-            //Asigno valor a los limites
-            for (int i = 0; i < k; i++)
-            {
-                //Primer limite inferior: valor minimo
-                if (i == 0) limiteInferior[i] = Math.Round(minimo, 4);
-                //Otros limites inferiores igual al limite superior anterior
-                else limiteInferior[i] = Math.Round(limiteSuperior[i - 1], 4);
-                //Si es el ultimo limite
-                if(i == k-1) limiteSuperior[i] = Math.Round(maximo, 4);
-                //Limite superior igual al inferior mas el paso
-                else limiteSuperior[i] = Math.Round(limiteInferior[i] + paso, 4);
-            }
+            ////Asigno valor a los limites
+            //for (int i = 0; i < k; i++)
+            //{
+            //    //Primer limite inferior: valor minimo
+            //    if (i == 0) limiteInferior[i] = Math.Round(minimo, 4);
+            //    //Otros limites inferiores igual al limite superior anterior
+            //    else limiteInferior[i] = Math.Round(limiteSuperior[i - 1], 4);
+            //    //Si es el ultimo limite
+            //    if(i == k-1) limiteSuperior[i] = Math.Round(maximo, 4);
+            //    //Limite superior igual al inferior mas el paso
+            //    else limiteSuperior[i] = Math.Round(limiteInferior[i] + paso, 4);
+            //}
 
-            for (int i = 0; i < m; i++)
-            {
-                // Calcula la cantidad de numeros por cada intervalo(frecuenciaObservada)
-                int contador = 0;
-                while (numerosAleatorios[i] > limiteSuperior[contador])
-                {
-                    contador++;
-                }
-                frecuenciaObservada[contador] += 1;
-            }
+            //for (int i = 0; i < m; i++)
+            //{
+            //    // Calcula la cantidad de numeros por cada intervalo(frecuenciaObservada)
+            //    int contador = 0;
+            //    while (numerosAleatorios[i] > limiteSuperior[contador])
+            //    {
+            //        contador++;
+            //    }
+            //    frecuenciaObservada[contador] += 1;
+            //}
 
-            // C
-            estadistico = new double[k];
-            // C Ac
-            estadisticoAcumulado = new double[k];
+            //// C
+            //estadistico = new double[k];
+            //// C Ac
+            //estadisticoAcumulado = new double[k];
 
-            // Asigno valores a la tabla
-            for (int i = 0; i < k; i++)
-            {
-                //Frecuencia esperada por distribución
-                switch (comboDist.SelectedIndex)
-                {
-                    case 0:
-                        //Normal
+            //// Asigno valores a la tabla
+            //for (int i = 0; i < k; i++)
+            //{
+            //    //Frecuencia esperada por distribución
+            //    switch (comboDist.SelectedIndex)
+            //    {
+            //        case 0:
+            //            //Normal
                        
-                        frecuenciaEsperada[i] = Frecuencia.Normal(m, k, double.Parse(constante1.Text), double.Parse(constante2.Text), paso);
-                        break;
-                    case 1:
-                        //Exponencial
-                        frecuenciaEsperada[i] = Frecuencia.Exponencial(paso, m, double.Parse(constante1.Text));
-                        break;
-                    case 2:
-                        //Poisson
-                        frecuenciaEsperada[i] = Frecuencia.Poisson((int)paso, double.Parse(constante1.Text), (int)m);
-                        break;
-                    case 3:
-                        //Uniforme
-                        frecuenciaEsperada[i] = Frecuencia.Uniforme(m, k);
-                        break;
-                }
+            //            frecuenciaEsperada[i] = Frecuencia.Normal(m, k, double.Parse(constante1.Text), double.Parse(constante2.Text), paso);
+            //            break;
+            //        case 1:
+            //            //Exponencial
+            //            frecuenciaEsperada[i] = Frecuencia.Exponencial(paso, m, double.Parse(constante1.Text));
+            //            break;
+            //        case 2:
+            //            //Poisson
+            //            frecuenciaEsperada[i] = Frecuencia.Poisson((int)paso, double.Parse(constante1.Text), (int)m);
+            //            break;
+            //        case 3:
+            //            //Uniforme
+            //            frecuenciaEsperada[i] = Frecuencia.Uniforme(m, k);
+            //            break;
+            //    }
 
 
-                // Calculo del valor de C
-                estadistico[i] = (double)Math.Pow(frecuenciaObservada[i] - frecuenciaEsperada[i], 2) / frecuenciaEsperada[i];
+            //    // Calculo del valor de C
+            //    estadistico[i] = (double)Math.Pow(frecuenciaObservada[i] - frecuenciaEsperada[i], 2) / frecuenciaEsperada[i];
 
-                // Calculo del valor de C Acumulado
-                if (i == 0) // Primera vuelta guarda el mismo valor de c
-                {
-                    estadisticoAcumulado[i] = estadistico[i];
-                }
-                else // acumula C
-                {
-                    estadisticoAcumulado[i] = estadistico[i] + estadisticoAcumulado[i - 1];
-                }
+            //    // Calculo del valor de C Acumulado
+            //    if (i == 0) // Primera vuelta guarda el mismo valor de c
+            //    {
+            //        estadisticoAcumulado[i] = estadistico[i];
+            //    }
+            //    else // acumula C
+            //    {
+            //        estadisticoAcumulado[i] = estadistico[i] + estadisticoAcumulado[i - 1];
+            //    }
 
-                // Agrego los valores a la tabla
-                tablaanalisis.Rows.Add(limiteInferior[i], limiteSuperior[i], frecuenciaObservada[i], frecuenciaEsperada[i], estadistico[i], estadisticoAcumulado[i]);
-            }
+            //    // Agrego los valores a la tabla
+            //    tablaanalisis.Rows.Add(limiteInferior[i], limiteSuperior[i], frecuenciaObservada[i], frecuenciaEsperada[i], estadistico[i], estadisticoAcumulado[i]);
+            //}
 
-            // Genera Grafico
-            if (Grafico.Titles.Count == 0)
-                Grafico.Titles.Add("Frecuencias observadas");
+            //// Genera Grafico
+            //if (Grafico.Titles.Count == 0)
+            //    Grafico.Titles.Add("Frecuencias observadas");
 
-            Series series = Grafico.Series.Add("Frecuencia Observada");
-            series.ChartType = SeriesChartType.Column;
-            series.Points.Clear();
-            Grafico.ChartAreas[0].AxisX.Title = "Datos obtenidos";
-            Grafico.ChartAreas[0].AxisY.Title = "Frecuencias";
+            //Series series = Grafico.Series.Add("Frecuencia Observada");
+            //series.ChartType = SeriesChartType.Column;
+            //series.Points.Clear();
+            //Grafico.ChartAreas[0].AxisX.Title = "Datos obtenidos";
+            //Grafico.ChartAreas[0].AxisY.Title = "Frecuencias";
 
-            // Cargo los intervalos con sus respectivos valores
-            for (int i = 0; i < limiteSuperior.Length; i++)
-            {
-                series.Points.AddXY(limiteSuperior[i], frecuenciaObservada[i]);
-            }
+            //// Cargo los intervalos con sus respectivos valores
+            //for (int i = 0; i < limiteSuperior.Length; i++)
+            //{
+            //    series.Points.AddXY(limiteSuperior[i], frecuenciaObservada[i]);
+            //}
 
 
-            // Calculo lambda y lo muestro
-            txt_resul.Text = Math.Round(estadisticoAcumulado[k - 1], 4).ToString();
+            //// Calculo lambda y lo muestro
+            //txt_resul.Text = Math.Round(estadisticoAcumulado[k - 1], 4).ToString();
 
-            // Calculo el valor y obtengo el valor tabulado.
-            var p = 1 - Convert.ToDouble(cboSignificancia.SelectedItem);
-            double chi = ChiSquared.InvCDF(k - 1, p);
-            tbChi.Text = Math.Round(chi, 4).ToString();
+            //// Calculo el valor y obtengo el valor tabulado.
+            //var p = 1 - Convert.ToDouble(cboSignificancia.SelectedItem);
+            //double chi = ChiSquared.InvCDF(k - 1, p);
+            //tbChi.Text = Math.Round(chi, 4).ToString();
 
-            // Si el estadístico de prueba es menor o igual que el valor
-            // crítico, no se puede rechazar la hipótesis nula
+            //// Si el estadístico de prueba es menor o igual que el valor
+            //// crítico, no se puede rechazar la hipótesis nula
 
         }
 

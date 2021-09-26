@@ -48,13 +48,6 @@ namespace SIMULACION_TP1
             this.label1 = new System.Windows.Forms.Label();
             this.txt_resul = new System.Windows.Forms.Label();
             this.Label7 = new System.Windows.Forms.Label();
-            this.tablaanalisis = new System.Windows.Forms.DataGridView();
-            this.inferior = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.superior = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.asd = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tablaaleatorios = new System.Windows.Forms.DataGridView();
             this.Nro = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Aleatorio = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -64,10 +57,17 @@ namespace SIMULACION_TP1
             this.txt_m = new System.Windows.Forms.TextBox();
             this.btn_generar = new System.Windows.Forms.Button();
             this.Grafico = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.asd = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.superior = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.inferior = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tablaanalisis = new System.Windows.Forms.DataGridView();
             this.GroupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.tablaanalisis)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tablaaleatorios)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Grafico)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tablaanalisis)).BeginInit();
             this.SuspendLayout();
             // 
             // GroupBox1
@@ -160,7 +160,6 @@ namespace SIMULACION_TP1
             this.comboDist.Items.AddRange(new object[] {
             "Normal",
             "Exponencial",
-            "Poisson",
             "Uniforme"});
             this.comboDist.Location = new System.Drawing.Point(234, 31);
             this.comboDist.Name = "comboDist";
@@ -262,61 +261,6 @@ namespace SIMULACION_TP1
             this.Label7.TabIndex = 421;
             this.Label7.Text = "Resultado Calculado";
             // 
-            // tablaanalisis
-            // 
-            this.tablaanalisis.AllowUserToAddRows = false;
-            this.tablaanalisis.AllowUserToDeleteRows = false;
-            this.tablaanalisis.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.tablaanalisis.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.tablaanalisis.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.inferior,
-            this.superior,
-            this.asd,
-            this.Column4,
-            this.Column5,
-            this.Column6});
-            this.tablaanalisis.Location = new System.Drawing.Point(219, 74);
-            this.tablaanalisis.Name = "tablaanalisis";
-            this.tablaanalisis.ReadOnly = true;
-            this.tablaanalisis.Size = new System.Drawing.Size(531, 279);
-            this.tablaanalisis.TabIndex = 420;
-            // 
-            // inferior
-            // 
-            this.inferior.HeaderText = "inferior";
-            this.inferior.Name = "inferior";
-            this.inferior.ReadOnly = true;
-            // 
-            // superior
-            // 
-            this.superior.HeaderText = "superior";
-            this.superior.Name = "superior";
-            this.superior.ReadOnly = true;
-            // 
-            // asd
-            // 
-            this.asd.HeaderText = "Fo";
-            this.asd.Name = "asd";
-            this.asd.ReadOnly = true;
-            // 
-            // Column4
-            // 
-            this.Column4.HeaderText = "Fe";
-            this.Column4.Name = "Column4";
-            this.Column4.ReadOnly = true;
-            // 
-            // Column5
-            // 
-            this.Column5.HeaderText = "C";
-            this.Column5.Name = "Column5";
-            this.Column5.ReadOnly = true;
-            // 
-            // Column6
-            // 
-            this.Column6.HeaderText = "C Acumulado";
-            this.Column6.Name = "Column6";
-            this.Column6.ReadOnly = true;
-            // 
             // tablaaleatorios
             // 
             this.tablaaleatorios.AllowUserToAddRows = false;
@@ -410,6 +354,61 @@ namespace SIMULACION_TP1
             this.Grafico.TabIndex = 5;
             this.Grafico.Text = "Frecuencia Observada";
             // 
+            // Column6
+            // 
+            this.Column6.HeaderText = "C Acumulado";
+            this.Column6.Name = "Column6";
+            this.Column6.ReadOnly = true;
+            // 
+            // Column5
+            // 
+            this.Column5.HeaderText = "C";
+            this.Column5.Name = "Column5";
+            this.Column5.ReadOnly = true;
+            // 
+            // Column4
+            // 
+            this.Column4.HeaderText = "Fe";
+            this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
+            // 
+            // asd
+            // 
+            this.asd.HeaderText = "Fo";
+            this.asd.Name = "asd";
+            this.asd.ReadOnly = true;
+            // 
+            // superior
+            // 
+            this.superior.HeaderText = "superior";
+            this.superior.Name = "superior";
+            this.superior.ReadOnly = true;
+            // 
+            // inferior
+            // 
+            this.inferior.HeaderText = "inferior";
+            this.inferior.Name = "inferior";
+            this.inferior.ReadOnly = true;
+            // 
+            // tablaanalisis
+            // 
+            this.tablaanalisis.AllowUserToAddRows = false;
+            this.tablaanalisis.AllowUserToDeleteRows = false;
+            this.tablaanalisis.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.tablaanalisis.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.tablaanalisis.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.inferior,
+            this.superior,
+            this.asd,
+            this.Column4,
+            this.Column5,
+            this.Column6});
+            this.tablaanalisis.Location = new System.Drawing.Point(219, 74);
+            this.tablaanalisis.Name = "tablaanalisis";
+            this.tablaanalisis.ReadOnly = true;
+            this.tablaanalisis.Size = new System.Drawing.Size(531, 279);
+            this.tablaanalisis.TabIndex = 420;
+            // 
             // Ejercicio__B
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -421,9 +420,9 @@ namespace SIMULACION_TP1
             this.Text = "Ejercicio__B";
             this.GroupBox1.ResumeLayout(false);
             this.GroupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.tablaanalisis)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tablaaleatorios)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Grafico)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tablaanalisis)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -433,7 +432,6 @@ namespace SIMULACION_TP1
         internal System.Windows.Forms.GroupBox GroupBox1;
         internal System.Windows.Forms.Label txt_resul;
         internal System.Windows.Forms.Label Label7;
-        internal System.Windows.Forms.DataGridView tablaanalisis;
         internal System.Windows.Forms.DataGridView tablaaleatorios;
         internal System.Windows.Forms.Label Label5;
         internal System.Windows.Forms.TextBox txt_k;
@@ -441,12 +439,6 @@ namespace SIMULACION_TP1
         internal System.Windows.Forms.TextBox txt_m;
         internal System.Windows.Forms.Button btn_generar;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn inferior;
-        private System.Windows.Forms.DataGridViewTextBoxColumn superior;
-        private System.Windows.Forms.DataGridViewTextBoxColumn asd;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
         private System.Windows.Forms.DataGridViewTextBoxColumn Nro;
         private System.Windows.Forms.DataGridViewTextBoxColumn Aleatorio;
         private System.Windows.Forms.DataVisualization.Charting.Chart Grafico;
@@ -462,5 +454,12 @@ namespace SIMULACION_TP1
         internal System.Windows.Forms.Label label11;
         internal System.Windows.Forms.Label label10;
         internal System.Windows.Forms.TextBox constante1;
+        internal System.Windows.Forms.DataGridView tablaanalisis;
+        private System.Windows.Forms.DataGridViewTextBoxColumn inferior;
+        private System.Windows.Forms.DataGridViewTextBoxColumn superior;
+        private System.Windows.Forms.DataGridViewTextBoxColumn asd;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
     }
 }

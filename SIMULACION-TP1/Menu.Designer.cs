@@ -52,7 +52,7 @@
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(173, 40);
             this.button2.TabIndex = 2;
-            this.button2.Text = "Ejercicio TP3";
+            this.button2.Text = "Ejercicio TP4";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
@@ -64,7 +64,8 @@
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(162, 42);
             this.label2.TabIndex = 4;
-            this.label2.Text = "TP3 SIM";
+            this.label2.Text = "TP4 SIM";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // textBox1
             // 
