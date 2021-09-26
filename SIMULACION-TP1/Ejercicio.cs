@@ -18,25 +18,62 @@ namespace SIMULACION_TP1
     {
 
         double[] limiteInferior, limiteSuperior, frecuenciaObservada, frecuenciaEsperada, estadistico, estadisticoAcumulado;
-        List<double> numerosAleatorios;
+        List<decimal> numerosAleatorios;
+        int cantProyectos = 0;
+
+        int a;
+        int c;
+        int m;
+
 
         private void cboSignificancia_SelectedIndexChanged(object sender, EventArgs e)
         {
-            comboDist.SelectedIndex = 0;
+            comboDist1.SelectedIndex = 0;
         }
 
         public Ejercicio__B()
         {
             InitializeComponent();
-            cboSignificancia.SelectedIndex = 0;
-            tbChi.Text = "";
-            txt_resul.Text = "";
+            //cboSignificancia.SelectedIndex = 0;
+            //tbChi.Text = "";
+            //txt_resul.Text = "";
+
+            //SETEO INICIAL DE ACTIVIDADES
+            comboDist1.SelectedIndex = 2;
+            constante1_1.Text = "20";
+            constante1_2.Text = "30";
+
+            comboDist2.SelectedIndex = 2;
+            constante2_1.Text = "30";
+            constante2_2.Text = "50";
+
+            comboDist3.SelectedIndex = 1;
+            constante3_1.Text = "30";
+
+            comboDist4.SelectedIndex = 2;
+            constante4_1.Text = "10";
+            constante4_2.Text = "20";
+
+            comboDist5.SelectedIndex = 1;
+            constante5_1.Text = "5";
+
         }
 
         private void btn_generar_Click(object sender, EventArgs e)
         {
-            int m = int.Parse(txt_m.Text);
-            int k = int.Parse(txt_k.Text);
+            m = int.Parse(txt_m.Text);
+            a = int.Parse(txtA.Text);
+            c = int.Parse(txtC.Text);
+
+            int k = int.Parse(txt_a.Text);
+
+            congruencialMixto(a, c, m);
+
+            //Agregamos a tabla los aleatorios mixtos
+            for (int i = 0; i < m; i++)
+            {
+                tablaaleatorios.Rows.Add(i + 1, numerosAleatorios.ElementAt(i));
+            }
 
             // Corroboramos que k sea mayor a 4
             if (k > 4 && m >= k)
@@ -50,28 +87,48 @@ namespace SIMULACION_TP1
 
         }
 
-        
+        private void congruencialMixto(int a, int c, int m)
+        {
+            decimal xi = 0;
+
+            for (int i = 1; i <= cantProyectos; i++)
+            {
+                xi = ((a * xi) + c) % m; //Si es mixto
+                xi = (xi + (decimal)0.5) / m; //(0;1)
+
+                numerosAleatorios.Add(xi); //Agregamos a la lista
+
+                //Como mostrar
+                if (i < 21)
+                {
+                    tablaaleatorios.Rows.Add(i + 1, numerosAleatorios.ElementAt(i));
+
+                    //dgvLista.Rows.Add(i, Math.Truncate(xi / m * 10000) / 10000); //Mostramos los primeros 20
+                }
+            }
+        }
+
 
         private void comboDist_SelectedIndexChanged(object sender, EventArgs e)
         {
 
-            switch (comboDist.SelectedIndex)
+            switch (comboDist1.SelectedIndex)
             {
                 case 0:
                     label10.Text = "Media";
                     label11.Text = "Desviación";
                     label10.Visible = true;
                     label11.Visible = true;
-                    constante1.Visible = true;
-                    constante2.Visible = true;
+                    constante1_1.Visible = true;
+                    constante1_2.Visible = true;
                     break;
 
                 case 1:
                     label10.Text = "Lambda";
                     label10.Visible = true;
                     label11.Visible = false;
-                    constante1.Visible = true;
-                    constante2.Visible = false;
+                    constante1_1.Visible = true;
+                    constante1_2.Visible = false;
                     break;
                 //case 2:
                 //    label10.Text = "Lambda";
@@ -85,15 +142,15 @@ namespace SIMULACION_TP1
                     label11.Text = "Hasta";
                     label10.Visible = true;
                     label11.Visible = true;
-                    constante1.Visible = true;
-                    constante2.Visible = true;
+                    constante1_1.Visible = true;
+                    constante1_2.Visible = true;
                     break;
                 default:
 
                     label10.Visible = false;
                     label11.Visible = false;
-                    constante1.Visible = false;
-                    constante2.Visible = false;
+                    constante1_1.Visible = false;
+                    constante1_2.Visible = false;
                     break;
             }
 
@@ -110,7 +167,7 @@ namespace SIMULACION_TP1
             // Tomamos los valores de m (cantidad de numeros aleatorios)
             // y k (cantidad de intervalos)
             int m = int.Parse(txt_m.Text);
-            int k = int.Parse(txt_k.Text);
+            int k = int.Parse(txt_a.Text);
 
 
             // Asignamos k (cantidad de intervalos) a los vectores
@@ -120,29 +177,29 @@ namespace SIMULACION_TP1
             //frecuenciaEsperada = new double[k];
 
             //GeneracionNrosAleatoreos(m);
-            switch (comboDist.SelectedIndex)
+            switch (comboDist1.SelectedIndex)
             {
                 case 0:
                     //Normal
-                   if ( double.Parse(constante2.Text) < 0)
+                    if (double.Parse(constante1_2.Text) < 0)
                     {
                         MessageBox.Show("No puedes ingresar esos valores", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         return;
                         // constante1.Text = "1"; 
                         //constante2.Text = "2" ;
                     }
-                    numerosAleatorios = Distribucion.Normal(m, double.Parse(constante1.Text), double.Parse(constante2.Text));
+                    numerosAleatorios = Distribucion.Normal(m, double.Parse(constante1_1.Text), double.Parse(constante1_2.Text));
                     break;
                 case 1:
                     //Exponencial
-                    if (double.Parse(constante1.Text) <= 0)
+                    if (double.Parse(constante1_1.Text) <= 0)
                     {
                         MessageBox.Show("Lambda tiene que ser positivo", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         return;
                         //constante1.Text = "1"; 
                         //constante2.Text = "2" ;
                     }
-                    numerosAleatorios = Distribucion.Exponencial(m, double.Parse(constante1.Text));
+                    numerosAleatorios = Distribucion.Exponencial(m, double.Parse(constante1_1.Text));
                     break;
                 //case 2:
                 //    //Poisson
@@ -157,7 +214,7 @@ namespace SIMULACION_TP1
                 //    break;
                 case 2:
                     // uniforme 
-                     if (double.Parse(constante1.Text) > double.Parse(constante2.Text) )
+                    if (double.Parse(constante1_1.Text) > double.Parse(constante1_2.Text))
                     {
                         MessageBox.Show("No puedes ingresar esos valores", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         return;
@@ -165,17 +222,17 @@ namespace SIMULACION_TP1
                         //constante2.Text = "2" ;
                     }
                     numerosAleatorios = Distribucion.Uniforme(
-                        double.Parse(constante1.Text), double.Parse(constante2.Text), m);
+                        double.Parse(constante1_1.Text), double.Parse(constante1_2.Text), m);
                     break;
                 default:
                     label10.Visible = false;
                     label11.Visible = false;
-                    constante1.Visible = false;
-                    constante2.Visible = false;
+                    constante1_1.Visible = false;
+                    constante1_2.Visible = false;
                     break;
             }
 
-            for(int i = 0; i < m; i++)
+            for (int i = 0; i < m; i++)
             {
                 tablaaleatorios.Rows.Add(i + 1, numerosAleatorios.ElementAt(i));
             }
@@ -224,7 +281,7 @@ namespace SIMULACION_TP1
             //    {
             //        case 0:
             //            //Normal
-                       
+
             //            frecuenciaEsperada[i] = Frecuencia.Normal(m, k, double.Parse(constante1.Text), double.Parse(constante2.Text), paso);
             //            break;
             //        case 1:
@@ -344,20 +401,20 @@ namespace SIMULACION_TP1
         }
         private void constante2_KeyPress(object sender, KeyPressEventArgs e)
         {
-           /* if (char.IsDigit(e.KeyChar))
-            {
-                e.Handled = false;
-            }
-            else if (char.IsControl(e.KeyChar))
-            {
-                e.Handled = false;
-            }
-            else
-            {
-                e.Handled = true;
-                MessageBox.Show("El caracter ingresado no es un número ", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            /* if (char.IsDigit(e.KeyChar))
+             {
+                 e.Handled = false;
+             }
+             else if (char.IsControl(e.KeyChar))
+             {
+                 e.Handled = false;
+             }
+             else
+             {
+                 e.Handled = true;
+                 MessageBox.Show("El caracter ingresado no es un número ", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
-            }*/
+             }*/
         }
 
         private void Label5_Click(object sender, EventArgs e)
@@ -366,6 +423,11 @@ namespace SIMULACION_TP1
         }
 
         private void Label6_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label15_Click(object sender, EventArgs e)
         {
 
         }
