@@ -42,5 +42,35 @@ namespace SIMULACION_TP1
         {
             return sumaA1aA4 + diasA5deMas;
         }
+
+        public decimal acumuladoEnsamble(decimal acumAnterior, decimal duracionEnsamble)
+        {
+            return acumAnterior + duracionEnsamble;
+        }
+
+        public decimal promedioDuracionEnsamble(decimal acumulado, decimal dia)
+        {
+            return acumulado / dia;
+        }
+
+        public decimal maxDuracion(decimal maxAnterior, decimal duracionEnsamble)
+        {
+            return maxAnterior > duracionEnsamble ? maxAnterior : duracionEnsamble;
+        }
+
+        public decimal minDuracion(decimal minAnterior, decimal duracionEnsamble)
+        {
+            return minAnterior < duracionEnsamble ? minAnterior : duracionEnsamble;
+        }
+
+        public decimal cantTareasMenor45Dias(decimal duracionEnsamble, decimal cantAnterior)
+        {
+            return duracionEnsamble < 45 ? cantAnterior + 1 : cantAnterior;
+        }
+
+        public decimal probCompletarEn45Dias(decimal cantTareasMenor45Dias, decimal dia)
+        {
+            return cantTareasMenor45Dias / dia;
+        }
     }
 }
