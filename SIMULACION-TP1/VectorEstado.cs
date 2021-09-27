@@ -8,67 +8,67 @@ namespace SIMULACION_TP1
 {
     public class VectorEstado
     {
-        public decimal Tmax(decimal t1, decimal t2, decimal t3)
+        public double Tmax(double t1, double t2, double t3)
         {
             return t1 > t2 && t1 > t3 ? t1 : (t2 > t3 ? t2 : t3);
         }
 
-        public decimal Tmin(decimal t1, decimal t2, decimal t3)
+        public double Tmin(double t1, double t2, double t3)
         {
             return t1 < t2 && t1 < t3 ? t1 : (t2 < t3 ? t2 : t3);
         }
 
-        public decimal diasA4deMas(decimal t4, decimal tmax, decimal t1)
+        public double diasA4deMas(double t4, double tmax, double t1)
         {
             return t4 - (tmax - t1);
         }
 
-        public decimal sumaA1aA4(decimal tmax, decimal diasA4deMas)
+        public double sumaA1aA4(double tmax, double diasA4deMas)
         {
             return tmax + (diasA4deMas > 0 ? diasA4deMas : 0);
         }
 
-        public decimal maxT2yT4(decimal t2, decimal t4)
+        public double maxT2yT4(double t2, double t4)
         {
             return t2 > t4 ? t2 : t4;
         }
 
-        public decimal diasA5deMas(decimal maxT2yT4, decimal t5, decimal sumaA1aA4)
+        public double diasA5deMas(double maxT2yT4, double t5, double sumaA1aA4)
         {
             return maxT2yT4 < sumaA1aA4 ? (maxT2yT4 + t5 - sumaA1aA4) : t5;
         }
 
-        public decimal duracionEnsamble(decimal sumaA1aA4, decimal diasA5deMas)
+        public double duracionEnsamble(double sumaA1aA4, double diasA5deMas)
         {
             return sumaA1aA4 + diasA5deMas;
         }
 
-        public decimal acumuladoEnsamble(decimal acumAnterior, decimal duracionEnsamble)
+        public double acumuladoEnsamble(double acumAnterior, double duracionEnsamble)
         {
             return acumAnterior + duracionEnsamble;
         }
 
-        public decimal promedioDuracionEnsamble(decimal acumulado, decimal dia)
+        public double promedioDuracionEnsamble(double acumulado, double dia)
         {
             return acumulado / dia;
         }
 
-        public decimal maxDuracion(decimal maxAnterior, decimal duracionEnsamble)
+        public double maxDuracion(double maxAnterior, double duracionEnsamble)
         {
             return maxAnterior > duracionEnsamble ? maxAnterior : duracionEnsamble;
         }
 
-        public decimal minDuracion(decimal minAnterior, decimal duracionEnsamble)
+        public double minDuracion(double minAnterior, double duracionEnsamble)
         {
             return minAnterior < duracionEnsamble ? minAnterior : duracionEnsamble;
         }
 
-        public decimal cantTareasMenor45Dias(decimal duracionEnsamble, decimal cantAnterior)
+        public double cantTareasMenor45Dias(double duracionEnsamble, double cantAnterior)
         {
             return duracionEnsamble < 45 ? cantAnterior + 1 : cantAnterior;
         }
 
-        public decimal probCompletarEn45Dias(decimal cantTareasMenor45Dias, decimal dia)
+        public double probCompletarEn45Dias(double cantTareasMenor45Dias, double dia)
         {
             return cantTareasMenor45Dias / dia;
         }
