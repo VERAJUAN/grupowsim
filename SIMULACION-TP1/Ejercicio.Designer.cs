@@ -29,9 +29,9 @@ namespace SIMULACION_TP1
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea8 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend8 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series8 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.GroupBox1 = new System.Windows.Forms.GroupBox();
             this.label29 = new System.Windows.Forms.Label();
             this.constante5_2 = new System.Windows.Forms.TextBox();
@@ -219,6 +219,7 @@ namespace SIMULACION_TP1
             this.comboDist5.Name = "comboDist5";
             this.comboDist5.Size = new System.Drawing.Size(121, 21);
             this.comboDist5.TabIndex = 466;
+            this.comboDist5.SelectedIndexChanged += new System.EventHandler(this.comboDist5_SelectedIndexChanged);
             // 
             // label25
             // 
@@ -290,6 +291,7 @@ namespace SIMULACION_TP1
             this.comboDist4.Name = "comboDist4";
             this.comboDist4.Size = new System.Drawing.Size(121, 21);
             this.comboDist4.TabIndex = 459;
+            this.comboDist4.SelectedIndexChanged += new System.EventHandler(this.comboDist4_SelectedIndexChanged);
             // 
             // label21
             // 
@@ -361,6 +363,7 @@ namespace SIMULACION_TP1
             this.comboDist3.Name = "comboDist3";
             this.comboDist3.Size = new System.Drawing.Size(121, 21);
             this.comboDist3.TabIndex = 452;
+            this.comboDist3.SelectedIndexChanged += new System.EventHandler(this.comboDist3_SelectedIndexChanged);
             // 
             // label17
             // 
@@ -432,6 +435,7 @@ namespace SIMULACION_TP1
             this.comboDist2.Name = "comboDist2";
             this.comboDist2.Size = new System.Drawing.Size(121, 21);
             this.comboDist2.TabIndex = 445;
+            this.comboDist2.SelectedIndexChanged += new System.EventHandler(this.comboDist2_SelectedIndexChanged);
             // 
             // label16
             // 
@@ -661,16 +665,16 @@ namespace SIMULACION_TP1
             // 
             // Grafico
             // 
-            chartArea8.Name = "ChartArea1";
-            this.Grafico.ChartAreas.Add(chartArea8);
-            legend8.Name = "Legend1";
-            this.Grafico.Legends.Add(legend8);
+            chartArea4.Name = "ChartArea1";
+            this.Grafico.ChartAreas.Add(chartArea4);
+            legend4.Name = "Legend1";
+            this.Grafico.Legends.Add(legend4);
             this.Grafico.Location = new System.Drawing.Point(17, 444);
             this.Grafico.Name = "Grafico";
-            series8.ChartArea = "ChartArea1";
-            series8.Legend = "Legend1";
-            series8.Name = "Series1";
-            this.Grafico.Series.Add(series8);
+            series4.ChartArea = "ChartArea1";
+            series4.Legend = "Legend1";
+            series4.Name = "Series1";
+            this.Grafico.Series.Add(series4);
             this.Grafico.Size = new System.Drawing.Size(766, 350);
             this.Grafico.TabIndex = 5;
             this.Grafico.Text = "Frecuencia Observada";

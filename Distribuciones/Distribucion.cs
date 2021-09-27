@@ -12,16 +12,16 @@ namespace Distribuciones
 
 
        
-        public static List<double> Normal(int m, double media, double desviacion)
+        public static double Normal(int m, double media, double desviacion)
         {
 
 
             Random r = new Random();
-            List<double> listado = new List<double>();
+            // List<double> listado = new List<double>();
        
 
-            for (int i = 0; i < m; i++)
-            {
+            //for (int i = 0; i < m; i++)
+            //{
                 // Obtener dos nros aleatorios de entrada
                 double RND1 = r.NextDouble();
                 double RND2 = r.NextDouble();
@@ -31,40 +31,40 @@ namespace Distribuciones
                 double N2 = ((Math.Sqrt(-2 * Math.Log(RND1, 2))) * Math.Sin(2 * Math.PI * RND2)) * desviacion + media;
 
                 // Guardar los valores, controlando que no sean mas de los que se piden debido que este metodo genera dos nros aleatorios, en la lista intermedia
-                if (!(listado.Count == m))
-                {
-                    listado.Add(Math.Round(N1,4));
+            //    if (!(listado.Count == m))
+            //    {
+            //        listado.Add(Math.Round(N1,4));
                     
 
-                    if (!(listado.Count == m))
-                    {
-                        listado.Add(Math.Round(N2,4));
+            //        if (!(listado.Count == m))
+            //        {
+            //            listado.Add(Math.Round(N2,4));
                        
 
-                    }
-                }
-            }
-            return listado;
+            //        }
+            //    }
+            //}
+            return N1;
            
         }
 
-        public static List<double> Exponencial(int m, double lambda)
+        public static double Exponencial(int m, double lambda)
         {
-            List<double> listado = new List<double>();
+            //List<double> listado = new List<double>();
             Random random = new Random();
             double numAleatorio = 0, operacion = 0;
             double mediaNegativa = (1 / lambda) * -1;
 
-            for (int i = 0; i < m; i++)
-            {
+            //for (int i = 0; i < m; i++)
+            //{
                 // Generamos el numero con el lenguaje
                 numAleatorio = random.NextDouble();
                 // mediaNegativa * ln(1-numeroAleatorio)
                 operacion = Math.Round(mediaNegativa * Math.Log(1 - numAleatorio), 4);
-                listado.Add(operacion); //Agregamos a la lista
-            }
+                //listado.Add(operacion); //Agregamos a la lista
+            //}
 
-            return listado;
+            return operacion;
         }
 
         public static List<double> Poisson(int m, double lambda)
@@ -92,23 +92,23 @@ namespace Distribuciones
             return listado;
         }
 
-        public static List<double> Uniforme(double desde, double hasta, int m)
+        public static double Uniforme(double desde, double hasta, int m)
         {
-            List<double> listado = new List<double>();
+            //List<double> listado = new List<double>();
 
             Random random = new Random();
             double numAleatorio = 0, operacion = 0;
 
-            for (int i = 0; i < m; i++)
-            {
+            //for (int i = 0; i < m; i++)
+            //{
                 //generamos el numAleatorio
                 numAleatorio = Math.Round(random.NextDouble(), 4);
                 // el numAleatorio final va ser (desde + (numAleatorio * (hasta - desde))
                 operacion = Math.Round(desde + (numAleatorio * (hasta - desde)), 4);
-                listado.Add(operacion); //Agregamos a la lista
-            }
+                //listado.Add(operacion); //Agregamos a la lista
+            //}
 
-            return listado;
+            return operacion;
         }
 
 

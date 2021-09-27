@@ -18,12 +18,13 @@ namespace SIMULACION_TP1
     {
 
         double[] limiteInferior, limiteSuperior, frecuenciaObservada, frecuenciaEsperada, estadistico, estadisticoAcumulado;
-        List<decimal> numerosAleatorios;
+        List<double> numerosAleatorios;
         int cantProyectos = 0;
 
         int a;
         int c;
         int m;
+        double semilla;
 
 
         private void cboSignificancia_SelectedIndexChanged(object sender, EventArgs e)
@@ -62,12 +63,13 @@ namespace SIMULACION_TP1
         private void btn_generar_Click(object sender, EventArgs e)
         {
             m = int.Parse(txt_m.Text);
-            a = int.Parse(txtA.Text);
-            c = int.Parse(txtC.Text);
+            a = int.Parse(txt_a.Text);
+            c = int.Parse(txt_c.Text);
+            semilla = double.Parse(txt_semilla.Text);
+            
+            //int k = int.Parse(txt_a.Text);
 
-            int k = int.Parse(txt_a.Text);
-
-            congruencialMixto(a, c, m);
+            congruencialMixto(a, c, m, semilla);
 
             //Agregamos a tabla los aleatorios mixtos
             for (int i = 0; i < m; i++)
@@ -76,30 +78,28 @@ namespace SIMULACION_TP1
             }
 
             // Corroboramos que k sea mayor a 4
-            if (k > 4 && m >= k)
-            {
-                realizarTest();
-            }
-            else
-            {
-                MessageBox.Show("K debe ser mayor a 4 y se sugiere que sea raíz cuadrada de M. M debe ser igual o mayor a K", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
+            //if (k > 4 && m >= k)
+            //{
+            //    realizarTest();
+            //}
+            //else
+            //{
+            //    MessageBox.Show("K debe ser mayor a 4 y se sugiere que sea raíz cuadrada de M. M debe ser igual o mayor a K", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            //}
 
         }
 
-        private void congruencialMixto(int a, int c, int m)
+        private void congruencialMixto(int a, int c, int m, double xi)
         {
-            decimal xi = 0;
-
             for (int i = 1; i <= cantProyectos; i++)
             {
                 xi = ((a * xi) + c) % m; //Si es mixto
-                xi = (xi + (decimal)0.5) / m; //(0;1)
+                xi = (xi + 0.5) / m; //(0;1)
 
                 numerosAleatorios.Add(xi); //Agregamos a la lista
 
                 //Como mostrar
-                if (i < 21)
+                if (i < 21) //TODO: PORQUE ESE 21?
                 {
                     tablaaleatorios.Rows.Add(i + 1, numerosAleatorios.ElementAt(i));
 
@@ -108,58 +108,10 @@ namespace SIMULACION_TP1
             }
         }
 
-
-        private void comboDist_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-            switch (comboDist1.SelectedIndex)
-            {
-                case 0:
-                    label10.Text = "Media";
-                    label11.Text = "Desviación";
-                    label10.Visible = true;
-                    label11.Visible = true;
-                    constante1_1.Visible = true;
-                    constante1_2.Visible = true;
-                    break;
-
-                case 1:
-                    label10.Text = "Lambda";
-                    label10.Visible = true;
-                    label11.Visible = false;
-                    constante1_1.Visible = true;
-                    constante1_2.Visible = false;
-                    break;
-                //case 2:
-                //    label10.Text = "Lambda";
-                //    label10.Visible = true;
-                //    label11.Visible = false;
-                //    constante1.Visible = true;
-                //    constante2.Visible = false;
-                //    break;
-                case 2:
-                    label10.Text = "Desde";
-                    label11.Text = "Hasta";
-                    label10.Visible = true;
-                    label11.Visible = true;
-                    constante1_1.Visible = true;
-                    constante1_2.Visible = true;
-                    break;
-                default:
-
-                    label10.Visible = false;
-                    label11.Visible = false;
-                    constante1_1.Visible = false;
-                    constante1_2.Visible = false;
-                    break;
-            }
-
-        }
-
         private void realizarTest()
         {
             // Limpiamos Tablas y Grafico
-            tablaanalisis.Rows.Clear();
+            //tablaanalisis.Rows.Clear();
             tablaaleatorios.Rows.Clear();
             Grafico.Series.Clear();
             numerosAleatorios = new List<double>();
@@ -176,61 +128,11 @@ namespace SIMULACION_TP1
             //frecuenciaObservada = new double[k];
             //frecuenciaEsperada = new double[k];
 
-            //GeneracionNrosAleatoreos(m);
-            switch (comboDist1.SelectedIndex)
-            {
-                case 0:
-                    //Normal
-                    if (double.Parse(constante1_2.Text) < 0)
-                    {
-                        MessageBox.Show("No puedes ingresar esos valores", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        return;
-                        // constante1.Text = "1"; 
-                        //constante2.Text = "2" ;
-                    }
-                    numerosAleatorios = Distribucion.Normal(m, double.Parse(constante1_1.Text), double.Parse(constante1_2.Text));
-                    break;
-                case 1:
-                    //Exponencial
-                    if (double.Parse(constante1_1.Text) <= 0)
-                    {
-                        MessageBox.Show("Lambda tiene que ser positivo", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        return;
-                        //constante1.Text = "1"; 
-                        //constante2.Text = "2" ;
-                    }
-                    numerosAleatorios = Distribucion.Exponencial(m, double.Parse(constante1_1.Text));
-                    break;
-                //case 2:
-                //    //Poisson
-                //     if (double.Parse(constante1.Text) <= 0)
-                //    {
-                //        MessageBox.Show("Lambda tiene que ser positivo", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                //        return;
-                //        //constante1.Text = "1";
-                //        //constante2.Text = "2" ;
-                //    }
-                //    numerosAleatorios = Distribucion.Poisson(m, double.Parse(constante1.Text));
-                //    break;
-                case 2:
-                    // uniforme 
-                    if (double.Parse(constante1_1.Text) > double.Parse(constante1_2.Text))
-                    {
-                        MessageBox.Show("No puedes ingresar esos valores", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        return;
-                        // constante1.Text = "1"; 
-                        //constante2.Text = "2" ;
-                    }
-                    numerosAleatorios = Distribucion.Uniforme(
-                        double.Parse(constante1_1.Text), double.Parse(constante1_2.Text), m);
-                    break;
-                default:
-                    label10.Visible = false;
-                    label11.Visible = false;
-                    constante1_1.Visible = false;
-                    constante1_2.Visible = false;
-                    break;
-            }
+            double T1 = GeneracionTiemposActividad(comboDist1.SelectedIndex, constante1_1.Text, constante1_2.Text);
+            double T2 = GeneracionTiemposActividad(comboDist2.SelectedIndex, constante2_1.Text, constante2_2.Text);
+            double T3 = GeneracionTiemposActividad(comboDist3.SelectedIndex, constante3_1.Text, constante3_2.Text);
+            double T4 = GeneracionTiemposActividad(comboDist4.SelectedIndex, constante4_1.Text, constante4_2.Text);
+            double T5 = GeneracionTiemposActividad(comboDist5.SelectedIndex, constante5_1.Text, constante5_2.Text);
 
             for (int i = 0; i < m; i++)
             {
@@ -346,6 +248,53 @@ namespace SIMULACION_TP1
 
         }
 
+        private double GeneracionTiemposActividad(int comboDistrSelectedIndex, string constante1, string constante2)
+        {
+            switch (comboDistrSelectedIndex)
+            {
+                case 0:
+                    //Normal
+                    if (double.Parse(constante2) < 0)
+                    {
+                        MessageBox.Show("No puedes ingresar esos valores", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return -1;
+                        // constante1.Text = "1"; 
+                        //constante2.Text = "2" ;
+                    }
+                    return Distribucion.Normal(m, double.Parse(constante1), double.Parse(constante2));
+                    break;
+                case 1:
+                    //Exponencial
+                    if (double.Parse(constante1) <= 0)
+                    {
+                        MessageBox.Show("Lambda tiene que ser positivo", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return -1;
+                        //constante1.Text = "1"; 
+                        //constante2.Text = "2" ;
+                    }
+                    return Distribucion.Exponencial(m, double.Parse(constante1));
+                    break;
+                case 2:
+                    // uniforme 
+                    if (double.Parse(constante1) > double.Parse(constante2))
+                    {
+                        MessageBox.Show("No puedes ingresar esos valores", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return -1;
+                        // constante1.Text = "1"; 
+                        //constante2.Text = "2" ;
+                    }
+                    return Distribucion.Uniforme(
+                        double.Parse(constante1), double.Parse(constante2), m);
+                    break;
+                default:
+                    return -1;
+                //    label10.Visible = false;
+                //    label11.Visible = false;
+                //    constante1_1.Visible = false;
+                //    constante1_2.Visible = false;
+                //    break;
+            }
+        }
 
         //Keypress
         private void txt_m_KeyPress(object sender, KeyPressEventArgs e)
@@ -430,6 +379,196 @@ namespace SIMULACION_TP1
         private void label15_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void comboDist_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            switch (comboDist1.SelectedIndex)
+            {
+                case 0:
+                    label10.Text = "Media";
+                    label11.Text = "Desviación";
+                    label10.Visible = true;
+                    label11.Visible = true;
+                    constante1_1.Visible = true;
+                    constante1_2.Visible = true;
+                    break;
+
+                case 1:
+                    label10.Text = "Lambda";
+                    label10.Visible = true;
+                    label11.Visible = false;
+                    constante1_1.Visible = true;
+                    constante1_2.Visible = false;
+                    break;
+                case 2:
+                    label10.Text = "Desde";
+                    label11.Text = "Hasta";
+                    label10.Visible = true;
+                    label11.Visible = true;
+                    constante1_1.Visible = true;
+                    constante1_2.Visible = true;
+                    break;
+                default:
+
+                    label10.Visible = false;
+                    label11.Visible = false;
+                    constante1_1.Visible = false;
+                    constante1_2.Visible = false;
+                    break;
+            }
+        }
+
+        private void comboDist3_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            switch (comboDist3.SelectedIndex)
+            {
+                case 0:
+                    label23.Text = "Media";
+                    label22.Text = "Desviación";
+                    label23.Visible = true;
+                    label22.Visible = true;
+                    constante3_1.Visible = true;
+                    constante3_2.Visible = true;
+                    break;
+
+                case 1:
+                    label23.Text = "Lambda";
+                    label23.Visible = true;
+                    label22.Visible = false;
+                    constante3_1.Visible = true;
+                    constante3_2.Visible = false;
+                    break;
+                case 2:
+                    label23.Text = "Desde";
+                    label22.Text = "Hasta";
+                    label23.Visible = true;
+                    label22.Visible = true;
+                    constante3_1.Visible = true;
+                    constante3_2.Visible = true;
+                    break;
+                default:
+
+                    label23.Visible = false;
+                    label22.Visible = false;
+                    constante3_1.Visible = false;
+                    constante3_2.Visible = false;
+                    break;
+            }
+        }
+
+        private void comboDist2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            switch (comboDist2.SelectedIndex)
+            {
+                case 0:
+                    label19.Text = "Media";
+                    label18.Text = "Desviación";
+                    label19.Visible = true;
+                    label18.Visible = true;
+                    constante2_1.Visible = true;
+                    constante2_2.Visible = true;
+                    break;
+
+                case 1:
+                    label19.Text = "Lambda";
+                    label19.Visible = true;
+                    label18.Visible = false;
+                    constante2_1.Visible = true;
+                    constante2_2.Visible = false;
+                    break;
+                case 2:
+                    label19.Text = "Desde";
+                    label18.Text = "Hasta";
+                    label19.Visible = true;
+                    label18.Visible = true;
+                    constante2_1.Visible = true;
+                    constante2_2.Visible = true;
+                    break;
+                default:
+
+                    label19.Visible = false;
+                    label18.Visible = false;
+                    constante2_1.Visible = false;
+                    constante2_2.Visible = false;
+                    break;
+            }
+        }
+
+        private void comboDist4_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            switch (comboDist4.SelectedIndex)
+            {
+                case 0:
+                    label27.Text = "Media";
+                    label26.Text = "Desviación";
+                    label27.Visible = true;
+                    label26.Visible = true;
+                    constante4_1.Visible = true;
+                    constante4_2.Visible = true;
+                    break;
+
+                case 1:
+                    label27.Text = "Lambda";
+                    label27.Visible = true;
+                    label26.Visible = false;
+                    constante4_1.Visible = true;
+                    constante4_2.Visible = false;
+                    break;
+                case 2:
+                    label27.Text = "Desde";
+                    label26.Text = "Hasta";
+                    label27.Visible = true;
+                    label26.Visible = true;
+                    constante4_1.Visible = true;
+                    constante4_2.Visible = true;
+                    break;
+                default:
+
+                    label27.Visible = false;
+                    label26.Visible = false;
+                    constante4_1.Visible = false;
+                    constante4_2.Visible = false;
+                    break;
+            }
+        }
+
+        private void comboDist5_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            switch (comboDist5.SelectedIndex)
+            {
+                case 0:
+                    label31.Text = "Media";
+                    label30.Text = "Desviación";
+                    label31.Visible = true;
+                    label30.Visible = true;
+                    constante5_1.Visible = true;
+                    constante5_2.Visible = true;
+                    break;
+
+                case 1:
+                    label31.Text = "Lambda";
+                    label31.Visible = true;
+                    label30.Visible = false;
+                    constante5_1.Visible = true;
+                    constante5_2.Visible = false;
+                    break;
+                case 2:
+                    label31.Text = "Desde";
+                    label30.Text = "Hasta";
+                    label31.Visible = true;
+                    label30.Visible = true;
+                    constante5_1.Visible = true;
+                    constante5_2.Visible = true;
+                    break;
+                default:
+
+                    label31.Visible = false;
+                    label30.Visible = false;
+                    constante5_1.Visible = false;
+                    constante5_2.Visible = false;
+                    break;
+            }
         }
 
         private void GroupBox1_Enter(object sender, EventArgs e)
