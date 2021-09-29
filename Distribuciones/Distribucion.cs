@@ -12,7 +12,7 @@ namespace Distribuciones
 
 
        
-        public static double Normal(int m, double media, double desviacion)
+        public static double Normal(double xi, double media, double desviacion)
         {
 
 
@@ -48,19 +48,20 @@ namespace Distribuciones
            
         }
 
-        public static double Exponencial(int m, double lambda)
+        public static double Exponencial(double xi, double lambda)
         {
             //List<double> listado = new List<double>();
-            Random random = new Random();
-            double numAleatorio = 0, operacion = 0;
+            //Random random = new Random();
+            // double numAleatorio = 0
+            double operacion = 0;
             double mediaNegativa = (1 / lambda) * -1;
 
             //for (int i = 0; i < m; i++)
             //{
                 // Generamos el numero con el lenguaje
-                numAleatorio = random.NextDouble();
+                // numAleatorio = random.NextDouble();
                 // mediaNegativa * ln(1-numeroAleatorio)
-                operacion = Math.Round(mediaNegativa * Math.Log(1 - numAleatorio), 4);
+                operacion = Math.Round(mediaNegativa * Math.Log(1 - xi), 4);
                 //listado.Add(operacion); //Agregamos a la lista
             //}
 
@@ -92,19 +93,20 @@ namespace Distribuciones
             return listado;
         }
 
-        public static double Uniforme(double desde, double hasta, int m)
+        public static double Uniforme(double xi, double desde, double hasta)
         {
             //List<double> listado = new List<double>();
 
-            Random random = new Random();
-            double numAleatorio = 0, operacion = 0;
+            // Random random = new Random();
+            // double numAleatorio = 0, 
+            double operacion = 0;
 
             //for (int i = 0; i < m; i++)
             //{
                 //generamos el numAleatorio
-                numAleatorio = Math.Round(random.NextDouble(), 4);
+                // numAleatorio = Math.Round(random.NextDouble(), 4);
                 // el numAleatorio final va ser (desde + (numAleatorio * (hasta - desde))
-                operacion = Math.Round(desde + (numAleatorio * (hasta - desde)), 4);
+                operacion = Math.Round(desde + (xi * (hasta - desde)), 4);
                 //listado.Add(operacion); //Agregamos a la lista
             //}
 

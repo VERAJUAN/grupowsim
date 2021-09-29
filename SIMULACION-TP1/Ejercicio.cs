@@ -21,10 +21,8 @@ namespace SIMULACION_TP1
         List<double> numerosAleatorios;
         int cantProyectos = 0;
 
-        int a;
-        int c;
-        int m;
-        double semilla;
+        int a, c, m;
+        double semilla, xiAnterior;
 
 
         private void cboSignificancia_SelectedIndexChanged(object sender, EventArgs e)
@@ -53,7 +51,7 @@ namespace SIMULACION_TP1
 
             comboDist4.SelectedIndex = 2;
             constante4_1.Text = "10";
-            constante4_2.Text = "20";
+            constante4_2.Text = "30";
 
             comboDist5.SelectedIndex = 1;
             constante5_1.Text = "5";
@@ -62,20 +60,74 @@ namespace SIMULACION_TP1
 
         private void btn_generar_Click(object sender, EventArgs e)
         {
-            m = int.Parse(txt_m.Text);
-            a = int.Parse(txt_a.Text);
-            c = int.Parse(txt_c.Text);
-            semilla = double.Parse(txt_semilla.Text);
-            
-            //int k = int.Parse(txt_a.Text);
+            tablaaleatorios.Rows.Clear();
+            tablaVectorEstado.Rows.Clear();
+            Grafico.Series.Clear();
+            //m = int.Parse(txt_m.Text);
+            //a = int.Parse(txt_a.Text);
+            //c = int.Parse(txt_c.Text);
+            //semilla = double.Parse(txt_semilla.Text);
+            cantProyectos = int.Parse(txt_cantProy.Text);
+            double T1, T2, T3, T4, T5;
+            VectorEstado vectorEstado = new VectorEstado();
+            VectorEstado vectorEstadoMasUno = new VectorEstado();
+            double numAleatorio;
 
-            congruencialMixto(a, c, m, semilla);
+            m = 918468;
+            a = 5940215;
+            c = 1951138;
+            semilla = 584431597;
+            xiAnterior = semilla;
+
+
+
+            for (int i = 0; i < cantProyectos; i++)
+            {
+                numAleatorio = congruencialMixto(a, c, m, xiAnterior);
+                tablaaleatorios.Rows.Add(i + 1, Math.Round(numAleatorio, 4));
+                if (i == 0)
+                {
+                    T1 = GeneracionTiemposActividad(comboDist1.SelectedIndex, constante1_1.Text, constante1_2.Text, numAleatorio);
+                    T2 = GeneracionTiemposActividad(comboDist2.SelectedIndex, constante2_1.Text, constante2_2.Text, numAleatorio);
+                    T3 = GeneracionTiemposActividad(comboDist3.SelectedIndex, constante3_1.Text, constante3_2.Text, numAleatorio);
+                    T4 = GeneracionTiemposActividad(comboDist4.SelectedIndex, constante4_1.Text, constante4_2.Text, numAleatorio);
+                    T5 = GeneracionTiemposActividad(comboDist5.SelectedIndex, constante5_1.Text, constante5_2.Text, numAleatorio);
+
+
+                    vectorEstado = new VectorEstado(i + 1, T1, T2, T3, T4, T5, 0, 0, double.PositiveInfinity, 0);
+
+                    tablaVectorEstado.Rows.Add(0.ToString());
+
+                    tablaVectorEstado.Rows.Add(vectorEstado.nroProyecto.ToString(), vectorEstado.T1.ToString(), vectorEstado.T2.ToString(), vectorEstado.T3.ToString(), vectorEstado.T4.ToString(),
+                                               vectorEstado.T5.ToString(), vectorEstado.DuracionEnsamble.ToString(), vectorEstado.AcumuladoEnsamble.ToString(), vectorEstado.PromedioDuracionEnsamble.ToString(),
+                                               vectorEstado.MaxDuracion.ToString(), vectorEstado.MinDuracion.ToString(), vectorEstado.CantTareasMenor45Dias.ToString(), vectorEstado.ProbCompletarEn45Dias.ToString());
+                }
+                else
+                {
+                    var vectorEstadoIntermedio = vectorEstadoMasUno;
+
+                    T1 = GeneracionTiemposActividad(comboDist1.SelectedIndex, constante1_1.Text, constante1_2.Text, numAleatorio);
+                    T2 = GeneracionTiemposActividad(comboDist2.SelectedIndex, constante2_1.Text, constante2_2.Text, numAleatorio);
+                    T3 = GeneracionTiemposActividad(comboDist3.SelectedIndex, constante3_1.Text, constante3_2.Text, numAleatorio);
+                    T4 = GeneracionTiemposActividad(comboDist4.SelectedIndex, constante4_1.Text, constante4_2.Text, numAleatorio);
+                    T5 = GeneracionTiemposActividad(comboDist5.SelectedIndex, constante5_1.Text, constante5_2.Text, numAleatorio);
+
+                    vectorEstadoMasUno = new VectorEstado(i + 1, T1, T2, T3, T4, T5, vectorEstado.AcumuladoEnsamble, vectorEstado.MaxDuracion, vectorEstado.MinDuracion, vectorEstado.CantTareasMenor45Dias);
+                    
+                    tablaVectorEstado.Rows.Add(vectorEstadoMasUno.nroProyecto.ToString(), vectorEstadoMasUno.T1.ToString(), vectorEstadoMasUno.T2.ToString(), vectorEstadoMasUno.T3.ToString(), vectorEstadoMasUno.T4.ToString(),
+                                               vectorEstadoMasUno.T5.ToString(), vectorEstadoMasUno.DuracionEnsamble.ToString(), vectorEstadoMasUno.AcumuladoEnsamble.ToString(), vectorEstadoMasUno.PromedioDuracionEnsamble.ToString(),
+                                               vectorEstadoMasUno.MaxDuracion.ToString(), vectorEstadoMasUno.MinDuracion.ToString(), vectorEstadoMasUno.CantTareasMenor45Dias.ToString(), vectorEstadoMasUno.ProbCompletarEn45Dias.ToString());
+
+                    vectorEstado = vectorEstadoIntermedio;
+                }
+            }
+
 
             //Agregamos a tabla los aleatorios mixtos
-            for (int i = 0; i < m; i++)
-            {
-                tablaaleatorios.Rows.Add(i + 1, numerosAleatorios.ElementAt(i));
-            }
+            //for (int i = 0; i < cantProyectos; i++)
+            //{
+            //    tablaaleatorios.Rows.Add(i + 1, Math.Round(congruencialMixto(a, c, m, xiAnterior), 4));
+            //}
 
             // Corroboramos que k sea mayor a 4
             //if (k > 4 && m >= k)
@@ -89,23 +141,11 @@ namespace SIMULACION_TP1
 
         }
 
-        private void congruencialMixto(int a, int c, int m, double xi)
+        private double congruencialMixto(int a, int c, int m, double xi)
         {
-            for (int i = 1; i <= cantProyectos; i++)
-            {
-                xi = ((a * xi) + c) % m; //Si es mixto
-                xi = (xi + 0.5) / m; //(0;1)
-
-                numerosAleatorios.Add(xi); //Agregamos a la lista
-
-                //Como mostrar
-                if (i < 21) //TODO: PORQUE ESE 21?
-                {
-                    tablaaleatorios.Rows.Add(i + 1, numerosAleatorios.ElementAt(i));
-
-                    //dgvLista.Rows.Add(i, Math.Truncate(xi / m * 10000) / 10000); //Mostramos los primeros 20
-                }
-            }
+            xiAnterior = ((a * xi) + c) % m; //Si es mixto
+            
+            return (xiAnterior + 0.5) / m; //(0;1)
         }
 
         private void realizarTest()
@@ -128,11 +168,7 @@ namespace SIMULACION_TP1
             //frecuenciaObservada = new double[k];
             //frecuenciaEsperada = new double[k];
 
-            double T1 = GeneracionTiemposActividad(comboDist1.SelectedIndex, constante1_1.Text, constante1_2.Text);
-            double T2 = GeneracionTiemposActividad(comboDist2.SelectedIndex, constante2_1.Text, constante2_2.Text);
-            double T3 = GeneracionTiemposActividad(comboDist3.SelectedIndex, constante3_1.Text, constante3_2.Text);
-            double T4 = GeneracionTiemposActividad(comboDist4.SelectedIndex, constante4_1.Text, constante4_2.Text);
-            double T5 = GeneracionTiemposActividad(comboDist5.SelectedIndex, constante5_1.Text, constante5_2.Text);
+
 
             for (int i = 0; i < m; i++)
             {
@@ -248,7 +284,7 @@ namespace SIMULACION_TP1
 
         }
 
-        private double GeneracionTiemposActividad(int comboDistrSelectedIndex, string constante1, string constante2)
+        private double GeneracionTiemposActividad(int comboDistrSelectedIndex, string constante1, string constante2, double xi)
         {
             switch (comboDistrSelectedIndex)
             {
@@ -261,7 +297,7 @@ namespace SIMULACION_TP1
                         // constante1.Text = "1"; 
                         //constante2.Text = "2" ;
                     }
-                    return Distribucion.Normal(m, double.Parse(constante1), double.Parse(constante2));
+                    return Distribucion.Normal(xi, double.Parse(constante1), double.Parse(constante2));
                     break;
                 case 1:
                     //Exponencial
@@ -272,7 +308,7 @@ namespace SIMULACION_TP1
                         //constante1.Text = "1"; 
                         //constante2.Text = "2" ;
                     }
-                    return Distribucion.Exponencial(m, double.Parse(constante1));
+                    return Distribucion.Exponencial(xi, double.Parse(constante1));
                     break;
                 case 2:
                     // uniforme 
@@ -283,16 +319,15 @@ namespace SIMULACION_TP1
                         // constante1.Text = "1"; 
                         //constante2.Text = "2" ;
                     }
-                    return Distribucion.Uniforme(
-                        double.Parse(constante1), double.Parse(constante2), m);
+                    return Distribucion.Uniforme(xi, double.Parse(constante1), double.Parse(constante2));
                     break;
                 default:
                     return -1;
-                //    label10.Visible = false;
-                //    label11.Visible = false;
-                //    constante1_1.Visible = false;
-                //    constante1_2.Visible = false;
-                //    break;
+                    //    label10.Visible = false;
+                    //    label11.Visible = false;
+                    //    constante1_1.Visible = false;
+                    //    constante1_2.Visible = false;
+                    //    break;
             }
         }
 
@@ -569,6 +604,11 @@ namespace SIMULACION_TP1
                     constante5_2.Visible = false;
                     break;
             }
+        }
+
+        private void Grafico_Click(object sender, EventArgs e)
+        {
+
         }
 
         private void GroupBox1_Enter(object sender, EventArgs e)

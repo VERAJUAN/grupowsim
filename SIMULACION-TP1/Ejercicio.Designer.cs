@@ -85,9 +85,24 @@ namespace SIMULACION_TP1
             this.txt_m = new System.Windows.Forms.TextBox();
             this.btn_generar = new System.Windows.Forms.Button();
             this.Grafico = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.tablaVectorEstado = new System.Windows.Forms.DataGridView();
+            this.nroProyecto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.T1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.T2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.T3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.T4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.T5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DuracionEnsamble = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.AcumuladoDuracion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PromedioDuracion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MaxDuracion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MinDuracion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CantTareasMen45Dias = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ProbCompl45dias = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.GroupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tablaaleatorios)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Grafico)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tablaVectorEstado)).BeginInit();
             this.SuspendLayout();
             // 
             // GroupBox1
@@ -143,7 +158,7 @@ namespace SIMULACION_TP1
             this.GroupBox1.Controls.Add(this.btn_generar);
             this.GroupBox1.Location = new System.Drawing.Point(17, 12);
             this.GroupBox1.Name = "GroupBox1";
-            this.GroupBox1.Size = new System.Drawing.Size(1075, 426);
+            this.GroupBox1.Size = new System.Drawing.Size(988, 382);
             this.GroupBox1.TabIndex = 4;
             this.GroupBox1.TabStop = false;
             this.GroupBox1.Text = "Parametros";
@@ -579,7 +594,7 @@ namespace SIMULACION_TP1
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(15, 137);
+            this.label1.Location = new System.Drawing.Point(15, 98);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(98, 13);
             this.label1.TabIndex = 423;
@@ -594,7 +609,7 @@ namespace SIMULACION_TP1
             this.tablaaleatorios.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Nro,
             this.Aleatorio});
-            this.tablaaleatorios.Location = new System.Drawing.Point(18, 153);
+            this.tablaaleatorios.Location = new System.Drawing.Point(18, 114);
             this.tablaaleatorios.Name = "tablaaleatorios";
             this.tablaaleatorios.ReadOnly = true;
             this.tablaaleatorios.Size = new System.Drawing.Size(236, 253);
@@ -669,7 +684,7 @@ namespace SIMULACION_TP1
             this.Grafico.ChartAreas.Add(chartArea4);
             legend4.Name = "Legend1";
             this.Grafico.Legends.Add(legend4);
-            this.Grafico.Location = new System.Drawing.Point(17, 444);
+            this.Grafico.Location = new System.Drawing.Point(1012, 29);
             this.Grafico.Name = "Grafico";
             series4.ChartArea = "ChartArea1";
             series4.Legend = "Legend1";
@@ -678,12 +693,118 @@ namespace SIMULACION_TP1
             this.Grafico.Size = new System.Drawing.Size(766, 350);
             this.Grafico.TabIndex = 5;
             this.Grafico.Text = "Frecuencia Observada";
+            this.Grafico.Click += new System.EventHandler(this.Grafico_Click);
+            // 
+            // tablaVectorEstado
+            // 
+            this.tablaVectorEstado.AllowUserToAddRows = false;
+            this.tablaVectorEstado.AllowUserToDeleteRows = false;
+            this.tablaVectorEstado.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.tablaVectorEstado.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.tablaVectorEstado.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.nroProyecto,
+            this.T1,
+            this.T2,
+            this.T3,
+            this.T4,
+            this.T5,
+            this.DuracionEnsamble,
+            this.AcumuladoDuracion,
+            this.PromedioDuracion,
+            this.MaxDuracion,
+            this.MinDuracion,
+            this.CantTareasMen45Dias,
+            this.ProbCompl45dias});
+            this.tablaVectorEstado.Location = new System.Drawing.Point(17, 410);
+            this.tablaVectorEstado.Name = "tablaVectorEstado";
+            this.tablaVectorEstado.ReadOnly = true;
+            this.tablaVectorEstado.Size = new System.Drawing.Size(1761, 384);
+            this.tablaVectorEstado.TabIndex = 473;
+            // 
+            // nroProyecto
+            // 
+            this.nroProyecto.HeaderText = "Proyecto";
+            this.nroProyecto.Name = "nroProyecto";
+            this.nroProyecto.ReadOnly = true;
+            // 
+            // T1
+            // 
+            this.T1.HeaderText = "T1";
+            this.T1.Name = "T1";
+            this.T1.ReadOnly = true;
+            // 
+            // T2
+            // 
+            this.T2.HeaderText = "T2";
+            this.T2.Name = "T2";
+            this.T2.ReadOnly = true;
+            // 
+            // T3
+            // 
+            this.T3.HeaderText = "T3";
+            this.T3.Name = "T3";
+            this.T3.ReadOnly = true;
+            // 
+            // T4
+            // 
+            this.T4.HeaderText = "T4";
+            this.T4.Name = "T4";
+            this.T4.ReadOnly = true;
+            // 
+            // T5
+            // 
+            this.T5.HeaderText = "T5";
+            this.T5.Name = "T5";
+            this.T5.ReadOnly = true;
+            // 
+            // DuracionEnsamble
+            // 
+            this.DuracionEnsamble.HeaderText = "Duracion Ensamble";
+            this.DuracionEnsamble.Name = "DuracionEnsamble";
+            this.DuracionEnsamble.ReadOnly = true;
+            // 
+            // AcumuladoDuracion
+            // 
+            this.AcumuladoDuracion.HeaderText = "Acumulado Duracion";
+            this.AcumuladoDuracion.Name = "AcumuladoDuracion";
+            this.AcumuladoDuracion.ReadOnly = true;
+            // 
+            // PromedioDuracion
+            // 
+            this.PromedioDuracion.HeaderText = "Promedio Duracion";
+            this.PromedioDuracion.Name = "PromedioDuracion";
+            this.PromedioDuracion.ReadOnly = true;
+            // 
+            // MaxDuracion
+            // 
+            this.MaxDuracion.HeaderText = "Maxima Duracion";
+            this.MaxDuracion.Name = "MaxDuracion";
+            this.MaxDuracion.ReadOnly = true;
+            // 
+            // MinDuracion
+            // 
+            this.MinDuracion.HeaderText = "Minima Duracion";
+            this.MinDuracion.Name = "MinDuracion";
+            this.MinDuracion.ReadOnly = true;
+            // 
+            // CantTareasMen45Dias
+            // 
+            this.CantTareasMen45Dias.HeaderText = "Cantidad Tareas Menor a 45 días";
+            this.CantTareasMen45Dias.Name = "CantTareasMen45Dias";
+            this.CantTareasMen45Dias.ReadOnly = true;
+            // 
+            // ProbCompl45dias
+            // 
+            this.ProbCompl45dias.HeaderText = "Probabilidad Completar en 45 días";
+            this.ProbCompl45dias.Name = "ProbCompl45dias";
+            this.ProbCompl45dias.ReadOnly = true;
             // 
             // Ejercicio__B
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1113, 806);
+            this.ClientSize = new System.Drawing.Size(1790, 806);
+            this.Controls.Add(this.tablaVectorEstado);
             this.Controls.Add(this.Grafico);
             this.Controls.Add(this.GroupBox1);
             this.Name = "Ejercicio__B";
@@ -692,6 +813,7 @@ namespace SIMULACION_TP1
             this.GroupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tablaaleatorios)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Grafico)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tablaVectorEstado)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -751,5 +873,19 @@ namespace SIMULACION_TP1
         internal System.Windows.Forms.Label label20;
         private System.Windows.Forms.ComboBox comboDist2;
         private System.Windows.Forms.Label label16;
+        internal System.Windows.Forms.DataGridView tablaVectorEstado;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nroProyecto;
+        private System.Windows.Forms.DataGridViewTextBoxColumn T1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn T2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn T3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn T4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn T5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DuracionEnsamble;
+        private System.Windows.Forms.DataGridViewTextBoxColumn AcumuladoDuracion;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PromedioDuracion;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MaxDuracion;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MinDuracion;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CantTareasMen45Dias;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ProbCompl45dias;
     }
 }
