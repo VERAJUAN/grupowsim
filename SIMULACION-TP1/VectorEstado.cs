@@ -9,30 +9,14 @@ namespace SIMULACION_TP1
     public class VectorEstado
     {
         public int nroProyecto { get; set; }
-        // int a, int c, int m, int semilla
-        //public int a { get; set; }
-        //public int c { get; set; }
-        //public int m { get; set; }
-        //public int semilla { get; set; }
-        //
-        //public double xiT1 { get; set; }
-        //public double RndT1 { get; set; }
         public double T1 { get; set; }
-        //public double xiT2 { get; set; }
-        //public double RndT2 { get; set; }
         public double T2 { get; set; }
-        //public double xiT3 { get; set; }
-        //public double RndT3 { get; set; }
         public double T3 { get; set; }
         public double TMax => Tmax(T1, T2, T3);
         public double TMin => Tmin(T1, T2, T3);
-        //public double xiT4 { get; set; }
-        //public double RndT4 { get; set; }
         public double T4 { get; set; }
         public double DiasA4deMas => diasA4deMas(T4, TMax, T1);
         public double SumaA1aA4 => sumaA1aA4(TMax, DiasA4deMas);
-        //public double xiT5 { get; set; }
-        //public double RndT5 { get; set; }
         public double T5 { get; set; }
         public double MaxEntreT2yT4 => maxT2yT4(T2, T4);
         public double DiasA5deMas => diasA5deMas(MaxEntreT2yT4, T5, SumaA1aA4);

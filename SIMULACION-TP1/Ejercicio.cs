@@ -70,7 +70,7 @@ namespace SIMULACION_TP1
             cantProyectos = int.Parse(txt_cantProy.Text);
             double T1, T2, T3, T4, T5;
             VectorEstado vectorEstado = new VectorEstado();
-            VectorEstado vectorEstadoMasUno = new VectorEstado();
+            VectorEstado vectorEstadoMasUno;
             double numAleatorio;
 
             m = 918468;
@@ -78,8 +78,6 @@ namespace SIMULACION_TP1
             c = 1951138;
             semilla = 584431597;
             xiAnterior = semilla;
-
-
 
             for (int i = 0; i < cantProyectos; i++)
             {
@@ -93,7 +91,6 @@ namespace SIMULACION_TP1
                     T4 = GeneracionTiemposActividad(comboDist4.SelectedIndex, constante4_1.Text, constante4_2.Text, numAleatorio);
                     T5 = GeneracionTiemposActividad(comboDist5.SelectedIndex, constante5_1.Text, constante5_2.Text, numAleatorio);
 
-
                     vectorEstado = new VectorEstado(i + 1, T1, T2, T3, T4, T5, 0, 0, double.PositiveInfinity, 0);
 
                     tablaVectorEstado.Rows.Add(0.ToString());
@@ -104,8 +101,6 @@ namespace SIMULACION_TP1
                 }
                 else
                 {
-                    var vectorEstadoIntermedio = vectorEstadoMasUno;
-
                     T1 = GeneracionTiemposActividad(comboDist1.SelectedIndex, constante1_1.Text, constante1_2.Text, numAleatorio);
                     T2 = GeneracionTiemposActividad(comboDist2.SelectedIndex, constante2_1.Text, constante2_2.Text, numAleatorio);
                     T3 = GeneracionTiemposActividad(comboDist3.SelectedIndex, constante3_1.Text, constante3_2.Text, numAleatorio);
@@ -115,10 +110,10 @@ namespace SIMULACION_TP1
                     vectorEstadoMasUno = new VectorEstado(i + 1, T1, T2, T3, T4, T5, vectorEstado.AcumuladoEnsamble, vectorEstado.MaxDuracion, vectorEstado.MinDuracion, vectorEstado.CantTareasMenor45Dias);
                     
                     tablaVectorEstado.Rows.Add(vectorEstadoMasUno.nroProyecto.ToString(), vectorEstadoMasUno.T1.ToString(), vectorEstadoMasUno.T2.ToString(), vectorEstadoMasUno.T3.ToString(), vectorEstadoMasUno.T4.ToString(),
-                                               vectorEstadoMasUno.T5.ToString(), vectorEstadoMasUno.DuracionEnsamble.ToString(), vectorEstadoMasUno.AcumuladoEnsamble.ToString(), vectorEstadoMasUno.PromedioDuracionEnsamble.ToString(),
-                                               vectorEstadoMasUno.MaxDuracion.ToString(), vectorEstadoMasUno.MinDuracion.ToString(), vectorEstadoMasUno.CantTareasMenor45Dias.ToString(), vectorEstadoMasUno.ProbCompletarEn45Dias.ToString());
+                                               vectorEstadoMasUno.T5.ToString(), vectorEstadoMasUno.DuracionEnsamble.ToString(), vectorEstadoMasUno.AcumuladoEnsamble.ToString(), Math.Round(vectorEstadoMasUno.PromedioDuracionEnsamble, 4).ToString(),
+                                               vectorEstadoMasUno.MaxDuracion.ToString(), vectorEstadoMasUno.MinDuracion.ToString(), vectorEstadoMasUno.CantTareasMenor45Dias.ToString(), Math.Round(vectorEstadoMasUno.ProbCompletarEn45Dias, 4).ToString());
 
-                    vectorEstado = vectorEstadoIntermedio;
+                    vectorEstado = vectorEstadoMasUno;
                 }
             }
 
@@ -294,8 +289,6 @@ namespace SIMULACION_TP1
                     {
                         MessageBox.Show("No puedes ingresar esos valores", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         return -1;
-                        // constante1.Text = "1"; 
-                        //constante2.Text = "2" ;
                     }
                     return Distribucion.Normal(xi, double.Parse(constante1), double.Parse(constante2));
                     break;
@@ -305,8 +298,6 @@ namespace SIMULACION_TP1
                     {
                         MessageBox.Show("Lambda tiene que ser positivo", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         return -1;
-                        //constante1.Text = "1"; 
-                        //constante2.Text = "2" ;
                     }
                     return Distribucion.Exponencial(xi, double.Parse(constante1));
                     break;
@@ -316,8 +307,6 @@ namespace SIMULACION_TP1
                     {
                         MessageBox.Show("No puedes ingresar esos valores", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         return -1;
-                        // constante1.Text = "1"; 
-                        //constante2.Text = "2" ;
                     }
                     return Distribucion.Uniforme(xi, double.Parse(constante1), double.Parse(constante2));
                     break;
