@@ -291,7 +291,6 @@ namespace SIMULACION_TP1
                         return -1;
                     }
                     return Distribucion.Normal(xi, double.Parse(constante1), double.Parse(constante2));
-                    break;
                 case 1:
                     //Exponencial
                     if (double.Parse(constante1) <= 0)
@@ -300,7 +299,6 @@ namespace SIMULACION_TP1
                         return -1;
                     }
                     return Distribucion.Exponencial(xi, double.Parse(constante1));
-                    break;
                 case 2:
                     // uniforme 
                     if (double.Parse(constante1) > double.Parse(constante2))
@@ -309,7 +307,6 @@ namespace SIMULACION_TP1
                         return -1;
                     }
                     return Distribucion.Uniforme(xi, double.Parse(constante1), double.Parse(constante2));
-                    break;
                 default:
                     return -1;
                     //    label10.Visible = false;

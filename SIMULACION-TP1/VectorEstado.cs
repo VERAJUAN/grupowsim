@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms.DataVisualization;
+using System.Windows.Forms.DataVisualization.Charting;
 
 namespace SIMULACION_TP1
 {
@@ -31,6 +33,10 @@ namespace SIMULACION_TP1
         public double CantTareasMenor45DiasAnterior { get; set; } //Ver q onda
         public double CantTareasMenor45Dias => cantTareasMenor45Dias(DuracionEnsamble, CantTareasMenor45DiasAnterior);
         public double ProbCompletarEn45Dias => probCompletarEn45Dias(CantTareasMenor45Dias, nroProyecto);
+        public double VarianzaAnterior { get; set; } //Ver q onda
+        public double Varianza => varianza(nroProyecto, DuracionEnsamble, PromedioDuracionEnsamble, VarianzaAnterior);
+        public double Desviacion => desviacion(Varianza);
+        public double FechaNc90 => fechaNc90(nroProyecto, PromedioDuracionEnsamble, Desviacion);
 
         public VectorEstado() { }
 
@@ -111,6 +117,23 @@ namespace SIMULACION_TP1
         private double probCompletarEn45Dias(double cantTareasMenor45Dias, double nroProyecto)
         {
             return cantTareasMenor45Dias / nroProyecto;
+        }
+
+        private double varianza(int nroProyecto, double duracionEnsamble, double promedioDuracionEnsamble, double varianzaAnterior)
+        {
+            return nroProyecto == 0 ? 0 : (1 / (nroProyecto - 1)) * (((nroProyecto - 2) * varianzaAnterior) + ((nroProyecto / (nroProyecto - 1)) * Math.Sqrt(promedioDuracionEnsamble - duracionEnsamble)));
+        }
+
+        private double desviacion(double varianza)
+        {
+            return Math.Sqrt(varianza);
+        }
+
+        private double fechaNc90(int nroProyecto, double promedioDuracionEnsamble, double desviacion)
+        {
+            Chart statisticFormula = new Chart();
+
+            return nroProyecto == 0 ? 0 : promedioDuracionEnsamble + (statisticFormula.DataManipulator.Statistics.InverseTDistribution((1 - 0.9) / 2, (nroProyecto - 1)) * desviacion / Math.Sqrt(nroProyecto));
         }
     }
 }
