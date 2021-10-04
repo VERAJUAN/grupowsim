@@ -108,10 +108,22 @@ namespace SIMULACION_TP1
                     T5 = GeneracionTiemposActividad(comboDist5.SelectedIndex, constante5_1.Text, constante5_2.Text, numAleatorio);
 
                     vectorEstadoMasUno = new VectorEstado(i + 1, T1, T2, T3, T4, T5, vectorEstado.AcumuladoEnsamble, vectorEstado.MaxDuracion, vectorEstado.MinDuracion, vectorEstado.CantTareasMenor45Dias);
-                    
-                    tablaVectorEstado.Rows.Add(vectorEstadoMasUno.nroProyecto.ToString(), vectorEstadoMasUno.T1.ToString(), vectorEstadoMasUno.T2.ToString(), vectorEstadoMasUno.T3.ToString(), vectorEstadoMasUno.T4.ToString(),
-                                               vectorEstadoMasUno.T5.ToString(), vectorEstadoMasUno.DuracionEnsamble.ToString(), vectorEstadoMasUno.AcumuladoEnsamble.ToString(), Math.Round(vectorEstadoMasUno.PromedioDuracionEnsamble, 4).ToString(),
-                                               vectorEstadoMasUno.MaxDuracion.ToString(), vectorEstadoMasUno.MinDuracion.ToString(), vectorEstadoMasUno.CantTareasMenor45Dias.ToString(), Math.Round(vectorEstadoMasUno.ProbCompletarEn45Dias, 4).ToString());
+
+                    var nroProyecto = vectorEstadoMasUno.nroProyecto.ToString();
+                    var DuracionEnsamble = vectorEstadoMasUno.DuracionEnsamble.ToString();
+                    var AcumuladoEnsamble = vectorEstadoMasUno.AcumuladoEnsamble.ToString();
+                    var PromedioDuracionEnsamble = Math.Round(vectorEstadoMasUno.PromedioDuracionEnsamble, 4).ToString();
+                    var MaxDuracion = vectorEstadoMasUno.MaxDuracion.ToString();
+                    var MinDuracion = vectorEstadoMasUno.MinDuracion.ToString();
+                    var CantTareasMenor45Dias = vectorEstadoMasUno.CantTareasMenor45Dias.ToString();
+                    var ProbCompletarEn45Dias = Math.Round(vectorEstadoMasUno.ProbCompletarEn45Dias, 4).ToString();
+
+                    if (int.Parse(nroProyecto.ToString()) < 20 || int.Parse(nroProyecto.ToString()) % 10000 == 0 )
+                    {
+                        tablaVectorEstado.Rows.Add(nroProyecto, T1, T2, T3, T4, T5, DuracionEnsamble, AcumuladoEnsamble, PromedioDuracionEnsamble, MaxDuracion,
+                            MinDuracion, CantTareasMenor45Dias, ProbCompletarEn45Dias);
+                    }
+
 
                     vectorEstado = vectorEstadoMasUno;
                 }
@@ -514,6 +526,11 @@ namespace SIMULACION_TP1
                     constante2_2.Visible = false;
                     break;
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
         }
 
         private void comboDist4_SelectedIndexChanged(object sender, EventArgs e)

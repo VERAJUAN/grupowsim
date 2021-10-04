@@ -29,9 +29,9 @@ namespace SIMULACION_TP1
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.GroupBox1 = new System.Windows.Forms.GroupBox();
             this.label29 = new System.Windows.Forms.Label();
             this.constante5_2 = new System.Windows.Forms.TextBox();
@@ -99,14 +99,22 @@ namespace SIMULACION_TP1
             this.MinDuracion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CantTareasMen45Dias = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ProbCompl45dias = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.txtDesde = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.txtHasta = new System.Windows.Forms.TextBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.GroupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tablaaleatorios)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Grafico)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tablaVectorEstado)).BeginInit();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // GroupBox1
             // 
+            this.GroupBox1.Controls.Add(this.groupBox2);
             this.GroupBox1.Controls.Add(this.label29);
             this.GroupBox1.Controls.Add(this.constante5_2);
             this.GroupBox1.Controls.Add(this.label30);
@@ -680,16 +688,16 @@ namespace SIMULACION_TP1
             // 
             // Grafico
             // 
-            chartArea4.Name = "ChartArea1";
-            this.Grafico.ChartAreas.Add(chartArea4);
-            legend4.Name = "Legend1";
-            this.Grafico.Legends.Add(legend4);
+            chartArea3.Name = "ChartArea1";
+            this.Grafico.ChartAreas.Add(chartArea3);
+            legend3.Name = "Legend1";
+            this.Grafico.Legends.Add(legend3);
             this.Grafico.Location = new System.Drawing.Point(1012, 29);
             this.Grafico.Name = "Grafico";
-            series4.ChartArea = "ChartArea1";
-            series4.Legend = "Legend1";
-            series4.Name = "Series1";
-            this.Grafico.Series.Add(series4);
+            series3.ChartArea = "ChartArea1";
+            series3.Legend = "Legend1";
+            series3.Name = "Series1";
+            this.Grafico.Series.Add(series3);
             this.Grafico.Size = new System.Drawing.Size(766, 350);
             this.Grafico.TabIndex = 5;
             this.Grafico.Text = "Frecuencia Observada";
@@ -799,6 +807,64 @@ namespace SIMULACION_TP1
             this.ProbCompl45dias.Name = "ProbCompl45dias";
             this.ProbCompl45dias.ReadOnly = true;
             // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.button1);
+            this.groupBox2.Controls.Add(this.txtHasta);
+            this.groupBox2.Controls.Add(this.label3);
+            this.groupBox2.Controls.Add(this.txtDesde);
+            this.groupBox2.Controls.Add(this.label2);
+            this.groupBox2.Location = new System.Drawing.Point(296, 318);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(518, 58);
+            this.groupBox2.TabIndex = 473;
+            this.groupBox2.TabStop = false;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(19, 24);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(98, 16);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "Listar desde:";
+            // 
+            // txtDesde
+            // 
+            this.txtDesde.Location = new System.Drawing.Point(123, 23);
+            this.txtDesde.Name = "txtDesde";
+            this.txtDesde.Size = new System.Drawing.Size(91, 20);
+            this.txtDesde.TabIndex = 1;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(224, 25);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(53, 16);
+            this.label3.TabIndex = 2;
+            this.label3.Text = "Hasta:";
+            // 
+            // txtHasta
+            // 
+            this.txtHasta.Location = new System.Drawing.Point(281, 23);
+            this.txtHasta.Name = "txtHasta";
+            this.txtHasta.Size = new System.Drawing.Size(91, 20);
+            this.txtHasta.TabIndex = 3;
+            // 
+            // button1
+            // 
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(396, 20);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(100, 26);
+            this.button1.TabIndex = 4;
+            this.button1.Text = "Listar";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // Ejercicio__B
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -814,6 +880,8 @@ namespace SIMULACION_TP1
             ((System.ComponentModel.ISupportInitialize)(this.tablaaleatorios)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Grafico)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tablaVectorEstado)).EndInit();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -887,5 +955,11 @@ namespace SIMULACION_TP1
         private System.Windows.Forms.DataGridViewTextBoxColumn MinDuracion;
         private System.Windows.Forms.DataGridViewTextBoxColumn CantTareasMen45Dias;
         private System.Windows.Forms.DataGridViewTextBoxColumn ProbCompl45dias;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TextBox txtHasta;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox txtDesde;
+        private System.Windows.Forms.Label label2;
     }
 }
