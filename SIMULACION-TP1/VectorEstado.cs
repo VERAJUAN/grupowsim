@@ -37,6 +37,57 @@ namespace SIMULACION_TP1
         public double Varianza => varianza(nroProyecto, DuracionEnsamble, PromedioDuracionEnsamble, VarianzaAnterior);
         public double Desviacion => desviacion(Varianza);
         public double FechaNc90 => fechaNc90(nroProyecto, PromedioDuracionEnsamble, Desviacion);
+        public double C1 => c1(T1, T4, T5);
+        public double C2 => c2(T2, T5);
+        public double C3 => T3;
+        public double CCritico => cCritico(C1, C2, C3);
+        public string CCriticoString => cCriticoString(CCritico, C1, C2, C3);
+        public double ProbA1CriticoAnterior { get; set; }
+        public double ProbA1Critico => probACritico(C1, CCritico, ProbA1CriticoAnterior, nroProyecto);
+        public double ProbA2CriticoAnterior { get; set; }
+        public double ProbA2Critico => probACritico(C1, CCritico, ProbA2CriticoAnterior, nroProyecto);
+        public double ProbA3CriticoAnterior { get; set; }
+        public double ProbA3Critico => probACritico(C1, CCritico, ProbA3CriticoAnterior, nroProyecto);
+        public double ProbA4CriticoAnterior { get; set; }
+        public double ProbA4Critico => probACritico(C1, CCritico, ProbA4CriticoAnterior, nroProyecto);
+        public double ProbA5CriticoAnterior { get; set; }
+        public double ProbA5Critico => probA5Critico(C1, C2, CCritico, ProbA5CriticoAnterior, nroProyecto);
+        public double A1MasTardio => T4 - T1;
+        public double A2MasTardio => T5 - T2;
+        public double A3MasTardio => CCritico - T3;
+        public double A4MasTardio => T5 - T4;
+        public double A5MasTardio => CCritico - T5;
+
+        private double probA5Critico(double c1, double c2, double cCritico, double probA5CriticoAnterior, int nroProyecto)
+        {
+            return (c1 == cCritico || c2 == cCritico) ? ((probA5CriticoAnterior * (nroProyecto - 1)) + 1) / nroProyecto : ((probA5CriticoAnterior * nroProyecto) + 0) / nroProyecto;
+        }
+
+        private double probACritico(double c, double cCritico, double probACriticoAnterior, int nroProyecto)
+        {
+            return c == cCritico ? ((probACriticoAnterior * (nroProyecto - 1)) + 1) / nroProyecto : ((probACriticoAnterior * nroProyecto) + 0) / nroProyecto;
+        }
+
+        private string cCriticoString(double cCritico, double c1, double c2, double c3)
+        {
+            return cCritico == c1 ? "C1" : cCritico == c2 ? "C2" : "C3";
+        }
+
+        private double cCritico(double c1, double c2, double c3)
+        {
+            var maxC1C2 = Math.Max(C1, C2);
+            return Math.Max(maxC1C2, c3);
+        }
+
+        private double c2(double t2, double t5)
+        {
+            return t2 + t5;
+        }
+
+        private double c1(double t1, double t4, double t5)
+        {
+            return t1 + t4 + t5;
+        }
 
         public VectorEstado() { }
 
