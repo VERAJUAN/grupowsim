@@ -29,9 +29,9 @@ namespace SIMULACION_TP1
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea10 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend10 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series10 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea11 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend11 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series11 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.GroupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.button1 = new System.Windows.Forms.Button();
@@ -105,6 +105,24 @@ namespace SIMULACION_TP1
             this.MinDuracion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CantTareasMen45Dias = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ProbCompl45dias = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Varianza = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Desviacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FechaNc90 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.C1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.C2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.C3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CCritico = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CCrítico = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ProbA1Critico = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ProbA2Critico = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ProbA3Critico = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ProbA4Critico = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ProbA5Critico = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.A1MasTardio = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.A2MasTardio = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.A3MasTardio = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.A4MasTardio = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.A5MasTardio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.GroupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tablaaleatorios)).BeginInit();
@@ -747,16 +765,16 @@ namespace SIMULACION_TP1
             // 
             // Grafico
             // 
-            chartArea10.Name = "ChartArea1";
-            this.Grafico.ChartAreas.Add(chartArea10);
-            legend10.Name = "Legend1";
-            this.Grafico.Legends.Add(legend10);
+            chartArea11.Name = "ChartArea1";
+            this.Grafico.ChartAreas.Add(chartArea11);
+            legend11.Name = "Legend1";
+            this.Grafico.Legends.Add(legend11);
             this.Grafico.Location = new System.Drawing.Point(652, 75);
             this.Grafico.Name = "Grafico";
-            series10.ChartArea = "ChartArea1";
-            series10.Legend = "Legend1";
-            series10.Name = "Series1";
-            this.Grafico.Series.Add(series10);
+            series11.ChartArea = "ChartArea1";
+            series11.Legend = "Legend1";
+            series11.Name = "Series1";
+            this.Grafico.Series.Add(series11);
             this.Grafico.Size = new System.Drawing.Size(540, 289);
             this.Grafico.TabIndex = 5;
             this.Grafico.Text = "Frecuencia Observada";
@@ -784,7 +802,25 @@ namespace SIMULACION_TP1
             this.MaxDuracion,
             this.MinDuracion,
             this.CantTareasMen45Dias,
-            this.ProbCompl45dias});
+            this.ProbCompl45dias,
+            this.Varianza,
+            this.Desviacion,
+            this.FechaNc90,
+            this.C1,
+            this.C2,
+            this.C3,
+            this.CCritico,
+            this.CCrítico,
+            this.ProbA1Critico,
+            this.ProbA2Critico,
+            this.ProbA3Critico,
+            this.ProbA4Critico,
+            this.ProbA5Critico,
+            this.A1MasTardio,
+            this.A2MasTardio,
+            this.A3MasTardio,
+            this.A4MasTardio,
+            this.A5MasTardio});
             this.tablaVectorEstado.Location = new System.Drawing.Point(17, 425);
             this.tablaVectorEstado.Name = "tablaVectorEstado";
             this.tablaVectorEstado.ReadOnly = true;
@@ -869,6 +905,114 @@ namespace SIMULACION_TP1
             this.ProbCompl45dias.Name = "ProbCompl45dias";
             this.ProbCompl45dias.ReadOnly = true;
             // 
+            // Varianza
+            // 
+            this.Varianza.HeaderText = "Varianza";
+            this.Varianza.Name = "Varianza";
+            this.Varianza.ReadOnly = true;
+            // 
+            // Desviacion
+            // 
+            this.Desviacion.HeaderText = "Desviacion";
+            this.Desviacion.Name = "Desviacion";
+            this.Desviacion.ReadOnly = true;
+            // 
+            // FechaNc90
+            // 
+            this.FechaNc90.HeaderText = "Fecha NC 90%";
+            this.FechaNc90.Name = "FechaNc90";
+            this.FechaNc90.ReadOnly = true;
+            // 
+            // C1
+            // 
+            this.C1.HeaderText = "C1";
+            this.C1.Name = "C1";
+            this.C1.ReadOnly = true;
+            // 
+            // C2
+            // 
+            this.C2.HeaderText = "C2";
+            this.C2.Name = "C2";
+            this.C2.ReadOnly = true;
+            // 
+            // C3
+            // 
+            this.C3.HeaderText = "C3";
+            this.C3.Name = "C3";
+            this.C3.ReadOnly = true;
+            // 
+            // CCritico
+            // 
+            this.CCritico.HeaderText = "C-Critico";
+            this.CCritico.Name = "CCritico";
+            this.CCritico.ReadOnly = true;
+            // 
+            // CCrítico
+            // 
+            this.CCrítico.HeaderText = "C-Critico";
+            this.CCrítico.Name = "CCrítico";
+            this.CCrítico.ReadOnly = true;
+            // 
+            // ProbA1Critico
+            // 
+            this.ProbA1Critico.HeaderText = "Prob A1 Critico";
+            this.ProbA1Critico.Name = "ProbA1Critico";
+            this.ProbA1Critico.ReadOnly = true;
+            // 
+            // ProbA2Critico
+            // 
+            this.ProbA2Critico.HeaderText = "Prob A2 Critico";
+            this.ProbA2Critico.Name = "ProbA2Critico";
+            this.ProbA2Critico.ReadOnly = true;
+            // 
+            // ProbA3Critico
+            // 
+            this.ProbA3Critico.HeaderText = "Prob A3 Critico";
+            this.ProbA3Critico.Name = "ProbA3Critico";
+            this.ProbA3Critico.ReadOnly = true;
+            // 
+            // ProbA4Critico
+            // 
+            this.ProbA4Critico.HeaderText = "Prob A4 Critico";
+            this.ProbA4Critico.Name = "ProbA4Critico";
+            this.ProbA4Critico.ReadOnly = true;
+            // 
+            // ProbA5Critico
+            // 
+            this.ProbA5Critico.HeaderText = "Prob A5 Critico";
+            this.ProbA5Critico.Name = "ProbA5Critico";
+            this.ProbA5Critico.ReadOnly = true;
+            // 
+            // A1MasTardio
+            // 
+            this.A1MasTardio.HeaderText = "A1 Mas Tardio";
+            this.A1MasTardio.Name = "A1MasTardio";
+            this.A1MasTardio.ReadOnly = true;
+            // 
+            // A2MasTardio
+            // 
+            this.A2MasTardio.HeaderText = "A2 Mas Tardio";
+            this.A2MasTardio.Name = "A2MasTardio";
+            this.A2MasTardio.ReadOnly = true;
+            // 
+            // A3MasTardio
+            // 
+            this.A3MasTardio.HeaderText = "A3 Mas Tardio";
+            this.A3MasTardio.Name = "A3MasTardio";
+            this.A3MasTardio.ReadOnly = true;
+            // 
+            // A4MasTardio
+            // 
+            this.A4MasTardio.HeaderText = "A4 Mas Tardio";
+            this.A4MasTardio.Name = "A4MasTardio";
+            this.A4MasTardio.ReadOnly = true;
+            // 
+            // A5MasTardio
+            // 
+            this.A5MasTardio.HeaderText = "A5 Mas Tardio";
+            this.A5MasTardio.Name = "A5MasTardio";
+            this.A5MasTardio.ReadOnly = true;
+            // 
             // Ejercicio__B
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -947,6 +1091,12 @@ namespace SIMULACION_TP1
         private System.Windows.Forms.ComboBox comboDist2;
         private System.Windows.Forms.Label label16;
         internal System.Windows.Forms.DataGridView tablaVectorEstado;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TextBox txtHasta;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox txtDesde;
+        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.DataGridViewTextBoxColumn nroProyecto;
         private System.Windows.Forms.DataGridViewTextBoxColumn T1;
         private System.Windows.Forms.DataGridViewTextBoxColumn T2;
@@ -960,11 +1110,23 @@ namespace SIMULACION_TP1
         private System.Windows.Forms.DataGridViewTextBoxColumn MinDuracion;
         private System.Windows.Forms.DataGridViewTextBoxColumn CantTareasMen45Dias;
         private System.Windows.Forms.DataGridViewTextBoxColumn ProbCompl45dias;
-        private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TextBox txtHasta;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox txtDesde;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Varianza;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Desviacion;
+        private System.Windows.Forms.DataGridViewTextBoxColumn FechaNc90;
+        private System.Windows.Forms.DataGridViewTextBoxColumn C1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn C2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn C3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CCritico;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CCrítico;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ProbA1Critico;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ProbA2Critico;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ProbA3Critico;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ProbA4Critico;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ProbA5Critico;
+        private System.Windows.Forms.DataGridViewTextBoxColumn A1MasTardio;
+        private System.Windows.Forms.DataGridViewTextBoxColumn A2MasTardio;
+        private System.Windows.Forms.DataGridViewTextBoxColumn A3MasTardio;
+        private System.Windows.Forms.DataGridViewTextBoxColumn A4MasTardio;
+        private System.Windows.Forms.DataGridViewTextBoxColumn A5MasTardio;
     }
 }

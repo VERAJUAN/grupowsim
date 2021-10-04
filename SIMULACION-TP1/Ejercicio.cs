@@ -91,7 +91,7 @@ namespace SIMULACION_TP1
                     T4 = GeneracionTiemposActividad(comboDist4.SelectedIndex, constante4_1.Text, constante4_2.Text, numAleatorio);
                     T5 = GeneracionTiemposActividad(comboDist5.SelectedIndex, constante5_1.Text, constante5_2.Text, numAleatorio);
 
-                    vectorEstado = new VectorEstado(i + 1, T1, T2, T3, T4, T5, 0, 0, double.PositiveInfinity, 0);
+                    vectorEstado = new VectorEstado(i + 1, T1, T2, T3, T4, T5, 0, 0, double.PositiveInfinity, 0, 0, 0, 0, 0, 0, 0);
 
                     tablaVectorEstado.Rows.Add(0.ToString());
 
@@ -107,7 +107,8 @@ namespace SIMULACION_TP1
                     T4 = GeneracionTiemposActividad(comboDist4.SelectedIndex, constante4_1.Text, constante4_2.Text, numAleatorio);
                     T5 = GeneracionTiemposActividad(comboDist5.SelectedIndex, constante5_1.Text, constante5_2.Text, numAleatorio);
 
-                    vectorEstadoMasUno = new VectorEstado(i + 1, T1, T2, T3, T4, T5, vectorEstado.AcumuladoEnsamble, vectorEstado.MaxDuracion, vectorEstado.MinDuracion, vectorEstado.CantTareasMenor45Dias);
+                    vectorEstadoMasUno = new VectorEstado(i + 1, T1, T2, T3, T4, T5, vectorEstado.AcumuladoEnsamble, vectorEstado.MaxDuracion, vectorEstado.MinDuracion, vectorEstado.CantTareasMenor45Dias, 
+                                                vectorEstado.Varianza, vectorEstado.ProbA1Critico, vectorEstado.ProbA2Critico, vectorEstado.ProbA3Critico, vectorEstado.ProbA4Critico, vectorEstado.ProbA5Critico);
 
                     var nroProyecto = vectorEstadoMasUno.nroProyecto.ToString();
                     var DuracionEnsamble = vectorEstadoMasUno.DuracionEnsamble.ToString();
@@ -117,11 +118,30 @@ namespace SIMULACION_TP1
                     var MinDuracion = vectorEstadoMasUno.MinDuracion.ToString();
                     var CantTareasMenor45Dias = vectorEstadoMasUno.CantTareasMenor45Dias.ToString();
                     var ProbCompletarEn45Dias = Math.Round(vectorEstadoMasUno.ProbCompletarEn45Dias, 4).ToString();
+                    var Varianza = Math.Round(vectorEstadoMasUno.Varianza, 4).ToString();
+                    var Desviacion = Math.Round(vectorEstadoMasUno.Desviacion, 4).ToString();
+                    var FechaNc90 = Math.Round(vectorEstadoMasUno.FechaNc90, 4).ToString();
+                    var C1 = Math.Round(vectorEstadoMasUno.C1, 4).ToString();
+                    var C2 = Math.Round(vectorEstadoMasUno.C2, 4).ToString();
+                    var C3 = Math.Round(vectorEstadoMasUno.C3, 4).ToString();
+                    var CCritico = Math.Round(vectorEstadoMasUno.CCritico, 4).ToString();
+                    var CCriticoString = vectorEstadoMasUno.CCriticoString;
+                    var ProbA1Critico = Math.Round(vectorEstadoMasUno.ProbA1Critico, 4).ToString();
+                    var ProbA2Critico = Math.Round(vectorEstadoMasUno.ProbA2Critico, 4).ToString();
+                    var ProbA3Critico = Math.Round(vectorEstadoMasUno.ProbA3Critico, 4).ToString();
+                    var ProbA4Critico = Math.Round(vectorEstadoMasUno.ProbA4Critico, 4).ToString();
+                    var ProbA5Critico = Math.Round(vectorEstadoMasUno.ProbA5Critico, 4).ToString();
+                    var A1MasTardio = Math.Round(vectorEstadoMasUno.A1MasTardio, 4).ToString();
+                    var A2MasTardio = Math.Round(vectorEstadoMasUno.A2MasTardio, 4).ToString();
+                    var A3MasTardio = Math.Round(vectorEstadoMasUno.A3MasTardio, 4).ToString();
+                    var A4MasTardio = Math.Round(vectorEstadoMasUno.A4MasTardio, 4).ToString();
+                    var A5MasTardio = Math.Round(vectorEstadoMasUno.A5MasTardio, 4).ToString();
 
-                    if (int.Parse(nroProyecto.ToString()) < 20 || int.Parse(nroProyecto.ToString()) % 10000 == 0 )
+                    if (int.Parse(nroProyecto.ToString()) < 20 || int.Parse(nroProyecto.ToString()) % 10000 == 0)
                     {
                         tablaVectorEstado.Rows.Add(nroProyecto, T1, T2, T3, T4, T5, DuracionEnsamble, AcumuladoEnsamble, PromedioDuracionEnsamble, MaxDuracion,
-                            MinDuracion, CantTareasMenor45Dias, ProbCompletarEn45Dias);
+                            MinDuracion, CantTareasMenor45Dias, ProbCompletarEn45Dias, Varianza, Desviacion, FechaNc90, C1, C2, C3, CCritico, CCriticoString,
+                            ProbA1Critico, ProbA2Critico, ProbA3Critico, ProbA4Critico, ProbA5Critico, A1MasTardio, A2MasTardio, A3MasTardio, A4MasTardio, A5MasTardio);
                     }
 
 
