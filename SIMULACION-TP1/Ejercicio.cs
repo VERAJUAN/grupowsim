@@ -133,12 +133,16 @@ namespace SIMULACION_TP1
                     List<double> lista = new List<double>();
                     numAleatorio = congruencialMixto(a, c, m, xiAnterior);
                     T1 = GeneracionTiemposActividad(comboDist1.SelectedIndex, constante1_1.Text, constante1_2.Text, numAleatorio);
+                    
                     numAleatorio = congruencialMixto(a, c, m, xiAnterior);
                     T2 = GeneracionTiemposActividad(comboDist2.SelectedIndex, constante2_1.Text, constante2_2.Text, numAleatorio);
+                    
                     numAleatorio = congruencialMixto(a, c, m, xiAnterior);
                     T3 = GeneracionTiemposActividad(comboDist3.SelectedIndex, constante3_1.Text, constante3_2.Text, numAleatorio);
+                    
                     numAleatorio = congruencialMixto(a, c, m, xiAnterior);
                     T4 = GeneracionTiemposActividad(comboDist4.SelectedIndex, constante4_1.Text, constante4_2.Text, numAleatorio);
+                    
                     numAleatorio = congruencialMixto(a, c, m, xiAnterior);
                     T5 = GeneracionTiemposActividad(comboDist5.SelectedIndex, constante5_1.Text, constante5_2.Text, numAleatorio);
 
