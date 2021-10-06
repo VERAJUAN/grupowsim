@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -45,25 +46,63 @@ namespace SIMULACION_TP1
         public double ProbA1CriticoAnterior { get; set; }
         public double ProbA1Critico => probACritico(C1, CCritico, ProbA1CriticoAnterior, nroProyecto);
         public double ProbA2CriticoAnterior { get; set; }
-        public double ProbA2Critico => probACritico(C1, CCritico, ProbA2CriticoAnterior, nroProyecto);
+        public double ProbA2Critico => probACritico(C2, CCritico, ProbA2CriticoAnterior, nroProyecto);
         public double ProbA3CriticoAnterior { get; set; }
-        public double ProbA3Critico => probACritico(C1, CCritico, ProbA3CriticoAnterior, nroProyecto);
+        public double ProbA3Critico => probACritico(C3, CCritico, ProbA3CriticoAnterior, nroProyecto);
         public double ProbA4CriticoAnterior { get; set; }
         public double ProbA4Critico => probACritico(C1, CCritico, ProbA4CriticoAnterior, nroProyecto);
         public double ProbA5CriticoAnterior { get; set; }
         public double ProbA5Critico => probA5Critico(C1, C2, CCritico, ProbA5CriticoAnterior, nroProyecto);
-        public double A1MasTardio => T4 - T1;
-        public double A2MasTardio => T5 - T2;
+        public double A1MasTardio => A4MasTardio - T1;
+        public double A2MasTardio => A5MasTardio - T2;
         public double A3MasTardio => CCritico - T3;
-        public double A4MasTardio => T5 - T4;
+        public double A4MasTardio => A5MasTardio - T4;
         public double A5MasTardio => CCritico - T5;
+        public List<double> ListaIntervalosAnterior { get; set; }
+        public List<double> ListaIntervalos = new List<double>();
+        public double ProbIntervalo1Anterior { get; set; }
+        public double ProbIntervalo1 => Intervalo(0, nroProyecto, ProbIntervalo1Anterior, DuracionEnsamble);
+        public double ProbIntervalo2Anterior { get; set; }
+        public double ProbIntervalo2 => Intervalo(1, nroProyecto, ProbIntervalo2Anterior, DuracionEnsamble);
+        public double ProbIntervalo3Anterior { get; set; }
+        public double ProbIntervalo3 => Intervalo(2, nroProyecto, ProbIntervalo3Anterior, DuracionEnsamble);
+        public double ProbIntervalo4Anterior { get; set; }
+        public double ProbIntervalo4 => Intervalo(3, nroProyecto, ProbIntervalo4Anterior, DuracionEnsamble);
+        public double ProbIntervalo5Anterior { get; set; }
+        public double ProbIntervalo5 => Intervalo(4, nroProyecto, ProbIntervalo5Anterior, DuracionEnsamble);
+        public double ProbIntervalo6Anterior { get; set; }
+        public double ProbIntervalo6 => Intervalo(5, nroProyecto, ProbIntervalo6Anterior, DuracionEnsamble);
+        public double ProbIntervalo7Anterior { get; set; }
+        public double ProbIntervalo7 => Intervalo(6, nroProyecto, ProbIntervalo7Anterior, DuracionEnsamble);
+        public double ProbIntervalo8Anterior { get; set; }
+        public double ProbIntervalo8 => Intervalo(7, nroProyecto, ProbIntervalo8Anterior, DuracionEnsamble);
+        public double ProbIntervalo9Anterior { get; set; }
+        public double ProbIntervalo9 => Intervalo(8, nroProyecto, ProbIntervalo9Anterior, DuracionEnsamble);
+        public double ProbIntervalo10Anterior { get; set; }
+        public double ProbIntervalo10 => Intervalo(9, nroProyecto, ProbIntervalo10Anterior, DuracionEnsamble);
+        public double ProbIntervalo11Anterior { get; set; }
+        public double ProbIntervalo11 => Intervalo(10, nroProyecto, ProbIntervalo11Anterior, DuracionEnsamble);
+        public double ProbIntervalo12Anterior { get; set; }
+        public double ProbIntervalo12 => Intervalo(11, nroProyecto, ProbIntervalo12Anterior, DuracionEnsamble);
+        public double ProbIntervalo13Anterior { get; set; }
+        public double ProbIntervalo13 => Intervalo(12, nroProyecto, ProbIntervalo13Anterior, DuracionEnsamble);
+        public double ProbIntervalo14Anterior { get; set; }
+        public double ProbIntervalo14 => Intervalo(13, nroProyecto, ProbIntervalo14Anterior, DuracionEnsamble);
+        public double ProbIntervalo15Anterior { get; set; }
+        public double ProbIntervalo15 => Intervalo(14, nroProyecto, ProbIntervalo15Anterior, DuracionEnsamble);
+
+        private double Intervalo(int intervaloLista, int nroProyecto, double probIntervaloAnterior, double duracionEnsamble)
+        {
+            return nroProyecto >= 15 ? ListaIntervalos.FindLastIndex(x => x < duracionEnsamble) == intervaloLista ? (((probIntervaloAnterior*(nroProyecto-1)) + 1) / nroProyecto) : (((probIntervaloAnterior * (nroProyecto - 1)) + 0) / nroProyecto) : probIntervaloAnterior;
+        }
 
         public VectorEstado() { }
 
-        public VectorEstado(int nroProyecto, double t1, double t2, double t3, double t4, double t5, 
-            double acumAnterior, double maxAnterior, double minAnterior, double cantTareasMenor45DiasAnterior,
-            double varianzaAnterior, double probA1CriticoAnterior, double probA2CriticoAnterior,
-            double probA3CriticoAnterior, double probA4CriticoAnterior, double probA5CriticoAnterior)
+        public VectorEstado(int nroProyecto, double t1, double t2, double t3, double t4, double t5, double acumAnterior, double maxAnterior, double minAnterior, double cantTareasMenor45DiasAnterior,
+            double varianzaAnterior, double probA1CriticoAnterior, double probA2CriticoAnterior, double probA3CriticoAnterior, double probA4CriticoAnterior, double probA5CriticoAnterior,
+            List<double> listaIntervalosAnterior, double probIntervalo1Anterior, double probIntervalo2Anterior, double probIntervalo3Anterior, double probIntervalo4Anterior, double probIntervalo5Anterior,
+            double probIntervalo6Anterior, double probIntervalo7Anterior, double probIntervalo8Anterior, double probIntervalo9Anterior, double probIntervalo10Anterior, double probIntervalo11Anterior,
+            double probIntervalo12Anterior, double probIntervalo13Anterior, double probIntervalo14Anterior, double probIntervalo15Anterior)
         {
             this.nroProyecto = nroProyecto;
             T1 = t1;
@@ -81,7 +120,55 @@ namespace SIMULACION_TP1
             ProbA3CriticoAnterior = probA3CriticoAnterior;
             ProbA4CriticoAnterior = probA4CriticoAnterior;
             ProbA5CriticoAnterior = probA5CriticoAnterior;
+            ListaIntervalosAnterior = listaIntervalosAnterior;
+            ProbIntervalo1Anterior = probIntervalo1Anterior;
+            ProbIntervalo2Anterior = probIntervalo2Anterior;
+            ProbIntervalo3Anterior = probIntervalo3Anterior;
+            ProbIntervalo4Anterior = probIntervalo4Anterior;
+            ProbIntervalo5Anterior = probIntervalo5Anterior;
+            ProbIntervalo6Anterior = probIntervalo6Anterior;
+            ProbIntervalo7Anterior = probIntervalo7Anterior;
+            ProbIntervalo8Anterior = probIntervalo8Anterior;
+            ProbIntervalo9Anterior = probIntervalo9Anterior;
+            ProbIntervalo10Anterior = probIntervalo10Anterior;
+            ProbIntervalo11Anterior = probIntervalo11Anterior;
+            ProbIntervalo12Anterior = probIntervalo12Anterior;
+            ProbIntervalo13Anterior = probIntervalo13Anterior;
+            ProbIntervalo14Anterior = probIntervalo14Anterior;
+            ProbIntervalo15Anterior = probIntervalo15Anterior;
+            ListaIntervalos = listaIntervalosAnterior;
+            if (this.nroProyecto < 15) ListaIntervalos.Add(DuracionEnsamble);
+            if (this.nroProyecto == 15) ListaIntervalos.Sort();
         }
+
+
+        //public VectorEstado(int nroProyecto, double t1, double t2, double t3, double t4, double t5, 
+        //    double acumAnterior, double maxAnterior, double minAnterior, double cantTareasMenor45DiasAnterior,
+        //    double varianzaAnterior, double probA1CriticoAnterior, double probA2CriticoAnterior,
+        //    double probA3CriticoAnterior, double probA4CriticoAnterior, double probA5CriticoAnterior, List<double> listaIntervalosAnterior)
+        //{
+        //    this.nroProyecto = nroProyecto;
+        //    T1 = t1;
+        //    T2 = t2;
+        //    T3 = t3;
+        //    T4 = t4;
+        //    T5 = t5;
+        //    AcumAnterior = acumAnterior;
+        //    MaxAnterior = maxAnterior;
+        //    MinAnterior = minAnterior;
+        //    CantTareasMenor45DiasAnterior = cantTareasMenor45DiasAnterior;
+        //    VarianzaAnterior = varianzaAnterior;
+        //    ProbA1CriticoAnterior = probA1CriticoAnterior;
+        //    ProbA2CriticoAnterior = probA2CriticoAnterior;
+        //    ProbA3CriticoAnterior = probA3CriticoAnterior;
+        //    ProbA4CriticoAnterior = probA4CriticoAnterior;
+        //    ProbA5CriticoAnterior = probA5CriticoAnterior;
+        //    ListaIntervalosAnterior = listaIntervalosAnterior;
+        //    ListaIntervalos = listaIntervalosAnterior;
+        //    if (this.nroProyecto < 15) ListaIntervalos.Add(DuracionEnsamble);
+        //    if (this.nroProyecto == 15) ListaIntervalos.Sort();
+        //}
+
 
         private double probA5Critico(double c1, double c2, double cCritico, double probA5CriticoAnterior, int nroProyecto)
         {
@@ -181,7 +268,7 @@ namespace SIMULACION_TP1
 
         private double varianza(int nroProyecto, double duracionEnsamble, double promedioDuracionEnsamble, double varianzaAnterior)
         {
-            return nroProyecto < 2 ? 0 : (1 / (nroProyecto - 1)) * (((nroProyecto - 2) * varianzaAnterior) + ((nroProyecto / (nroProyecto - 1)) * Math.Sqrt(promedioDuracionEnsamble - duracionEnsamble)));
+            return nroProyecto > 1 ? (1 / ((double)nroProyecto - 1)) * (((nroProyecto - 2) * varianzaAnterior) + (((double)nroProyecto / ((double)nroProyecto - 1)) * Math.Pow((promedioDuracionEnsamble - duracionEnsamble), 2))) : 0;        
         }
 
         private double desviacion(double varianza)
@@ -193,7 +280,7 @@ namespace SIMULACION_TP1
         {
             Chart statisticFormula = new Chart();
 
-            return nroProyecto == 0 ? 0 : promedioDuracionEnsamble + (statisticFormula.DataManipulator.Statistics.InverseTDistribution((1 - 0.9) / 2, (nroProyecto - 1)) * desviacion / Math.Sqrt(nroProyecto));
+            return nroProyecto > 1 ? promedioDuracionEnsamble + (statisticFormula.DataManipulator.Statistics.InverseTDistribution((1 - 0.9) / 2, (nroProyecto - 1)) * desviacion / Math.Sqrt(nroProyecto)) : 0;
         }
     }
 }
