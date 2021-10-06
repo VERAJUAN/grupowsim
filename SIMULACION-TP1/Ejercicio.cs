@@ -114,6 +114,16 @@ namespace SIMULACION_TP1
             semilla = 584431597;
             xiAnterior = semilla;
 
+            //// Genera Grafico
+            if (Grafico.Titles.Count == 0)
+                Grafico.Titles.Add("Probabilidades intervalos");
+
+            Series series = Grafico.Series.Add("Probabilidad");
+            series.ChartType = SeriesChartType.Point;
+            series.Points.Clear();
+            Grafico.ChartAreas[0].AxisX.Title = "Intervalos";
+            Grafico.ChartAreas[0].AxisY.Title = "Probabilidades";
+
             for (int i = 0; i < cantProyectos; i++)
             {
                 numAleatorio = congruencialMixto(a, c, m, xiAnterior);
@@ -121,10 +131,15 @@ namespace SIMULACION_TP1
                 if (i == 0)
                 {
                     List<double> lista = new List<double>();
+                    numAleatorio = congruencialMixto(a, c, m, xiAnterior);
                     T1 = GeneracionTiemposActividad(comboDist1.SelectedIndex, constante1_1.Text, constante1_2.Text, numAleatorio);
+                    numAleatorio = congruencialMixto(a, c, m, xiAnterior);
                     T2 = GeneracionTiemposActividad(comboDist2.SelectedIndex, constante2_1.Text, constante2_2.Text, numAleatorio);
+                    numAleatorio = congruencialMixto(a, c, m, xiAnterior);
                     T3 = GeneracionTiemposActividad(comboDist3.SelectedIndex, constante3_1.Text, constante3_2.Text, numAleatorio);
+                    numAleatorio = congruencialMixto(a, c, m, xiAnterior);
                     T4 = GeneracionTiemposActividad(comboDist4.SelectedIndex, constante4_1.Text, constante4_2.Text, numAleatorio);
+                    numAleatorio = congruencialMixto(a, c, m, xiAnterior);
                     T5 = GeneracionTiemposActividad(comboDist5.SelectedIndex, constante5_1.Text, constante5_2.Text, numAleatorio);
 
                     vectorEstado = new VectorEstado(i + 1, T1, T2, T3, T4, T5, 0, 0, double.PositiveInfinity, 0, 0, 0, 0, 0, 0, 0, lista, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
@@ -226,8 +241,30 @@ namespace SIMULACION_TP1
                     for (int j = 0; j < vectorEstado.ListaIntervalos.Count; j++)
                     {
                         tablaVectorEstado.Columns.Add("intervalo" + j, Math.Round(vectorEstado.ListaIntervalos[j], 4).ToString());
+
+                        //// Cargo los intervalos con sus respectivos valores
+                        series.Points.AddXY(j, vectorEstado.ListaIntervalos[j]);
                     }
                 }
+
+                
+
+                //// Cargo los intervalos con sus respectivos valores
+                //for (int j = 0; i < limiteSuperior.Length; i++)
+                //{
+                //}
+
+
+                // Calculo lambda y lo muestro
+                //txt_resul.Text = Math.Round(estadisticoAcumulado[k - 1], 4).ToString();
+
+                //// Calculo el valor y obtengo el valor tabulado.
+                //var p = 1 - Convert.ToDouble(cboSignificancia.SelectedItem);
+                //double chi = ChiSquared.InvCDF(k - 1, p);
+                //tbChi.Text = Math.Round(chi, 4).ToString();
+
+                // Si el estadístico de prueba es menor o igual que el valor
+                // crítico, no se puede rechazar la hipótesis nula
             }
         }
 
@@ -668,33 +705,7 @@ namespace SIMULACION_TP1
             //    tablaanalisis.Rows.Add(limiteInferior[i], limiteSuperior[i], frecuenciaObservada[i], frecuenciaEsperada[i], estadistico[i], estadisticoAcumulado[i]);
             //}
 
-            //// Genera Grafico
-            //if (Grafico.Titles.Count == 0)
-            //    Grafico.Titles.Add("Frecuencias observadas");
-
-            //Series series = Grafico.Series.Add("Frecuencia Observada");
-            //series.ChartType = SeriesChartType.Column;
-            //series.Points.Clear();
-            //Grafico.ChartAreas[0].AxisX.Title = "Datos obtenidos";
-            //Grafico.ChartAreas[0].AxisY.Title = "Frecuencias";
-
-            //// Cargo los intervalos con sus respectivos valores
-            //for (int i = 0; i < limiteSuperior.Length; i++)
-            //{
-            //    series.Points.AddXY(limiteSuperior[i], frecuenciaObservada[i]);
-            //}
-
-
-            //// Calculo lambda y lo muestro
-            //txt_resul.Text = Math.Round(estadisticoAcumulado[k - 1], 4).ToString();
-
-            //// Calculo el valor y obtengo el valor tabulado.
-            //var p = 1 - Convert.ToDouble(cboSignificancia.SelectedItem);
-            //double chi = ChiSquared.InvCDF(k - 1, p);
-            //tbChi.Text = Math.Round(chi, 4).ToString();
-
-            //// Si el estadístico de prueba es menor o igual que el valor
-            //// crítico, no se puede rechazar la hipótesis nula
+            
 
             #endregion
 
