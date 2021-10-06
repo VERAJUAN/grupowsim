@@ -33,6 +33,8 @@ namespace SIMULACION_TP1
         public Ejercicio__B()
         {
             InitializeComponent();
+            tablaVectorEstado.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.DisplayedCells;
+
             //cboSignificancia.SelectedIndex = 0;
             //tbChi.Text = "";
             //txt_resul.Text = "";
@@ -56,63 +58,46 @@ namespace SIMULACION_TP1
             comboDist5.SelectedIndex = 1;
             constante5_1.Text = "5";
 
+            txt_m.Text = "918468";
+            txt_a.Text = "5940215";
+            txt_c.Text = "1951138";
+            txt_semilla.Text = "584431597";
+
         }
 
         private void btn_generar_Click(object sender, EventArgs e)
         {
-            
-
-
             Simular();
-
-
-            //Agregamos a tabla los aleatorios mixtos
-            //for (int i = 0; i < cantProyectos; i++)
-            //{
-            //    tablaaleatorios.Rows.Add(i + 1, Math.Round(congruencialMixto(a, c, m, xiAnterior), 4));
-            //}
-
-            // Corroboramos que k sea mayor a 4
-            //if (k > 4 && m >= k)
-            //{
-            //    realizarTest();
-            //}
-            //else
-            //{
-            //    MessageBox.Show("K debe ser mayor a 4 y se sugiere que sea raíz cuadrada de M. M debe ser igual o mayor a K", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            //}
-
         }
 
         private double congruencialMixto(int a, int c, int m, double xi)
         {
             xiAnterior = ((a * xi) + c) % m; //Si es mixto
-            
+
             return (xiAnterior + 0.5) / m; //(0;1)
         }
 
 
         private void Simular(int desde = 0, int hasta = 0)
         {
-            tablaaleatorios.Rows.Clear();
             tablaVectorEstado.Rows.Clear();
             Grafico.Series.Clear();
 
-            //m = int.Parse(txt_m.Text);
-            //a = int.Parse(txt_a.Text);
-            //c = int.Parse(txt_c.Text);
-            //semilla = double.Parse(txt_semilla.Text);
+            m = int.Parse(txt_m.Text);
+            a = int.Parse(txt_a.Text);
+            c = int.Parse(txt_c.Text);
+            semilla = double.Parse(txt_semilla.Text);
+            xiAnterior = semilla;
             cantProyectos = int.Parse(txt_cantProy.Text);
             double T1, T2, T3, T4, T5;
             VectorEstado vectorEstado = new VectorEstado();
             VectorEstado vectorEstadoMasUno;
-            double numAleatorio;
 
-            m = 918468;
-            a = 5940215;
-            c = 1951138;
-            semilla = 584431597;
-            xiAnterior = semilla;
+            //m = 918468;
+            //a = 5940215;
+            //c = 1951138;
+            //semilla = 584431597;
+            //xiAnterior = semilla;
 
             //// Genera Grafico
             if (Grafico.Titles.Count == 0)
@@ -126,33 +111,32 @@ namespace SIMULACION_TP1
 
             for (int i = 0; i < cantProyectos; i++)
             {
-                numAleatorio = congruencialMixto(a, c, m, xiAnterior);
-                tablaaleatorios.Rows.Add(i + 1, Math.Round(numAleatorio, 4));
                 if (i == 0)
                 {
                     List<double> lista = new List<double>();
-                    numAleatorio = congruencialMixto(a, c, m, xiAnterior);
-                    T1 = GeneracionTiemposActividad(comboDist1.SelectedIndex, constante1_1.Text, constante1_2.Text, numAleatorio);
-                    
-                    numAleatorio = congruencialMixto(a, c, m, xiAnterior);
-                    T2 = GeneracionTiemposActividad(comboDist2.SelectedIndex, constante2_1.Text, constante2_2.Text, numAleatorio);
-                    
-                    numAleatorio = congruencialMixto(a, c, m, xiAnterior);
-                    T3 = GeneracionTiemposActividad(comboDist3.SelectedIndex, constante3_1.Text, constante3_2.Text, numAleatorio);
-                    
-                    numAleatorio = congruencialMixto(a, c, m, xiAnterior);
-                    T4 = GeneracionTiemposActividad(comboDist4.SelectedIndex, constante4_1.Text, constante4_2.Text, numAleatorio);
-                    
-                    numAleatorio = congruencialMixto(a, c, m, xiAnterior);
-                    T5 = GeneracionTiemposActividad(comboDist5.SelectedIndex, constante5_1.Text, constante5_2.Text, numAleatorio);
+                    var numAleatorio1 = congruencialMixto(a, c, m, xiAnterior);
+                    T1 = GeneracionTiemposActividad(comboDist1.SelectedIndex, constante1_1.Text, constante1_2.Text, numAleatorio1);
+
+                    var numAleatorio2 = congruencialMixto(a, c, m, xiAnterior);
+                    T2 = GeneracionTiemposActividad(comboDist2.SelectedIndex, constante2_1.Text, constante2_2.Text, numAleatorio2);
+
+                    var numAleatorio3 = congruencialMixto(a, c, m, xiAnterior);
+                    T3 = GeneracionTiemposActividad(comboDist3.SelectedIndex, constante3_1.Text, constante3_2.Text, numAleatorio3);
+
+                    var numAleatorio4 = congruencialMixto(a, c, m, xiAnterior);
+                    T4 = GeneracionTiemposActividad(comboDist4.SelectedIndex, constante4_1.Text, constante4_2.Text, numAleatorio4);
+
+                    var numAleatorio5 = congruencialMixto(a, c, m, xiAnterior);
+                    T5 = GeneracionTiemposActividad(comboDist5.SelectedIndex, constante5_1.Text, constante5_2.Text, numAleatorio5);
 
                     vectorEstado = new VectorEstado(i + 1, T1, T2, T3, T4, T5, 0, 0, double.PositiveInfinity, 0, 0, 0, 0, 0, 0, 0, lista, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
 
-                    if(desde == 0 && hasta == 0)
+                    if (desde == 0 && hasta == 0)
                     {
                         tablaVectorEstado.Rows.Add(0.ToString());
 
-                        tablaVectorEstado.Rows.Add(vectorEstado.nroProyecto.ToString(), vectorEstado.T1.ToString(), vectorEstado.T2.ToString(), vectorEstado.T3.ToString(), vectorEstado.T4.ToString(),
+                        tablaVectorEstado.Rows.Add(vectorEstado.nroProyecto.ToString(), Math.Round(numAleatorio1, 4).ToString(), Math.Round(numAleatorio2, 4).ToString(), Math.Round(numAleatorio3, 4).ToString(),
+                                                   Math.Round(numAleatorio4, 4).ToString(), Math.Round(numAleatorio5, 4).ToString(), vectorEstado.T1.ToString(), vectorEstado.T2.ToString(), vectorEstado.T3.ToString(), vectorEstado.T4.ToString(),
                                                    vectorEstado.T5.ToString(), vectorEstado.DuracionEnsamble.ToString(), vectorEstado.AcumuladoEnsamble.ToString(), vectorEstado.PromedioDuracionEnsamble.ToString(),
                                                    vectorEstado.MaxDuracion.ToString(), vectorEstado.MinDuracion.ToString(), vectorEstado.CantTareasMenor45Dias.ToString(), vectorEstado.ProbCompletarEn45Dias.ToString(),
                                                    vectorEstado.Varianza.ToString(), vectorEstado.Desviacion.ToString(), vectorEstado.FechaNc90.ToString(), vectorEstado.C1.ToString(), vectorEstado.C2.ToString(),
@@ -167,11 +151,20 @@ namespace SIMULACION_TP1
                 }
                 else
                 {
-                    T1 = GeneracionTiemposActividad(comboDist1.SelectedIndex, constante1_1.Text, constante1_2.Text, numAleatorio);
-                    T2 = GeneracionTiemposActividad(comboDist2.SelectedIndex, constante2_1.Text, constante2_2.Text, numAleatorio);
-                    T3 = GeneracionTiemposActividad(comboDist3.SelectedIndex, constante3_1.Text, constante3_2.Text, numAleatorio);
-                    T4 = GeneracionTiemposActividad(comboDist4.SelectedIndex, constante4_1.Text, constante4_2.Text, numAleatorio);
-                    T5 = GeneracionTiemposActividad(comboDist5.SelectedIndex, constante5_1.Text, constante5_2.Text, numAleatorio);
+                    var numAleatorio1 = congruencialMixto(a, c, m, xiAnterior);
+                    T1 = GeneracionTiemposActividad(comboDist1.SelectedIndex, constante1_1.Text, constante1_2.Text, numAleatorio1);
+
+                    var numAleatorio2 = congruencialMixto(a, c, m, xiAnterior);
+                    T2 = GeneracionTiemposActividad(comboDist2.SelectedIndex, constante2_1.Text, constante2_2.Text, numAleatorio2);
+
+                    var numAleatorio3 = congruencialMixto(a, c, m, xiAnterior);
+                    T3 = GeneracionTiemposActividad(comboDist3.SelectedIndex, constante3_1.Text, constante3_2.Text, numAleatorio3);
+
+                    var numAleatorio4 = congruencialMixto(a, c, m, xiAnterior);
+                    T4 = GeneracionTiemposActividad(comboDist4.SelectedIndex, constante4_1.Text, constante4_2.Text, numAleatorio4);
+
+                    var numAleatorio5 = congruencialMixto(a, c, m, xiAnterior);
+                    T5 = GeneracionTiemposActividad(comboDist5.SelectedIndex, constante5_1.Text, constante5_2.Text, numAleatorio5);
 
                     vectorEstadoMasUno = new VectorEstado(i + 1, T1, T2, T3, T4, T5, vectorEstado.AcumuladoEnsamble, vectorEstado.MaxDuracion, vectorEstado.MinDuracion, vectorEstado.CantTareasMenor45Dias,
                                                 vectorEstado.Varianza, vectorEstado.ProbA1Critico, vectorEstado.ProbA2Critico, vectorEstado.ProbA3Critico, vectorEstado.ProbA4Critico, vectorEstado.ProbA5Critico,
@@ -182,7 +175,7 @@ namespace SIMULACION_TP1
 
                     var nroProyecto = vectorEstadoMasUno.nroProyecto.ToString();
                     var DuracionEnsamble = vectorEstadoMasUno.DuracionEnsamble.ToString();
-                    var AcumuladoEnsamble = vectorEstadoMasUno.AcumuladoEnsamble.ToString();
+                    var AcumuladoEnsamble = Math.Round(vectorEstadoMasUno.AcumuladoEnsamble, 4).ToString();
                     var PromedioDuracionEnsamble = Math.Round(vectorEstadoMasUno.PromedioDuracionEnsamble, 4).ToString();
                     var MaxDuracion = vectorEstadoMasUno.MaxDuracion.ToString();
                     var MinDuracion = vectorEstadoMasUno.MinDuracion.ToString();
@@ -223,14 +216,15 @@ namespace SIMULACION_TP1
                     var Intervalo15 = Math.Round(vectorEstadoMasUno.ProbIntervalo15, 4).ToString();
 
 
-                    if ((desde != 0 && hasta != 0 
+                    if ((desde != 0 && hasta != 0
                         && int.Parse(nroProyecto.ToString()) >= desde && int.Parse(nroProyecto.ToString()) <= hasta)
-                        || 
-                        (desde == 0 && hasta == 0 
+                        ||
+                        (desde == 0 && hasta == 0
                         && (int.Parse(nroProyecto.ToString()) < 20 || int.Parse(nroProyecto.ToString()) % 10000 == 0)
                         ))
                     {
-                        tablaVectorEstado.Rows.Add(nroProyecto, T1, T2, T3, T4, T5, DuracionEnsamble, AcumuladoEnsamble, PromedioDuracionEnsamble, MaxDuracion,
+                        tablaVectorEstado.Rows.Add(nroProyecto, Math.Round(numAleatorio1, 4).ToString(), Math.Round(numAleatorio2, 4).ToString(), Math.Round(numAleatorio3, 4).ToString(),
+                            Math.Round(numAleatorio4, 4).ToString(), Math.Round(numAleatorio5, 4).ToString(), T1, T2, T3, T4, T5, DuracionEnsamble, AcumuladoEnsamble, PromedioDuracionEnsamble, MaxDuracion,
                             MinDuracion, CantTareasMenor45Dias, ProbCompletarEn45Dias, Varianza, Desviacion, FechaNc90, C1, C2, C3, CCritico, CCriticoString,
                             ProbA1Critico, ProbA2Critico, ProbA3Critico, ProbA4Critico, ProbA5Critico, A1MasTardio, A2MasTardio, A3MasTardio, A4MasTardio, A5MasTardio,
                             Intervalo1, Intervalo2, Intervalo3, Intervalo4, Intervalo5, Intervalo6, Intervalo7, Intervalo8, Intervalo9, Intervalo10, Intervalo11,
@@ -244,31 +238,12 @@ namespace SIMULACION_TP1
                 {
                     for (int j = 0; j < vectorEstado.ListaIntervalos.Count; j++)
                     {
-                        tablaVectorEstado.Columns.Add("intervalo" + j, Math.Round(vectorEstado.ListaIntervalos[j], 4).ToString());
+                        tablaVectorEstado.Columns[36 + j].HeaderText = Math.Round(vectorEstado.ListaIntervalos[j], 4).ToString();
 
                         //// Cargo los intervalos con sus respectivos valores
                         series.Points.AddXY(j, vectorEstado.ListaIntervalos[j]);
                     }
                 }
-
-                
-
-                //// Cargo los intervalos con sus respectivos valores
-                //for (int j = 0; i < limiteSuperior.Length; i++)
-                //{
-                //}
-
-
-                // Calculo lambda y lo muestro
-                //txt_resul.Text = Math.Round(estadisticoAcumulado[k - 1], 4).ToString();
-
-                //// Calculo el valor y obtengo el valor tabulado.
-                //var p = 1 - Convert.ToDouble(cboSignificancia.SelectedItem);
-                //double chi = ChiSquared.InvCDF(k - 1, p);
-                //tbChi.Text = Math.Round(chi, 4).ToString();
-
-                // Si el estadístico de prueba es menor o igual que el valor
-                // crítico, no se puede rechazar la hipótesis nula
             }
         }
 
@@ -302,11 +277,6 @@ namespace SIMULACION_TP1
                     return Distribucion.Uniforme(xi, double.Parse(constante1), double.Parse(constante2));
                 default:
                     return -1;
-                    //    label10.Visible = false;
-                    //    label11.Visible = false;
-                    //    constante1_1.Visible = false;
-                    //    constante1_2.Visible = false;
-                    //    break;
             }
         }
 
@@ -600,121 +570,6 @@ namespace SIMULACION_TP1
                     break;
             }
         }
-
-        private void realizarTest()
-        {
-            // Limpiamos Tablas y Grafico
-            //tablaanalisis.Rows.Clear();
-
-            tablaaleatorios.Rows.Clear();
-            Grafico.Series.Clear();
-            numerosAleatorios = new List<double>();
-
-            // Tomamos los valores de m (cantidad de numeros aleatorios)
-            // y k (cantidad de intervalos)
-            int m = int.Parse(txt_m.Text);
-            int k = int.Parse(txt_a.Text);
-
-
-            // Asignamos k (cantidad de intervalos) a los vectores
-            //limiteInferior = new double[k];
-            //limiteSuperior = new double[k];
-            //frecuenciaObservada = new double[k];
-            //frecuenciaEsperada = new double[k];
-
-
-
-            for (int i = 0; i < m; i++)
-            {
-                tablaaleatorios.Rows.Add(i + 1, numerosAleatorios.ElementAt(i));
-            }
-
-            #region residual
-            ////Calculo maximo y minimo de los numeros aleatorios
-            //double maximo = numerosAleatorios.Max();
-            //double minimo = numerosAleatorios.Min();
-
-            ////Calculo el paso de cada intervalo
-            //double paso = Math.Round((maximo - minimo) / k, 4);
-
-            ////Asigno valor a los limites
-            //for (int i = 0; i < k; i++)
-            //{
-            //    //Primer limite inferior: valor minimo
-            //    if (i == 0) limiteInferior[i] = Math.Round(minimo, 4);
-            //    //Otros limites inferiores igual al limite superior anterior
-            //    else limiteInferior[i] = Math.Round(limiteSuperior[i - 1], 4);
-            //    //Si es el ultimo limite
-            //    if(i == k-1) limiteSuperior[i] = Math.Round(maximo, 4);
-            //    //Limite superior igual al inferior mas el paso
-            //    else limiteSuperior[i] = Math.Round(limiteInferior[i] + paso, 4);
-            //}
-
-            //for (int i = 0; i < m; i++)
-            //{
-            //    // Calcula la cantidad de numeros por cada intervalo(frecuenciaObservada)
-            //    int contador = 0;
-            //    while (numerosAleatorios[i] > limiteSuperior[contador])
-            //    {
-            //        contador++;
-            //    }
-            //    frecuenciaObservada[contador] += 1;
-            //}
-
-            //// C
-            //estadistico = new double[k];
-            //// C Ac
-            //estadisticoAcumulado = new double[k];
-
-            //// Asigno valores a la tabla
-            //for (int i = 0; i < k; i++)
-            //{
-            //    //Frecuencia esperada por distribución
-            //    switch (comboDist.SelectedIndex)
-            //    {
-            //        case 0:
-            //            //Normal
-
-            //            frecuenciaEsperada[i] = Frecuencia.Normal(m, k, double.Parse(constante1.Text), double.Parse(constante2.Text), paso);
-            //            break;
-            //        case 1:
-            //            //Exponencial
-            //            frecuenciaEsperada[i] = Frecuencia.Exponencial(paso, m, double.Parse(constante1.Text));
-            //            break;
-            //        case 2:
-            //            //Poisson
-            //            frecuenciaEsperada[i] = Frecuencia.Poisson((int)paso, double.Parse(constante1.Text), (int)m);
-            //            break;
-            //        case 3:
-            //            //Uniforme
-            //            frecuenciaEsperada[i] = Frecuencia.Uniforme(m, k);
-            //            break;
-            //    }
-
-
-            //    // Calculo del valor de C
-            //    estadistico[i] = (double)Math.Pow(frecuenciaObservada[i] - frecuenciaEsperada[i], 2) / frecuenciaEsperada[i];
-
-            //    // Calculo del valor de C Acumulado
-            //    if (i == 0) // Primera vuelta guarda el mismo valor de c
-            //    {
-            //        estadisticoAcumulado[i] = estadistico[i];
-            //    }
-            //    else // acumula C
-            //    {
-            //        estadisticoAcumulado[i] = estadistico[i] + estadisticoAcumulado[i - 1];
-            //    }
-
-            //    // Agrego los valores a la tabla
-            //    tablaanalisis.Rows.Add(limiteInferior[i], limiteSuperior[i], frecuenciaObservada[i], frecuenciaEsperada[i], estadistico[i], estadisticoAcumulado[i]);
-            //}
-
-            
-
-            #endregion
-
-        }
-
 
         private void Grafico_Click(object sender, EventArgs e)
         {
