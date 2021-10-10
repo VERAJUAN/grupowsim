@@ -16,12 +16,9 @@ namespace SIMULACION_TP1
 {
     public partial class Ejercicio__B : System.Windows.Forms.Form
     {
-
-        double[] limiteInferior, limiteSuperior, frecuenciaObservada, frecuenciaEsperada, estadistico, estadisticoAcumulado;
-        List<double> numerosAleatorios;
         int cantProyectos = 0;
 
-        int a, c, m, posicion;
+        int a, c, m;
         double semilla, xiAnterior;
 
 
@@ -34,10 +31,6 @@ namespace SIMULACION_TP1
         {
             InitializeComponent();
             tablaVectorEstado.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.DisplayedCells;
-
-            //cboSignificancia.SelectedIndex = 0;
-            //tbChi.Text = "";
-            //txt_resul.Text = "";
 
             //SETEO INICIAL DE ACTIVIDADES
             comboDist1.SelectedIndex = 2;
@@ -67,7 +60,18 @@ namespace SIMULACION_TP1
 
         private void btn_generar_Click(object sender, EventArgs e)
         {
-            Simular();
+            var val1 = validaciones(comboDist1.SelectedIndex, constante1_1.Text, constante1_2.Text);
+            var val2 = validaciones(comboDist2.SelectedIndex, constante2_1.Text, constante2_2.Text);
+            var val3 = validaciones(comboDist3.SelectedIndex, constante3_1.Text, constante3_2.Text);
+            var val4 = validaciones(comboDist4.SelectedIndex, constante4_1.Text, constante4_2.Text);
+            var val5 = validaciones(comboDist5.SelectedIndex, constante5_1.Text, constante5_2.Text);
+            if (int.Parse(txt_cantProy.Text) < 1)
+            {
+                MessageBox.Show("La cantidad de proyectos debe ser mayor a cero.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txt_cantProy.Focus();
+            }
+  
+            if(val1 && val2 && val3 && val4 && val5) Simular();
         }
 
         private double congruencialMixto(int a, int c, int m, double xi)
@@ -93,12 +97,6 @@ namespace SIMULACION_TP1
             VectorEstado vectorEstado = new VectorEstado();
             VectorEstado vectorEstadoMasUno;
 
-            //m = 918468;
-            //a = 5940215;
-            //c = 1951138;
-            //semilla = 584431597;
-            //xiAnterior = semilla;
-
             //// Genera Grafico
             if (Grafico.Titles.Count == 0)
                 Grafico.Titles.Add("Probabilidades intervalos");
@@ -111,23 +109,25 @@ namespace SIMULACION_TP1
 
             for (int i = 0; i < cantProyectos; i++)
             {
+                List<double> lista = new List<double>();
+                var numAleatorio1 = congruencialMixto(a, c, m, xiAnterior);
+                T1 = GeneracionTiemposActividad(comboDist1.SelectedIndex, constante1_1.Text, constante1_2.Text, numAleatorio1);
+
+                var numAleatorio2 = congruencialMixto(a, c, m, xiAnterior);
+                T2 = GeneracionTiemposActividad(comboDist2.SelectedIndex, constante2_1.Text, constante2_2.Text, numAleatorio2);
+
+                var numAleatorio3 = congruencialMixto(a, c, m, xiAnterior);
+                T3 = GeneracionTiemposActividad(comboDist3.SelectedIndex, constante3_1.Text, constante3_2.Text, numAleatorio3);
+
+                var numAleatorio4 = congruencialMixto(a, c, m, xiAnterior);
+                T4 = GeneracionTiemposActividad(comboDist4.SelectedIndex, constante4_1.Text, constante4_2.Text, numAleatorio4);
+
+                var numAleatorio5 = congruencialMixto(a, c, m, xiAnterior);
+                T5 = GeneracionTiemposActividad(comboDist5.SelectedIndex, constante5_1.Text, constante5_2.Text, numAleatorio5);
+
                 if (i == 0)
                 {
-                    List<double> lista = new List<double>();
-                    var numAleatorio1 = congruencialMixto(a, c, m, xiAnterior);
-                    T1 = GeneracionTiemposActividad(comboDist1.SelectedIndex, constante1_1.Text, constante1_2.Text, numAleatorio1);
-
-                    var numAleatorio2 = congruencialMixto(a, c, m, xiAnterior);
-                    T2 = GeneracionTiemposActividad(comboDist2.SelectedIndex, constante2_1.Text, constante2_2.Text, numAleatorio2);
-
-                    var numAleatorio3 = congruencialMixto(a, c, m, xiAnterior);
-                    T3 = GeneracionTiemposActividad(comboDist3.SelectedIndex, constante3_1.Text, constante3_2.Text, numAleatorio3);
-
-                    var numAleatorio4 = congruencialMixto(a, c, m, xiAnterior);
-                    T4 = GeneracionTiemposActividad(comboDist4.SelectedIndex, constante4_1.Text, constante4_2.Text, numAleatorio4);
-
-                    var numAleatorio5 = congruencialMixto(a, c, m, xiAnterior);
-                    T5 = GeneracionTiemposActividad(comboDist5.SelectedIndex, constante5_1.Text, constante5_2.Text, numAleatorio5);
+                    
 
                     vectorEstado = new VectorEstado(i + 1, T1, T2, T3, T4, T5, 0, 0, double.PositiveInfinity, 0, 0, 0, 0, 0, 0, 0, lista, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
 
@@ -151,21 +151,6 @@ namespace SIMULACION_TP1
                 }
                 else
                 {
-                    var numAleatorio1 = congruencialMixto(a, c, m, xiAnterior);
-                    T1 = GeneracionTiemposActividad(comboDist1.SelectedIndex, constante1_1.Text, constante1_2.Text, numAleatorio1);
-
-                    var numAleatorio2 = congruencialMixto(a, c, m, xiAnterior);
-                    T2 = GeneracionTiemposActividad(comboDist2.SelectedIndex, constante2_1.Text, constante2_2.Text, numAleatorio2);
-
-                    var numAleatorio3 = congruencialMixto(a, c, m, xiAnterior);
-                    T3 = GeneracionTiemposActividad(comboDist3.SelectedIndex, constante3_1.Text, constante3_2.Text, numAleatorio3);
-
-                    var numAleatorio4 = congruencialMixto(a, c, m, xiAnterior);
-                    T4 = GeneracionTiemposActividad(comboDist4.SelectedIndex, constante4_1.Text, constante4_2.Text, numAleatorio4);
-
-                    var numAleatorio5 = congruencialMixto(a, c, m, xiAnterior);
-                    T5 = GeneracionTiemposActividad(comboDist5.SelectedIndex, constante5_1.Text, constante5_2.Text, numAleatorio5);
-
                     vectorEstadoMasUno = new VectorEstado(i + 1, T1, T2, T3, T4, T5, vectorEstado.AcumuladoEnsamble, vectorEstado.MaxDuracion, vectorEstado.MinDuracion, vectorEstado.CantTareasMenor45Dias,
                                                 vectorEstado.Varianza, vectorEstado.ProbA1Critico, vectorEstado.ProbA2Critico, vectorEstado.ProbA3Critico, vectorEstado.ProbA4Critico, vectorEstado.ProbA5Critico,
                                                 vectorEstado.ListaIntervalos, vectorEstado.ProbIntervalo1, vectorEstado.ProbIntervalo2, vectorEstado.ProbIntervalo3, vectorEstado.ProbIntervalo4,
@@ -253,30 +238,48 @@ namespace SIMULACION_TP1
             {
                 case 0:
                     //Normal
+                    return Distribucion.Normal(xi, double.Parse(constante1), double.Parse(constante2));
+                case 1:
+                    //Exponencial
+                    return Distribucion.Exponencial(xi, double.Parse(constante1));
+                case 2:
+                    // uniforme 
+                    return Distribucion.Uniforme(xi, double.Parse(constante1), double.Parse(constante2));
+                default:
+                    return -1;
+            }
+        }
+
+        private bool validaciones(int comboDistrSelectedIndex, string constante1, string constante2)
+        {
+            switch (comboDistrSelectedIndex)
+            {
+                case 0:
+                    //Normal
                     if (double.Parse(constante2) < 0)
                     {
-                        MessageBox.Show("No puedes ingresar esos valores", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        return -1;
+                        MessageBox.Show("Desviación tiene que ser positivo en la distribución normal.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return false;
                     }
-                    return Distribucion.Normal(xi, double.Parse(constante1), double.Parse(constante2));
+                    return true;
                 case 1:
                     //Exponencial
                     if (double.Parse(constante1) <= 0)
                     {
-                        MessageBox.Show("Lambda tiene que ser positivo", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        return -1;
+                        MessageBox.Show("Lambda tiene que ser positivo en la distribución exponencial", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return false;
                     }
-                    return Distribucion.Exponencial(xi, double.Parse(constante1));
+                    return true;
                 case 2:
                     // uniforme 
-                    if (double.Parse(constante1) > double.Parse(constante2))
+                    if ((double.Parse(constante1) > double.Parse(constante2)) || (double.Parse(constante1) < 0) || (double.Parse(constante2) < 0))
                     {
-                        MessageBox.Show("No puedes ingresar esos valores", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        return -1;
+                        MessageBox.Show("Desde debe ser menor que hasta y no se pueden ingresar valores negativos en la distribución uniforme.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return false;
                     }
-                    return Distribucion.Uniforme(xi, double.Parse(constante1), double.Parse(constante2));
+                    return true;
                 default:
-                    return -1;
+                    return true;
             }
         }
 

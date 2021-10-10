@@ -17,7 +17,7 @@ namespace Distribuciones
 
             // Aplicar la formula de Box-Muller
             double N1 = ((Math.Sqrt(-2 * Math.Log(RND1, 2))) * Math.Cos(2 * Math.PI * RND2)) * desviacion + media;
-            double N2 = ((Math.Sqrt(-2 * Math.Log(RND1, 2))) * Math.Sin(2 * Math.PI * RND2)) * desviacion + media;
+            // double N2 = ((Math.Sqrt(-2 * Math.Log(RND1, 2))) * Math.Sin(2 * Math.PI * RND2)) * desviacion + media;
 
             return N1;
 

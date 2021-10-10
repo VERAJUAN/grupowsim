@@ -141,35 +141,6 @@ namespace SIMULACION_TP1
             if (this.nroProyecto == 15) ListaIntervalos.Sort();
         }
 
-
-        //public VectorEstado(int nroProyecto, double t1, double t2, double t3, double t4, double t5, 
-        //    double acumAnterior, double maxAnterior, double minAnterior, double cantTareasMenor45DiasAnterior,
-        //    double varianzaAnterior, double probA1CriticoAnterior, double probA2CriticoAnterior,
-        //    double probA3CriticoAnterior, double probA4CriticoAnterior, double probA5CriticoAnterior, List<double> listaIntervalosAnterior)
-        //{
-        //    this.nroProyecto = nroProyecto;
-        //    T1 = t1;
-        //    T2 = t2;
-        //    T3 = t3;
-        //    T4 = t4;
-        //    T5 = t5;
-        //    AcumAnterior = acumAnterior;
-        //    MaxAnterior = maxAnterior;
-        //    MinAnterior = minAnterior;
-        //    CantTareasMenor45DiasAnterior = cantTareasMenor45DiasAnterior;
-        //    VarianzaAnterior = varianzaAnterior;
-        //    ProbA1CriticoAnterior = probA1CriticoAnterior;
-        //    ProbA2CriticoAnterior = probA2CriticoAnterior;
-        //    ProbA3CriticoAnterior = probA3CriticoAnterior;
-        //    ProbA4CriticoAnterior = probA4CriticoAnterior;
-        //    ProbA5CriticoAnterior = probA5CriticoAnterior;
-        //    ListaIntervalosAnterior = listaIntervalosAnterior;
-        //    ListaIntervalos = listaIntervalosAnterior;
-        //    if (this.nroProyecto < 15) ListaIntervalos.Add(DuracionEnsamble);
-        //    if (this.nroProyecto == 15) ListaIntervalos.Sort();
-        //}
-
-
         private double probA5Critico(double c1, double c2, double cCritico, double probA5CriticoAnterior, int nroProyecto)
         {
             return (c1 == cCritico || c2 == cCritico) ? ((probA5CriticoAnterior * (nroProyecto - 1)) + 1) / nroProyecto : ((probA5CriticoAnterior * nroProyecto) + 0) / nroProyecto;
