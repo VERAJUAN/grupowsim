@@ -32,6 +32,9 @@ namespace SIMULACION_TP1
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.GroupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.button1 = new System.Windows.Forms.Button();
@@ -138,10 +141,12 @@ namespace SIMULACION_TP1
             this.Intervalo12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Intervalo13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Intervalo14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Grafico2 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.GroupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Grafico)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tablaVectorEstado)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Grafico2)).BeginInit();
             this.SuspendLayout();
             // 
             // GroupBox1
@@ -820,7 +825,7 @@ namespace SIMULACION_TP1
             this.tablaVectorEstado.Name = "tablaVectorEstado";
             this.tablaVectorEstado.ReadOnly = true;
             this.tablaVectorEstado.RowHeadersWidth = 10;
-            this.tablaVectorEstado.Size = new System.Drawing.Size(1202, 369);
+            this.tablaVectorEstado.Size = new System.Drawing.Size(1865, 369);
             this.tablaVectorEstado.TabIndex = 473;
             // 
             // nroProyecto
@@ -1124,11 +1129,28 @@ namespace SIMULACION_TP1
             this.Intervalo14.Name = "Intervalo14";
             this.Intervalo14.ReadOnly = true;
             // 
+            // Grafico2
+            // 
+            chartArea2.Name = "ChartArea1";
+            this.Grafico2.ChartAreas.Add(chartArea2);
+            legend2.Name = "Legend1";
+            this.Grafico2.Legends.Add(legend2);
+            this.Grafico2.Location = new System.Drawing.Point(1253, 69);
+            this.Grafico2.Name = "Grafico2";
+            series2.ChartArea = "ChartArea1";
+            series2.Legend = "Legend1";
+            series2.Name = "Series1";
+            this.Grafico2.Series.Add(series2);
+            this.Grafico2.Size = new System.Drawing.Size(628, 289);
+            this.Grafico2.TabIndex = 474;
+            this.Grafico2.Text = "Frecuencia Observada";
+            // 
             // Ejercicio__B
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1230, 806);
+            this.ClientSize = new System.Drawing.Size(1893, 806);
+            this.Controls.Add(this.Grafico2);
             this.Controls.Add(this.tablaVectorEstado);
             this.Controls.Add(this.Grafico);
             this.Controls.Add(this.GroupBox1);
@@ -1141,6 +1163,7 @@ namespace SIMULACION_TP1
             this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Grafico)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tablaVectorEstado)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Grafico2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1253,5 +1276,6 @@ namespace SIMULACION_TP1
         private System.Windows.Forms.DataGridViewTextBoxColumn Intervalo12;
         private System.Windows.Forms.DataGridViewTextBoxColumn Intervalo13;
         private System.Windows.Forms.DataGridViewTextBoxColumn Intervalo14;
+        private System.Windows.Forms.DataVisualization.Charting.Chart Grafico2;
     }
 }
