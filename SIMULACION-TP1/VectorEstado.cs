@@ -137,13 +137,16 @@ namespace SIMULACION_TP1
             ProbIntervalo14Anterior = probIntervalo14Anterior;
             ProbIntervalo15Anterior = probIntervalo15Anterior;
             ListaIntervalos = listaIntervalosAnterior;
-            Tmax(t1, t2, t3);
-            Tmin(t1, t2, t3);
-            diasA4deMas(t4, TMax, t1);
-            sumaA1aA4(TMax, DiasA4deMas);
-            maxT2yT4(t2, t4);
-            diasA5deMas(MaxEntreT2yT4, t5, SumaA1aA4);
-            duracionEnsamble(SumaA1aA4, DiasA5deMas);
+            //Tmax(t1, t2, t3);
+            //Tmin(t1, t2, t3);
+            //diasA4deMas(t4, TMax, t1);
+            //sumaA1aA4(TMax, DiasA4deMas);
+            //maxT2yT4(t2, t4);
+            //diasA5deMas(MaxEntreT2yT4, t5, SumaA1aA4);
+            c1(t1, t4, t5);
+            c2(t2, t5);
+            C3 = t3;
+            duracionEnsamble(C1, C2, C3);
             acumuladoEnsamble(AcumAnterior, DuracionEnsamble);
             promedioDuracionEnsamble(AcumuladoEnsamble, nroProyecto);
             maxDuracion(maxAnterior, DuracionEnsamble);
@@ -153,9 +156,6 @@ namespace SIMULACION_TP1
             varianza(nroProyecto, DuracionEnsamble, PromedioDuracionEnsamble, varianzaAnterior);
             desviacion(Varianza);
             fechaNc90(nroProyecto, PromedioDuracionEnsamble, Desviacion);
-            c1(t1, t4, t5);
-            c2(t2, t5);
-            C3 = t3;
             cCritico(C1, C2, C3);
             cCriticoString(CCritico, C1, C2, C3);
             ProbA1Critico = probACritico(C1, CCritico, ProbA1CriticoAnterior, nroProyecto);
@@ -218,39 +218,9 @@ namespace SIMULACION_TP1
             C1 = t1 + t4 + t5;
         }
 
-        private void Tmax(double t1, double t2, double t3)
+        private void duracionEnsamble(double camino1, double camino2, double camino3)
         {
-            TMax = t1 > t2 && t1 > t3 ? t1 : (t2 > t3 ? t2 : t3);
-        }
-
-        private void Tmin(double t1, double t2, double t3)
-        {
-            TMin = t1 < t2 && t1 < t3 ? t1 : (t2 < t3 ? t2 : t3);
-        }
-
-        private void diasA4deMas(double t4, double tmax, double t1)
-        {
-            DiasA4deMas = t4 - (tmax - t1);
-        }
-
-        private void sumaA1aA4(double tmax, double diasA4deMas)
-        {
-            SumaA1aA4 = tmax + (diasA4deMas > 0 ? diasA4deMas : 0);
-        }
-
-        private void maxT2yT4(double t2, double t4)
-        {
-            MaxEntreT2yT4 = t2 > t4 ? t2 : t4;
-        }
-
-        private void diasA5deMas(double maxT2yT4, double t5, double sumaA1aA4)
-        {
-            DiasA5deMas = maxT2yT4 < sumaA1aA4 ? (maxT2yT4 + t5 - sumaA1aA4) : t5;
-        }
-
-        private void duracionEnsamble(double sumaA1aA4, double diasA5deMas)
-        {
-            DuracionEnsamble = sumaA1aA4 + diasA5deMas;
+            DuracionEnsamble = camino1 > camino2 && camino1 > camino3 ? camino1 : (camino2 > camino3 ? camino2 : camino3);
         }
 
         private void acumuladoEnsamble(double acumAnterior, double duracionEnsamble)
@@ -299,5 +269,35 @@ namespace SIMULACION_TP1
 
             FechaNc90 = nroProyecto > 1 ? promedioDuracionEnsamble + (statisticFormula.DataManipulator.Statistics.InverseTDistribution((1 - 0.9) / 2, (nroProyecto - 1)) * desviacion / Math.Sqrt(nroProyecto)) : 0;
         }
+
+        //private void Tmax(double t1, double t2, double t3)
+        //{
+        //    TMax = t1 > t2 && t1 > t3 ? t1 : (t2 > t3 ? t2 : t3);
+        //}
+
+        //private void Tmin(double t1, double t2, double t3)
+        //{
+        //    TMin = t1 < t2 && t1 < t3 ? t1 : (t2 < t3 ? t2 : t3);
+        //}
+
+        //private void diasA4deMas(double t4, double tmax, double t1)
+        //{
+        //    DiasA4deMas = t4 - (tmax - t1);
+        //}
+
+        //private void sumaA1aA4(double tmax, double diasA4deMas)
+        //{
+        //    SumaA1aA4 = tmax + (diasA4deMas > 0 ? diasA4deMas : 0);
+        //}
+
+        //private void maxT2yT4(double t2, double t4)
+        //{
+        //    MaxEntreT2yT4 = t2 > t4 ? t2 : t4;
+        //}
+
+        //private void diasA5deMas(double maxT2yT4, double t5, double sumaA1aA4)
+        //{
+        //    DiasA5deMas = maxT2yT4 < sumaA1aA4 ? (maxT2yT4 + t5 - sumaA1aA4) : t5;
+        //}
     }
 }
