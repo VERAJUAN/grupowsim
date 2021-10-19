@@ -25,7 +25,8 @@ namespace Distribuciones
 
         public static double Exponencial(double xi, double lambda)
         {
-            double mediaNegativa = (1 / lambda) * -1;
+            //double mediaNegativa = (1 / lambda) * -1;
+            double mediaNegativa = (lambda) * -1;
 
             return Math.Round(mediaNegativa * Math.Log(1 - xi), 4);
         }

@@ -189,12 +189,12 @@ namespace SIMULACION_TP1
 
         private double probA5Critico(double c1, double c2, double cCritico, double probA5CriticoAnterior, int nroProyecto)
         {
-            return (c1 == cCritico || c2 == cCritico) ? ((probA5CriticoAnterior * (nroProyecto - 1)) + 1) / nroProyecto : ((probA5CriticoAnterior * nroProyecto) + 0) / nroProyecto;
+            return (c1 == cCritico || c2 == cCritico) ? ((probA5CriticoAnterior * (nroProyecto - 1)) + 1) / nroProyecto : ((probA5CriticoAnterior * (nroProyecto - 1)) + 0) / nroProyecto;
         }
 
         private double probACritico(double c, double cCritico, double probACriticoAnterior, int nroProyecto)
         {
-            return c == cCritico ? ((probACriticoAnterior * (nroProyecto - 1)) + 1) / nroProyecto : ((probACriticoAnterior * nroProyecto) + 0) / nroProyecto;
+            return c == cCritico ? ((probACriticoAnterior * (nroProyecto - 1)) + 1) / nroProyecto : ((probACriticoAnterior * (nroProyecto - 1)) + 0) / nroProyecto;
         }
 
         private void cCriticoString(double cCritico, double c1, double c2, double c3)
