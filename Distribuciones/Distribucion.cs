@@ -28,7 +28,7 @@ namespace Distribuciones
             //double mediaNegativa = (1 / lambda) * -1;
             double mediaNegativa = (lambda) * -1;
 
-            return Math.Round(mediaNegativa * Math.Log(1 - xi), 4);
+            return mediaNegativa * Math.Log(1 - xi);
         }
 
         public static List<double> Poisson(int m, double lambda)
@@ -59,7 +59,7 @@ namespace Distribuciones
         public static double Uniforme(double xi, double desde, double hasta)
         {
             // el numAleatorio final va ser (desde + (numAleatorio * (hasta - desde)) 
-            return Math.Round(desde + (xi * (hasta - desde)), 4);
+            return desde + (xi * (hasta - desde));
         }
 
 
