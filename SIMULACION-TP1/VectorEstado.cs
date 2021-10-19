@@ -163,11 +163,11 @@ namespace SIMULACION_TP1
             ProbA3Critico = probACritico(C3, CCritico, ProbA3CriticoAnterior, nroProyecto);
             ProbA4Critico = probACritico(C1, CCritico, ProbA4CriticoAnterior, nroProyecto);
             ProbA5Critico = probA5Critico(C1, C2, CCritico, ProbA5CriticoAnterior, nroProyecto);
+            A5MasTardio = CCritico - T5;
+            A4MasTardio = A5MasTardio - T4;
             A1MasTardio = A4MasTardio - T1;
             A2MasTardio = A5MasTardio - T2;
             A3MasTardio = CCritico - T3;
-            A4MasTardio = A5MasTardio - T4;
-            A5MasTardio = CCritico - T5;
             ProbIntervalo1 = Intervalo(0, nroProyecto, ProbIntervalo1Anterior, DuracionEnsamble);
             ProbIntervalo2 = Intervalo(1, nroProyecto, ProbIntervalo2Anterior, DuracionEnsamble);
             ProbIntervalo3 = Intervalo(2, nroProyecto, ProbIntervalo3Anterior, DuracionEnsamble);
