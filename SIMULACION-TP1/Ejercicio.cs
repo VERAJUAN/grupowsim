@@ -146,17 +146,21 @@ namespace SIMULACION_TP1
                         tablaVectorEstado.Rows.Add(0.ToString());
 
                         tablaVectorEstado.Rows.Add(vectorEstado.nroProyecto.ToString(), Math.Round(numAleatorio1, 4).ToString(), Math.Round(numAleatorio2, 4).ToString(), Math.Round(numAleatorio3, 4).ToString(),
-                                                   Math.Round(numAleatorio4, 4).ToString(), Math.Round(numAleatorio5, 4).ToString(), vectorEstado.T1.ToString(), vectorEstado.T2.ToString(), vectorEstado.T3.ToString(), vectorEstado.T4.ToString(),
-                                                   vectorEstado.T5.ToString(), vectorEstado.DuracionEnsamble.ToString(), vectorEstado.AcumuladoEnsamble.ToString(), vectorEstado.PromedioDuracionEnsamble.ToString(),
-                                                   vectorEstado.MaxDuracion.ToString(), vectorEstado.MinDuracion.ToString(), vectorEstado.CantTareasMenor45Dias.ToString(), vectorEstado.ProbCompletarEn45Dias.ToString(),
-                                                   vectorEstado.Varianza.ToString(), vectorEstado.Desviacion.ToString(), vectorEstado.FechaNc90.ToString(), vectorEstado.C1.ToString(), vectorEstado.C2.ToString(),
-                                                   vectorEstado.C3.ToString(), vectorEstado.CCritico.ToString(), vectorEstado.CCriticoString, vectorEstado.ProbA1Critico.ToString(), vectorEstado.ProbA2Critico.ToString(),
-                                                   vectorEstado.ProbA3Critico.ToString(), vectorEstado.ProbA4Critico.ToString(), vectorEstado.ProbA5Critico.ToString(), vectorEstado.A1MasTardio.ToString(),
-                                                   vectorEstado.A2MasTardio.ToString(), vectorEstado.A3MasTardio.ToString(), vectorEstado.A4MasTardio.ToString(), vectorEstado.A5MasTardio.ToString(),
-                                                   vectorEstado.ProbIntervalo1.ToString(), vectorEstado.ProbIntervalo2.ToString(), vectorEstado.ProbIntervalo3.ToString(), vectorEstado.ProbIntervalo4.ToString(),
-                                                   vectorEstado.ProbIntervalo5.ToString(), vectorEstado.ProbIntervalo6.ToString(), vectorEstado.ProbIntervalo7.ToString(), vectorEstado.ProbIntervalo8.ToString(),
-                                                   vectorEstado.ProbIntervalo9.ToString(), vectorEstado.ProbIntervalo10.ToString(), vectorEstado.ProbIntervalo11.ToString(), vectorEstado.ProbIntervalo12.ToString(),
-                                                   vectorEstado.ProbIntervalo13.ToString(), vectorEstado.ProbIntervalo14.ToString(), vectorEstado.ProbIntervalo15.ToString());
+                                                   Math.Round(numAleatorio4, 4).ToString(), Math.Round(numAleatorio5, 4).ToString(), Math.Round(vectorEstado.T1, 4).ToString(), Math.Round(vectorEstado.T2, 4).ToString(),
+                                                   Math.Round(vectorEstado.T3, 4).ToString(), Math.Round(vectorEstado.T4, 4).ToString(), Math.Round(vectorEstado.T5, 4).ToString(), Math.Round(vectorEstado.DuracionEnsamble, 4).ToString(),
+                                                   Math.Round(vectorEstado.AcumuladoEnsamble, 4).ToString(), Math.Round(vectorEstado.PromedioDuracionEnsamble, 4).ToString(), Math.Round(vectorEstado.MaxDuracion, 4).ToString(),
+                                                   Math.Round(vectorEstado.MinDuracion, 4).ToString(), Math.Round(vectorEstado.CantTareasMenor45Dias, 4).ToString(), Math.Round(vectorEstado.ProbCompletarEn45Dias, 4).ToString(),
+                                                   Math.Round(vectorEstado.Varianza, 4).ToString(), Math.Round(vectorEstado.Desviacion, 4).ToString(), Math.Round(vectorEstado.FechaNc90, 4).ToString(),
+                                                   Math.Round(vectorEstado.C1, 4).ToString(), Math.Round(vectorEstado.C2, 4).ToString(), Math.Round(vectorEstado.C3, 4).ToString(), Math.Round(vectorEstado.CCritico, 4).ToString(), 
+                                                   vectorEstado.CCriticoString, Math.Round(vectorEstado.ProbA1Critico, 4).ToString(), Math.Round(vectorEstado.ProbA2Critico, 4).ToString(),
+                                                   Math.Round(vectorEstado.ProbA3Critico, 4).ToString(), Math.Round(vectorEstado.ProbA4Critico, 4).ToString(), Math.Round(vectorEstado.ProbA5Critico, 4).ToString(),
+                                                   Math.Round(vectorEstado.A1MasTardio, 4).ToString(), Math.Round(vectorEstado.A2MasTardio, 4).ToString(), Math.Round(vectorEstado.A3MasTardio, 4).ToString(),
+                                                   Math.Round(vectorEstado.A4MasTardio, 4).ToString(), Math.Round(vectorEstado.A5MasTardio, 4).ToString(), Math.Round(vectorEstado.ProbIntervalo1, 4).ToString(),
+                                                   Math.Round(vectorEstado.ProbIntervalo2, 4).ToString(), Math.Round(vectorEstado.ProbIntervalo3, 4).ToString(), Math.Round(vectorEstado.ProbIntervalo4, 4).ToString(),
+                                                   Math.Round(vectorEstado.ProbIntervalo5, 4).ToString(), Math.Round(vectorEstado.ProbIntervalo6, 4).ToString(), Math.Round(vectorEstado.ProbIntervalo7, 4).ToString(),
+                                                   Math.Round(vectorEstado.ProbIntervalo8, 4).ToString(), Math.Round(vectorEstado.ProbIntervalo9, 4).ToString(), Math.Round(vectorEstado.ProbIntervalo10, 4).ToString(),
+                                                   Math.Round(vectorEstado.ProbIntervalo11, 4).ToString(), Math.Round(vectorEstado.ProbIntervalo12, 4).ToString(), Math.Round(vectorEstado.ProbIntervalo13, 4).ToString(),
+                                                   Math.Round(vectorEstado.ProbIntervalo14, 4).ToString(), Math.Round(vectorEstado.ProbIntervalo15, 4).ToString());
                     }
                 }
                 else
@@ -177,17 +181,21 @@ namespace SIMULACION_TP1
                         ))
                     {
                         tablaVectorEstado.Rows.Add(vectorEstadoMasUno.nroProyecto.ToString(), Math.Round(numAleatorio1, 4).ToString(), Math.Round(numAleatorio2, 4).ToString(), Math.Round(numAleatorio3, 4).ToString(),
-                                                   Math.Round(numAleatorio4, 4).ToString(), Math.Round(numAleatorio5, 4).ToString(), vectorEstadoMasUno.T1.ToString(), vectorEstadoMasUno.T2.ToString(), vectorEstadoMasUno.T3.ToString(), vectorEstadoMasUno.T4.ToString(),
-                                                   vectorEstadoMasUno.T5.ToString(), vectorEstadoMasUno.DuracionEnsamble.ToString(), vectorEstadoMasUno.AcumuladoEnsamble.ToString(), vectorEstadoMasUno.PromedioDuracionEnsamble.ToString(),
-                                                   vectorEstadoMasUno.MaxDuracion.ToString(), vectorEstadoMasUno.MinDuracion.ToString(), vectorEstadoMasUno.CantTareasMenor45Dias.ToString(), vectorEstadoMasUno.ProbCompletarEn45Dias.ToString(),
-                                                   vectorEstadoMasUno.Varianza.ToString(), vectorEstadoMasUno.Desviacion.ToString(), vectorEstadoMasUno.FechaNc90.ToString(), vectorEstadoMasUno.C1.ToString(), vectorEstadoMasUno.C2.ToString(),
-                                                   vectorEstadoMasUno.C3.ToString(), vectorEstadoMasUno.CCritico.ToString(), vectorEstadoMasUno.CCriticoString, vectorEstadoMasUno.ProbA1Critico.ToString(), vectorEstadoMasUno.ProbA2Critico.ToString(),
-                                                   vectorEstadoMasUno.ProbA3Critico.ToString(), vectorEstadoMasUno.ProbA4Critico.ToString(), vectorEstadoMasUno.ProbA5Critico.ToString(), vectorEstadoMasUno.A1MasTardio.ToString(),
-                                                   vectorEstadoMasUno.A2MasTardio.ToString(), vectorEstadoMasUno.A3MasTardio.ToString(), vectorEstadoMasUno.A4MasTardio.ToString(), vectorEstadoMasUno.A5MasTardio.ToString(),
-                                                   vectorEstadoMasUno.ProbIntervalo1.ToString(), vectorEstadoMasUno.ProbIntervalo2.ToString(), vectorEstadoMasUno.ProbIntervalo3.ToString(), vectorEstadoMasUno.ProbIntervalo4.ToString(),
-                                                   vectorEstadoMasUno.ProbIntervalo5.ToString(), vectorEstadoMasUno.ProbIntervalo6.ToString(), vectorEstadoMasUno.ProbIntervalo7.ToString(), vectorEstadoMasUno.ProbIntervalo8.ToString(),
-                                                   vectorEstadoMasUno.ProbIntervalo9.ToString(), vectorEstadoMasUno.ProbIntervalo10.ToString(), vectorEstadoMasUno.ProbIntervalo11.ToString(), vectorEstadoMasUno.ProbIntervalo12.ToString(),
-                                                   vectorEstadoMasUno.ProbIntervalo13.ToString(), vectorEstadoMasUno.ProbIntervalo14.ToString(), vectorEstadoMasUno.ProbIntervalo15.ToString());
+                                                  Math.Round(numAleatorio4, 4).ToString(), Math.Round(numAleatorio5, 4).ToString(), Math.Round(vectorEstadoMasUno.T1, 4).ToString(), Math.Round(vectorEstadoMasUno.T2, 4).ToString(),
+                                                  Math.Round(vectorEstadoMasUno.T3, 4).ToString(), Math.Round(vectorEstadoMasUno.T4, 4).ToString(), Math.Round(vectorEstadoMasUno.T5, 4).ToString(), Math.Round(vectorEstadoMasUno.DuracionEnsamble, 4).ToString(),
+                                                  Math.Round(vectorEstadoMasUno.AcumuladoEnsamble, 4).ToString(), Math.Round(vectorEstadoMasUno.PromedioDuracionEnsamble, 4).ToString(), Math.Round(vectorEstadoMasUno.MaxDuracion, 4).ToString(),
+                                                  Math.Round(vectorEstadoMasUno.MinDuracion, 4).ToString(), Math.Round(vectorEstadoMasUno.CantTareasMenor45Dias, 4).ToString(), Math.Round(vectorEstadoMasUno.ProbCompletarEn45Dias, 4).ToString(),
+                                                  Math.Round(vectorEstadoMasUno.Varianza, 4).ToString(), Math.Round(vectorEstadoMasUno.Desviacion, 4).ToString(), Math.Round(vectorEstadoMasUno.FechaNc90, 4).ToString(),
+                                                  Math.Round(vectorEstadoMasUno.C1, 4).ToString(), Math.Round(vectorEstadoMasUno.C2, 4).ToString(), Math.Round(vectorEstadoMasUno.C3, 4).ToString(), Math.Round(vectorEstadoMasUno.CCritico, 4).ToString(),
+                                                  vectorEstadoMasUno.CCriticoString, Math.Round(vectorEstadoMasUno.ProbA1Critico, 4).ToString(), Math.Round(vectorEstadoMasUno.ProbA2Critico, 4).ToString(),
+                                                  Math.Round(vectorEstadoMasUno.ProbA3Critico, 4).ToString(), Math.Round(vectorEstadoMasUno.ProbA4Critico, 4).ToString(), Math.Round(vectorEstadoMasUno.ProbA5Critico, 4).ToString(),
+                                                  Math.Round(vectorEstadoMasUno.A1MasTardio, 4).ToString(), Math.Round(vectorEstadoMasUno.A2MasTardio, 4).ToString(), Math.Round(vectorEstadoMasUno.A3MasTardio, 4).ToString(),
+                                                  Math.Round(vectorEstadoMasUno.A4MasTardio, 4).ToString(), Math.Round(vectorEstadoMasUno.A5MasTardio, 4).ToString(), Math.Round(vectorEstadoMasUno.ProbIntervalo1, 4).ToString(),
+                                                  Math.Round(vectorEstadoMasUno.ProbIntervalo2, 4).ToString(), Math.Round(vectorEstadoMasUno.ProbIntervalo3, 4).ToString(), Math.Round(vectorEstadoMasUno.ProbIntervalo4, 4).ToString(),
+                                                  Math.Round(vectorEstadoMasUno.ProbIntervalo5, 4).ToString(), Math.Round(vectorEstadoMasUno.ProbIntervalo6, 4).ToString(), Math.Round(vectorEstadoMasUno.ProbIntervalo7, 4).ToString(),
+                                                  Math.Round(vectorEstadoMasUno.ProbIntervalo8, 4).ToString(), Math.Round(vectorEstadoMasUno.ProbIntervalo9, 4).ToString(), Math.Round(vectorEstadoMasUno.ProbIntervalo10, 4).ToString(),
+                                                  Math.Round(vectorEstadoMasUno.ProbIntervalo11, 4).ToString(), Math.Round(vectorEstadoMasUno.ProbIntervalo12, 4).ToString(), Math.Round(vectorEstadoMasUno.ProbIntervalo13, 4).ToString(),
+                                                  Math.Round(vectorEstadoMasUno.ProbIntervalo14, 4).ToString(), Math.Round(vectorEstadoMasUno.ProbIntervalo15, 4).ToString());
                     }
 
                     vectorEstado = vectorEstadoMasUno;
