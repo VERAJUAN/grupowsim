@@ -16,11 +16,7 @@ namespace SIMULACION_TP1
 {
     public partial class Ejercicio__B : System.Windows.Forms.Form
     {
-        int cantProyectos = 0;
-
-        int a, c, m;
-        double semilla, xiAnterior;
-        
+        int cantProyectos = 0;        
 
         private void cboSignificancia_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -51,11 +47,6 @@ namespace SIMULACION_TP1
             comboDist5.SelectedIndex = 1;
             constante5_1.Text = "5";
 
-            txt_m.Text = "918468";
-            txt_a.Text = "5940215";
-            txt_c.Text = "1951138";
-            txt_semilla.Text = "584431597";
-
         }
 
         private void btn_generar_Click(object sender, EventArgs e)
@@ -74,67 +65,35 @@ namespace SIMULACION_TP1
             if(val1 && val2 && val3 && val4 && val5) Simular();
         }
 
-        private double congruencialMixto(int a, int c, int m, double xi)
-        {
-            xiAnterior = ((a * xi) + c) % m; //Si es mixto
-
-            return (xiAnterior + 0.5) / m; //(0;1)
-        }
-
 
         private void Simular(int desde = 0, int hasta = 0)
         {
             tablaVectorEstado.Rows.Clear();
-            Grafico.Series.Clear();
-            Grafico2.Series.Clear();
-
-            m = int.Parse(txt_m.Text);
-            a = int.Parse(txt_a.Text);
-            c = int.Parse(txt_c.Text);
-            semilla = double.Parse(txt_semilla.Text);
-            xiAnterior = semilla;
             cantProyectos = int.Parse(txt_cantProy.Text);
             double T1, T2, T3, T4, T5;
-            
+            Random r = new Random();
+            double RND1 = r.NextDouble();
+
             VectorEstado vectorEstado = new VectorEstado();
             VectorEstado vectorEstadoMasUno = new VectorEstado();
-
-            //// Genera Grafico
-            if (Grafico.Titles.Count == 0)
-                Grafico.Titles.Add("Probabilidades intervalos");
-
-            Series series = Grafico.Series.Add("Probabilidad");
-            series.ChartType = SeriesChartType.Point;
-            series.Points.Clear();
-            Grafico.ChartAreas[0].AxisX.Title = "Intervalos";
-            Grafico.ChartAreas[0].AxisY.Title = "Probabilidades";
-
-            //Genera Grafico 2
-            if (Grafico.Titles.Count == 0)
-                Grafico.Titles.Add("Probabilidades intervalos");
-
-            Series series2 = Grafico2.Series.Add("Evolución tiempo promedios");
-            series2.ChartType = SeriesChartType.Point;
-            series2.Points.Clear();
-            Grafico2.ChartAreas[0].AxisX.Title = "Proyecto";
-            Grafico2.ChartAreas[0].AxisY.Title = "Tiempo promedio";
 
             for (int i = 0; i <= cantProyectos; i++)
             {
                 List<double> lista = new List<double>();
-                var numAleatorio1 = congruencialMixto(a, c, m, xiAnterior);
+
+                var numAleatorio1 = r.NextDouble();
                 T1 = GeneracionTiemposActividad(comboDist1.SelectedIndex, constante1_1.Text, constante1_2.Text, numAleatorio1);
 
-                var numAleatorio2 = congruencialMixto(a, c, m, xiAnterior);
+                var numAleatorio2 = r.NextDouble();
                 T2 = GeneracionTiemposActividad(comboDist2.SelectedIndex, constante2_1.Text, constante2_2.Text, numAleatorio2);
 
-                var numAleatorio3 = congruencialMixto(a, c, m, xiAnterior);
+                var numAleatorio3 = r.NextDouble();
                 T3 = GeneracionTiemposActividad(comboDist3.SelectedIndex, constante3_1.Text, constante3_2.Text, numAleatorio3);
 
-                var numAleatorio4 = congruencialMixto(a, c, m, xiAnterior);
+                var numAleatorio4 = r.NextDouble();
                 T4 = GeneracionTiemposActividad(comboDist4.SelectedIndex, constante4_1.Text, constante4_2.Text, numAleatorio4);
 
-                var numAleatorio5 = congruencialMixto(a, c, m, xiAnterior);
+                var numAleatorio5 = r.NextDouble();
                 T5 = GeneracionTiemposActividad(comboDist5.SelectedIndex, constante5_1.Text, constante5_2.Text, numAleatorio5);
 
                 if (i == 0)
@@ -200,20 +159,6 @@ namespace SIMULACION_TP1
 
                     vectorEstado = vectorEstadoMasUno;
                 }
-
-                if (i == 15)
-                {
-                    for (int j = 0; j < vectorEstado.ListaIntervalos.Count; j++)
-                    {
-                        tablaVectorEstado.Columns[36 + j].HeaderText = Math.Round(vectorEstado.ListaIntervalos[j], 4).ToString();
-
-                        // Cargo los intervalos con sus respectivos valores
-                        series.Points.AddXY(j, vectorEstado.ListaIntervalos[j]);
-                    }
-                }
-
-                //Cargo los tiempos promedios en su respectivo proyecto
-                series2.Points.AddXY(i, vectorEstado.PromedioDuracionEnsamble);
             }
         }
 
@@ -305,37 +250,11 @@ namespace SIMULACION_TP1
         }
         private void constante1_KeyPress(object sender, KeyPressEventArgs e)
         {
-            //if (char.IsDigit(e.KeyChar))
-            //{
-            //    e.Handled = false;
-            //}
-            //else if (char.IsControl(e.KeyChar))
-            //{
-            //    e.Handled = false;
-            //}
-            //else
-            //{
-            //    e.Handled = true;
-            //    MessageBox.Show("El caracter ingresado no es un número ", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
-            //}
         }
         private void constante2_KeyPress(object sender, KeyPressEventArgs e)
         {
-            /* if (char.IsDigit(e.KeyChar))
-             {
-                 e.Handled = false;
-             }
-             else if (char.IsControl(e.KeyChar))
-             {
-                 e.Handled = false;
-             }
-             else
-             {
-                 e.Handled = true;
-                 MessageBox.Show("El caracter ingresado no es un número ", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
-             }*/
         }
 
         private void Label5_Click(object sender, EventArgs e)

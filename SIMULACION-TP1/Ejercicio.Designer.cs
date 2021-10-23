@@ -29,12 +29,6 @@ namespace SIMULACION_TP1
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.GroupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.button1 = new System.Windows.Forms.Button();
@@ -71,25 +65,15 @@ namespace SIMULACION_TP1
             this.label20 = new System.Windows.Forms.Label();
             this.comboDist2 = new System.Windows.Forms.ComboBox();
             this.label16 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
             this.txt_cantProy = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
-            this.txt_semilla = new System.Windows.Forms.TextBox();
-            this.label13 = new System.Windows.Forms.Label();
-            this.txt_c = new System.Windows.Forms.TextBox();
-            this.label12 = new System.Windows.Forms.Label();
             this.constante1_2 = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.constante1_1 = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.comboDist1 = new System.Windows.Forms.ComboBox();
-            this.Label5 = new System.Windows.Forms.Label();
-            this.txt_a = new System.Windows.Forms.TextBox();
-            this.Label6 = new System.Windows.Forms.Label();
-            this.txt_m = new System.Windows.Forms.TextBox();
             this.btn_generar = new System.Windows.Forms.Button();
-            this.Grafico = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.tablaVectorEstado = new System.Windows.Forms.DataGridView();
             this.nroProyecto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.RND1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -141,12 +125,9 @@ namespace SIMULACION_TP1
             this.Intervalo12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Intervalo13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Intervalo14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Grafico2 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.GroupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.Grafico)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tablaVectorEstado)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Grafico2)).BeginInit();
             this.SuspendLayout();
             // 
             // GroupBox1
@@ -181,23 +162,14 @@ namespace SIMULACION_TP1
             this.GroupBox1.Controls.Add(this.label20);
             this.GroupBox1.Controls.Add(this.comboDist2);
             this.GroupBox1.Controls.Add(this.label16);
-            this.GroupBox1.Controls.Add(this.label15);
             this.GroupBox1.Controls.Add(this.txt_cantProy);
             this.GroupBox1.Controls.Add(this.label14);
-            this.GroupBox1.Controls.Add(this.txt_semilla);
-            this.GroupBox1.Controls.Add(this.label13);
-            this.GroupBox1.Controls.Add(this.txt_c);
-            this.GroupBox1.Controls.Add(this.label12);
             this.GroupBox1.Controls.Add(this.constante1_2);
             this.GroupBox1.Controls.Add(this.label11);
             this.GroupBox1.Controls.Add(this.label10);
             this.GroupBox1.Controls.Add(this.constante1_1);
             this.GroupBox1.Controls.Add(this.label9);
             this.GroupBox1.Controls.Add(this.comboDist1);
-            this.GroupBox1.Controls.Add(this.Label5);
-            this.GroupBox1.Controls.Add(this.txt_a);
-            this.GroupBox1.Controls.Add(this.Label6);
-            this.GroupBox1.Controls.Add(this.txt_m);
             this.GroupBox1.Controls.Add(this.btn_generar);
             this.GroupBox1.Location = new System.Drawing.Point(17, 1);
             this.GroupBox1.Name = "GroupBox1";
@@ -214,7 +186,7 @@ namespace SIMULACION_TP1
             this.groupBox2.Controls.Add(this.label3);
             this.groupBox2.Controls.Add(this.txtDesde);
             this.groupBox2.Controls.Add(this.label2);
-            this.groupBox2.Location = new System.Drawing.Point(98, 346);
+            this.groupBox2.Location = new System.Drawing.Point(98, 339);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(518, 58);
             this.groupBox2.TabIndex = 473;
@@ -270,7 +242,7 @@ namespace SIMULACION_TP1
             this.label29.AutoSize = true;
             this.label29.Cursor = System.Windows.Forms.Cursors.Default;
             this.label29.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label29.Location = new System.Drawing.Point(373, 130);
+            this.label29.Location = new System.Drawing.Point(373, 123);
             this.label29.Name = "label29";
             this.label29.Size = new System.Drawing.Size(71, 13);
             this.label29.TabIndex = 472;
@@ -278,7 +250,7 @@ namespace SIMULACION_TP1
             // 
             // constante5_2
             // 
-            this.constante5_2.Location = new System.Drawing.Point(661, 141);
+            this.constante5_2.Location = new System.Drawing.Point(661, 134);
             this.constante5_2.Name = "constante5_2";
             this.constante5_2.Size = new System.Drawing.Size(45, 20);
             this.constante5_2.TabIndex = 15;
@@ -288,7 +260,7 @@ namespace SIMULACION_TP1
             // label30
             // 
             this.label30.AutoSize = true;
-            this.label30.Location = new System.Drawing.Point(600, 144);
+            this.label30.Location = new System.Drawing.Point(600, 137);
             this.label30.Name = "label30";
             this.label30.Size = new System.Drawing.Size(38, 13);
             this.label30.TabIndex = 470;
@@ -298,7 +270,7 @@ namespace SIMULACION_TP1
             // label31
             // 
             this.label31.AutoSize = true;
-            this.label31.Location = new System.Drawing.Point(600, 120);
+            this.label31.Location = new System.Drawing.Point(600, 113);
             this.label31.Name = "label31";
             this.label31.Size = new System.Drawing.Size(38, 13);
             this.label31.TabIndex = 469;
@@ -307,7 +279,7 @@ namespace SIMULACION_TP1
             // 
             // constante5_1
             // 
-            this.constante5_1.Location = new System.Drawing.Point(661, 117);
+            this.constante5_1.Location = new System.Drawing.Point(661, 110);
             this.constante5_1.Name = "constante5_1";
             this.constante5_1.Size = new System.Drawing.Size(45, 20);
             this.constante5_1.TabIndex = 14;
@@ -317,7 +289,7 @@ namespace SIMULACION_TP1
             // label32
             // 
             this.label32.AutoSize = true;
-            this.label32.Location = new System.Drawing.Point(454, 112);
+            this.label32.Location = new System.Drawing.Point(454, 105);
             this.label32.Name = "label32";
             this.label32.Size = new System.Drawing.Size(65, 13);
             this.label32.TabIndex = 467;
@@ -331,7 +303,7 @@ namespace SIMULACION_TP1
             "Normal",
             "Exponencial",
             "Uniforme"});
-            this.comboDist5.Location = new System.Drawing.Point(457, 128);
+            this.comboDist5.Location = new System.Drawing.Point(457, 121);
             this.comboDist5.Name = "comboDist5";
             this.comboDist5.Size = new System.Drawing.Size(121, 21);
             this.comboDist5.TabIndex = 13;
@@ -342,7 +314,7 @@ namespace SIMULACION_TP1
             this.label25.AutoSize = true;
             this.label25.Cursor = System.Windows.Forms.Cursors.Default;
             this.label25.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label25.Location = new System.Drawing.Point(373, 212);
+            this.label25.Location = new System.Drawing.Point(373, 205);
             this.label25.Name = "label25";
             this.label25.Size = new System.Drawing.Size(71, 13);
             this.label25.TabIndex = 465;
@@ -350,7 +322,7 @@ namespace SIMULACION_TP1
             // 
             // constante4_2
             // 
-            this.constante4_2.Location = new System.Drawing.Point(661, 223);
+            this.constante4_2.Location = new System.Drawing.Point(661, 216);
             this.constante4_2.Name = "constante4_2";
             this.constante4_2.Size = new System.Drawing.Size(45, 20);
             this.constante4_2.TabIndex = 18;
@@ -360,7 +332,7 @@ namespace SIMULACION_TP1
             // label26
             // 
             this.label26.AutoSize = true;
-            this.label26.Location = new System.Drawing.Point(600, 226);
+            this.label26.Location = new System.Drawing.Point(600, 219);
             this.label26.Name = "label26";
             this.label26.Size = new System.Drawing.Size(38, 13);
             this.label26.TabIndex = 463;
@@ -370,7 +342,7 @@ namespace SIMULACION_TP1
             // label27
             // 
             this.label27.AutoSize = true;
-            this.label27.Location = new System.Drawing.Point(600, 202);
+            this.label27.Location = new System.Drawing.Point(600, 195);
             this.label27.Name = "label27";
             this.label27.Size = new System.Drawing.Size(38, 13);
             this.label27.TabIndex = 462;
@@ -379,7 +351,7 @@ namespace SIMULACION_TP1
             // 
             // constante4_1
             // 
-            this.constante4_1.Location = new System.Drawing.Point(661, 199);
+            this.constante4_1.Location = new System.Drawing.Point(661, 192);
             this.constante4_1.Name = "constante4_1";
             this.constante4_1.Size = new System.Drawing.Size(45, 20);
             this.constante4_1.TabIndex = 17;
@@ -389,7 +361,7 @@ namespace SIMULACION_TP1
             // label28
             // 
             this.label28.AutoSize = true;
-            this.label28.Location = new System.Drawing.Point(454, 196);
+            this.label28.Location = new System.Drawing.Point(454, 189);
             this.label28.Name = "label28";
             this.label28.Size = new System.Drawing.Size(65, 13);
             this.label28.TabIndex = 460;
@@ -403,7 +375,7 @@ namespace SIMULACION_TP1
             "Normal",
             "Exponencial",
             "Uniforme"});
-            this.comboDist4.Location = new System.Drawing.Point(457, 212);
+            this.comboDist4.Location = new System.Drawing.Point(457, 205);
             this.comboDist4.Name = "comboDist4";
             this.comboDist4.Size = new System.Drawing.Size(121, 21);
             this.comboDist4.TabIndex = 16;
@@ -414,7 +386,7 @@ namespace SIMULACION_TP1
             this.label21.AutoSize = true;
             this.label21.Cursor = System.Windows.Forms.Cursors.Default;
             this.label21.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label21.Location = new System.Drawing.Point(15, 232);
+            this.label21.Location = new System.Drawing.Point(15, 225);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(71, 13);
             this.label21.TabIndex = 458;
@@ -422,7 +394,7 @@ namespace SIMULACION_TP1
             // 
             // constante3_2
             // 
-            this.constante3_2.Location = new System.Drawing.Point(302, 243);
+            this.constante3_2.Location = new System.Drawing.Point(302, 236);
             this.constante3_2.Name = "constante3_2";
             this.constante3_2.Size = new System.Drawing.Size(45, 20);
             this.constante3_2.TabIndex = 12;
@@ -432,7 +404,7 @@ namespace SIMULACION_TP1
             // label22
             // 
             this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(242, 246);
+            this.label22.Location = new System.Drawing.Point(242, 239);
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(38, 13);
             this.label22.TabIndex = 456;
@@ -442,7 +414,7 @@ namespace SIMULACION_TP1
             // label23
             // 
             this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(242, 222);
+            this.label23.Location = new System.Drawing.Point(242, 215);
             this.label23.Name = "label23";
             this.label23.Size = new System.Drawing.Size(38, 13);
             this.label23.TabIndex = 455;
@@ -451,7 +423,7 @@ namespace SIMULACION_TP1
             // 
             // constante3_1
             // 
-            this.constante3_1.Location = new System.Drawing.Point(302, 219);
+            this.constante3_1.Location = new System.Drawing.Point(302, 212);
             this.constante3_1.Name = "constante3_1";
             this.constante3_1.Size = new System.Drawing.Size(45, 20);
             this.constante3_1.TabIndex = 11;
@@ -461,7 +433,7 @@ namespace SIMULACION_TP1
             // label24
             // 
             this.label24.AutoSize = true;
-            this.label24.Location = new System.Drawing.Point(96, 214);
+            this.label24.Location = new System.Drawing.Point(96, 207);
             this.label24.Name = "label24";
             this.label24.Size = new System.Drawing.Size(65, 13);
             this.label24.TabIndex = 453;
@@ -475,7 +447,7 @@ namespace SIMULACION_TP1
             "Normal",
             "Exponencial",
             "Uniforme"});
-            this.comboDist3.Location = new System.Drawing.Point(99, 230);
+            this.comboDist3.Location = new System.Drawing.Point(99, 223);
             this.comboDist3.Name = "comboDist3";
             this.comboDist3.Size = new System.Drawing.Size(121, 21);
             this.comboDist3.TabIndex = 10;
@@ -486,7 +458,7 @@ namespace SIMULACION_TP1
             this.label17.AutoSize = true;
             this.label17.Cursor = System.Windows.Forms.Cursors.Default;
             this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label17.Location = new System.Drawing.Point(14, 184);
+            this.label17.Location = new System.Drawing.Point(14, 177);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(71, 13);
             this.label17.TabIndex = 451;
@@ -494,7 +466,7 @@ namespace SIMULACION_TP1
             // 
             // constante2_2
             // 
-            this.constante2_2.Location = new System.Drawing.Point(302, 191);
+            this.constante2_2.Location = new System.Drawing.Point(302, 184);
             this.constante2_2.Name = "constante2_2";
             this.constante2_2.Size = new System.Drawing.Size(45, 20);
             this.constante2_2.TabIndex = 9;
@@ -504,7 +476,7 @@ namespace SIMULACION_TP1
             // label18
             // 
             this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(241, 194);
+            this.label18.Location = new System.Drawing.Point(241, 187);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(38, 13);
             this.label18.TabIndex = 449;
@@ -514,7 +486,7 @@ namespace SIMULACION_TP1
             // label19
             // 
             this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(241, 170);
+            this.label19.Location = new System.Drawing.Point(241, 163);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(38, 13);
             this.label19.TabIndex = 448;
@@ -523,7 +495,7 @@ namespace SIMULACION_TP1
             // 
             // constante2_1
             // 
-            this.constante2_1.Location = new System.Drawing.Point(302, 167);
+            this.constante2_1.Location = new System.Drawing.Point(302, 160);
             this.constante2_1.Name = "constante2_1";
             this.constante2_1.Size = new System.Drawing.Size(45, 20);
             this.constante2_1.TabIndex = 8;
@@ -533,7 +505,7 @@ namespace SIMULACION_TP1
             // label20
             // 
             this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(95, 166);
+            this.label20.Location = new System.Drawing.Point(95, 159);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(65, 13);
             this.label20.TabIndex = 446;
@@ -547,7 +519,7 @@ namespace SIMULACION_TP1
             "Normal",
             "Exponencial",
             "Uniforme"});
-            this.comboDist2.Location = new System.Drawing.Point(98, 182);
+            this.comboDist2.Location = new System.Drawing.Point(98, 175);
             this.comboDist2.Name = "comboDist2";
             this.comboDist2.Size = new System.Drawing.Size(121, 21);
             this.comboDist2.TabIndex = 7;
@@ -558,27 +530,15 @@ namespace SIMULACION_TP1
             this.label16.AutoSize = true;
             this.label16.Cursor = System.Windows.Forms.Cursors.Default;
             this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.Location = new System.Drawing.Point(14, 129);
+            this.label16.Location = new System.Drawing.Point(14, 122);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(71, 13);
             this.label16.TabIndex = 444;
             this.label16.Text = "Actividad 1";
             // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Cursor = System.Windows.Forms.Cursors.Default;
-            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.Location = new System.Drawing.Point(283, 16);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(115, 13);
-            this.label15.TabIndex = 443;
-            this.label15.Text = "Congruencial Mixto";
-            this.label15.Click += new System.EventHandler(this.label15_Click);
-            // 
             // txt_cantProy
             // 
-            this.txt_cantProy.Location = new System.Drawing.Point(304, 291);
+            this.txt_cantProy.Location = new System.Drawing.Point(304, 284);
             this.txt_cantProy.Name = "txt_cantProy";
             this.txt_cantProy.Size = new System.Drawing.Size(45, 20);
             this.txt_cantProy.TabIndex = 19;
@@ -588,49 +548,15 @@ namespace SIMULACION_TP1
             // 
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(144, 294);
+            this.label14.Location = new System.Drawing.Point(144, 287);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(151, 13);
             this.label14.TabIndex = 442;
             this.label14.Text = "Cant. Proyectos a simular";
             // 
-            // txt_semilla
-            // 
-            this.txt_semilla.Location = new System.Drawing.Point(427, 63);
-            this.txt_semilla.Name = "txt_semilla";
-            this.txt_semilla.Size = new System.Drawing.Size(61, 20);
-            this.txt_semilla.TabIndex = 3;
-            this.txt_semilla.Text = "5";
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(383, 66);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(38, 13);
-            this.label13.TabIndex = 440;
-            this.label13.Text = "semilla";
-            // 
-            // txt_c
-            // 
-            this.txt_c.Location = new System.Drawing.Point(427, 37);
-            this.txt_c.Name = "txt_c";
-            this.txt_c.Size = new System.Drawing.Size(61, 20);
-            this.txt_c.TabIndex = 2;
-            this.txt_c.Text = "5";
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(408, 40);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(13, 13);
-            this.label12.TabIndex = 438;
-            this.label12.Text = "c";
-            // 
             // constante1_2
             // 
-            this.constante1_2.Location = new System.Drawing.Point(302, 140);
+            this.constante1_2.Location = new System.Drawing.Point(302, 133);
             this.constante1_2.Name = "constante1_2";
             this.constante1_2.Size = new System.Drawing.Size(45, 20);
             this.constante1_2.TabIndex = 6;
@@ -642,7 +568,7 @@ namespace SIMULACION_TP1
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(241, 143);
+            this.label11.Location = new System.Drawing.Point(241, 136);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(38, 13);
             this.label11.TabIndex = 435;
@@ -652,7 +578,7 @@ namespace SIMULACION_TP1
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(241, 119);
+            this.label10.Location = new System.Drawing.Point(241, 112);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(38, 13);
             this.label10.TabIndex = 434;
@@ -661,7 +587,7 @@ namespace SIMULACION_TP1
             // 
             // constante1_1
             // 
-            this.constante1_1.Location = new System.Drawing.Point(302, 116);
+            this.constante1_1.Location = new System.Drawing.Point(302, 109);
             this.constante1_1.Name = "constante1_1";
             this.constante1_1.Size = new System.Drawing.Size(45, 20);
             this.constante1_1.TabIndex = 5;
@@ -673,7 +599,7 @@ namespace SIMULACION_TP1
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(95, 111);
+            this.label9.Location = new System.Drawing.Point(95, 104);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(65, 13);
             this.label9.TabIndex = 431;
@@ -687,79 +613,22 @@ namespace SIMULACION_TP1
             "Normal",
             "Exponencial",
             "Uniforme"});
-            this.comboDist1.Location = new System.Drawing.Point(98, 127);
+            this.comboDist1.Location = new System.Drawing.Point(98, 120);
             this.comboDist1.Name = "comboDist1";
             this.comboDist1.Size = new System.Drawing.Size(121, 21);
             this.comboDist1.TabIndex = 4;
             this.comboDist1.SelectedIndexChanged += new System.EventHandler(this.comboDist_SelectedIndexChanged);
             // 
-            // Label5
-            // 
-            this.Label5.AutoSize = true;
-            this.Label5.Location = new System.Drawing.Point(287, 66);
-            this.Label5.Name = "Label5";
-            this.Label5.Size = new System.Drawing.Size(15, 13);
-            this.Label5.TabIndex = 413;
-            this.Label5.Text = "m";
-            this.Label5.Click += new System.EventHandler(this.Label5_Click);
-            // 
-            // txt_a
-            // 
-            this.txt_a.Location = new System.Drawing.Point(308, 37);
-            this.txt_a.Name = "txt_a";
-            this.txt_a.Size = new System.Drawing.Size(60, 20);
-            this.txt_a.TabIndex = 0;
-            this.txt_a.Text = "5";
-            this.txt_a.TextChanged += new System.EventHandler(this.txt_k_TextChanged);
-            this.txt_a.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_k_KeyPress);
-            // 
-            // Label6
-            // 
-            this.Label6.AutoSize = true;
-            this.Label6.Location = new System.Drawing.Point(289, 40);
-            this.Label6.Name = "Label6";
-            this.Label6.Size = new System.Drawing.Size(13, 13);
-            this.Label6.TabIndex = 414;
-            this.Label6.Text = "a";
-            this.Label6.Click += new System.EventHandler(this.Label6_Click);
-            // 
-            // txt_m
-            // 
-            this.txt_m.Location = new System.Drawing.Point(308, 63);
-            this.txt_m.Name = "txt_m";
-            this.txt_m.Size = new System.Drawing.Size(60, 20);
-            this.txt_m.TabIndex = 1;
-            this.txt_m.Text = "0";
-            this.txt_m.TextChanged += new System.EventHandler(this.txt_m_TextChanged);
-            this.txt_m.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_m_KeyPress);
-            // 
             // btn_generar
             // 
             this.btn_generar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_generar.Location = new System.Drawing.Point(358, 275);
+            this.btn_generar.Location = new System.Drawing.Point(358, 268);
             this.btn_generar.Name = "btn_generar";
             this.btn_generar.Size = new System.Drawing.Size(180, 58);
             this.btn_generar.TabIndex = 20;
             this.btn_generar.Text = "Simular Proyectos";
             this.btn_generar.UseVisualStyleBackColor = true;
             this.btn_generar.Click += new System.EventHandler(this.btn_generar_Click);
-            // 
-            // Grafico
-            // 
-            chartArea1.Name = "ChartArea1";
-            this.Grafico.ChartAreas.Add(chartArea1);
-            legend1.Name = "Legend1";
-            this.Grafico.Legends.Add(legend1);
-            this.Grafico.Location = new System.Drawing.Point(771, 69);
-            this.Grafico.Name = "Grafico";
-            series1.ChartArea = "ChartArea1";
-            series1.Legend = "Legend1";
-            series1.Name = "Series1";
-            this.Grafico.Series.Add(series1);
-            this.Grafico.Size = new System.Drawing.Size(446, 289);
-            this.Grafico.TabIndex = 5;
-            this.Grafico.Text = "Frecuencia Observada";
-            this.Grafico.Click += new System.EventHandler(this.Grafico_Click);
             // 
             // tablaVectorEstado
             // 
@@ -1129,41 +998,21 @@ namespace SIMULACION_TP1
             this.Intervalo14.Name = "Intervalo14";
             this.Intervalo14.ReadOnly = true;
             // 
-            // Grafico2
-            // 
-            chartArea2.Name = "ChartArea1";
-            this.Grafico2.ChartAreas.Add(chartArea2);
-            legend2.Name = "Legend1";
-            this.Grafico2.Legends.Add(legend2);
-            this.Grafico2.Location = new System.Drawing.Point(1253, 69);
-            this.Grafico2.Name = "Grafico2";
-            series2.ChartArea = "ChartArea1";
-            series2.Legend = "Legend1";
-            series2.Name = "Series1";
-            this.Grafico2.Series.Add(series2);
-            this.Grafico2.Size = new System.Drawing.Size(628, 289);
-            this.Grafico2.TabIndex = 474;
-            this.Grafico2.Text = "Frecuencia Observada";
-            // 
             // Ejercicio__B
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1893, 806);
-            this.Controls.Add(this.Grafico2);
             this.Controls.Add(this.tablaVectorEstado);
-            this.Controls.Add(this.Grafico);
             this.Controls.Add(this.GroupBox1);
             this.Name = "Ejercicio__B";
-            this.Text = "Ejercicio__B";
+            this.Text = "Simulacion Tiempos de Ensamble";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.GroupBox1.ResumeLayout(false);
             this.GroupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.Grafico)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tablaVectorEstado)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Grafico2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1171,23 +1020,13 @@ namespace SIMULACION_TP1
         #endregion
 
         internal System.Windows.Forms.GroupBox GroupBox1;
-        internal System.Windows.Forms.Label Label5;
-        internal System.Windows.Forms.TextBox txt_a;
-        internal System.Windows.Forms.Label Label6;
-        internal System.Windows.Forms.TextBox txt_m;
         internal System.Windows.Forms.Button btn_generar;
-        private System.Windows.Forms.DataVisualization.Charting.Chart Grafico;
         internal System.Windows.Forms.Label label9;
         private System.Windows.Forms.ComboBox comboDist1;
         internal System.Windows.Forms.TextBox constante1_2;
         internal System.Windows.Forms.Label label11;
         internal System.Windows.Forms.Label label10;
         internal System.Windows.Forms.TextBox constante1_1;
-        internal System.Windows.Forms.TextBox txt_semilla;
-        internal System.Windows.Forms.Label label13;
-        internal System.Windows.Forms.TextBox txt_c;
-        internal System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Label label15;
         internal System.Windows.Forms.TextBox txt_cantProy;
         internal System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label29;
@@ -1276,6 +1115,5 @@ namespace SIMULACION_TP1
         private System.Windows.Forms.DataGridViewTextBoxColumn Intervalo12;
         private System.Windows.Forms.DataGridViewTextBoxColumn Intervalo13;
         private System.Windows.Forms.DataGridViewTextBoxColumn Intervalo14;
-        private System.Windows.Forms.DataVisualization.Charting.Chart Grafico2;
     }
 }
