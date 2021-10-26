@@ -67,6 +67,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="VectorEstado.cs" />
+    <Compile Include="VectorEstadoDinamico.cs" />
     <EmbeddedResource Include="Ejercicio.resx">
       <DependentUpon>Ejercicio.cs</DependentUpon>
     </EmbeddedResource>
