@@ -88,5 +88,10 @@ namespace SIMULACION_TP1
         public double tiempoOcupado { get; set; }
         public double porcOcupacionServidor { get; set; }
 
+
+        public VectorEstadoDinamico()
+        {
+
+        }
     }
 }

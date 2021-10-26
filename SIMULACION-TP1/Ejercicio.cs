@@ -70,35 +70,38 @@ namespace SIMULACION_TP1
         {
             tablaVectorEstado.Rows.Clear();
             cantProyectos = int.Parse(txt_cantProy.Text);
-            double T1, T2, T3, T4, T5;
+            double A1, A2, A3, A4, A5;
             Random r = new Random();
             double RND1 = r.NextDouble();
 
-            VectorEstado vectorEstado = new VectorEstado();
-            VectorEstado vectorEstadoMasUno = new VectorEstado();
+            VectorEstadoDinamico vectorEstado = new VectorEstadoDinamico();
+            VectorEstadoDinamico vectorEstadoMasUno = new VectorEstadoDinamico();
 
             for (int i = 0; i <= cantProyectos; i++)
             {
                 List<double> lista = new List<double>();
 
+                var numAleatorioLlegadaPedido = r.NextDouble();
+                var tiempoEntrePedidos = GeneracionTiemposActividad(1, txtLambdaPedidos.Text, "", numAleatorioLlegadaPedido);
+
                 var numAleatorio1 = r.NextDouble();
-                T1 = GeneracionTiemposActividad(comboDist1.SelectedIndex, constante1_1.Text, constante1_2.Text, numAleatorio1);
+                A1 = GeneracionTiemposActividad(comboDist1.SelectedIndex, constante1_1.Text, constante1_2.Text, numAleatorio1);
 
                 var numAleatorio2 = r.NextDouble();
-                T2 = GeneracionTiemposActividad(comboDist2.SelectedIndex, constante2_1.Text, constante2_2.Text, numAleatorio2);
+                A2 = GeneracionTiemposActividad(comboDist2.SelectedIndex, constante2_1.Text, constante2_2.Text, numAleatorio2);
 
                 var numAleatorio3 = r.NextDouble();
-                T3 = GeneracionTiemposActividad(comboDist3.SelectedIndex, constante3_1.Text, constante3_2.Text, numAleatorio3);
+                A3 = GeneracionTiemposActividad(comboDist3.SelectedIndex, constante3_1.Text, constante3_2.Text, numAleatorio3);
 
                 var numAleatorio4 = r.NextDouble();
-                T4 = GeneracionTiemposActividad(comboDist4.SelectedIndex, constante4_1.Text, constante4_2.Text, numAleatorio4);
+                A4 = GeneracionTiemposActividad(comboDist4.SelectedIndex, constante4_1.Text, constante4_2.Text, numAleatorio4);
 
                 var numAleatorio5 = r.NextDouble();
-                T5 = GeneracionTiemposActividad(comboDist5.SelectedIndex, constante5_1.Text, constante5_2.Text, numAleatorio5);
+                A5 = GeneracionTiemposActividad(comboDist5.SelectedIndex, constante5_1.Text, constante5_2.Text, numAleatorio5);
 
                 if (i == 0)
                 {
-                    vectorEstado = new VectorEstado(i + 1, T1, T2, T3, T4, T5, 0, 0, double.PositiveInfinity, 0, 0, 0, 0, 0, 0, 0, lista, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+                    vectorEstado = new VectorEstadoDinamico(i + 1, 0, 0, 0, 1, tiempoEntrePedidos, A1, A2, A3, A4, A5);
 
                     if (desde == 0 && hasta == 0)
                     {
@@ -504,6 +507,11 @@ namespace SIMULACION_TP1
         }
 
         private void constante2_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label14_Click(object sender, EventArgs e)
         {
 
         }

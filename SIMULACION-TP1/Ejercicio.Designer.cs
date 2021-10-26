@@ -190,6 +190,8 @@ namespace SIMULACION_TP1
             this.cantPromProdSistema = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tiempoOcupado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.porcOcupacionServidor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.txtLambdaPedidos = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.GroupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tablaVectorEstado)).BeginInit();
@@ -197,6 +199,8 @@ namespace SIMULACION_TP1
             // 
             // GroupBox1
             // 
+            this.GroupBox1.Controls.Add(this.label1);
+            this.GroupBox1.Controls.Add(this.txtLambdaPedidos);
             this.GroupBox1.Controls.Add(this.groupBox2);
             this.GroupBox1.Controls.Add(this.label29);
             this.GroupBox1.Controls.Add(this.constante5_2);
@@ -603,7 +607,7 @@ namespace SIMULACION_TP1
             // 
             // txt_cantProy
             // 
-            this.txt_cantProy.Location = new System.Drawing.Point(304, 284);
+            this.txt_cantProy.Location = new System.Drawing.Point(472, 291);
             this.txt_cantProy.Name = "txt_cantProy";
             this.txt_cantProy.Size = new System.Drawing.Size(45, 20);
             this.txt_cantProy.TabIndex = 19;
@@ -613,11 +617,12 @@ namespace SIMULACION_TP1
             // 
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(144, 287);
+            this.label14.Location = new System.Drawing.Point(312, 294);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(151, 13);
+            this.label14.Size = new System.Drawing.Size(141, 13);
             this.label14.TabIndex = 442;
-            this.label14.Text = "Cant. Proyectos a simular";
+            this.label14.Text = "Cant. Eventos a simular";
+            this.label14.Click += new System.EventHandler(this.label14_Click);
             // 
             // constante1_2
             // 
@@ -687,11 +692,11 @@ namespace SIMULACION_TP1
             // btn_generar
             // 
             this.btn_generar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_generar.Location = new System.Drawing.Point(358, 268);
+            this.btn_generar.Location = new System.Drawing.Point(526, 275);
             this.btn_generar.Name = "btn_generar";
             this.btn_generar.Size = new System.Drawing.Size(180, 58);
             this.btn_generar.TabIndex = 20;
-            this.btn_generar.Text = "Simular Proyectos";
+            this.btn_generar.Text = "Simular Eventos";
             this.btn_generar.UseVisualStyleBackColor = true;
             this.btn_generar.Click += new System.EventHandler(this.btn_generar_Click);
             // 
@@ -1244,6 +1249,24 @@ namespace SIMULACION_TP1
             this.porcOcupacionServidor.Name = "porcOcupacionServidor";
             this.porcOcupacionServidor.ReadOnly = true;
             // 
+            // txtLambdaPedidos
+            // 
+            this.txtLambdaPedidos.Location = new System.Drawing.Point(202, 291);
+            this.txtLambdaPedidos.Name = "txtLambdaPedidos";
+            this.txtLambdaPedidos.Size = new System.Drawing.Size(45, 20);
+            this.txtLambdaPedidos.TabIndex = 474;
+            this.txtLambdaPedidos.Text = "3";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(34, 294);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(162, 13);
+            this.label1.TabIndex = 475;
+            this.label1.Text = "Lambda llegada de pedidos";
+            // 
             // Ejercicio__B
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1371,5 +1394,7 @@ namespace SIMULACION_TP1
         private System.Windows.Forms.DataGridViewTextBoxColumn cantPromProdSistema;
         private System.Windows.Forms.DataGridViewTextBoxColumn tiempoOcupado;
         private System.Windows.Forms.DataGridViewTextBoxColumn porcOcupacionServidor;
+        internal System.Windows.Forms.Label label1;
+        internal System.Windows.Forms.TextBox txtLambdaPedidos;
     }
 }
