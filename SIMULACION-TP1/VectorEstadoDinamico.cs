@@ -89,18 +89,22 @@ namespace SIMULACION_TP1
         public double porcOcupacionServidor { get; set; }
 
         VectorEstadoDinamico vectorAnterior { get; set; }
+        public VectorEstadoDinamico()
+        {
 
-        public VectorEstadoDinamico(int nroEvento, double reloj, int evento, int pedido, int proxPedido,
+        }
+
+        public VectorEstadoDinamico(int nroEvento,
             double tiempoEntrePedidos, double A1 = 0, double A2 = 0, double A3 = 0, double A4 = 0, double A5 = 0, VectorEstadoDinamico vectorAnterior = null)
         {
             this.vectorAnterior = vectorAnterior;
 
             this.nroEvento = nroEvento;
-            this.reloj = reloj;
-            this.evento = evento;
-            this.pedido = pedido;
+            Reloj(); //0
+            Evento(); //0
+            Pedido();  //0
 
-            this.proxPedido = proxPedido;
+            ProxPedido(); //1
             this.tiempoEntrePedidos = tiempoEntrePedidos;
             ProximaLlegada();
 
@@ -137,10 +141,124 @@ namespace SIMULACION_TP1
 
         }
 
+        #region EVENTO 
+
+        private void Reloj()
+        {
+            if(vectorAnterior == null)
+            {
+                reloj = 0;
+            }
+            else
+            {
+                reloj = Math.Min(vectorAnterior.proxLlegada,
+                    Math.Min(vectorAnterior.a1ProxFin,
+                    Math.Min(vectorAnterior.a2ProxFin,
+                    Math.Min(vectorAnterior.a3ProxFin,
+                    Math.Min(vectorAnterior.a4ProxFin, vectorAnterior.a5ProxFin
+                    )))));
+
+                //VER COMO HACER LA COLUMNA QUE SUMA 60 MINUTOS
+            }
+        }
+
+        private void Evento()
+        {
+            if (vectorAnterior == null)
+            {
+                evento = 0;
+            }
+            else
+            {
+                if(reloj == vectorAnterior.proxLlegada){
+                    evento = 1;
+                }else if(reloj == vectorAnterior.a1ProxFin)
+                {
+                    evento = 2;
+                }
+                else if (reloj == vectorAnterior.a2ProxFin)
+                {
+                    evento = 3;
+                }
+                else if (reloj == vectorAnterior.a3ProxFin)
+                {
+                    evento = 4;
+                }
+                else if (reloj == vectorAnterior.a4ProxFin)
+                {
+                    evento = 5;
+                }
+                else if (reloj == vectorAnterior.a5ProxFin)
+                {
+                    evento = 6;
+                }
+
+                //AGREGAR LOS DEMAS EVENTOS
+            }
+        }
+
+        private void Pedido()
+        {
+            if (vectorAnterior == null)
+            {
+                pedido = 0;
+            }
+            else
+            {
+                if(evento == 1)
+                {
+                    pedido = vectorAnterior.proxPedido;
+                }else if (evento == 2) {
+                    pedido = vectorAnterior.a1Pedido;
+                }
+                else if (evento == 3)
+                {
+                    pedido = vectorAnterior.a2Pedido;
+                }
+                else if (evento == 4)
+                {
+                    pedido = vectorAnterior.a3Pedido;
+                }
+                else if (evento == 5)
+                {
+                    pedido = vectorAnterior.a4Pedido;
+                }
+                else if (evento == 6)
+                {
+                    pedido = vectorAnterior.a5Pedido;
+                }
+
+                //COMPLETEAR CON LOS EVENTOS QUE FALTAN
+            }
+        }
+        #endregion
+
+        #region PEDIDO
+        private void ProxPedido()
+        {
+            if (vectorAnterior == null)
+            {
+                proxPedido = 1;
+            }
+            else
+            {
+                if(evento == 1)
+                {
+                    proxPedido = vectorAnterior.proxPedido + 1;
+                }
+                else
+                {
+                    proxPedido = vectorAnterior.proxPedido;
+                }
+            }
+        }
+
+
         private void ProximaLlegada()
         {
             proxLlegada = reloj + tiempoEntrePedidos;
         }
+        #endregion
 
         #region A1
         private void A1Estado()
