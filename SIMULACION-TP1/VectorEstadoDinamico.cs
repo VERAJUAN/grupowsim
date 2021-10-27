@@ -256,7 +256,7 @@ namespace SIMULACION_TP1
 
         private void ProximaLlegada()
         {
-            if (evento == 1)
+            if (evento == 0 || evento == 1)
             {
                 proxLlegada = reloj + tiempoEntrePedidos;
             }
