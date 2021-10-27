@@ -256,7 +256,14 @@ namespace SIMULACION_TP1
 
         private void ProximaLlegada()
         {
-            proxLlegada = reloj + tiempoEntrePedidos;
+            if (evento == 1)
+            {
+                proxLlegada = reloj + tiempoEntrePedidos;
+            }
+            else
+            {
+                proxLlegada = vectorAnterior.proxLlegada;
+            }
         }
         #endregion
 
