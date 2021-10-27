@@ -100,7 +100,7 @@ namespace SIMULACION_TP1
             this.vectorAnterior = vectorAnterior;
 
             this.nroEvento = nroEvento;
-            Reloj(tiempoEntrePedidos); //0
+            Reloj(); //0
             Evento(); //0
             Pedido();  //0
 
@@ -143,7 +143,7 @@ namespace SIMULACION_TP1
 
         #region EVENTO 
 
-        private void Reloj(double tiempoEntrePedidos)
+        private void Reloj()
         {
             if (vectorAnterior == null)
             {

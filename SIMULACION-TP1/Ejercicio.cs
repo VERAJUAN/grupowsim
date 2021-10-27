@@ -115,6 +115,7 @@ namespace SIMULACION_TP1
                             (Estado)vectorEstado.a4Estado, vectorEstado.a4Pedido == 0 ? "-" : vectorEstado.a4Pedido.ToString(), (i != 0 && vectorEstado.a4Pedido != vectorEstadoMasUno.a4Pedido) ? numAleatorio4.ToString() : "-", (i != 0 && vectorEstado.a1Pedido != vectorEstadoMasUno.a1Pedido) ? vectorEstado.a4Tiempo.ToString() : "-", vectorEstado.a4ProxFin == 0 ? "-" : vectorEstado.a4ProxFin.ToString(), vectorEstado.a4Cola.ToString(),
                             (Estado)vectorEstado.a5Estado, vectorEstado.a5Pedido == 0 ? "-" : vectorEstado.a5Pedido.ToString(), (i != 0 && vectorEstado.a5Pedido != vectorEstadoMasUno.a5Pedido) ? numAleatorio5.ToString() : "-", (i != 0 && vectorEstado.a1Pedido != vectorEstadoMasUno.a1Pedido) ? vectorEstado.a5Tiempo.ToString() : "-", vectorEstado.a5ProxFin == 0 ? "-" : vectorEstado.a5ProxFin.ToString(), vectorEstado.a5ColaA4.ToString(), vectorEstado.a5ColaA2.ToString());
                     }
+                    vectorEstadoMasUno = vectorEstado;
                 }
                 else
                 {
