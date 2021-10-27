@@ -110,11 +110,30 @@ namespace SIMULACION_TP1
             A1ProxFin();
             A1Cola();
 
-            //A2Estado();
-            //A2Pedido();
-            //a2Tiempo = A2;
-            //A2ProxFin();
-            //A2Cola();
+            A2Estado();
+            A2Pedido();
+            a2Tiempo = A2;
+            A2ProxFin();
+            A2Cola();
+
+            A3Estado();
+            A3Pedido();
+            a3Tiempo = A3;
+            A3ProxFin();
+            A3Cola();
+
+            A4Estado();
+            A4Pedido();
+            a4Tiempo = A4;
+            A4ProxFin();
+            A4Cola();
+
+            A5Estado();
+            A5Pedido();
+            a5Tiempo = A5;
+            A5ProxFin();
+            A5ColaA4();
+            A5ColaA2();
 
         }
 
@@ -123,6 +142,7 @@ namespace SIMULACION_TP1
             proxLlegada = reloj + tiempoEntrePedidos;
         }
 
+        #region A1
         private void A1Estado()
         {
             if (vectorAnterior == null)
@@ -195,8 +215,6 @@ namespace SIMULACION_TP1
             }
         }
 
-
-
         private void A1Cola()
         {
             if (vectorAnterior == null)
@@ -219,7 +237,437 @@ namespace SIMULACION_TP1
                 }
             }
         }
+        #endregion
 
+        #region A2
+        private void A2Estado()
+        {
+            if (vectorAnterior == null)
+            {
+                a2Estado = 0;
+            }
+            else
+            {
+                if (evento == 1 && vectorAnterior.a2Estado == 1)
+                {
+                    a2Estado = 1;
+                }
+                else if (evento == 3 && vectorAnterior.a2Cola == 0)
+                {
+                    a2Estado = 0;
+                }
+                else
+                {
+                    a2Estado = 1;
+                }
+            }
+        }
 
+        private void A2Pedido()
+        {
+            if (vectorAnterior == null)
+            {
+                a2Pedido = 0; //SE REEMPLAZA CON "-"
+            }
+            else
+            {
+                if (vectorAnterior.a2Estado == 0 && evento == 1)
+                {
+                    a2Pedido = pedido;
+                }
+                else if (vectorAnterior.a2Estado == 1 && evento != 3)
+                {
+                    a2Pedido = vectorAnterior.a2Pedido;
+                }
+                else if (evento == 3 && vectorAnterior.a2Cola > 0)
+                {
+                    a2Pedido = pedido + 1;
+                }
+            }
+        }
+
+        private void A2ProxFin()
+        {
+            if (vectorAnterior == null)
+            {
+                a2ProxFin = 0; //SE REEMPLAZA CON "-"
+            }
+            else
+            {
+                if (a2Estado == 1)
+                {
+                    if (a2Tiempo != 0)
+                    {
+                        a2ProxFin = reloj + a2Tiempo;
+                    }
+                    else
+                    {
+                        a2ProxFin = vectorAnterior.a2ProxFin;
+                    }
+                }
+                else
+                {
+                    a2ProxFin = 0;
+                }
+            }
+        }
+
+        private void A2Cola()
+        {
+            if (vectorAnterior == null)
+            {
+                a2Cola = 0;
+            }
+            else
+            {
+                if (evento == 1 && vectorAnterior.a2Estado == 1)
+                {
+                    a2Cola = vectorAnterior.a2Cola + 1;
+                }
+                else if (evento == 3 && vectorAnterior.a2Cola > 0)
+                {
+                    a2Cola = vectorAnterior.a2Cola - 1;
+                }
+                else
+                {
+                    a2Cola = vectorAnterior.a2Cola;
+                }
+            }
+        }
+
+        #endregion
+
+        #region A3
+        private void A3Estado()
+        {
+            if (vectorAnterior == null)
+            {
+                a3Estado = 0;
+            }
+            else
+            {
+                if (evento == 1 && vectorAnterior.a3Estado == 1)
+                {
+                    a3Estado = 1;
+                }
+                else if (evento == 4 && vectorAnterior.a3Cola == 0)
+                {
+                    a3Estado = 0;
+                }
+                else
+                {
+                    a3Estado = 1;
+                }
+            }
+        }
+
+        private void A3Pedido()
+        {
+            if (vectorAnterior == null)
+            {
+                a3Pedido = 0; //SE REEMPLAZA CON "-"
+            }
+            else
+            {
+                if (vectorAnterior.a3Estado == 0 && evento == 1)
+                {
+                    a3Pedido = pedido;
+                }
+                else if (vectorAnterior.a3Estado == 1 && evento != 4)
+                {
+                    a3Pedido = vectorAnterior.a3Pedido;
+                }
+                else if (evento == 4 && vectorAnterior.a3Cola > 0)
+                {
+                    a3Pedido = pedido + 1;
+                }
+            }
+        }
+
+        private void A3ProxFin()
+        {
+            if (vectorAnterior == null)
+            {
+                a3ProxFin = 0; //SE REEMPLAZA CON "-"
+            }
+            else
+            {
+                if (a3Estado == 1)
+                {
+                    if (a3Tiempo != 0)
+                    {
+                        a3ProxFin = reloj + a3Tiempo;
+                    }
+                    else
+                    {
+                        a3ProxFin = vectorAnterior.a3ProxFin;
+                    }
+                }
+                else
+                {
+                    a3ProxFin = 0;
+                }
+            }
+        }
+
+        private void A3Cola()
+        {
+            if (vectorAnterior == null)
+            {
+                a3Cola = 0;
+            }
+            else
+            {
+                if (evento == 1 && vectorAnterior.a3Estado == 1)
+                {
+                    a3Cola = vectorAnterior.a3Cola + 1;
+                }
+                else if (evento == 4 && vectorAnterior.a3Cola > 0)
+                {
+                    a3Cola = vectorAnterior.a3Cola - 1;
+                }
+                else
+                {
+                    a3Cola = vectorAnterior.a3Cola;
+                }
+            }
+        }
+
+        #endregion
+
+        #region A4
+        private void A4Estado()
+        {
+            if (vectorAnterior == null)
+            {
+                a4Estado = 0;
+            }
+            else
+            {
+                if (evento == 5 && vectorAnterior.a4Cola == 0)
+                {
+                    a4Estado = 0;
+                }
+                else if (evento != 2 && vectorAnterior.a4Cola == 0 && vectorAnterior.a4Estado == 0)
+                {
+                    a4Estado = 0;
+                }
+                else
+                {
+                    a4Estado = 1;
+                }
+            }
+        }
+
+        private void A4Pedido()
+        {
+            if (vectorAnterior == null)
+            {
+                a4Pedido = 0; //SE REEMPLAZA CON "-"
+            }
+            else
+            {
+                if (vectorAnterior.a4Estado == 0 && evento == 2)
+                {
+                    a4Pedido = pedido;
+                }
+                else if (vectorAnterior.a4Estado == 1 && evento != 5)
+                {
+                    a4Pedido = vectorAnterior.a4Pedido;
+                }
+                else if (evento == 5 && vectorAnterior.a4Cola > 0)
+                {
+                    a4Pedido = pedido + 1;
+                }
+            }
+        }
+
+        private void A4ProxFin()
+        {
+            if (vectorAnterior == null)
+            {
+                a4ProxFin = 0; //SE REEMPLAZA CON "-"
+            }
+            else
+            {
+                if (a4Estado == 1)
+                {
+                    if (a4Tiempo != 0)
+                    {
+                        a4ProxFin = reloj + a4Tiempo;
+                    }
+                    else
+                    {
+                        a4ProxFin = vectorAnterior.a4ProxFin;
+                    }
+                }
+                else
+                {
+                    a4ProxFin = 0;
+                }
+            }
+        }
+
+        private void A4Cola()
+        {
+            if (vectorAnterior == null)
+            {
+                a4Cola = 0;
+            }
+            else
+            {
+                if (evento == 2 && vectorAnterior.a4Estado == 1)
+                {
+                    a4Cola = vectorAnterior.a4Cola + 1;
+                }
+                else if (evento == 5 && vectorAnterior.a4Cola > 0)
+                {
+                    a4Cola = vectorAnterior.a4Cola - 1;
+                }
+                else
+                {
+                    a4Cola = vectorAnterior.a4Cola;
+                }
+            }
+        }
+
+        #endregion
+
+        #region A5
+        private void A5Estado()
+        {
+            if (vectorAnterior == null)
+            {
+                a5Estado = 0;
+            }
+            else
+            {
+                if (evento == 6 && (vectorAnterior.a5ColaA4 == 0 || vectorAnterior.a5ColaA2 == 0))
+                {
+                    a5Estado = 0;
+                }
+                else if (evento == 5 && vectorAnterior.a5ColaA2 > 0)
+                {
+                    a5Estado = 1;
+                }
+                else if(evento == 3 && vectorAnterior.a5ColaA4 > 0)
+                {
+                    a5Estado = 1;
+                }
+                else
+                {
+                    a5Estado = vectorAnterior.a5Estado;
+                }
+            }
+        }
+
+        private void A5Pedido()
+        {
+            if (vectorAnterior == null)
+            {
+                a5Pedido = 0; //SE REEMPLAZA CON "-"
+            }
+            else
+            {
+                if (vectorAnterior.a5Estado == 0 && evento == 5 && vectorAnterior.a5ColaA2 > 0)
+                {
+                    a5Pedido = pedido;
+                }
+                else if (vectorAnterior.a5Estado == 0 && evento == 3 && vectorAnterior.a5ColaA4 > 0)
+                {
+                    a5Pedido = pedido;
+                }
+                else if (vectorAnterior.a5Estado == 1 && evento != 6)
+                {
+                    a5Pedido = vectorAnterior.a5Pedido;
+                }
+                else if (evento == 6 && vectorAnterior.a5ColaA4 > 0 && vectorAnterior.a5ColaA2 > 0)
+                {
+                    a5Pedido = pedido + 1;
+                }
+            }
+        }
+
+        private void A5ProxFin()
+        {
+            if (vectorAnterior == null)
+            {
+                a5ProxFin = 0; //SE REEMPLAZA CON "-"
+            }
+            else
+            {
+                if (a5Estado == 1)
+                {
+                    if (a5Tiempo != 0)
+                    {
+                        a5ProxFin = reloj + a5Tiempo;
+                    }
+                    else
+                    {
+                        a5ProxFin = vectorAnterior.a5ProxFin;
+                    }
+                }
+                else
+                {
+                    a5ProxFin = 0;
+                }
+            }
+        }
+
+        private void A5ColaA4()
+        {
+            if (vectorAnterior == null)
+            {
+                a5ColaA4 = 0;
+            }
+            else
+            {
+                if (evento == 5 && vectorAnterior.a5Estado == 1)
+                {
+                    a5ColaA4 = vectorAnterior.a5ColaA4 + 1;
+                }
+                else if (evento == 5 && vectorAnterior.a5Estado == 0 && vectorAnterior.a5ColaA2 == 0)
+                {
+                    a5ColaA4 = vectorAnterior.a5ColaA4 + 1;
+                }
+                else if (evento == 6 && vectorAnterior.a5ColaA4 > 0)
+                {
+                    a5ColaA4 = vectorAnterior.a5ColaA4 - 1;
+                }
+                else
+                {
+                    a5ColaA4 = vectorAnterior.a5ColaA4;
+                }
+            }
+        }
+
+        private void A5ColaA2()
+        {
+            if (vectorAnterior == null)
+            {
+                a5ColaA2 = 0;
+            }
+            else
+            {
+                if (evento == 3 && vectorAnterior.a5Estado == 1)
+                {
+                    a5ColaA2 = vectorAnterior.a5ColaA2 + 1;
+                }
+                else if (evento == 3 && vectorAnterior.a5Estado == 0 && vectorAnterior.a5ColaA4 == 0)
+                {
+                    a5ColaA2 = vectorAnterior.a5ColaA2 + 1;
+                }
+                else if (evento == 6 && vectorAnterior.a5ColaA2 > 0)
+                {
+                    a5ColaA2 = vectorAnterior.a5ColaA2 - 1;
+                }
+                else
+                {
+                    a5ColaA2 = vectorAnterior.a5ColaA2;
+                }
+            }
+        }
+
+        #endregion
     }
 }
