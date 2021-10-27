@@ -100,41 +100,41 @@ namespace SIMULACION_TP1
             this.vectorAnterior = vectorAnterior;
 
             this.nroEvento = nroEvento;
-            Reloj(); //0
+            Reloj(tiempoEntrePedidos); //0
             Evento(); //0
             Pedido();  //0
 
             ProxPedido(); //1
-            this.tiempoEntrePedidos = tiempoEntrePedidos;
+            this.tiempoEntrePedidos = Math.Round(tiempoEntrePedidos, 3);
             ProximaLlegada();
 
             A1Estado();
             A1Pedido();
-            a1Tiempo = A1;
+            a1Tiempo = Math.Round(A1,3);
             A1ProxFin();
             A1Cola();
 
             A2Estado();
             A2Pedido();
-            a2Tiempo = A2;
+            a2Tiempo = Math.Round(A2, 3);
             A2ProxFin();
             A2Cola();
 
             A3Estado();
             A3Pedido();
-            a3Tiempo = A3;
+            a3Tiempo = Math.Round(A3, 3);
             A3ProxFin();
             A3Cola();
 
             A4Estado();
             A4Pedido();
-            a4Tiempo = A4;
+            a4Tiempo = Math.Round(A4, 3);
             A4ProxFin();
             A4Cola();
 
             A5Estado();
             A5Pedido();
-            a5Tiempo = A5;
+            a5Tiempo = Math.Round(A5, 3);
             A5ProxFin();
             A5ColaA4();
             A5ColaA2();
@@ -143,20 +143,20 @@ namespace SIMULACION_TP1
 
         #region EVENTO 
 
-        private void Reloj()
+        private void Reloj(double tiempoEntrePedidos)
         {
-            if(vectorAnterior == null)
+            if (vectorAnterior == null)
             {
                 reloj = 0;
             }
             else
             {
-                reloj = Math.Min(vectorAnterior.proxLlegada,
+                reloj = Math.Round(Math.Min(vectorAnterior.proxLlegada,
                     Math.Min(vectorAnterior.a1ProxFin,
                     Math.Min(vectorAnterior.a2ProxFin,
                     Math.Min(vectorAnterior.a3ProxFin,
                     Math.Min(vectorAnterior.a4ProxFin, vectorAnterior.a5ProxFin
-                    )))));
+                    ))))), 3);
 
                 //VER COMO HACER LA COLUMNA QUE SUMA 60 MINUTOS
             }
@@ -318,7 +318,7 @@ namespace SIMULACION_TP1
         {
             if (vectorAnterior == null)
             {
-                a1ProxFin = 0; //SE REEMPLAZA CON "-"
+                a1ProxFin = double.PositiveInfinity; //SE REEMPLAZA CON "-"
             }
             else
             {
@@ -415,7 +415,7 @@ namespace SIMULACION_TP1
         {
             if (vectorAnterior == null)
             {
-                a2ProxFin = 0; //SE REEMPLAZA CON "-"
+                a2ProxFin = double.PositiveInfinity; //SE REEMPLAZA CON "-"
             }
             else
             {
@@ -513,7 +513,7 @@ namespace SIMULACION_TP1
         {
             if (vectorAnterior == null)
             {
-                a3ProxFin = 0; //SE REEMPLAZA CON "-"
+                a3ProxFin = double.PositiveInfinity; //SE REEMPLAZA CON "-"
             }
             else
             {
@@ -611,7 +611,7 @@ namespace SIMULACION_TP1
         {
             if (vectorAnterior == null)
             {
-                a4ProxFin = 0; //SE REEMPLAZA CON "-"
+                a4ProxFin = double.PositiveInfinity; //SE REEMPLAZA CON "-"
             }
             else
             {
@@ -628,7 +628,7 @@ namespace SIMULACION_TP1
                 }
                 else
                 {
-                    a4ProxFin = 0;
+                    a4ProxFin = double.PositiveInfinity;
                 }
             }
         }
@@ -717,7 +717,7 @@ namespace SIMULACION_TP1
         {
             if (vectorAnterior == null)
             {
-                a5ProxFin = 0; //SE REEMPLAZA CON "-"
+                a5ProxFin = double.PositiveInfinity; //SE REEMPLAZA CON "-"
             }
             else
             {
@@ -734,7 +734,7 @@ namespace SIMULACION_TP1
                 }
                 else
                 {
-                    a5ProxFin = 0;
+                    a5ProxFin = double.PositiveInfinity;
                 }
             }
         }
