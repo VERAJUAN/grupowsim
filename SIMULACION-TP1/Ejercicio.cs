@@ -72,7 +72,6 @@ namespace SIMULACION_TP1
             cantProyectos = int.Parse(txt_cantProy.Text);
             double A1, A2, A3, A4, A5;
             Random r = new Random();
-            double RND1 = r.NextDouble();
 
             VectorEstadoDinamico vectorEstado = new VectorEstadoDinamico();
             VectorEstadoDinamico vectorEstadoMasUno = new VectorEstadoDinamico();

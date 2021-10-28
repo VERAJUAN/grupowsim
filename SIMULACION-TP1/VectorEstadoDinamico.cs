@@ -72,12 +72,19 @@ namespace SIMULACION_TP1
         public int maxCola5 { get; set; }
         public int maxColaEncastre { get; set; }
 
-        //TIEMPOS PROMEDIOS
+        //TIEMPOS PROMEDIOS 
+        public double tiempoLlegada { get; set; }
+        public double tiempoInicioAtencionA1 { get; set; }
         public double tiempoPromCola1 { get; set; }
+        public double tiempoInicioAtencionA2 { get; set; }
         public double tiempoPromCola2 { get; set; }
+        public double tiempoInicioAtencionA3 { get; set; }
         public double tiempoPromCola3 { get; set; }
+        public double tiempoInicioAtencionA4 { get; set; }
         public double tiempoPromCola4 { get; set; }
+        public double tiempoInicioAtencionA5 { get; set; }
         public double tiempoPromCola5 { get; set; }
+        public double tiempoInicioAtencionEncastre { get; set; }
         public double tiempoPromColaEncastre { get; set; }
 
         //CANTIDAD PROMEDIO
@@ -85,7 +92,22 @@ namespace SIMULACION_TP1
         public double cantPromedioProdEnSistema { get; set; }
 
         //OCUPACION
-        public double tiempoOcupado { get; set; }
+        public double tiempoOcupadoA1 { get; set; }
+        public double acumuladoTiempoOcupadoA1 { get; set; }
+        public double porcOcupacionA1 { get; set; }
+
+        public double tiempoOcupadoA2 { get; set; }
+        public double acumuladoTiempoOcupadoA2 { get; set; }
+        public double porcOcupacionA2 { get; set; }
+
+        public double tiempoOcupadoA3 { get; set; }
+        public double acumuladoTiempoOcupadoA3 { get; set; }
+        public double porcOcupacionA3 { get; set; }
+
+        public double tiempoOcupadoA4 { get; set; }
+        public double acumuladoTiempoOcupadoA4 { get; set; }
+        public double porcOcupacionA4 { get; set; }
+
         public double porcOcupacionServidor { get; set; }
 
         VectorEstadoDinamico vectorAnterior { get; set; }
@@ -139,6 +161,36 @@ namespace SIMULACION_TP1
             A5ColaA4();
             A5ColaA2();
 
+            ColaEncastreA3();
+            ColaEncastreA5();
+
+            CantidadEnsamblesSolicitados();
+            CantidadEnsamblesFinalizados();
+            PropEnsamRealSobreSolic();
+
+            maxCola1 = Math.Max(a1Cola, vectorAnterior.maxCola1);
+            maxCola2 = Math.Max(a2Cola, vectorAnterior.maxCola2);
+            maxCola3 = Math.Max(a3Cola, vectorAnterior.maxCola3);
+            maxCola4 = Math.Max(a4Cola, vectorAnterior.maxCola4);
+            maxCola5 = Math.Max(a5ColaA2+a5ColaA4, vectorAnterior.maxCola5);
+            maxColaEncastre = Math.Max(colaEncastreA3+colaEncastreA5, vectorAnterior.maxColaEncastre);
+
+            TiempoLlegada();
+            TiempoInicioAtencionA1();
+            TiempoPromCola1();
+            TiempoInicioAtencionA2();
+            TiempoPromCola2();
+            TiempoInicioAtencionA3();
+            TiempoPromCola3();
+            TiempoInicioAtencionA4();
+            TiempoPromCola4();
+            TiempoInicioAtencionA5();
+            TiempoPromCola5();
+            TiempoInicioAtencionEncastre();
+            TiempoPromColaEncastre();
+
+            CantPromedioProdEnCola();
+            CantPromedioProdEnSistema();
         }
 
         #region EVENTO 
@@ -151,12 +203,12 @@ namespace SIMULACION_TP1
             }
             else
             {
-                reloj = Math.Round(Math.Min(vectorAnterior.proxLlegada,
+                reloj = Math.Min(vectorAnterior.proxLlegada,
                     Math.Min(vectorAnterior.a1ProxFin,
                     Math.Min(vectorAnterior.a2ProxFin,
                     Math.Min(vectorAnterior.a3ProxFin,
                     Math.Min(vectorAnterior.a4ProxFin, vectorAnterior.a5ProxFin
-                    ))))), 3);
+                    )))));
 
                 //VER COMO HACER LA COLUMNA QUE SUMA 60 MINUTOS
             }
@@ -794,5 +846,306 @@ namespace SIMULACION_TP1
         }
 
         #endregion
+
+        #region COLASENCASTRE
+        private void ColaEncastreA3()
+        {
+            if (vectorAnterior == null)
+            {
+                colaEncastreA3 = 0;
+            }
+            if (evento == 4 && vectorAnterior.colaEncastreA5 == 0)
+            {
+                colaEncastreA3 = vectorAnterior.colaEncastreA3 + 1;
+            }
+            else if (evento == 6 && vectorAnterior.colaEncastreA3 > 0)
+            {
+                colaEncastreA3 = vectorAnterior.colaEncastreA3 - 1;
+            }
+            else
+            {
+                colaEncastreA3 = vectorAnterior.colaEncastreA3;
+            }
+        }
+
+        private void ColaEncastreA5()
+        {
+            if (vectorAnterior == null)
+            {
+                colaEncastreA5 = 0;
+            }
+            if (evento == 6 && vectorAnterior.colaEncastreA3 == 0)
+            {
+                colaEncastreA5 = vectorAnterior.colaEncastreA5 + 1;
+            }
+            else if (evento == 4 && vectorAnterior.colaEncastreA5 > 0)
+            {
+                colaEncastreA5 = vectorAnterior.colaEncastreA5 - 1;
+            }
+            else
+            {
+                colaEncastreA5 = vectorAnterior.colaEncastreA5;
+            }
+        }
+        #endregion
+
+        #region ProporcionEnsamblesRealizadosSobreSolicitados
+        private void CantidadEnsamblesSolicitados()
+        {
+            if (vectorAnterior == null)
+            {
+                cantidadEnsamblesSolicitados = 0;
+            }
+            else if (evento == 1)
+            {
+                cantidadEnsamblesSolicitados = vectorAnterior.cantidadEnsamblesSolicitados + 1;
+            }
+            else
+            {
+                cantidadEnsamblesSolicitados = vectorAnterior.cantidadEnsamblesSolicitados;
+            }
+        }
+
+        private void CantidadEnsamblesFinalizados()
+        {
+            if (vectorAnterior == null)
+            {
+                cantidadEnsamblesFinalizados = 0;
+            }
+            else if (evento == 4 && colaEncastreA5 < vectorAnterior.colaEncastreA5)
+            {
+                cantidadEnsamblesFinalizados = vectorAnterior.cantidadEnsamblesFinalizados + 1;
+            }
+            else if(evento == 6 && colaEncastreA3 < vectorAnterior.colaEncastreA3) 
+            {
+                cantidadEnsamblesFinalizados = vectorAnterior.cantidadEnsamblesFinalizados + 1;
+            } 
+            else
+            {
+                cantidadEnsamblesFinalizados = vectorAnterior.cantidadEnsamblesFinalizados;
+            }
+        }
+
+        private void PropEnsamRealSobreSolic()
+        {
+            if (vectorAnterior == null)
+            {
+                propEnsamRealSobreSolic = 0;
+            }
+            else if(cantidadEnsamblesFinalizados == 0) 
+            {
+                propEnsamRealSobreSolic = vectorAnterior.propEnsamRealSobreSolic;
+            }
+            else
+            {
+                propEnsamRealSobreSolic = cantidadEnsamblesFinalizados / cantidadEnsamblesSolicitados;
+            }
+        }
+        #endregion
+
+        #region TIEMPOS PROMEDIOS 
+        private void TiempoLlegada()
+        {
+            if (vectorAnterior == null)
+            {
+                tiempoLlegada = 0;
+            }
+            else if (evento == 1 && pedido == 2)
+            {
+                tiempoLlegada = reloj;
+            }
+            else
+            {
+                tiempoLlegada = vectorAnterior.tiempoLlegada;
+            }
+        }
+
+        private void TiempoInicioAtencionA1()
+        {
+            if (vectorAnterior == null)
+            {
+                tiempoInicioAtencionA1 = 0;
+            }
+            else if (a1Tiempo > 0 && a1Pedido == 2)
+            {
+                tiempoInicioAtencionA1 = reloj;
+            }
+            else
+            {
+                tiempoInicioAtencionA1 = vectorAnterior.tiempoInicioAtencionA1;
+            }
+        }
+        private void TiempoPromCola1()
+        {
+            if (vectorAnterior == null)
+            {
+                tiempoPromCola1 = 0;
+            }
+            else if (tiempoLlegada >= tiempoInicioAtencionA1)
+            {
+                tiempoPromCola1 = tiempoInicioAtencionA1 - tiempoLlegada;
+            } 
+            else
+            {
+                tiempoPromCola1 = vectorAnterior.tiempoPromCola1;
+            }
+        }
+        private void TiempoInicioAtencionA2()
+        {
+            if (vectorAnterior == null)
+            {
+                tiempoInicioAtencionA2 = 0;
+            }
+            else if (a2Tiempo > 0 && a2Pedido == 2)
+            {
+                tiempoInicioAtencionA2 = reloj;
+            }
+            else
+            {
+                tiempoInicioAtencionA2 = vectorAnterior.tiempoInicioAtencionA2;
+            }
+        }
+        private void TiempoPromCola2()
+        {
+            if (vectorAnterior == null)
+            {
+                tiempoPromCola2 = 0;
+            }
+            else if (tiempoLlegada >= tiempoInicioAtencionA2)
+            {
+                tiempoPromCola2 = tiempoInicioAtencionA2 - tiempoLlegada;
+            }
+            else
+            {
+                tiempoPromCola2 = vectorAnterior.tiempoPromCola2;
+            }
+        }
+        private void TiempoInicioAtencionA3()
+        {
+            if (vectorAnterior == null)
+            {
+                tiempoInicioAtencionA3 = 0;
+            }
+            else if (a3Tiempo > 0 && a3Pedido == 2)
+            {
+                tiempoInicioAtencionA3 = reloj;
+            }
+            else
+            {
+                tiempoInicioAtencionA3 = vectorAnterior.tiempoInicioAtencionA3;
+            }
+        }
+        private void TiempoPromCola3()
+        {
+            if (vectorAnterior == null)
+            {
+                tiempoPromCola3 = 0;
+            }
+            else if (tiempoLlegada >= tiempoInicioAtencionA3)
+            {
+                tiempoPromCola3 = tiempoInicioAtencionA3 - tiempoLlegada;
+            }
+            else
+            {
+                tiempoPromCola3 = vectorAnterior.tiempoPromCola3;
+            }
+        }
+        private void TiempoInicioAtencionA4()
+        {
+            if (vectorAnterior == null)
+            {
+                tiempoInicioAtencionA4 = 0;
+            }
+            else if (a4Tiempo > 0 && a4Pedido == 2)
+            {
+                tiempoInicioAtencionA4 = reloj;
+            }
+            else
+            {
+                tiempoInicioAtencionA4 = vectorAnterior.tiempoInicioAtencionA4;
+            }
+        }
+        private void TiempoPromCola4()
+        {
+            if (vectorAnterior == null)
+            {
+                tiempoPromCola4 = 0;
+            }
+            else if (tiempoLlegada >= tiempoInicioAtencionA4)
+            {
+                tiempoPromCola4 = tiempoInicioAtencionA4 - tiempoLlegada;
+            }
+            else
+            {
+                tiempoPromCola4 = vectorAnterior.tiempoPromCola4;
+            }
+        }
+        private void TiempoInicioAtencionA5()
+        {
+            if (vectorAnterior == null)
+            {
+                tiempoInicioAtencionA5 = 0;
+            }
+            else if (a5Tiempo > 0 && a5Pedido == 2)
+            {
+                tiempoInicioAtencionA5 = reloj;
+            }
+            else
+            {
+                tiempoInicioAtencionA5 = vectorAnterior.tiempoInicioAtencionA5;
+            }
+        }
+        private void TiempoPromCola5()
+        {
+            if (vectorAnterior == null)
+            {
+                tiempoPromCola5 = 0;
+            }
+            else if (tiempoLlegada >= tiempoInicioAtencionA5)
+            {
+                tiempoPromCola5 = tiempoInicioAtencionA5 - tiempoLlegada;
+            }
+            else
+            {
+                tiempoPromCola5 = vectorAnterior.tiempoPromCola5;
+            }
+        }
+        private void TiempoInicioAtencionEncastre()
+        {
+            tiempoInicioAtencionEncastre = 0;
+        }
+        private void TiempoPromColaEncastre()
+        {
+            tiempoPromColaEncastre = 0;
+        }
+        #endregion
+
+        #region CANTIDAD PROMEDIO      
+        private void CantPromedioProdEnCola()
+        {
+            if (vectorAnterior == null)
+            {
+                cantPromedioProdEnCola = 0;
+            }
+            else
+            {
+                cantPromedioProdEnCola = (a1Cola + a2Cola + a3Cola + a4Cola + a5ColaA2 + a5ColaA4 + colaEncastreA3 + colaEncastreA5) / 6;
+            }
+        }
+
+        private void CantPromedioProdEnSistema()
+        {
+            if (vectorAnterior == null)
+            {
+                cantPromedioProdEnSistema = 0;
+            }
+            else
+            {
+                cantPromedioProdEnSistema = (a1Estado + a2Estado + a3Estado + a4Estado + a5Estado +
+                                                a1Cola + a2Cola + a3Cola + a4Cola + a5ColaA2 + a5ColaA4 + colaEncastreA3 + colaEncastreA5) / 6;
+            }
+        }
+        #endregion
+
     }
 }
