@@ -127,36 +127,36 @@ namespace SIMULACION_TP1
             Pedido();  //0
 
             ProxPedido(); //1
-            this.tiempoEntrePedidos = Math.Round(tiempoEntrePedidos, 3);
+            this.tiempoEntrePedidos = ATiempo(tiempoEntrePedidos);
             ProximaLlegada();
 
             A1Estado();
             A1Pedido();
-            a1Tiempo = Math.Round(A1,3);
+            a1Tiempo = A1Tiempo(A1);
             A1ProxFin();
             A1Cola();
 
             A2Estado();
             A2Pedido();
-            a2Tiempo = Math.Round(A2, 3);
+            a2Tiempo = A2Tiempo(A2);
             A2ProxFin();
             A2Cola();
 
             A3Estado();
             A3Pedido();
-            a3Tiempo = Math.Round(A3, 3);
+            a3Tiempo = A3Tiempo(A3);
             A3ProxFin();
             A3Cola();
 
             A4Estado();
             A4Pedido();
-            a4Tiempo = Math.Round(A4, 3);
+            a4Tiempo = A4Tiempo(A4);
             A4ProxFin();
             A4Cola();
 
             A5Estado();
             A5Pedido();
-            a5Tiempo = Math.Round(A5, 3);
+            a5Tiempo = A5Tiempo(A5);
             A5ProxFin();
             A5ColaA4();
             A5ColaA2();
@@ -170,12 +170,12 @@ namespace SIMULACION_TP1
 
             if (vectorAnterior != null)
             {  
-            maxCola1 = Math.Max(a1Cola, vectorAnterior.maxCola1);
-            maxCola2 = Math.Max(a2Cola, vectorAnterior.maxCola2);
-            maxCola3 = Math.Max(a3Cola, vectorAnterior.maxCola3);
-            maxCola4 = Math.Max(a4Cola, vectorAnterior.maxCola4);
-            maxCola5 = Math.Max(a5ColaA2+a5ColaA4, vectorAnterior.maxCola5);
-            maxColaEncastre = Math.Max(colaEncastreA3+colaEncastreA5, vectorAnterior.maxColaEncastre);
+                maxCola1 = Math.Max(a1Cola, vectorAnterior.maxCola1);
+                maxCola2 = Math.Max(a2Cola, vectorAnterior.maxCola2);
+                maxCola3 = Math.Max(a3Cola, vectorAnterior.maxCola3);
+                maxCola4 = Math.Max(a4Cola, vectorAnterior.maxCola4);
+                maxCola5 = Math.Max(a5ColaA2+a5ColaA4, vectorAnterior.maxCola5);
+                maxColaEncastre = Math.Max(colaEncastreA3+colaEncastreA5, vectorAnterior.maxColaEncastre);
             }
             TiempoLlegada();
             TiempoInicioAtencionA1();
@@ -307,6 +307,19 @@ namespace SIMULACION_TP1
             }
         }
 
+        private double ATiempo(double A)
+        {
+            double atiempo = 0;
+            if (vectorAnterior == null)
+            {
+                atiempo = 0;
+            }
+            else if (proxPedido != vectorAnterior.proxPedido && proxPedido != 0)
+            {
+                atiempo = A;
+            }
+            return atiempo;
+        }
 
         private void ProximaLlegada()
         {
@@ -366,6 +379,20 @@ namespace SIMULACION_TP1
                     a1Pedido = pedido + 1;
                 }
             }
+        }
+
+        private double A1Tiempo(double A)
+        {
+            double atiempo = 0;
+            if (vectorAnterior == null)
+            {
+                atiempo = 0;
+            }
+            else if (a1Pedido != vectorAnterior.a1Pedido && a1Pedido != 0)
+            {
+                atiempo = A;
+            }
+            return atiempo;
         }
 
         private void A1ProxFin()
@@ -440,6 +467,20 @@ namespace SIMULACION_TP1
                     a2Estado = 1;
                 }
             }
+        }
+
+        private double A2Tiempo(double A)
+        {
+            double atiempo = 0;
+            if (vectorAnterior == null)
+            {
+                atiempo = 0;
+            }
+            else if (a2Pedido != vectorAnterior.a2Pedido && a2Pedido != 0)
+            {
+                atiempo = A;
+            }
+            return atiempo;
         }
 
         private void A2Pedido()
@@ -540,6 +581,20 @@ namespace SIMULACION_TP1
             }
         }
 
+        private double A3Tiempo(double A)
+        {
+            double atiempo = 0;
+            if (vectorAnterior == null)
+            {
+                atiempo = 0;
+            }
+            else if (a3Pedido != vectorAnterior.a3Pedido && a3Pedido != 0)
+            {
+                atiempo = A;
+            }
+            return atiempo;
+        }
+
         private void A3Pedido()
         {
             if (vectorAnterior == null)
@@ -638,6 +693,19 @@ namespace SIMULACION_TP1
             }
         }
 
+        private double A4Tiempo(double A)
+        {
+            double atiempo = 0;
+            if (vectorAnterior == null)
+            {
+                atiempo = 0;
+            }
+            else if (a4Pedido != vectorAnterior.a4Pedido && a4Pedido != 0)
+            {
+                atiempo = A;
+            }
+            return atiempo;
+        }
         private void A4Pedido()
         {
             if (vectorAnterior == null)
@@ -738,6 +806,20 @@ namespace SIMULACION_TP1
                     a5Estado = vectorAnterior.a5Estado;
                 }
             }
+        }
+
+        private double A5Tiempo(double A)
+        {
+            double atiempo = 0;
+            if (vectorAnterior == null)
+            {
+                atiempo = 0;
+            }
+            else if (a5Pedido != vectorAnterior.a5Pedido && a5Pedido != 0)
+            {
+                atiempo = A;
+            }
+            return atiempo;
         }
 
         private void A5Pedido()
