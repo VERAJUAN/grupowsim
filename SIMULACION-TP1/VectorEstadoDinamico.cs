@@ -168,13 +168,15 @@ namespace SIMULACION_TP1
             CantidadEnsamblesFinalizados();
             PropEnsamRealSobreSolic();
 
+            if (vectorAnterior != null)
+            {  
             maxCola1 = Math.Max(a1Cola, vectorAnterior.maxCola1);
             maxCola2 = Math.Max(a2Cola, vectorAnterior.maxCola2);
             maxCola3 = Math.Max(a3Cola, vectorAnterior.maxCola3);
             maxCola4 = Math.Max(a4Cola, vectorAnterior.maxCola4);
             maxCola5 = Math.Max(a5ColaA2+a5ColaA4, vectorAnterior.maxCola5);
             maxColaEncastre = Math.Max(colaEncastreA3+colaEncastreA5, vectorAnterior.maxColaEncastre);
-
+            }
             TiempoLlegada();
             TiempoInicioAtencionA1();
             TiempoPromCola1();
@@ -854,7 +856,7 @@ namespace SIMULACION_TP1
             {
                 colaEncastreA3 = 0;
             }
-            if (evento == 4 && vectorAnterior.colaEncastreA5 == 0)
+            else if (evento == 4 && vectorAnterior.colaEncastreA5 == 0)
             {
                 colaEncastreA3 = vectorAnterior.colaEncastreA3 + 1;
             }
@@ -874,7 +876,7 @@ namespace SIMULACION_TP1
             {
                 colaEncastreA5 = 0;
             }
-            if (evento == 6 && vectorAnterior.colaEncastreA3 == 0)
+            else if (evento == 6 && vectorAnterior.colaEncastreA3 == 0)
             {
                 colaEncastreA5 = vectorAnterior.colaEncastreA5 + 1;
             }
