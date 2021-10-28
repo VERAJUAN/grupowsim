@@ -19,6 +19,9 @@ namespace SIMULACION_TP1
         public double tiempoEntrePedidos { get; set; }
         public double proxLlegada { get; set; }
 
+        //HORA
+        public double proxFinHora { get; set; }
+
         //A1
         public int a1Estado { get; set; }
         public int a1Pedido { get; set; }
@@ -108,7 +111,14 @@ namespace SIMULACION_TP1
         public double acumuladoTiempoOcupadoA4 { get; set; }
         public double porcOcupacionA4 { get; set; }
 
-        public double porcOcupacionServidor { get; set; }
+        public double tiempoOcupadoA5 { get; set; }
+        public double acumuladoTiempoOcupadoA5 { get; set; }
+        public double porcOcupacionA5 { get; set; }
+
+        //ENSAMBLES X HORA
+        public double cantEnsamblesXHora { get; set; }
+        public double cantProbEnsamblesXHora { get; set; }
+
 
         VectorEstadoDinamico vectorAnterior { get; set; }
         public VectorEstadoDinamico()
@@ -129,6 +139,8 @@ namespace SIMULACION_TP1
             ProxPedido(); //1
             this.tiempoEntrePedidos = ATiempo(tiempoEntrePedidos);
             ProximaLlegada();
+
+            ProxFinHora();
 
             A1Estado();
             A1Pedido();
@@ -193,6 +205,27 @@ namespace SIMULACION_TP1
 
             CantPromedioProdEnCola();
             CantPromedioProdEnSistema();
+
+            TiempoOcupadoA1();
+            AcumuladoTiempoOcupadoA1();
+            PorcOcupacionA1();
+
+            TiempoOcupadoA2();
+            AcumuladoTiempoOcupadoA2();
+            PorcOcupacionA2();
+
+            TiempoOcupadoA3();
+            AcumuladoTiempoOcupadoA3();
+            PorcOcupacionA3();
+
+            TiempoOcupadoA4();
+            AcumuladoTiempoOcupadoA4();
+            PorcOcupacionA4();
+
+            TiempoOcupadoA5();
+            AcumuladoTiempoOcupadoA5();
+            PorcOcupacionA5();
+
         }
 
         #region EVENTO 
@@ -209,10 +242,9 @@ namespace SIMULACION_TP1
                     Math.Min(vectorAnterior.a1ProxFin,
                     Math.Min(vectorAnterior.a2ProxFin,
                     Math.Min(vectorAnterior.a3ProxFin,
-                    Math.Min(vectorAnterior.a4ProxFin, vectorAnterior.a5ProxFin
-                    )))));
-
-                //VER COMO HACER LA COLUMNA QUE SUMA 60 MINUTOS
+                    Math.Min(vectorAnterior.a4ProxFin, 
+                    Math.Min(vectorAnterior.a5ProxFin, vectorAnterior.proxFinHora
+                    ))))));
             }
         }
 
@@ -246,8 +278,14 @@ namespace SIMULACION_TP1
                 {
                     evento = 6;
                 }
-
-                //AGREGAR LOS DEMAS EVENTOS
+                else if (reloj == vectorAnterior.proxFinHora)
+                {
+                    evento = 8;
+                }
+                else
+                {
+                    evento = 7;
+                }
             }
         }
 
@@ -281,8 +319,15 @@ namespace SIMULACION_TP1
                 {
                     pedido = vectorAnterior.a5Pedido;
                 }
+                else if (evento == 8)
+                {
+                    pedido = 0;
+                }
+                else
+                {
+                    pedido = 0;
+                }
 
-                //COMPLETEAR CON LOS EVENTOS QUE FALTAN
             }
         }
         #endregion
@@ -331,6 +376,25 @@ namespace SIMULACION_TP1
             {
                 proxLlegada = vectorAnterior.proxLlegada;
             }
+        }
+        #endregion
+
+        #region HORA
+        private void ProxFinHora()
+        {
+            if (vectorAnterior == null)
+            {
+                proxFinHora = 60;
+            }
+            else if (reloj < vectorAnterior.proxFinHora)
+            {
+                proxFinHora = vectorAnterior.proxFinHora;
+            }
+            else
+            {
+                proxFinHora = vectorAnterior.proxFinHora + 60;
+            }
+            
         }
         #endregion
 
@@ -1231,5 +1295,278 @@ namespace SIMULACION_TP1
         }
         #endregion
 
+        #region PORCENTAJE DE OCUPACION
+        private void TiempoOcupadoA1()
+        {
+            if (vectorAnterior == null)
+            {
+                tiempoOcupadoA1 = 0;
+            }
+            else if (a1Estado == 1 && vectorAnterior.a1Estado == 0)
+            {
+                tiempoOcupadoA1 = 1;
+            }
+            else if (a1Estado == 0 && vectorAnterior.a1Estado == 1)
+            {
+                tiempoOcupadoA1 = 0;
+            }
+            else
+            {
+                tiempoOcupadoA1 = vectorAnterior.tiempoOcupadoA1;
+            }
+        }
+        private void AcumuladoTiempoOcupadoA1()
+        {
+            if (vectorAnterior == null)
+            {
+                acumuladoTiempoOcupadoA1 = 0;
+            }
+            else if (tiempoOcupadoA1 == 0 && vectorAnterior.tiempoOcupadoA1 == 0)
+            {
+                acumuladoTiempoOcupadoA1 = reloj - vectorAnterior.reloj + vectorAnterior.acumuladoTiempoOcupadoA1;
+            }
+            else
+            {
+                acumuladoTiempoOcupadoA1 = vectorAnterior.acumuladoTiempoOcupadoA1;
+            }
+        }
+
+        private void PorcOcupacionA1()
+        {
+            if (vectorAnterior == null)
+            {
+                porcOcupacionA1 = 0;
+            }
+            else if (porcOcupacionA1 == 0 && vectorAnterior.porcOcupacionA1 == 0)
+            {
+                porcOcupacionA1 = (acumuladoTiempoOcupadoA1 * 100) / reloj;
+            }
+            else
+            {
+                porcOcupacionA1 = vectorAnterior.porcOcupacionA1;
+            }
+        }
+
+        private void TiempoOcupadoA2()
+        {
+            if (vectorAnterior == null)
+            {
+                tiempoOcupadoA2 = 0;
+            }
+            else if (a2Estado == 1 && vectorAnterior.a2Estado == 0)
+            {
+                tiempoOcupadoA2 = 1;
+            }
+            else if (a2Estado == 0 && vectorAnterior.a2Estado == 1)
+            {
+                tiempoOcupadoA2 = 0;
+            }
+            else
+            {
+                tiempoOcupadoA2 = vectorAnterior.tiempoOcupadoA2;
+            }
+        }
+
+        private void AcumuladoTiempoOcupadoA2()
+        {
+            if (vectorAnterior == null)
+            {
+                acumuladoTiempoOcupadoA2 = 0;
+            }
+            else if (tiempoOcupadoA2 == 0 && vectorAnterior.tiempoOcupadoA2 == 0)
+            {
+                acumuladoTiempoOcupadoA2 = reloj - vectorAnterior.reloj + vectorAnterior.acumuladoTiempoOcupadoA2;
+            }
+            else
+            {
+                acumuladoTiempoOcupadoA2 = vectorAnterior.acumuladoTiempoOcupadoA2;
+            }
+        }
+
+        private void PorcOcupacionA2()
+        {
+            if (vectorAnterior == null)
+            {
+                porcOcupacionA2 = 0;
+            }
+            else if (porcOcupacionA2 == 0 && vectorAnterior.porcOcupacionA2 == 0)
+            {
+                porcOcupacionA2 = (acumuladoTiempoOcupadoA2 * 200) / reloj;
+            }
+            else
+            {
+                porcOcupacionA2 = vectorAnterior.porcOcupacionA2;
+            }
+        }
+
+        private void TiempoOcupadoA3()
+        {
+            if (vectorAnterior == null)
+            {
+                tiempoOcupadoA3 = 0;
+            }
+            else if (a3Estado == 1 && vectorAnterior.a3Estado == 0)
+            {
+                tiempoOcupadoA3 = 1;
+            }
+            else if (a3Estado == 0 && vectorAnterior.a3Estado == 1)
+            {
+                tiempoOcupadoA3 = 0;
+            }
+            else
+            {
+                tiempoOcupadoA3 = vectorAnterior.tiempoOcupadoA3;
+            }
+        }
+
+        private void AcumuladoTiempoOcupadoA3()
+        {
+            if (vectorAnterior == null)
+            {
+                acumuladoTiempoOcupadoA3 = 0;
+            }
+            else if (tiempoOcupadoA3 == 0 && vectorAnterior.tiempoOcupadoA3 == 0)
+            {
+                acumuladoTiempoOcupadoA3 = reloj - vectorAnterior.reloj + vectorAnterior.acumuladoTiempoOcupadoA3;
+            }
+            else
+            {
+                acumuladoTiempoOcupadoA3 = vectorAnterior.acumuladoTiempoOcupadoA3;
+            }
+        }
+
+        private void PorcOcupacionA3()
+        {
+            if (vectorAnterior == null)
+            {
+                porcOcupacionA3 = 0;
+            }
+            else if (porcOcupacionA3 == 0 && vectorAnterior.porcOcupacionA3 == 0)
+            {
+                porcOcupacionA3 = (acumuladoTiempoOcupadoA3 * 300) / reloj;
+            }
+            else
+            {
+                porcOcupacionA3 = vectorAnterior.porcOcupacionA3;
+            }
+        }
+
+        private void TiempoOcupadoA4()
+        {
+            if (vectorAnterior == null)
+            {
+                tiempoOcupadoA4 = 0;
+            }
+            else if (a4Estado == 1 && vectorAnterior.a4Estado == 0)
+            {
+                tiempoOcupadoA4 = 1;
+            }
+            else if (a4Estado == 0 && vectorAnterior.a4Estado == 1)
+            {
+                tiempoOcupadoA4 = 0;
+            }
+            else
+            {
+                tiempoOcupadoA4 = vectorAnterior.tiempoOcupadoA4;
+            }
+        }
+
+        private void AcumuladoTiempoOcupadoA4()
+        {
+            if (vectorAnterior == null)
+            {
+                acumuladoTiempoOcupadoA4 = 0;
+            }
+            else if (tiempoOcupadoA4 == 0 && vectorAnterior.tiempoOcupadoA4 == 0)
+            {
+                acumuladoTiempoOcupadoA4 = reloj - vectorAnterior.reloj + vectorAnterior.acumuladoTiempoOcupadoA4;
+            }
+            else
+            {
+                acumuladoTiempoOcupadoA4 = vectorAnterior.acumuladoTiempoOcupadoA4;
+            }
+        }
+
+        private void PorcOcupacionA4()
+        {
+            if (vectorAnterior == null)
+            {
+                porcOcupacionA4 = 0;
+            }
+            else if (porcOcupacionA4 == 0 && vectorAnterior.porcOcupacionA4 == 0)
+            {
+                porcOcupacionA4 = (acumuladoTiempoOcupadoA4 * 400) / reloj;
+            }
+            else
+            {
+                porcOcupacionA4 = vectorAnterior.porcOcupacionA4;
+            }
+        }
+
+        private void TiempoOcupadoA5()
+        {
+            if (vectorAnterior == null)
+            {
+                tiempoOcupadoA5 = 0;
+            }
+            else if (a5Estado == 1 && vectorAnterior.a5Estado == 0)
+            {
+                tiempoOcupadoA5 = 1;
+            }
+            else if (a5Estado == 0 && vectorAnterior.a5Estado == 1)
+            {
+                tiempoOcupadoA5 = 0;
+            }
+            else
+            {
+                tiempoOcupadoA5 = vectorAnterior.tiempoOcupadoA5;
+            }
+        }
+        private void AcumuladoTiempoOcupadoA5()
+        {
+            if (vectorAnterior == null)
+            {
+                acumuladoTiempoOcupadoA5 = 0;
+            }
+            else if (tiempoOcupadoA5 == 0 && vectorAnterior.tiempoOcupadoA5 == 0)
+            {
+                acumuladoTiempoOcupadoA5 = reloj - vectorAnterior.reloj + vectorAnterior.acumuladoTiempoOcupadoA5;
+            }
+            else
+            {
+                acumuladoTiempoOcupadoA5 = vectorAnterior.acumuladoTiempoOcupadoA5;
+            }
+        }
+
+        private void PorcOcupacionA5()
+        {
+            if (vectorAnterior == null)
+            {
+                porcOcupacionA5 = 0;
+            }
+            else if (porcOcupacionA5 == 0 && vectorAnterior.porcOcupacionA5 == 0)
+            {
+                porcOcupacionA5 = (acumuladoTiempoOcupadoA5 * 500) / reloj;
+            }
+            else
+            {
+                porcOcupacionA5 = vectorAnterior.porcOcupacionA5;
+            }
+        }
+        #endregion
+
+        #region CANTIDAD ENSAMBLES X HORA
+        private void CantEnsamblesXHora()
+        {
+            if (vectorAnterior == null)
+            {
+                cantEnsamblesXHora = 0;
+            }
+            //else if ()
+            //{
+
+            //}
+        }
+        #endregion
     }
 }
