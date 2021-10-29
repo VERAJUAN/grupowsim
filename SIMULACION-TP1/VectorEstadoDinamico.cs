@@ -119,11 +119,11 @@ namespace SIMULACION_TP1
         public double porcOcupacionA5 { get; set; }
 
         //ENSAMBLES X HORA
-        public double cantEnsamblesXHora { get; set; }
+        public int cantEnsamblesXHora { get; set; }
         public double cantProbEnsamblesXHora { get; set; }
 
         //PEDIDOS POR PARAMETROS COMPLETADOS EN UNA HORA
-        public double pedidosParametroCompletadosEnUnaHora { get; set; }
+        public int pedidosParametroCompletadosEnUnaHora { get; set; }
         public double probPedidosParametroCompletadosEnUnaHora { get; set; }
 
         VectorEstadoDinamico vectorAnterior { get; set; }
@@ -1635,7 +1635,7 @@ namespace SIMULACION_TP1
             }
             else if (cantidadEnsamblesFinalizados > 0)
             {
-                probPedidosParametroCompletadosEnUnaHora = pedidosParametroCompletadosEnUnaHora / cantidadEnsamblesFinalizados;
+                probPedidosParametroCompletadosEnUnaHora = ((double)pedidosParametroCompletadosEnUnaHora / (double)cantidadEnsamblesFinalizados);
             }
             else
             {
