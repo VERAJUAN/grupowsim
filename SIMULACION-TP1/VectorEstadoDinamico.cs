@@ -8,6 +8,9 @@ namespace SIMULACION_TP1
 {
     public class VectorEstadoDinamico
     {
+        //NRO PEDIDO A CALCULAR
+        public int pedidoACalcular { get; set; }
+
         //EVENTO
         public int nroEvento { get; set; }
         public double reloj { get; set; }
@@ -119,6 +122,9 @@ namespace SIMULACION_TP1
         public double cantEnsamblesXHora { get; set; }
         public double cantProbEnsamblesXHora { get; set; }
 
+        //PEDIDOS POR PARAMETROS COMPLETADOS EN UNA HORA
+        public double pedidosParametroCompletadosEnUnaHora { get; set; }
+        public double probPedidosParametroCompletadosEnUnaHora { get; set; }
 
         VectorEstadoDinamico vectorAnterior { get; set; }
         public VectorEstadoDinamico()
@@ -127,9 +133,11 @@ namespace SIMULACION_TP1
         }
 
         public VectorEstadoDinamico(int nroEvento,
-            double tiempoEntrePedidos, double A1 = 0, double A2 = 0, double A3 = 0, double A4 = 0, double A5 = 0, VectorEstadoDinamico vectorAnterior = null)
+            double tiempoEntrePedidos, int pedidoACalcular, double A1 = 0, double A2 = 0, double A3 = 0, double A4 = 0, double A5 = 0, VectorEstadoDinamico vectorAnterior = null)
         {
             this.vectorAnterior = vectorAnterior;
+
+            this.pedidoACalcular = pedidoACalcular;
 
             this.nroEvento = nroEvento;
             Reloj(); //0
@@ -137,7 +145,7 @@ namespace SIMULACION_TP1
             Pedido();  //0
 
             ProxPedido(); //1
-            this.tiempoEntrePedidos = ATiempo(tiempoEntrePedidos);
+            this.tiempoEntrePedidos = tiempoEntrePedidos;
             ProximaLlegada();
 
             ProxFinHora();
@@ -226,6 +234,11 @@ namespace SIMULACION_TP1
             AcumuladoTiempoOcupadoA5();
             PorcOcupacionA5();
 
+            CantEnsamblesXHora();
+            CantProbEnsamblesXHora();
+
+            PedidosParametroCompletadosEnUnaHora();
+            ProbPedidosParametroCompletadosEnUnaHora();
         }
 
         #region EVENTO 
@@ -350,20 +363,6 @@ namespace SIMULACION_TP1
                     proxPedido = vectorAnterior.proxPedido;
                 }
             }
-        }
-
-        private double ATiempo(double A)
-        {
-            double atiempo = 0;
-            if (vectorAnterior == null)
-            {
-                atiempo = 0;
-            }
-            else if (proxPedido != vectorAnterior.proxPedido && proxPedido != 0)
-            {
-                atiempo = A;
-            }
-            return atiempo;
         }
 
         private void ProximaLlegada()
@@ -1098,7 +1097,7 @@ namespace SIMULACION_TP1
             {
                 tiempoLlegada = 0;
             }
-            else if (evento == 1 && pedido == 2)
+            else if (evento == 1 && pedido == pedidoACalcular)
             {
                 tiempoLlegada = reloj;
             }
@@ -1114,7 +1113,7 @@ namespace SIMULACION_TP1
             {
                 tiempoInicioAtencionA1 = 0;
             }
-            else if (a1Tiempo > 0 && a1Pedido == 2)
+            else if (a1Tiempo > 0 && a1Pedido == pedidoACalcular)
             {
                 tiempoInicioAtencionA1 = reloj;
             }
@@ -1129,7 +1128,7 @@ namespace SIMULACION_TP1
             {
                 tiempoPromCola1 = 0;
             }
-            else if (tiempoLlegada >= tiempoInicioAtencionA1)
+            else if (tiempoInicioAtencionA1 >= tiempoLlegada)
             {
                 tiempoPromCola1 = tiempoInicioAtencionA1 - tiempoLlegada;
             } 
@@ -1144,7 +1143,7 @@ namespace SIMULACION_TP1
             {
                 tiempoInicioAtencionA2 = 0;
             }
-            else if (a2Tiempo > 0 && a2Pedido == 2)
+            else if (a2Tiempo > 0 && a2Pedido == pedidoACalcular)
             {
                 tiempoInicioAtencionA2 = reloj;
             }
@@ -1159,7 +1158,7 @@ namespace SIMULACION_TP1
             {
                 tiempoPromCola2 = 0;
             }
-            else if (tiempoLlegada >= tiempoInicioAtencionA2)
+            else if (tiempoInicioAtencionA1 >= tiempoLlegada)
             {
                 tiempoPromCola2 = tiempoInicioAtencionA2 - tiempoLlegada;
             }
@@ -1174,7 +1173,7 @@ namespace SIMULACION_TP1
             {
                 tiempoInicioAtencionA3 = 0;
             }
-            else if (a3Tiempo > 0 && a3Pedido == 2)
+            else if (a3Tiempo > 0 && a3Pedido == pedidoACalcular)
             {
                 tiempoInicioAtencionA3 = reloj;
             }
@@ -1189,7 +1188,7 @@ namespace SIMULACION_TP1
             {
                 tiempoPromCola3 = 0;
             }
-            else if (tiempoLlegada >= tiempoInicioAtencionA3)
+            else if (tiempoInicioAtencionA1 >= tiempoLlegada)
             {
                 tiempoPromCola3 = tiempoInicioAtencionA3 - tiempoLlegada;
             }
@@ -1204,7 +1203,7 @@ namespace SIMULACION_TP1
             {
                 tiempoInicioAtencionA4 = 0;
             }
-            else if (a4Tiempo > 0 && a4Pedido == 2)
+            else if (a4Tiempo > 0 && a4Pedido == pedidoACalcular)
             {
                 tiempoInicioAtencionA4 = reloj;
             }
@@ -1219,7 +1218,7 @@ namespace SIMULACION_TP1
             {
                 tiempoPromCola4 = 0;
             }
-            else if (tiempoLlegada >= tiempoInicioAtencionA4)
+            else if (tiempoInicioAtencionA1 >= tiempoLlegada)
             {
                 tiempoPromCola4 = tiempoInicioAtencionA4 - tiempoLlegada;
             }
@@ -1234,7 +1233,7 @@ namespace SIMULACION_TP1
             {
                 tiempoInicioAtencionA5 = 0;
             }
-            else if (a5Tiempo > 0 && a5Pedido == 2)
+            else if (a5Tiempo > 0 && a5Pedido == pedidoACalcular)
             {
                 tiempoInicioAtencionA5 = reloj;
             }
@@ -1249,7 +1248,7 @@ namespace SIMULACION_TP1
             {
                 tiempoPromCola5 = 0;
             }
-            else if (tiempoLlegada >= tiempoInicioAtencionA5)
+            else if (tiempoInicioAtencionA1 >= tiempoLlegada)
             {
                 tiempoPromCola5 = tiempoInicioAtencionA5 - tiempoLlegada;
             }
@@ -1391,7 +1390,7 @@ namespace SIMULACION_TP1
             }
             else if (porcOcupacionA2 == 0 && vectorAnterior.porcOcupacionA2 == 0)
             {
-                porcOcupacionA2 = (acumuladoTiempoOcupadoA2 * 200) / reloj;
+                porcOcupacionA2 = (acumuladoTiempoOcupadoA2 * 100) / reloj;
             }
             else
             {
@@ -1443,7 +1442,7 @@ namespace SIMULACION_TP1
             }
             else if (porcOcupacionA3 == 0 && vectorAnterior.porcOcupacionA3 == 0)
             {
-                porcOcupacionA3 = (acumuladoTiempoOcupadoA3 * 300) / reloj;
+                porcOcupacionA3 = (acumuladoTiempoOcupadoA3 * 100) / reloj;
             }
             else
             {
@@ -1495,7 +1494,7 @@ namespace SIMULACION_TP1
             }
             else if (porcOcupacionA4 == 0 && vectorAnterior.porcOcupacionA4 == 0)
             {
-                porcOcupacionA4 = (acumuladoTiempoOcupadoA4 * 400) / reloj;
+                porcOcupacionA4 = (acumuladoTiempoOcupadoA4 * 100) / reloj;
             }
             else
             {
@@ -1546,7 +1545,7 @@ namespace SIMULACION_TP1
             }
             else if (porcOcupacionA5 == 0 && vectorAnterior.porcOcupacionA5 == 0)
             {
-                porcOcupacionA5 = (acumuladoTiempoOcupadoA5 * 500) / reloj;
+                porcOcupacionA5 = (acumuladoTiempoOcupadoA5 * 100) / reloj;
             }
             else
             {
@@ -1562,10 +1561,86 @@ namespace SIMULACION_TP1
             {
                 cantEnsamblesXHora = 0;
             }
-            //else if ()
-            //{
+            else if (evento == 4 && colaEncastreA5 < vectorAnterior.colaEncastreA5)
+            {
+                if (evento != 8)
+                {
+                    cantEnsamblesXHora = vectorAnterior.cantEnsamblesXHora + 1;
+                } 
+                else
+                {
+                    cantEnsamblesXHora = vectorAnterior.cantEnsamblesXHora;
+                }
+            }
+            else if (evento == 6 && colaEncastreA3 < vectorAnterior.colaEncastreA3)
+            {
+                if (evento != 8)
+                {
+                    cantEnsamblesXHora = vectorAnterior.cantEnsamblesXHora + 1;
+                }
+                else
+                {
+                    cantEnsamblesXHora = vectorAnterior.cantEnsamblesXHora;
+                }
+            }
+            else if (evento == 8)
+            {
+                cantEnsamblesXHora = 0;
+            }
+            else
+            {
+                cantEnsamblesXHora = vectorAnterior.cantEnsamblesXHora;
+            }
+        }
 
-            //}
+        private void CantProbEnsamblesXHora()
+        {
+            if (vectorAnterior == null)
+            {
+                cantProbEnsamblesXHora = 0;
+            }
+            else if(cantidadEnsamblesFinalizados > 0)
+            {
+                cantProbEnsamblesXHora = cantEnsamblesXHora / cantidadEnsamblesFinalizados;
+            }
+            else
+            {
+                cantProbEnsamblesXHora = 0;
+            }
+        }
+        #endregion
+
+        #region PEDIDOS POR PARAMETROS COMPLETADOS EN UNA HORA
+        private void PedidosParametroCompletadosEnUnaHora()
+        {
+            if (vectorAnterior == null)
+            {
+                pedidosParametroCompletadosEnUnaHora = 0;
+            }
+            else if (cantEnsamblesXHora > pedidoACalcular)
+            {
+                pedidosParametroCompletadosEnUnaHora = vectorAnterior.pedidosParametroCompletadosEnUnaHora + 1;
+            }
+            else
+            {
+                pedidosParametroCompletadosEnUnaHora = vectorAnterior.pedidosParametroCompletadosEnUnaHora;
+            }
+        }
+
+        private void ProbPedidosParametroCompletadosEnUnaHora()
+        {
+            if (vectorAnterior == null)
+            {
+                probPedidosParametroCompletadosEnUnaHora = 0;
+            }
+            else if (cantidadEnsamblesFinalizados > 0)
+            {
+                probPedidosParametroCompletadosEnUnaHora = pedidosParametroCompletadosEnUnaHora / cantidadEnsamblesFinalizados;
+            }
+            else
+            {
+                probPedidosParametroCompletadosEnUnaHora = 0;
+            }
         }
         #endregion
     }

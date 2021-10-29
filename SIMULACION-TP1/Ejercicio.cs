@@ -71,6 +71,7 @@ namespace SIMULACION_TP1
             tablaVectorEstado.Rows.Clear();
             cantProyectos = int.Parse(txt_cantProy.Text);
             double A1, A2, A3, A4, A5;
+            int pedidoACalcular = int.Parse(txt_nroEnsamblesProbabilidad.Text);
             Random r = new Random();
 
             VectorEstadoDinamico vectorEstado = new VectorEstadoDinamico();
@@ -78,8 +79,6 @@ namespace SIMULACION_TP1
 
             for (int i = 0; i <= cantProyectos; i++)
             {
-                List<double> lista = new List<double>();
-
                 var numAleatorioLlegadaPedido = r.NextDouble();
                 var tiempoEntrePedidos = GeneracionTiemposActividad(1, txtLambdaPedidos.Text, "", numAleatorioLlegadaPedido);
 
@@ -100,12 +99,10 @@ namespace SIMULACION_TP1
 
                 if (i == 0)
                 {
-                    vectorEstado = new VectorEstadoDinamico(i + 1, tiempoEntrePedidos);
+                    vectorEstado = new VectorEstadoDinamico(i + 1, tiempoEntrePedidos, pedidoACalcular);
 
                     if (desde == 0 && hasta == 0)
                     {
-                        //tablaVectorEstado.Rows.Add(0.ToString());
-
                         tablaVectorEstado.Rows.Add(vectorEstado.nroEvento.ToString(), vectorEstado.reloj.ToString(), (Evento)vectorEstado.evento, vectorEstado.pedido == 0 ? "-" : vectorEstado.pedido.ToString(),
                             vectorEstado.proxPedido.ToString(), ((Evento)vectorEstado.evento == Evento.LlegaPedido || (Evento)vectorEstado.evento == Evento.Inicio) ? Math.Round(numAleatorioLlegadaPedido, 3).ToString() : "-", vectorEstado.tiempoEntrePedidos.ToString(), ((Evento)vectorEstado.evento == Evento.LlegaPedido || (Evento)vectorEstado.evento == Evento.Inicio) ? vectorEstado.proxLlegada.ToString() : "-",
                             (Estado)vectorEstado.a1Estado, vectorEstado.a1Pedido == 0 ? "-" : vectorEstado.a1Pedido.ToString(), (i != 0 && vectorEstado.a1Pedido != vectorEstadoMasUno.a1Pedido) ? numAleatorio1.ToString() : "-", (i != 0 && vectorEstado.a1Pedido != vectorEstadoMasUno.a1Pedido) ? vectorEstado.a1Tiempo.ToString() : "-", vectorEstado.a1ProxFin == 0 ? "-" : vectorEstado.a1ProxFin.ToString(), vectorEstado.a1Cola.ToString(),
@@ -113,15 +110,16 @@ namespace SIMULACION_TP1
                             (Estado)vectorEstado.a3Estado, vectorEstado.a3Pedido == 0 ? "-" : vectorEstado.a3Pedido.ToString(), (i != 0 && vectorEstado.a3Pedido != vectorEstadoMasUno.a3Pedido) ? numAleatorio3.ToString() : "-", (i != 0 && vectorEstado.a1Pedido != vectorEstadoMasUno.a1Pedido) ? vectorEstado.a3Tiempo.ToString() : "-", vectorEstado.a3ProxFin == 0 ? "-" : vectorEstado.a3ProxFin.ToString(), vectorEstado.a3Cola.ToString(),
                             (Estado)vectorEstado.a4Estado, vectorEstado.a4Pedido == 0 ? "-" : vectorEstado.a4Pedido.ToString(), (i != 0 && vectorEstado.a4Pedido != vectorEstadoMasUno.a4Pedido) ? numAleatorio4.ToString() : "-", (i != 0 && vectorEstado.a1Pedido != vectorEstadoMasUno.a1Pedido) ? vectorEstado.a4Tiempo.ToString() : "-", vectorEstado.a4ProxFin == 0 ? "-" : vectorEstado.a4ProxFin.ToString(), vectorEstado.a4Cola.ToString(),
                             (Estado)vectorEstado.a5Estado, vectorEstado.a5Pedido == 0 ? "-" : vectorEstado.a5Pedido.ToString(), (i != 0 && vectorEstado.a5Pedido != vectorEstadoMasUno.a5Pedido) ? numAleatorio5.ToString() : "-", (i != 0 && vectorEstado.a1Pedido != vectorEstadoMasUno.a1Pedido) ? vectorEstado.a5Tiempo.ToString() : "-", vectorEstado.a5ProxFin == 0 ? "-" : vectorEstado.a5ProxFin.ToString(), vectorEstado.a5ColaA4.ToString(),
-                            vectorEstado.a5ColaA2.ToString(), vectorEstado.colaEncastreA3.ToString(), vectorEstado.colaEncastreA5.ToString(), vectorEstado.cantidadEnsamblesSolicitados.ToString(), vectorEstado.cantidadEnsamblesFinalizados.ToString(), vectorEstado.propEnsamRealSobreSolic.ToString(), vectorEstado.maxCola1.ToString(), vectorEstado.maxCola2.ToString(), vectorEstado.maxCola3.ToString(), vectorEstado.maxCola4.ToString(), vectorEstado.maxCola5.ToString(), vectorEstado.maxColaEncastre.ToString(),
-                            vectorEstado.tiempoPromCola1.ToString(), vectorEstado.tiempoPromCola2.ToString(), vectorEstado.tiempoPromCola3.ToString(), vectorEstado.tiempoPromCola4.ToString(), vectorEstado.tiempoPromCola5.ToString(), vectorEstado.tiempoPromColaEncastre.ToString(), vectorEstado.cantPromedioProdEnCola.ToString(), vectorEstado.cantPromedioProdEnSistema.ToString());
+                            vectorEstado.a5ColaA2.ToString(), vectorEstado.colaEncastreA3.ToString(), vectorEstado.colaEncastreA5.ToString(), vectorEstado.cantidadEnsamblesSolicitados.ToString(), vectorEstado.cantidadEnsamblesFinalizados.ToString(), vectorEstado.propEnsamRealSobreSolic.ToString(), vectorEstado.maxCola1.ToString(), vectorEstado.maxCola2.ToString(), vectorEstado.maxCola3.ToString(), vectorEstado.maxCola4.ToString(),
+                            vectorEstado.maxCola5.ToString(), vectorEstado.maxColaEncastre.ToString(), vectorEstado.tiempoPromCola1.ToString(), vectorEstado.tiempoPromCola2.ToString(), vectorEstado.tiempoPromCola3.ToString(), vectorEstado.tiempoPromCola4.ToString(), vectorEstado.tiempoPromCola5.ToString(), vectorEstado.tiempoPromColaEncastre.ToString(), vectorEstado.cantPromedioProdEnCola.ToString(), vectorEstado.cantPromedioProdEnSistema.ToString(),
+                            vectorEstado.porcOcupacionA1.ToString(), vectorEstado.porcOcupacionA2.ToString(), vectorEstado.porcOcupacionA3.ToString(), vectorEstado.porcOcupacionA4.ToString(), vectorEstado.porcOcupacionA5.ToString(), vectorEstado.cantEnsamblesXHora.ToString(), vectorEstado.cantProbEnsamblesXHora.ToString(), vectorEstado.pedidosParametroCompletadosEnUnaHora.ToString(), vectorEstado.probPedidosParametroCompletadosEnUnaHora.ToString());
                     }
                     vectorEstadoMasUno = vectorEstado;
                 }
                 else
                 {
 
-                    vectorEstado = new VectorEstadoDinamico(i + 1, tiempoEntrePedidos, A1, A2, A3, A4, A5, vectorEstadoMasUno);
+                    vectorEstado = new VectorEstadoDinamico(i + 1, tiempoEntrePedidos, pedidoACalcular, A1, A2, A3, A4, A5, vectorEstadoMasUno);
 
                     if ((desde != 0 && hasta != 0
                         && vectorEstadoMasUno.nroEvento >= desde && vectorEstadoMasUno.nroEvento <= hasta)
@@ -137,8 +135,9 @@ namespace SIMULACION_TP1
                             (Estado)vectorEstado.a3Estado, vectorEstado.a3Pedido == 0 ? "-" : vectorEstado.a3Pedido.ToString(), (i != 0 && vectorEstado.a3Pedido != vectorEstadoMasUno.a3Pedido) ? numAleatorio3.ToString() : "-", (i != 0 && vectorEstado.a1Pedido != vectorEstadoMasUno.a1Pedido) ? vectorEstado.a3Tiempo.ToString() : "-", vectorEstado.a3ProxFin == 0 ? "-" : vectorEstado.a3ProxFin.ToString(), vectorEstado.a3Cola.ToString(),
                             (Estado)vectorEstado.a4Estado, vectorEstado.a4Pedido == 0 ? "-" : vectorEstado.a4Pedido.ToString(), (i != 0 && vectorEstado.a4Pedido != vectorEstadoMasUno.a4Pedido) ? numAleatorio4.ToString() : "-", (i != 0 && vectorEstado.a1Pedido != vectorEstadoMasUno.a1Pedido) ? vectorEstado.a4Tiempo.ToString() : "-", vectorEstado.a4ProxFin == 0 ? "-" : vectorEstado.a4ProxFin.ToString(), vectorEstado.a4Cola.ToString(),
                             (Estado)vectorEstado.a5Estado, vectorEstado.a5Pedido == 0 ? "-" : vectorEstado.a5Pedido.ToString(), (i != 0 && vectorEstado.a5Pedido != vectorEstadoMasUno.a5Pedido) ? numAleatorio5.ToString() : "-", (i != 0 && vectorEstado.a1Pedido != vectorEstadoMasUno.a1Pedido) ? vectorEstado.a5Tiempo.ToString() : "-", vectorEstado.a5ProxFin == 0 ? "-" : vectorEstado.a5ProxFin.ToString(), vectorEstado.a5ColaA4.ToString(),
-                            vectorEstado.a5ColaA2.ToString(), vectorEstado.colaEncastreA3.ToString(), vectorEstado.colaEncastreA5.ToString(), vectorEstado.cantidadEnsamblesSolicitados.ToString(), vectorEstado.cantidadEnsamblesFinalizados.ToString(),vectorEstado.propEnsamRealSobreSolic.ToString(), vectorEstado.maxCola1.ToString(), vectorEstado.maxCola2.ToString(), vectorEstado.maxCola3.ToString(), vectorEstado.maxCola4.ToString(), vectorEstado.maxCola5.ToString(), vectorEstado.maxColaEncastre.ToString(),
-                            vectorEstado.tiempoPromCola1.ToString(), vectorEstado.tiempoPromCola2.ToString(), vectorEstado.tiempoPromCola3.ToString(), vectorEstado.tiempoPromCola4.ToString(), vectorEstado.tiempoPromCola5.ToString(), vectorEstado.tiempoPromColaEncastre.ToString(), vectorEstado.cantPromedioProdEnCola.ToString(), vectorEstado.cantPromedioProdEnSistema.ToString());
+                            vectorEstado.a5ColaA2.ToString(), vectorEstado.colaEncastreA3.ToString(), vectorEstado.colaEncastreA5.ToString(), vectorEstado.cantidadEnsamblesSolicitados.ToString(), vectorEstado.cantidadEnsamblesFinalizados.ToString(), vectorEstado.propEnsamRealSobreSolic.ToString(), vectorEstado.maxCola1.ToString(), vectorEstado.maxCola2.ToString(), vectorEstado.maxCola3.ToString(), vectorEstado.maxCola4.ToString(),
+                            vectorEstado.maxCola5.ToString(), vectorEstado.maxColaEncastre.ToString(), vectorEstado.tiempoPromCola1.ToString(), vectorEstado.tiempoPromCola2.ToString(), vectorEstado.tiempoPromCola3.ToString(), vectorEstado.tiempoPromCola4.ToString(), vectorEstado.tiempoPromCola5.ToString(), vectorEstado.tiempoPromColaEncastre.ToString(), vectorEstado.cantPromedioProdEnCola.ToString(), vectorEstado.cantPromedioProdEnSistema.ToString(),
+                            vectorEstado.porcOcupacionA1.ToString(), vectorEstado.porcOcupacionA2.ToString(), vectorEstado.porcOcupacionA3.ToString(), vectorEstado.porcOcupacionA4.ToString(), vectorEstado.porcOcupacionA5.ToString(), vectorEstado.cantEnsamblesXHora.ToString(), vectorEstado.cantProbEnsamblesXHora.ToString(), vectorEstado.pedidosParametroCompletadosEnUnaHora.ToString(), vectorEstado.probPedidosParametroCompletadosEnUnaHora.ToString());
                     }
 
                     vectorEstadoMasUno = vectorEstado;
