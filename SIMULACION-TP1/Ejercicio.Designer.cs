@@ -843,10 +843,10 @@ namespace SIMULACION_TP1
             this.nroEvento.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             this.nroEvento.Frozen = true;
             this.nroEvento.HeaderText = "Nro";
-            this.nroEvento.MinimumWidth = 23;
+            this.nroEvento.MinimumWidth = 50;
             this.nroEvento.Name = "nroEvento";
             this.nroEvento.ReadOnly = true;
-            this.nroEvento.Width = 28;
+            this.nroEvento.Width = 50;
             // 
             // reloj
             // 
@@ -856,9 +856,10 @@ namespace SIMULACION_TP1
             this.reloj.DefaultCellStyle = dataGridViewCellStyle1;
             this.reloj.Frozen = true;
             this.reloj.HeaderText = "RELOJ";
+            this.reloj.MinimumWidth = 50;
             this.reloj.Name = "reloj";
             this.reloj.ReadOnly = true;
-            this.reloj.Width = 28;
+            this.reloj.Width = 50;
             // 
             // evento
             // 
@@ -867,9 +868,9 @@ namespace SIMULACION_TP1
             this.evento.DefaultCellStyle = dataGridViewCellStyle2;
             this.evento.Frozen = true;
             this.evento.HeaderText = "EVENTO";
+            this.evento.MinimumWidth = 100;
             this.evento.Name = "evento";
             this.evento.ReadOnly = true;
-            this.evento.Width = 27;
             // 
             // pedido
             // 
@@ -878,9 +879,10 @@ namespace SIMULACION_TP1
             this.pedido.DefaultCellStyle = dataGridViewCellStyle3;
             this.pedido.Frozen = true;
             this.pedido.HeaderText = "PEDIDO";
+            this.pedido.MinimumWidth = 50;
             this.pedido.Name = "pedido";
             this.pedido.ReadOnly = true;
-            this.pedido.Width = 28;
+            this.pedido.Width = 50;
             // 
             // proxPedido
             // 
