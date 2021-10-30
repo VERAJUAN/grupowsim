@@ -496,7 +496,7 @@ namespace SIMULACION_TP1
                 }
                 else
                 {
-                    a1ProxFin = 0;
+                    a1ProxFin = double.PositiveInfinity;
                 }
             }
         }
@@ -607,7 +607,7 @@ namespace SIMULACION_TP1
                 }
                 else
                 {
-                    a2ProxFin = 0;
+                    a2ProxFin = double.PositiveInfinity;
                 }
             }
         }
@@ -719,7 +719,7 @@ namespace SIMULACION_TP1
                 }
                 else
                 {
-                    a3ProxFin = 0;
+                    a3ProxFin = double.PositiveInfinity;
                 }
             }
         }
