@@ -72,8 +72,8 @@ namespace SIMULACION_TP1
             cantProyectos = int.Parse(txt_cantProy.Text);
             double A1, A2, A3, A4, A5;
             int pedidoACalcular = int.Parse(txt_nroEnsamblesProbabilidad.Text);
-            tablaVectorEstado.Columns[65].HeaderText = $"{pedidoACalcular} ENSAMBLES COMPLETADOS EN 1 HORA"; 
-            tablaVectorEstado.Columns[66].HeaderText = $"PROBABILIDAD DE COMPLETAR {pedidoACalcular} O MAS ENSAMBLES";
+            tablaVectorEstado.Columns[66].HeaderText = $"{pedidoACalcular} ENSAMBLES COMPLETADOS EN 1 HORA"; 
+            tablaVectorEstado.Columns[67].HeaderText = $"PROBABILIDAD DE COMPLETAR {pedidoACalcular} O MAS ENSAMBLES";
             Random r = new Random();
 
             VectorEstadoDinamico vectorEstado = new VectorEstadoDinamico();
