@@ -1285,11 +1285,36 @@ namespace SIMULACION_TP1
         }
         private void TiempoInicioAtencionEncastre()
         {
-            tiempoInicioAtencionEncastre = 0;
+            if (vectorAnterior == null)
+            {
+                tiempoInicioAtencionEncastre = 0;
+            }
+            else
+            {
+                if(colaEncastreA3 > vectorAnterior.colaEncastreA3 || colaEncastreA5 > vectorAnterior.colaEncastreA5)
+                {
+                    tiempoInicioAtencionEncastre = reloj;
+                }
+                else
+                {
+                    tiempoInicioAtencionEncastre = vectorAnterior.tiempoInicioAtencionEncastre;
+                }
+            }
         }
         private void TiempoPromColaEncastre()
         {
-            tiempoPromColaEncastre = 0;
+            if (vectorAnterior == null)
+            {
+                tiempoPromColaEncastre = 0;
+            }
+            else if (tiempoInicioAtencionEncastre >= tiempoLlegada)
+            {
+                tiempoPromColaEncastre = tiempoInicioAtencionEncastre - tiempoLlegada;
+            }
+            else
+            {
+                tiempoPromColaEncastre = vectorAnterior.tiempoPromColaEncastre;
+            }
         }
         #endregion
 
