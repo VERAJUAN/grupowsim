@@ -1158,7 +1158,7 @@ namespace SIMULACION_TP1
             {
                 tiempoPromCola2 = 0;
             }
-            else if (tiempoInicioAtencionA1 >= tiempoLlegada)
+            else if (tiempoInicioAtencionA2 >= tiempoLlegada)
             {
                 tiempoPromCola2 = tiempoInicioAtencionA2 - tiempoLlegada;
             }
@@ -1188,7 +1188,7 @@ namespace SIMULACION_TP1
             {
                 tiempoPromCola3 = 0;
             }
-            else if (tiempoInicioAtencionA1 >= tiempoLlegada)
+            else if (tiempoInicioAtencionA3 >= tiempoLlegada)
             {
                 tiempoPromCola3 = tiempoInicioAtencionA3 - tiempoLlegada;
             }
@@ -1218,7 +1218,7 @@ namespace SIMULACION_TP1
             {
                 tiempoPromCola4 = 0;
             }
-            else if (tiempoInicioAtencionA1 >= tiempoLlegada)
+            else if (tiempoInicioAtencionA4 >= tiempoLlegada)
             {
                 tiempoPromCola4 = tiempoInicioAtencionA4 - tiempoLlegada;
             }
@@ -1248,7 +1248,7 @@ namespace SIMULACION_TP1
             {
                 tiempoPromCola5 = 0;
             }
-            else if (tiempoInicioAtencionA1 >= tiempoLlegada)
+            else if (tiempoInicioAtencionA5 >= tiempoLlegada)
             {
                 tiempoPromCola5 = tiempoInicioAtencionA5 - tiempoLlegada;
             }
