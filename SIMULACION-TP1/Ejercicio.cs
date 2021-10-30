@@ -126,7 +126,7 @@ namespace SIMULACION_TP1
                         && vectorEstadoMasUno.nroEvento >= desde && vectorEstadoMasUno.nroEvento <= hasta)
                         ||
                         (desde == 0 && hasta == 0
-                        && (vectorEstadoMasUno.nroEvento < 20 || vectorEstadoMasUno.nroEvento % 10000 == 0)
+                        //&& (vectorEstadoMasUno.nroEvento < 20 || vectorEstadoMasUno.nroEvento % 10000 == 0)
                         ))
                     {
                         tablaVectorEstado.Rows.Add(vectorEstado.nroEvento.ToString(), Math.Round(vectorEstado.reloj, 3).ToString(), (Evento)vectorEstado.evento, vectorEstado.pedido == 0 ? "-" : vectorEstado.pedido.ToString(),
