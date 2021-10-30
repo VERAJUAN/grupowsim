@@ -92,6 +92,8 @@ namespace SIMULACION_TP1
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle61 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle62 = new System.Windows.Forms.DataGridViewCellStyle();
             this.GroupBox1 = new System.Windows.Forms.GroupBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.txt_nroEnsamblesProbabilidad = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.txtLambdaPedidos = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -206,8 +208,6 @@ namespace SIMULACION_TP1
             this.cantPromEnsamblesHora = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ensamblesCompletadosEn1Hora = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.propCompletar3OMasEnsambles = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.label4 = new System.Windows.Forms.Label();
-            this.txt_nroEnsamblesProbabilidad = new System.Windows.Forms.TextBox();
             this.GroupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tablaVectorEstado)).BeginInit();
@@ -265,6 +265,24 @@ namespace SIMULACION_TP1
             this.GroupBox1.TabStop = false;
             this.GroupBox1.Text = "Parametros";
             this.GroupBox1.Enter += new System.EventHandler(this.GroupBox1_Enter);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(15, 323);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(212, 13);
+            this.label4.TabIndex = 477;
+            this.label4.Text = "Nro de Ensambles para Probabilidad";
+            // 
+            // txt_nroEnsamblesProbabilidad
+            // 
+            this.txt_nroEnsamblesProbabilidad.Location = new System.Drawing.Point(233, 320);
+            this.txt_nroEnsamblesProbabilidad.Name = "txt_nroEnsamblesProbabilidad";
+            this.txt_nroEnsamblesProbabilidad.Size = new System.Drawing.Size(45, 20);
+            this.txt_nroEnsamblesProbabilidad.TabIndex = 16;
+            this.txt_nroEnsamblesProbabilidad.Text = "3";
             // 
             // label1
             // 
@@ -822,35 +840,47 @@ namespace SIMULACION_TP1
             // 
             // nroEvento
             // 
+            this.nroEvento.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.nroEvento.Frozen = true;
             this.nroEvento.HeaderText = "Nro";
             this.nroEvento.MinimumWidth = 23;
             this.nroEvento.Name = "nroEvento";
             this.nroEvento.ReadOnly = true;
+            this.nroEvento.Width = 28;
             // 
             // reloj
             // 
+            this.reloj.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
             this.reloj.DefaultCellStyle = dataGridViewCellStyle1;
+            this.reloj.Frozen = true;
             this.reloj.HeaderText = "RELOJ";
             this.reloj.Name = "reloj";
             this.reloj.ReadOnly = true;
+            this.reloj.Width = 28;
             // 
             // evento
             // 
+            this.evento.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.evento.DefaultCellStyle = dataGridViewCellStyle2;
+            this.evento.Frozen = true;
             this.evento.HeaderText = "EVENTO";
             this.evento.Name = "evento";
             this.evento.ReadOnly = true;
+            this.evento.Width = 27;
             // 
             // pedido
             // 
+            this.pedido.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.pedido.DefaultCellStyle = dataGridViewCellStyle3;
+            this.pedido.Frozen = true;
             this.pedido.HeaderText = "PEDIDO";
             this.pedido.Name = "pedido";
             this.pedido.ReadOnly = true;
+            this.pedido.Width = 28;
             // 
             // proxPedido
             // 
@@ -1348,24 +1378,6 @@ namespace SIMULACION_TP1
             this.propCompletar3OMasEnsambles.Name = "propCompletar3OMasEnsambles";
             this.propCompletar3OMasEnsambles.ReadOnly = true;
             // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(15, 323);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(212, 13);
-            this.label4.TabIndex = 477;
-            this.label4.Text = "Nro de Ensambles para Probabilidad";
-            // 
-            // txt_nroEnsamblesProbabilidad
-            // 
-            this.txt_nroEnsamblesProbabilidad.Location = new System.Drawing.Point(233, 320);
-            this.txt_nroEnsamblesProbabilidad.Name = "txt_nroEnsamblesProbabilidad";
-            this.txt_nroEnsamblesProbabilidad.Size = new System.Drawing.Size(45, 20);
-            this.txt_nroEnsamblesProbabilidad.TabIndex = 16;
-            this.txt_nroEnsamblesProbabilidad.Text = "3";
-            // 
             // Ejercicio__B
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1435,6 +1447,8 @@ namespace SIMULACION_TP1
         private System.Windows.Forms.Label label2;
         internal System.Windows.Forms.Label label1;
         internal System.Windows.Forms.TextBox txtLambdaPedidos;
+        internal System.Windows.Forms.Label label4;
+        internal System.Windows.Forms.TextBox txt_nroEnsamblesProbabilidad;
         private System.Windows.Forms.DataGridViewTextBoxColumn nroEvento;
         private System.Windows.Forms.DataGridViewTextBoxColumn reloj;
         private System.Windows.Forms.DataGridViewTextBoxColumn evento;
@@ -1502,7 +1516,5 @@ namespace SIMULACION_TP1
         private System.Windows.Forms.DataGridViewTextBoxColumn cantPromEnsamblesHora;
         private System.Windows.Forms.DataGridViewTextBoxColumn ensamblesCompletadosEn1Hora;
         private System.Windows.Forms.DataGridViewTextBoxColumn propCompletar3OMasEnsambles;
-        internal System.Windows.Forms.Label label4;
-        internal System.Windows.Forms.TextBox txt_nroEnsamblesProbabilidad;
     }
 }
