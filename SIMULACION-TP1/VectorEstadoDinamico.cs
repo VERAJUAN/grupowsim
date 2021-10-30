@@ -1302,7 +1302,7 @@ namespace SIMULACION_TP1
             }
             else
             {
-                cantPromedioProdEnCola = (a1Cola + a2Cola + a3Cola + a4Cola + a5ColaA2 + a5ColaA4 + colaEncastreA3 + colaEncastreA5) / 6;
+                cantPromedioProdEnCola = (double)(a1Cola + a2Cola + a3Cola + a4Cola + a5ColaA2 + a5ColaA4 + colaEncastreA3 + colaEncastreA5) / 6;
             }
         }
 
@@ -1314,7 +1314,7 @@ namespace SIMULACION_TP1
             }
             else
             {
-                cantPromedioProdEnSistema = (a1Estado + a2Estado + a3Estado + a4Estado + a5Estado +
+                cantPromedioProdEnSistema = (double)(a1Estado + a2Estado + a3Estado + a4Estado + a5Estado +
                                                 a1Cola + a2Cola + a3Cola + a4Cola + a5ColaA2 + a5ColaA4 + colaEncastreA3 + colaEncastreA5) / 6;
             }
         }
