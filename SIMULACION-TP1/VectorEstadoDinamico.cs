@@ -69,6 +69,7 @@ namespace SIMULACION_TP1
         public int cantidadEnsamblesSolicitados { get; set; }
         public int cantidadEnsamblesFinalizados { get; set; }
         public double propEnsamRealSobreSolic { get; set; }
+        public double duracionPromedioEnsamble { get; set; }
 
         //CANTIDAD MAXIMA EN COLA
         public int maxCola1 { get; set; }
@@ -187,15 +188,16 @@ namespace SIMULACION_TP1
             CantidadEnsamblesSolicitados();
             CantidadEnsamblesFinalizados();
             PropEnsamRealSobreSolic();
+            TiempoPromedioDuracionEnsamble();
 
             if (vectorAnterior != null)
-            {  
+            {
                 maxCola1 = Math.Max(a1Cola, vectorAnterior.maxCola1);
                 maxCola2 = Math.Max(a2Cola, vectorAnterior.maxCola2);
                 maxCola3 = Math.Max(a3Cola, vectorAnterior.maxCola3);
                 maxCola4 = Math.Max(a4Cola, vectorAnterior.maxCola4);
-                maxCola5 = Math.Max(a5ColaA2+a5ColaA4, vectorAnterior.maxCola5);
-                maxColaEncastre = Math.Max(colaEncastreA3+colaEncastreA5, vectorAnterior.maxColaEncastre);
+                maxCola5 = Math.Max(a5ColaA2 + a5ColaA4, vectorAnterior.maxCola5);
+                maxColaEncastre = Math.Max(colaEncastreA3 + colaEncastreA5, vectorAnterior.maxColaEncastre);
             }
             TiempoLlegada();
             TiempoInicioAtencionA1();
@@ -255,7 +257,7 @@ namespace SIMULACION_TP1
                     Math.Min(vectorAnterior.a1ProxFin,
                     Math.Min(vectorAnterior.a2ProxFin,
                     Math.Min(vectorAnterior.a3ProxFin,
-                    Math.Min(vectorAnterior.a4ProxFin, 
+                    Math.Min(vectorAnterior.a4ProxFin,
                     Math.Min(vectorAnterior.a5ProxFin, vectorAnterior.proxFinHora
                     ))))));
             }
@@ -269,9 +271,11 @@ namespace SIMULACION_TP1
             }
             else
             {
-                if(reloj == vectorAnterior.proxLlegada){
+                if (reloj == vectorAnterior.proxLlegada)
+                {
                     evento = 1;
-                }else if(reloj == vectorAnterior.a1ProxFin)
+                }
+                else if (reloj == vectorAnterior.a1ProxFin)
                 {
                     evento = 2;
                 }
@@ -310,10 +314,12 @@ namespace SIMULACION_TP1
             }
             else
             {
-                if(evento == 1)
+                if (evento == 1)
                 {
                     pedido = vectorAnterior.proxPedido;
-                }else if (evento == 2) {
+                }
+                else if (evento == 2)
+                {
                     pedido = vectorAnterior.a1Pedido;
                 }
                 else if (evento == 3)
@@ -354,7 +360,7 @@ namespace SIMULACION_TP1
             }
             else
             {
-                if(evento == 1)
+                if (evento == 1)
                 {
                     proxPedido = vectorAnterior.proxPedido + 1;
                 }
@@ -393,7 +399,7 @@ namespace SIMULACION_TP1
             {
                 proxFinHora = vectorAnterior.proxFinHora + 60;
             }
-            
+
         }
         #endregion
 
@@ -860,7 +866,7 @@ namespace SIMULACION_TP1
                 {
                     a5Estado = 1;
                 }
-                else if(evento == 3 && vectorAnterior.a5ColaA4 > 0)
+                else if (evento == 3 && vectorAnterior.a5ColaA4 > 0)
                 {
                     a5Estado = 1;
                 }
@@ -1063,10 +1069,10 @@ namespace SIMULACION_TP1
             {
                 cantidadEnsamblesFinalizados = vectorAnterior.cantidadEnsamblesFinalizados + 1;
             }
-            else if(evento == 6 && colaEncastreA3 < vectorAnterior.colaEncastreA3) 
+            else if (evento == 6 && colaEncastreA3 < vectorAnterior.colaEncastreA3)
             {
                 cantidadEnsamblesFinalizados = vectorAnterior.cantidadEnsamblesFinalizados + 1;
-            } 
+            }
             else
             {
                 cantidadEnsamblesFinalizados = vectorAnterior.cantidadEnsamblesFinalizados;
@@ -1079,7 +1085,7 @@ namespace SIMULACION_TP1
             {
                 propEnsamRealSobreSolic = 0;
             }
-            else if(cantidadEnsamblesFinalizados == 0) 
+            else if (cantidadEnsamblesFinalizados == 0)
             {
                 propEnsamRealSobreSolic = vectorAnterior.propEnsamRealSobreSolic;
             }
@@ -1088,6 +1094,26 @@ namespace SIMULACION_TP1
                 propEnsamRealSobreSolic = cantidadEnsamblesFinalizados / cantidadEnsamblesSolicitados;
             }
         }
+
+        private void TiempoPromedioDuracionEnsamble()
+        {
+            if (vectorAnterior == null)
+            {
+                duracionPromedioEnsamble = 0;
+            }
+            else
+            {
+                if(cantidadEnsamblesFinalizados != 0)
+                {
+                    duracionPromedioEnsamble = reloj / cantidadEnsamblesFinalizados;
+                }
+                else
+                {
+                    duracionPromedioEnsamble = cantidadEnsamblesFinalizados;
+                }
+            }
+        }
+
         #endregion
 
         #region TIEMPOS PROMEDIOS 
@@ -1131,7 +1157,7 @@ namespace SIMULACION_TP1
             else if (tiempoInicioAtencionA1 >= tiempoLlegada)
             {
                 tiempoPromCola1 = tiempoInicioAtencionA1 - tiempoLlegada;
-            } 
+            }
             else
             {
                 tiempoPromCola1 = vectorAnterior.tiempoPromCola1;
@@ -1566,7 +1592,7 @@ namespace SIMULACION_TP1
                 if (evento != 8)
                 {
                     cantEnsamblesXHora = vectorAnterior.cantEnsamblesXHora + 1;
-                } 
+                }
                 else
                 {
                     cantEnsamblesXHora = vectorAnterior.cantEnsamblesXHora;
@@ -1599,7 +1625,7 @@ namespace SIMULACION_TP1
             {
                 cantProbEnsamblesXHora = 0;
             }
-            else if(cantidadEnsamblesFinalizados > 0)
+            else if (cantidadEnsamblesFinalizados > 0)
             {
                 cantProbEnsamblesXHora = cantEnsamblesXHora / cantidadEnsamblesFinalizados;
             }
