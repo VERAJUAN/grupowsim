@@ -119,6 +119,13 @@ namespace SIMULACION_TP1
         public double acumuladoTiempoOcupadoA5 { get; set; }
         public double porcOcupacionA5 { get; set; }
 
+        //BLOQUEO
+        public double tiempoBloqueoColaA5 { get; set; }
+        public double tiempoBloqueoColaEncastreA3 { get; set; }
+        public double tiempoBloqueoColaEncastreA5 { get; set; }
+        public double propBloqueoSobreOcupacion { get; set; }
+
+
         //ENSAMBLES X HORA
         public int cantEnsamblesXHora { get; set; }
         public double cantProbEnsamblesXHora { get; set; }
@@ -235,6 +242,10 @@ namespace SIMULACION_TP1
             TiempoOcupadoA5();
             AcumuladoTiempoOcupadoA5();
             PorcOcupacionA5();
+
+            TiempoBloqueoColaA5();
+            TiempoBloqueoColaEncastre();
+            PropBloqueoSobreOcupacion();
 
             CantEnsamblesXHora();
             CantProbEnsamblesXHora();
@@ -1707,6 +1718,69 @@ namespace SIMULACION_TP1
             else
             {
                 probPedidosParametroCompletadosEnUnaHora = 0;
+            }
+        }
+        #endregion
+
+        #region TIEMPOS BLOQUEO
+        
+        private void TiempoBloqueoColaA5()
+        {
+            if (vectorAnterior == null)
+            {
+                tiempoBloqueoColaA5 = 0;
+            }
+            else if (a5Estado == 0 && a4Cola == 0 && a2Cola > 0)
+            {
+                tiempoBloqueoColaA5 = reloj - vectorAnterior.reloj + vectorAnterior.tiempoBloqueoColaA5;
+            }
+            else if (a5Estado == 0 && a4Cola > 0 && a2Cola == 0)
+            {
+                tiempoBloqueoColaA5 = reloj - vectorAnterior.reloj + vectorAnterior.tiempoBloqueoColaA5;
+            }
+            else
+            {
+                tiempoBloqueoColaA5 = 0;
+            }
+        }
+
+        private void TiempoBloqueoColaEncastre()
+        {
+            if (vectorAnterior == null)
+            {
+                tiempoBloqueoColaEncastreA3 = 0;
+                tiempoBloqueoColaEncastreA5 = 0;
+            }
+            else if (colaEncastreA3 == 0 && colaEncastreA5 > 0)
+            {
+                tiempoBloqueoColaEncastreA5 = reloj - vectorAnterior.reloj + vectorAnterior.tiempoBloqueoColaEncastreA5;
+                tiempoBloqueoColaEncastreA3 = 0;
+            }
+            else if (colaEncastreA3 > 0 && colaEncastreA5 == 0)
+            {
+                tiempoBloqueoColaEncastreA3 = reloj - vectorAnterior.reloj + vectorAnterior.tiempoBloqueoColaEncastreA3;
+                tiempoBloqueoColaEncastreA5 = 0;
+            }
+            else
+            {
+                tiempoBloqueoColaEncastreA3 = 0;
+                tiempoBloqueoColaEncastreA5 = 0;
+            }
+        }
+
+        private void PropBloqueoSobreOcupacion()
+        {
+            if (vectorAnterior == null)
+            {
+                propBloqueoSobreOcupacion = 0;
+            }
+            else if (acumuladoTiempoOcupadoA5 > 0)
+            {
+                propBloqueoSobreOcupacion = tiempoBloqueoColaA5 / acumuladoTiempoOcupadoA5;
+            } 
+            else
+            {
+                propBloqueoSobreOcupacion = 0;
             }
         }
         #endregion

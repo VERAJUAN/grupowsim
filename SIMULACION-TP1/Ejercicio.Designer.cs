@@ -92,6 +92,10 @@ namespace SIMULACION_TP1
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle61 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle62 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle63 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle64 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle65 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle66 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle67 = new System.Windows.Forms.DataGridViewCellStyle();
             this.GroupBox1 = new System.Windows.Forms.GroupBox();
             this.label4 = new System.Windows.Forms.Label();
             this.txt_nroEnsamblesProbabilidad = new System.Windows.Forms.TextBox();
@@ -206,6 +210,10 @@ namespace SIMULACION_TP1
             this.porcOcupacionA3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.porcOcupA4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.porcOcupacionA5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tiempoBloqueoA5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.propBloqueoSobreOcupacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tiempoBloqueoeNCASTRE = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tiempobloqueoencastrea5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cantEnsamblesHora = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cantPromEnsamblesHora = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ensamblesCompletadosEn1Hora = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -830,6 +838,10 @@ namespace SIMULACION_TP1
             this.porcOcupacionA3,
             this.porcOcupA4,
             this.porcOcupacionA5,
+            this.tiempoBloqueoA5,
+            this.propBloqueoSobreOcupacion,
+            this.tiempoBloqueoeNCASTRE,
+            this.tiempobloqueoencastrea5,
             this.cantEnsamblesHora,
             this.cantPromEnsamblesHora,
             this.ensamblesCompletadosEn1Hora,
@@ -1359,34 +1371,66 @@ namespace SIMULACION_TP1
             this.porcOcupacionA5.Name = "porcOcupacionA5";
             this.porcOcupacionA5.ReadOnly = true;
             // 
+            // tiempoBloqueoA5
+            // 
+            dataGridViewCellStyle60.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.tiempoBloqueoA5.DefaultCellStyle = dataGridViewCellStyle60;
+            this.tiempoBloqueoA5.HeaderText = "TIEMPO BLOQUEO A5";
+            this.tiempoBloqueoA5.Name = "tiempoBloqueoA5";
+            this.tiempoBloqueoA5.ReadOnly = true;
+            // 
+            // propBloqueoSobreOcupacion
+            // 
+            dataGridViewCellStyle61.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.propBloqueoSobreOcupacion.DefaultCellStyle = dataGridViewCellStyle61;
+            this.propBloqueoSobreOcupacion.HeaderText = "PROP. TIEMPO BLOQUEO SOBRE OCUPACIÓN";
+            this.propBloqueoSobreOcupacion.Name = "propBloqueoSobreOcupacion";
+            this.propBloqueoSobreOcupacion.ReadOnly = true;
+            // 
+            // tiempoBloqueoeNCASTRE
+            // 
+            dataGridViewCellStyle62.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.tiempoBloqueoeNCASTRE.DefaultCellStyle = dataGridViewCellStyle62;
+            this.tiempoBloqueoeNCASTRE.HeaderText = "TIEMPO BLOQUEO ENCASTRE A3";
+            this.tiempoBloqueoeNCASTRE.Name = "tiempoBloqueoeNCASTRE";
+            this.tiempoBloqueoeNCASTRE.ReadOnly = true;
+            // 
+            // tiempobloqueoencastrea5
+            // 
+            dataGridViewCellStyle63.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.tiempobloqueoencastrea5.DefaultCellStyle = dataGridViewCellStyle63;
+            this.tiempobloqueoencastrea5.HeaderText = "TIEMPO BLOQUEO ENCASTRE A5";
+            this.tiempobloqueoencastrea5.Name = "tiempobloqueoencastrea5";
+            this.tiempobloqueoencastrea5.ReadOnly = true;
+            // 
             // cantEnsamblesHora
             // 
-            dataGridViewCellStyle60.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.cantEnsamblesHora.DefaultCellStyle = dataGridViewCellStyle60;
+            dataGridViewCellStyle64.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.cantEnsamblesHora.DefaultCellStyle = dataGridViewCellStyle64;
             this.cantEnsamblesHora.HeaderText = "CANTIDAD DE ENSAMBLES POR HORA";
             this.cantEnsamblesHora.Name = "cantEnsamblesHora";
             this.cantEnsamblesHora.ReadOnly = true;
             // 
             // cantPromEnsamblesHora
             // 
-            dataGridViewCellStyle61.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.cantPromEnsamblesHora.DefaultCellStyle = dataGridViewCellStyle61;
+            dataGridViewCellStyle65.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.cantPromEnsamblesHora.DefaultCellStyle = dataGridViewCellStyle65;
             this.cantPromEnsamblesHora.HeaderText = "CANTIDAD PROMEDIO DE ENSAMLES POR HORA";
             this.cantPromEnsamblesHora.Name = "cantPromEnsamblesHora";
             this.cantPromEnsamblesHora.ReadOnly = true;
             // 
             // ensamblesCompletadosEn1Hora
             // 
-            dataGridViewCellStyle62.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.ensamblesCompletadosEn1Hora.DefaultCellStyle = dataGridViewCellStyle62;
+            dataGridViewCellStyle66.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.ensamblesCompletadosEn1Hora.DefaultCellStyle = dataGridViewCellStyle66;
             this.ensamblesCompletadosEn1Hora.HeaderText = "3 ENSAMBLES COMPLETADOS EN 1 HORA";
             this.ensamblesCompletadosEn1Hora.Name = "ensamblesCompletadosEn1Hora";
             this.ensamblesCompletadosEn1Hora.ReadOnly = true;
             // 
             // propCompletar3OMasEnsambles
             // 
-            dataGridViewCellStyle63.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.propCompletar3OMasEnsambles.DefaultCellStyle = dataGridViewCellStyle63;
+            dataGridViewCellStyle67.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.propCompletar3OMasEnsambles.DefaultCellStyle = dataGridViewCellStyle67;
             this.propCompletar3OMasEnsambles.HeaderText = "PROBABILIDAD DE COMPLETAR 3 O MÁS ENSAMBLES";
             this.propCompletar3OMasEnsambles.Name = "propCompletar3OMasEnsambles";
             this.propCompletar3OMasEnsambles.ReadOnly = true;
@@ -1526,6 +1570,10 @@ namespace SIMULACION_TP1
         private System.Windows.Forms.DataGridViewTextBoxColumn porcOcupacionA3;
         private System.Windows.Forms.DataGridViewTextBoxColumn porcOcupA4;
         private System.Windows.Forms.DataGridViewTextBoxColumn porcOcupacionA5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tiempoBloqueoA5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn propBloqueoSobreOcupacion;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tiempoBloqueoeNCASTRE;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tiempobloqueoencastrea5;
         private System.Windows.Forms.DataGridViewTextBoxColumn cantEnsamblesHora;
         private System.Windows.Forms.DataGridViewTextBoxColumn cantPromEnsamblesHora;
         private System.Windows.Forms.DataGridViewTextBoxColumn ensamblesCompletadosEn1Hora;
