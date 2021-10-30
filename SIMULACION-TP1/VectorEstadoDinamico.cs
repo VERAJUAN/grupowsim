@@ -1490,19 +1490,18 @@ namespace SIMULACION_TP1
         {
             if (vectorAnterior == null)
             {
-                acumuladoTiempoOcupadoA4 = 0;
+                tiempoOcupadoA4 = 0;
             }
-            else if (tiempoOcupadoA4 == 3 && vectorAnterior.tiempoOcupadoA4 == 0)
+            else if (a4Estado == 1 && vectorAnterior.a4Estado == 0)
             {
-                acumuladoTiempoOcupadoA4 = 0;
-            }
-            else if (tiempoOcupadoA4 == 3 && vectorAnterior.tiempoOcupadoA4 == 3)
-            {
-                acumuladoTiempoOcupadoA4 = reloj - vectorAnterior.reloj + vectorAnterior.acumuladoTiempoOcupadoA4;
+                tiempoOcupadoA4 = 3; //"x"
             }
             else
             {
-                acumuladoTiempoOcupadoA4 = vectorAnterior.acumuladoTiempoOcupadoA4;
+                if (a4Estado == 0 && vectorAnterior.a4Estado == 1)
+                    tiempoOcupadoA4 = 0;
+                else
+                    tiempoOcupadoA4 = vectorAnterior.tiempoOcupadoA4;
             }
         }
 
@@ -1546,19 +1545,18 @@ namespace SIMULACION_TP1
         {
             if (vectorAnterior == null)
             {
-                acumuladoTiempoOcupadoA5 = 0;
+                tiempoOcupadoA5 = 0;
             }
-            else if (tiempoOcupadoA5 == 3 && vectorAnterior.tiempoOcupadoA5 == 0)
+            else if (a5Estado == 1 && vectorAnterior.a5Estado == 0)
             {
-                acumuladoTiempoOcupadoA5 = 0;
-            }
-            else if (tiempoOcupadoA5 == 3 && vectorAnterior.tiempoOcupadoA5 == 3)
-            {
-                acumuladoTiempoOcupadoA5 = reloj - vectorAnterior.reloj + vectorAnterior.acumuladoTiempoOcupadoA5;
+                tiempoOcupadoA5 = 3; //"x"
             }
             else
             {
-                acumuladoTiempoOcupadoA5 = vectorAnterior.acumuladoTiempoOcupadoA5;
+                if (a5Estado == 0 && vectorAnterior.a5Estado == 1)
+                    tiempoOcupadoA5 = 0;
+                else
+                    tiempoOcupadoA5 = vectorAnterior.tiempoOcupadoA5;
             }
         }
         private void AcumuladoTiempoOcupadoA5()
