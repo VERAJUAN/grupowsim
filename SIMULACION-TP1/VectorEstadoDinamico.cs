@@ -1091,7 +1091,7 @@ namespace SIMULACION_TP1
             }
             else
             {
-                propEnsamRealSobreSolic = cantidadEnsamblesFinalizados / cantidadEnsamblesSolicitados;
+                propEnsamRealSobreSolic = (double)cantidadEnsamblesFinalizados / (double)cantidadEnsamblesSolicitados;
             }
         }
 
