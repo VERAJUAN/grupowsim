@@ -146,6 +146,46 @@ namespace SIMULACION_TP1
             this.comboDist1 = new System.Windows.Forms.ComboBox();
             this.btn_generar = new System.Windows.Forms.Button();
             this.tablaVectorEstado = new System.Windows.Forms.DataGridView();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.lblCantidadEventosSimulados = new System.Windows.Forms.Label();
+            this.lblEnsamblesRealizados = new System.Windows.Forms.Label();
+            this.lblEnsamblesSolicitados = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.lblProporcionEnsamblesRealizadosSolicitados = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.lblCantMaxProductosS1 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.lblCantMaxProductosS2 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.lblCantMaxProductosS3 = new System.Windows.Forms.Label();
+            this.label33 = new System.Windows.Forms.Label();
+            this.lblCantMaxProductosS4 = new System.Windows.Forms.Label();
+            this.label34 = new System.Windows.Forms.Label();
+            this.lblCantMaxProductosS5 = new System.Windows.Forms.Label();
+            this.label35 = new System.Windows.Forms.Label();
+            this.lblCantMaxProductosEncastre = new System.Windows.Forms.Label();
+            this.label36 = new System.Windows.Forms.Label();
+            this.lblPorcentajeOcupacionS1 = new System.Windows.Forms.Label();
+            this.label37 = new System.Windows.Forms.Label();
+            this.lblPorcentajeOcupacionS2 = new System.Windows.Forms.Label();
+            this.label38 = new System.Windows.Forms.Label();
+            this.lblPorcentajeOcupacionS3 = new System.Windows.Forms.Label();
+            this.label40 = new System.Windows.Forms.Label();
+            this.lblPorcentajeOcupacionS4 = new System.Windows.Forms.Label();
+            this.label42 = new System.Windows.Forms.Label();
+            this.lblPorcentajeOcupacionS5 = new System.Windows.Forms.Label();
+            this.label44 = new System.Windows.Forms.Label();
+            this.lblProbCompletar3oMasEnsamblesXHora = new System.Windows.Forms.Label();
+            this.lblCompletarEnsambles = new System.Windows.Forms.Label();
+            this.lblPromedioProductosEnSistema = new System.Windows.Forms.Label();
+            this.label39 = new System.Windows.Forms.Label();
+            this.lblPromedioEnsamblesXHora = new System.Windows.Forms.Label();
+            this.label41 = new System.Windows.Forms.Label();
+            this.lblTiempoBloqueoTiempoOcupacion = new System.Windows.Forms.Label();
+            this.label43 = new System.Windows.Forms.Label();
+            this.lblTiempoPromedioDuracionEnsamble = new System.Windows.Forms.Label();
+            this.label47 = new System.Windows.Forms.Label();
             this.nroEvento = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.reloj = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.evento = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -853,6 +893,406 @@ namespace SIMULACION_TP1
             this.tablaVectorEstado.Size = new System.Drawing.Size(1865, 369);
             this.tablaVectorEstado.TabIndex = 473;
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Cursor = System.Windows.Forms.Cursors.Default;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(776, 28);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(194, 13);
+            this.label5.TabIndex = 478;
+            this.label5.Text = "Cantidad de Eventos Simulados: ";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Cursor = System.Windows.Forms.Cursors.Default;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(776, 53);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(132, 13);
+            this.label6.TabIndex = 479;
+            this.label6.Text = "Ensambles realizados:";
+            // 
+            // lblCantidadEventosSimulados
+            // 
+            this.lblCantidadEventosSimulados.AutoSize = true;
+            this.lblCantidadEventosSimulados.Location = new System.Drawing.Point(976, 28);
+            this.lblCantidadEventosSimulados.Name = "lblCantidadEventosSimulados";
+            this.lblCantidadEventosSimulados.Size = new System.Drawing.Size(17, 13);
+            this.lblCantidadEventosSimulados.TabIndex = 478;
+            this.lblCantidadEventosSimulados.Text = "lbl";
+            // 
+            // lblEnsamblesRealizados
+            // 
+            this.lblEnsamblesRealizados.AutoSize = true;
+            this.lblEnsamblesRealizados.Location = new System.Drawing.Point(914, 53);
+            this.lblEnsamblesRealizados.Name = "lblEnsamblesRealizados";
+            this.lblEnsamblesRealizados.Size = new System.Drawing.Size(17, 13);
+            this.lblEnsamblesRealizados.TabIndex = 480;
+            this.lblEnsamblesRealizados.Text = "lbl";
+            // 
+            // lblEnsamblesSolicitados
+            // 
+            this.lblEnsamblesSolicitados.AutoSize = true;
+            this.lblEnsamblesSolicitados.Location = new System.Drawing.Point(914, 77);
+            this.lblEnsamblesSolicitados.Name = "lblEnsamblesSolicitados";
+            this.lblEnsamblesSolicitados.Size = new System.Drawing.Size(17, 13);
+            this.lblEnsamblesSolicitados.TabIndex = 482;
+            this.lblEnsamblesSolicitados.Text = "lbl";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Cursor = System.Windows.Forms.Cursors.Default;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(776, 77);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(135, 13);
+            this.label8.TabIndex = 481;
+            this.label8.Text = "Ensambles solicitados:";
+            // 
+            // lblProporcionEnsamblesRealizadosSolicitados
+            // 
+            this.lblProporcionEnsamblesRealizadosSolicitados.AutoSize = true;
+            this.lblProporcionEnsamblesRealizadosSolicitados.Location = new System.Drawing.Point(1078, 100);
+            this.lblProporcionEnsamblesRealizadosSolicitados.Name = "lblProporcionEnsamblesRealizadosSolicitados";
+            this.lblProporcionEnsamblesRealizadosSolicitados.Size = new System.Drawing.Size(17, 13);
+            this.lblProporcionEnsamblesRealizadosSolicitados.TabIndex = 484;
+            this.lblProporcionEnsamblesRealizadosSolicitados.Text = "lbl";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Cursor = System.Windows.Forms.Cursors.Default;
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Location = new System.Drawing.Point(776, 100);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(296, 13);
+            this.label12.TabIndex = 483;
+            this.label12.Text = "Proporción de Ensambles Realizados / Solicitados:";
+            // 
+            // lblCantMaxProductosS1
+            // 
+            this.lblCantMaxProductosS1.AutoSize = true;
+            this.lblCantMaxProductosS1.Location = new System.Drawing.Point(1105, 124);
+            this.lblCantMaxProductosS1.Name = "lblCantMaxProductosS1";
+            this.lblCantMaxProductosS1.Size = new System.Drawing.Size(17, 13);
+            this.lblCantMaxProductosS1.TabIndex = 486;
+            this.lblCantMaxProductosS1.Text = "lbl";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Cursor = System.Windows.Forms.Cursors.Default;
+            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.Location = new System.Drawing.Point(776, 125);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(323, 13);
+            this.label13.TabIndex = 485;
+            this.label13.Text = "Cantidad máxima de productos en espera de la cola S1:";
+            // 
+            // lblCantMaxProductosS2
+            // 
+            this.lblCantMaxProductosS2.AutoSize = true;
+            this.lblCantMaxProductosS2.Location = new System.Drawing.Point(1105, 150);
+            this.lblCantMaxProductosS2.Name = "lblCantMaxProductosS2";
+            this.lblCantMaxProductosS2.Size = new System.Drawing.Size(17, 13);
+            this.lblCantMaxProductosS2.TabIndex = 488;
+            this.lblCantMaxProductosS2.Text = "lbl";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Cursor = System.Windows.Forms.Cursors.Default;
+            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.Location = new System.Drawing.Point(776, 151);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(323, 13);
+            this.label15.TabIndex = 487;
+            this.label15.Text = "Cantidad máxima de productos en espera de la cola S2:";
+            // 
+            // lblCantMaxProductosS3
+            // 
+            this.lblCantMaxProductosS3.AutoSize = true;
+            this.lblCantMaxProductosS3.Location = new System.Drawing.Point(1105, 175);
+            this.lblCantMaxProductosS3.Name = "lblCantMaxProductosS3";
+            this.lblCantMaxProductosS3.Size = new System.Drawing.Size(17, 13);
+            this.lblCantMaxProductosS3.TabIndex = 490;
+            this.lblCantMaxProductosS3.Text = "lbl";
+            // 
+            // label33
+            // 
+            this.label33.AutoSize = true;
+            this.label33.Cursor = System.Windows.Forms.Cursors.Default;
+            this.label33.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label33.Location = new System.Drawing.Point(776, 176);
+            this.label33.Name = "label33";
+            this.label33.Size = new System.Drawing.Size(323, 13);
+            this.label33.TabIndex = 489;
+            this.label33.Text = "Cantidad máxima de productos en espera de la cola S3:";
+            // 
+            // lblCantMaxProductosS4
+            // 
+            this.lblCantMaxProductosS4.AutoSize = true;
+            this.lblCantMaxProductosS4.Location = new System.Drawing.Point(1105, 199);
+            this.lblCantMaxProductosS4.Name = "lblCantMaxProductosS4";
+            this.lblCantMaxProductosS4.Size = new System.Drawing.Size(17, 13);
+            this.lblCantMaxProductosS4.TabIndex = 492;
+            this.lblCantMaxProductosS4.Text = "lbl";
+            // 
+            // label34
+            // 
+            this.label34.AutoSize = true;
+            this.label34.Cursor = System.Windows.Forms.Cursors.Default;
+            this.label34.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label34.Location = new System.Drawing.Point(776, 200);
+            this.label34.Name = "label34";
+            this.label34.Size = new System.Drawing.Size(323, 13);
+            this.label34.TabIndex = 491;
+            this.label34.Text = "Cantidad máxima de productos en espera de la cola S4:";
+            // 
+            // lblCantMaxProductosS5
+            // 
+            this.lblCantMaxProductosS5.AutoSize = true;
+            this.lblCantMaxProductosS5.Location = new System.Drawing.Point(1105, 226);
+            this.lblCantMaxProductosS5.Name = "lblCantMaxProductosS5";
+            this.lblCantMaxProductosS5.Size = new System.Drawing.Size(17, 13);
+            this.lblCantMaxProductosS5.TabIndex = 494;
+            this.lblCantMaxProductosS5.Text = "lbl";
+            // 
+            // label35
+            // 
+            this.label35.AutoSize = true;
+            this.label35.Cursor = System.Windows.Forms.Cursors.Default;
+            this.label35.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label35.Location = new System.Drawing.Point(776, 227);
+            this.label35.Name = "label35";
+            this.label35.Size = new System.Drawing.Size(323, 13);
+            this.label35.TabIndex = 493;
+            this.label35.Text = "Cantidad máxima de productos en espera de la cola S5:";
+            // 
+            // lblCantMaxProductosEncastre
+            // 
+            this.lblCantMaxProductosEncastre.AutoSize = true;
+            this.lblCantMaxProductosEncastre.Location = new System.Drawing.Point(1157, 255);
+            this.lblCantMaxProductosEncastre.Name = "lblCantMaxProductosEncastre";
+            this.lblCantMaxProductosEncastre.Size = new System.Drawing.Size(17, 13);
+            this.lblCantMaxProductosEncastre.TabIndex = 496;
+            this.lblCantMaxProductosEncastre.Text = "lbl";
+            // 
+            // label36
+            // 
+            this.label36.AutoSize = true;
+            this.label36.Cursor = System.Windows.Forms.Cursors.Default;
+            this.label36.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label36.Location = new System.Drawing.Point(776, 255);
+            this.label36.Name = "label36";
+            this.label36.Size = new System.Drawing.Size(375, 13);
+            this.label36.TabIndex = 495;
+            this.label36.Text = "Cantidad máxima de productos en espera de la cola de encastre:";
+            // 
+            // lblPorcentajeOcupacionS1
+            // 
+            this.lblPorcentajeOcupacionS1.AutoSize = true;
+            this.lblPorcentajeOcupacionS1.Location = new System.Drawing.Point(956, 284);
+            this.lblPorcentajeOcupacionS1.Name = "lblPorcentajeOcupacionS1";
+            this.lblPorcentajeOcupacionS1.Size = new System.Drawing.Size(17, 13);
+            this.lblPorcentajeOcupacionS1.TabIndex = 498;
+            this.lblPorcentajeOcupacionS1.Text = "lbl";
+            // 
+            // label37
+            // 
+            this.label37.AutoSize = true;
+            this.label37.Cursor = System.Windows.Forms.Cursors.Default;
+            this.label37.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label37.Location = new System.Drawing.Point(776, 284);
+            this.label37.Name = "label37";
+            this.label37.Size = new System.Drawing.Size(174, 13);
+            this.label37.TabIndex = 497;
+            this.label37.Text = "Porcentaje de Ocupación S1:";
+            // 
+            // lblPorcentajeOcupacionS2
+            // 
+            this.lblPorcentajeOcupacionS2.AutoSize = true;
+            this.lblPorcentajeOcupacionS2.Location = new System.Drawing.Point(956, 307);
+            this.lblPorcentajeOcupacionS2.Name = "lblPorcentajeOcupacionS2";
+            this.lblPorcentajeOcupacionS2.Size = new System.Drawing.Size(17, 13);
+            this.lblPorcentajeOcupacionS2.TabIndex = 500;
+            this.lblPorcentajeOcupacionS2.Text = "lbl";
+            // 
+            // label38
+            // 
+            this.label38.AutoSize = true;
+            this.label38.Cursor = System.Windows.Forms.Cursors.Default;
+            this.label38.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label38.Location = new System.Drawing.Point(776, 307);
+            this.label38.Name = "label38";
+            this.label38.Size = new System.Drawing.Size(174, 13);
+            this.label38.TabIndex = 499;
+            this.label38.Text = "Porcentaje de Ocupación S2:";
+            // 
+            // lblPorcentajeOcupacionS3
+            // 
+            this.lblPorcentajeOcupacionS3.AutoSize = true;
+            this.lblPorcentajeOcupacionS3.Location = new System.Drawing.Point(956, 332);
+            this.lblPorcentajeOcupacionS3.Name = "lblPorcentajeOcupacionS3";
+            this.lblPorcentajeOcupacionS3.Size = new System.Drawing.Size(17, 13);
+            this.lblPorcentajeOcupacionS3.TabIndex = 502;
+            this.lblPorcentajeOcupacionS3.Text = "lbl";
+            // 
+            // label40
+            // 
+            this.label40.AutoSize = true;
+            this.label40.Cursor = System.Windows.Forms.Cursors.Default;
+            this.label40.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label40.Location = new System.Drawing.Point(776, 332);
+            this.label40.Name = "label40";
+            this.label40.Size = new System.Drawing.Size(174, 13);
+            this.label40.TabIndex = 501;
+            this.label40.Text = "Porcentaje de Ocupación S3:";
+            // 
+            // lblPorcentajeOcupacionS4
+            // 
+            this.lblPorcentajeOcupacionS4.AutoSize = true;
+            this.lblPorcentajeOcupacionS4.Location = new System.Drawing.Point(956, 355);
+            this.lblPorcentajeOcupacionS4.Name = "lblPorcentajeOcupacionS4";
+            this.lblPorcentajeOcupacionS4.Size = new System.Drawing.Size(17, 13);
+            this.lblPorcentajeOcupacionS4.TabIndex = 504;
+            this.lblPorcentajeOcupacionS4.Text = "lbl";
+            // 
+            // label42
+            // 
+            this.label42.AutoSize = true;
+            this.label42.Cursor = System.Windows.Forms.Cursors.Default;
+            this.label42.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label42.Location = new System.Drawing.Point(776, 355);
+            this.label42.Name = "label42";
+            this.label42.Size = new System.Drawing.Size(174, 13);
+            this.label42.TabIndex = 503;
+            this.label42.Text = "Porcentaje de Ocupación S4:";
+            // 
+            // lblPorcentajeOcupacionS5
+            // 
+            this.lblPorcentajeOcupacionS5.AutoSize = true;
+            this.lblPorcentajeOcupacionS5.Location = new System.Drawing.Point(956, 378);
+            this.lblPorcentajeOcupacionS5.Name = "lblPorcentajeOcupacionS5";
+            this.lblPorcentajeOcupacionS5.Size = new System.Drawing.Size(17, 13);
+            this.lblPorcentajeOcupacionS5.TabIndex = 506;
+            this.lblPorcentajeOcupacionS5.Text = "lbl";
+            // 
+            // label44
+            // 
+            this.label44.AutoSize = true;
+            this.label44.Cursor = System.Windows.Forms.Cursors.Default;
+            this.label44.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label44.Location = new System.Drawing.Point(776, 378);
+            this.label44.Name = "label44";
+            this.label44.Size = new System.Drawing.Size(174, 13);
+            this.label44.TabIndex = 505;
+            this.label44.Text = "Porcentaje de Ocupación S5:";
+            // 
+            // lblProbCompletar3oMasEnsamblesXHora
+            // 
+            this.lblProbCompletar3oMasEnsamblesXHora.AutoSize = true;
+            this.lblProbCompletar3oMasEnsamblesXHora.Location = new System.Drawing.Point(1566, 28);
+            this.lblProbCompletar3oMasEnsamblesXHora.Name = "lblProbCompletar3oMasEnsamblesXHora";
+            this.lblProbCompletar3oMasEnsamblesXHora.Size = new System.Drawing.Size(17, 13);
+            this.lblProbCompletar3oMasEnsamblesXHora.TabIndex = 508;
+            this.lblProbCompletar3oMasEnsamblesXHora.Text = "lbl";
+            // 
+            // lblCompletarEnsambles
+            // 
+            this.lblCompletarEnsambles.AutoSize = true;
+            this.lblCompletarEnsambles.Cursor = System.Windows.Forms.Cursors.Default;
+            this.lblCompletarEnsambles.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCompletarEnsambles.Location = new System.Drawing.Point(1236, 28);
+            this.lblCompletarEnsambles.Name = "lblCompletarEnsambles";
+            this.lblCompletarEnsambles.Size = new System.Drawing.Size(324, 13);
+            this.lblCompletarEnsambles.TabIndex = 507;
+            this.lblCompletarEnsambles.Text = "Probabilidad de completar 3 o más ensambles por hora: ";
+            // 
+            // lblPromedioProductosEnSistema
+            // 
+            this.lblPromedioProductosEnSistema.AutoSize = true;
+            this.lblPromedioProductosEnSistema.Location = new System.Drawing.Point(1514, 53);
+            this.lblPromedioProductosEnSistema.Name = "lblPromedioProductosEnSistema";
+            this.lblPromedioProductosEnSistema.Size = new System.Drawing.Size(17, 13);
+            this.lblPromedioProductosEnSistema.TabIndex = 510;
+            this.lblPromedioProductosEnSistema.Text = "lbl";
+            // 
+            // label39
+            // 
+            this.label39.AutoSize = true;
+            this.label39.Cursor = System.Windows.Forms.Cursors.Default;
+            this.label39.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label39.Location = new System.Drawing.Point(1236, 53);
+            this.label39.Name = "label39";
+            this.label39.Size = new System.Drawing.Size(272, 13);
+            this.label39.TabIndex = 509;
+            this.label39.Text = "Cantidad promedio de productos en el sistema:";
+            // 
+            // lblPromedioEnsamblesXHora
+            // 
+            this.lblPromedioEnsamblesXHora.AutoSize = true;
+            this.lblPromedioEnsamblesXHora.Location = new System.Drawing.Point(1437, 77);
+            this.lblPromedioEnsamblesXHora.Name = "lblPromedioEnsamblesXHora";
+            this.lblPromedioEnsamblesXHora.Size = new System.Drawing.Size(17, 13);
+            this.lblPromedioEnsamblesXHora.TabIndex = 512;
+            this.lblPromedioEnsamblesXHora.Text = "lbl";
+            // 
+            // label41
+            // 
+            this.label41.AutoSize = true;
+            this.label41.Cursor = System.Windows.Forms.Cursors.Default;
+            this.label41.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label41.Location = new System.Drawing.Point(1236, 77);
+            this.label41.Name = "label41";
+            this.label41.Size = new System.Drawing.Size(195, 13);
+            this.label41.TabIndex = 511;
+            this.label41.Text = "Promedio de ensambles por hora:";
+            // 
+            // lblTiempoBloqueoTiempoOcupacion
+            // 
+            this.lblTiempoBloqueoTiempoOcupacion.AutoSize = true;
+            this.lblTiempoBloqueoTiempoOcupacion.Location = new System.Drawing.Point(1612, 100);
+            this.lblTiempoBloqueoTiempoOcupacion.Name = "lblTiempoBloqueoTiempoOcupacion";
+            this.lblTiempoBloqueoTiempoOcupacion.Size = new System.Drawing.Size(17, 13);
+            this.lblTiempoBloqueoTiempoOcupacion.TabIndex = 514;
+            this.lblTiempoBloqueoTiempoOcupacion.Text = "lbl";
+            // 
+            // label43
+            // 
+            this.label43.AutoSize = true;
+            this.label43.Cursor = System.Windows.Forms.Cursors.Default;
+            this.label43.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label43.Location = new System.Drawing.Point(1236, 100);
+            this.label43.Name = "label43";
+            this.label43.Size = new System.Drawing.Size(370, 13);
+            this.label43.TabIndex = 513;
+            this.label43.Text = "Proporción de tiempo de bloqueo / tiempo de ocupación del S5:";
+            // 
+            // lblTiempoPromedioDuracionEnsamble
+            // 
+            this.lblTiempoPromedioDuracionEnsamble.AutoSize = true;
+            this.lblTiempoPromedioDuracionEnsamble.Location = new System.Drawing.Point(1498, 124);
+            this.lblTiempoPromedioDuracionEnsamble.Name = "lblTiempoPromedioDuracionEnsamble";
+            this.lblTiempoPromedioDuracionEnsamble.Size = new System.Drawing.Size(17, 13);
+            this.lblTiempoPromedioDuracionEnsamble.TabIndex = 518;
+            this.lblTiempoPromedioDuracionEnsamble.Text = "lbl";
+            // 
+            // label47
+            // 
+            this.label47.AutoSize = true;
+            this.label47.Cursor = System.Windows.Forms.Cursors.Default;
+            this.label47.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label47.Location = new System.Drawing.Point(1236, 123);
+            this.label47.Name = "label47";
+            this.label47.Size = new System.Drawing.Size(256, 13);
+            this.label47.TabIndex = 517;
+            this.label47.Text = "Tiempo promedio de duración del ensamble:";
+            // 
             // nroEvento
             // 
             this.nroEvento.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
@@ -1440,6 +1880,46 @@ namespace SIMULACION_TP1
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1893, 806);
+            this.Controls.Add(this.lblTiempoPromedioDuracionEnsamble);
+            this.Controls.Add(this.label47);
+            this.Controls.Add(this.lblTiempoBloqueoTiempoOcupacion);
+            this.Controls.Add(this.label43);
+            this.Controls.Add(this.lblPromedioEnsamblesXHora);
+            this.Controls.Add(this.label41);
+            this.Controls.Add(this.lblPromedioProductosEnSistema);
+            this.Controls.Add(this.label39);
+            this.Controls.Add(this.lblProbCompletar3oMasEnsamblesXHora);
+            this.Controls.Add(this.lblCompletarEnsambles);
+            this.Controls.Add(this.lblPorcentajeOcupacionS5);
+            this.Controls.Add(this.label44);
+            this.Controls.Add(this.lblPorcentajeOcupacionS4);
+            this.Controls.Add(this.label42);
+            this.Controls.Add(this.lblPorcentajeOcupacionS3);
+            this.Controls.Add(this.label40);
+            this.Controls.Add(this.lblPorcentajeOcupacionS2);
+            this.Controls.Add(this.label38);
+            this.Controls.Add(this.lblPorcentajeOcupacionS1);
+            this.Controls.Add(this.label37);
+            this.Controls.Add(this.lblCantMaxProductosEncastre);
+            this.Controls.Add(this.label36);
+            this.Controls.Add(this.lblCantMaxProductosS5);
+            this.Controls.Add(this.label35);
+            this.Controls.Add(this.lblCantMaxProductosS4);
+            this.Controls.Add(this.label34);
+            this.Controls.Add(this.lblCantMaxProductosS3);
+            this.Controls.Add(this.label33);
+            this.Controls.Add(this.lblCantMaxProductosS2);
+            this.Controls.Add(this.label15);
+            this.Controls.Add(this.lblCantMaxProductosS1);
+            this.Controls.Add(this.label13);
+            this.Controls.Add(this.lblProporcionEnsamblesRealizadosSolicitados);
+            this.Controls.Add(this.label12);
+            this.Controls.Add(this.lblEnsamblesSolicitados);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.lblEnsamblesRealizados);
+            this.Controls.Add(this.lblCantidadEventosSimulados);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.tablaVectorEstado);
             this.Controls.Add(this.GroupBox1);
             this.Name = "Ejercicio__B";
@@ -1451,6 +1931,7 @@ namespace SIMULACION_TP1
             this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tablaVectorEstado)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -1506,6 +1987,46 @@ namespace SIMULACION_TP1
         internal System.Windows.Forms.TextBox txtLambdaPedidos;
         internal System.Windows.Forms.Label label4;
         internal System.Windows.Forms.TextBox txt_nroEnsamblesProbabilidad;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label6;
+        internal System.Windows.Forms.Label lblCantidadEventosSimulados;
+        internal System.Windows.Forms.Label lblEnsamblesRealizados;
+        internal System.Windows.Forms.Label lblEnsamblesSolicitados;
+        private System.Windows.Forms.Label label8;
+        internal System.Windows.Forms.Label lblProporcionEnsamblesRealizadosSolicitados;
+        private System.Windows.Forms.Label label12;
+        internal System.Windows.Forms.Label lblCantMaxProductosS1;
+        private System.Windows.Forms.Label label13;
+        internal System.Windows.Forms.Label lblCantMaxProductosS2;
+        private System.Windows.Forms.Label label15;
+        internal System.Windows.Forms.Label lblCantMaxProductosS3;
+        private System.Windows.Forms.Label label33;
+        internal System.Windows.Forms.Label lblCantMaxProductosS4;
+        private System.Windows.Forms.Label label34;
+        internal System.Windows.Forms.Label lblCantMaxProductosS5;
+        private System.Windows.Forms.Label label35;
+        internal System.Windows.Forms.Label lblCantMaxProductosEncastre;
+        private System.Windows.Forms.Label label36;
+        internal System.Windows.Forms.Label lblPorcentajeOcupacionS1;
+        private System.Windows.Forms.Label label37;
+        internal System.Windows.Forms.Label lblPorcentajeOcupacionS2;
+        private System.Windows.Forms.Label label38;
+        internal System.Windows.Forms.Label lblPorcentajeOcupacionS3;
+        private System.Windows.Forms.Label label40;
+        internal System.Windows.Forms.Label lblPorcentajeOcupacionS4;
+        private System.Windows.Forms.Label label42;
+        internal System.Windows.Forms.Label lblPorcentajeOcupacionS5;
+        private System.Windows.Forms.Label label44;
+        internal System.Windows.Forms.Label lblProbCompletar3oMasEnsamblesXHora;
+        private System.Windows.Forms.Label lblCompletarEnsambles;
+        internal System.Windows.Forms.Label lblPromedioProductosEnSistema;
+        private System.Windows.Forms.Label label39;
+        internal System.Windows.Forms.Label lblPromedioEnsamblesXHora;
+        private System.Windows.Forms.Label label41;
+        internal System.Windows.Forms.Label lblTiempoBloqueoTiempoOcupacion;
+        private System.Windows.Forms.Label label43;
+        internal System.Windows.Forms.Label lblTiempoPromedioDuracionEnsamble;
+        private System.Windows.Forms.Label label47;
         private System.Windows.Forms.DataGridViewTextBoxColumn nroEvento;
         private System.Windows.Forms.DataGridViewTextBoxColumn reloj;
         private System.Windows.Forms.DataGridViewTextBoxColumn evento;

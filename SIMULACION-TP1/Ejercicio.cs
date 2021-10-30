@@ -72,6 +72,7 @@ namespace SIMULACION_TP1
             cantProyectos = int.Parse(txt_cantProy.Text);
             double A1, A2, A3, A4, A5;
             int pedidoACalcular = int.Parse(txt_nroEnsamblesProbabilidad.Text);
+            lblCompletarEnsambles.Text = $"Probabilidad de completar {pedidoACalcular} o más ensambles por hora:";
             tablaVectorEstado.Columns[65].HeaderText = $"{pedidoACalcular} ENSAMBLES COMPLETADOS EN 1 HORA"; 
             tablaVectorEstado.Columns[66].HeaderText = $"PROBABILIDAD DE COMPLETAR {pedidoACalcular} O MAS ENSAMBLES";
             Random r = new Random();
@@ -114,7 +115,8 @@ namespace SIMULACION_TP1
                             (Estado)vectorEstado.a5Estado, vectorEstado.a5Pedido == 0 ? "-" : vectorEstado.a5Pedido.ToString(), (i != 0 && vectorEstado.a5Pedido != vectorEstadoMasUno.a5Pedido && vectorEstado.a5Pedido != 0) ? Math.Round(numAleatorio5, 3).ToString() : "-", (i != 0 && vectorEstado.a5Pedido != vectorEstadoMasUno.a5Pedido && vectorEstado.a5Pedido != 0) ? Math.Round(vectorEstado.a5Tiempo, 3).ToString() : "-", (vectorEstado.a5ProxFin == 0 || vectorEstado.a5ProxFin == double.PositiveInfinity) ? "-" : Math.Round(vectorEstado.a5ProxFin, 3).ToString(), vectorEstado.a5ColaA4.ToString(),
                             vectorEstado.a5ColaA2.ToString(), vectorEstado.colaEncastreA3.ToString(), vectorEstado.colaEncastreA5.ToString(), vectorEstado.cantidadEnsamblesSolicitados.ToString(), vectorEstado.cantidadEnsamblesFinalizados.ToString(), Math.Round(vectorEstado.propEnsamRealSobreSolic, 3).ToString(), Math.Round(vectorEstado.duracionPromedioEnsamble, 3).ToString(), vectorEstado.maxCola1.ToString(), vectorEstado.maxCola2.ToString(), vectorEstado.maxCola3.ToString(), vectorEstado.maxCola4.ToString(),
                             vectorEstado.maxCola5.ToString(), vectorEstado.maxColaEncastre.ToString(), Math.Round(vectorEstado.tiempoPromCola1, 3).ToString(), Math.Round(vectorEstado.tiempoPromCola2, 3).ToString(), Math.Round(vectorEstado.tiempoPromCola3, 3).ToString(), Math.Round(vectorEstado.tiempoPromCola4, 3).ToString(), Math.Round(vectorEstado.tiempoPromCola5, 3).ToString(), Math.Round(vectorEstado.tiempoPromColaEncastre, 3).ToString(),
-                            Math.Round(vectorEstado.cantPromedioProdEnCola, 3).ToString(), vectorEstado.cantPromedioProdEnSistema.ToString(), Math.Round(vectorEstado.porcOcupacionA1, 3).ToString(), Math.Round(vectorEstado.porcOcupacionA2, 3).ToString(), Math.Round(vectorEstado.porcOcupacionA3, 3).ToString(), Math.Round(vectorEstado.porcOcupacionA4, 3).ToString(), Math.Round(vectorEstado.porcOcupacionA5, 3).ToString(),
+                            Math.Round(vectorEstado.cantPromedioProdEnCola, 3).ToString(), vectorEstado.cantPromedioProdEnSistema.ToString(), Math.Round(vectorEstado.porcOcupacionA1, 3).ToString(), Math.Round(vectorEstado.porcOcupacionA2, 3).ToString(), Math.Round(vectorEstado.porcOcupacionA3, 3).ToString(), Math.Round(vectorEstado.porcOcupacionA4, 3).ToString(), Math.Round(vectorEstado.porcOcupacionA5, 3).ToString(), Math.Round(vectorEstado.tiempoBloqueoColaA5, 3).ToString(), Math.Round(vectorEstado.propBloqueoSobreOcupacion, 3).ToString(), Math.Round(vectorEstado.tiempoBloqueoColaEncastreA3, 3).ToString(),
+                            Math.Round(vectorEstado.tiempoBloqueoColaEncastreA3, 3).ToString(),
                             vectorEstado.cantEnsamblesXHora.ToString(), Math.Round(vectorEstado.cantProbEnsamblesXHora, 3).ToString(), vectorEstado.pedidosParametroCompletadosEnUnaHora.ToString(), Math.Round(vectorEstado.probPedidosParametroCompletadosEnUnaHora, 3).ToString());
                     }
 
@@ -139,10 +141,35 @@ namespace SIMULACION_TP1
                             (Estado)vectorEstado.a3Estado, vectorEstado.a3Pedido == 0 ? "-" : vectorEstado.a3Pedido.ToString(), (i != 0 && vectorEstado.a3Pedido != vectorEstadoMasUno.a3Pedido && vectorEstado.a3Pedido != 0) ? Math.Round(numAleatorio3, 3).ToString() : "-", (i != 0 && vectorEstado.a3Pedido != vectorEstadoMasUno.a3Pedido && vectorEstado.a3Pedido != 0) ? Math.Round(vectorEstado.a3Tiempo, 3).ToString() : "-", (vectorEstado.a3ProxFin == 0 || vectorEstado.a3ProxFin == double.PositiveInfinity) ? "-" : Math.Round(vectorEstado.a3ProxFin, 3).ToString(), vectorEstado.a3Cola.ToString(),
                             (Estado)vectorEstado.a4Estado, vectorEstado.a4Pedido == 0 ? "-" : vectorEstado.a4Pedido.ToString(), (i != 0 && vectorEstado.a4Pedido != vectorEstadoMasUno.a4Pedido && vectorEstado.a4Pedido != 0) ? Math.Round(numAleatorio4, 3).ToString() : "-", (i != 0 && vectorEstado.a4Pedido != vectorEstadoMasUno.a4Pedido && vectorEstado.a4Pedido != 0) ? Math.Round(vectorEstado.a4Tiempo, 3).ToString() : "-", (vectorEstado.a4ProxFin == 0 || vectorEstado.a4ProxFin == double.PositiveInfinity) ? "-" : Math.Round(vectorEstado.a4ProxFin, 3).ToString(), vectorEstado.a4Cola.ToString(),
                             (Estado)vectorEstado.a5Estado, vectorEstado.a5Pedido == 0 ? "-" : vectorEstado.a5Pedido.ToString(), (i != 0 && vectorEstado.a5Pedido != vectorEstadoMasUno.a5Pedido && vectorEstado.a5Pedido != 0) ? Math.Round(numAleatorio5, 3).ToString() : "-", (i != 0 && vectorEstado.a5Pedido != vectorEstadoMasUno.a5Pedido && vectorEstado.a5Pedido != 0) ? Math.Round(vectorEstado.a5Tiempo, 3).ToString() : "-", (vectorEstado.a5ProxFin == 0 || vectorEstado.a5ProxFin == double.PositiveInfinity) ? "-" : Math.Round(vectorEstado.a5ProxFin, 3).ToString(), vectorEstado.a5ColaA4.ToString(),
-                            vectorEstado.a5ColaA2.ToString(), vectorEstado.colaEncastreA3.ToString(), vectorEstado.colaEncastreA5.ToString(), vectorEstado.cantidadEnsamblesSolicitados.ToString(), vectorEstado.cantidadEnsamblesFinalizados.ToString(), Math.Round(vectorEstado.propEnsamRealSobreSolic, 3).ToString(), Math.Round(vectorEstado.duracionPromedioEnsamble,3).ToString(), vectorEstado.maxCola1.ToString(), vectorEstado.maxCola2.ToString(), vectorEstado.maxCola3.ToString(), vectorEstado.maxCola4.ToString(),
+                            vectorEstado.a5ColaA2.ToString(), vectorEstado.colaEncastreA3.ToString(), vectorEstado.colaEncastreA5.ToString(), vectorEstado.cantidadEnsamblesSolicitados.ToString(), vectorEstado.cantidadEnsamblesFinalizados.ToString(), Math.Round(vectorEstado.propEnsamRealSobreSolic, 3).ToString(), Math.Round(vectorEstado.duracionPromedioEnsamble, 3).ToString(), vectorEstado.maxCola1.ToString(), vectorEstado.maxCola2.ToString(), vectorEstado.maxCola3.ToString(), vectorEstado.maxCola4.ToString(),
                             vectorEstado.maxCola5.ToString(), vectorEstado.maxColaEncastre.ToString(), Math.Round(vectorEstado.tiempoPromCola1, 3).ToString(), Math.Round(vectorEstado.tiempoPromCola2, 3).ToString(), Math.Round(vectorEstado.tiempoPromCola3, 3).ToString(), Math.Round(vectorEstado.tiempoPromCola4, 3).ToString(), Math.Round(vectorEstado.tiempoPromCola5, 3).ToString(), Math.Round(vectorEstado.tiempoPromColaEncastre, 3).ToString(),
-                            Math.Round(vectorEstado.cantPromedioProdEnCola, 3).ToString(), vectorEstado.cantPromedioProdEnSistema.ToString(), Math.Round(vectorEstado.porcOcupacionA1, 3).ToString(), Math.Round(vectorEstado.porcOcupacionA2, 3).ToString(), Math.Round(vectorEstado.porcOcupacionA3, 3).ToString(), Math.Round(vectorEstado.porcOcupacionA4, 3).ToString(), Math.Round(vectorEstado.porcOcupacionA5, 3).ToString(),
+                            Math.Round(vectorEstado.cantPromedioProdEnCola, 3).ToString(), vectorEstado.cantPromedioProdEnSistema.ToString(), Math.Round(vectorEstado.porcOcupacionA1, 3).ToString(), Math.Round(vectorEstado.porcOcupacionA2, 3).ToString(), Math.Round(vectorEstado.porcOcupacionA3, 3).ToString(), Math.Round(vectorEstado.porcOcupacionA4, 3).ToString(), Math.Round(vectorEstado.porcOcupacionA5, 3).ToString(), Math.Round(vectorEstado.tiempoBloqueoColaA5, 3).ToString(), Math.Round(vectorEstado.propBloqueoSobreOcupacion, 3).ToString(), Math.Round(vectorEstado.tiempoBloqueoColaEncastreA3, 3).ToString(),
+                            Math.Round(vectorEstado.tiempoBloqueoColaEncastreA3, 3).ToString(),
                             vectorEstado.cantEnsamblesXHora.ToString(), Math.Round(vectorEstado.cantProbEnsamblesXHora, 3).ToString(), vectorEstado.pedidosParametroCompletadosEnUnaHora.ToString(), Math.Round(vectorEstado.probPedidosParametroCompletadosEnUnaHora, 3).ToString());
+                    }
+
+                    if (i == (cantProyectos - 1))
+                    {
+                        lblCantidadEventosSimulados.Text = vectorEstado.nroEvento.ToString();
+                        lblCantMaxProductosEncastre.Text = vectorEstado.maxColaEncastre.ToString();
+                        lblCantMaxProductosS1.Text = vectorEstado.maxCola1.ToString();
+                        lblCantMaxProductosS2.Text = vectorEstado.maxCola2.ToString();
+                        lblCantMaxProductosS3.Text = vectorEstado.maxCola3.ToString();
+                        lblCantMaxProductosS4.Text = vectorEstado.maxCola4.ToString();
+                        lblCantMaxProductosS5.Text = vectorEstado.maxCola5.ToString();
+                        lblEnsamblesRealizados.Text = vectorEstado.cantidadEnsamblesFinalizados.ToString();
+                        lblEnsamblesSolicitados.Text = vectorEstado.cantidadEnsamblesSolicitados.ToString();
+                        lblPorcentajeOcupacionS1.Text = Math.Round(vectorEstado.porcOcupacionA1, 2).ToString() + "%";
+                        lblPorcentajeOcupacionS2.Text = Math.Round(vectorEstado.porcOcupacionA2, 2).ToString() + "%";
+                        lblPorcentajeOcupacionS3.Text = Math.Round(vectorEstado.porcOcupacionA3, 2).ToString() + "%";
+                        lblPorcentajeOcupacionS4.Text = Math.Round(vectorEstado.porcOcupacionA4, 2).ToString() + "%";
+                        lblPorcentajeOcupacionS5.Text = Math.Round(vectorEstado.porcOcupacionA5, 2).ToString() + "%";
+                        lblProbCompletar3oMasEnsamblesXHora.Text = Math.Round(vectorEstado.probPedidosParametroCompletadosEnUnaHora, 2).ToString();
+                        lblPromedioEnsamblesXHora.Text = Math.Round(vectorEstado.cantProbEnsamblesXHora, 2).ToString();
+                        lblPromedioProductosEnSistema.Text = Math.Round(vectorEstado.cantPromedioProdEnSistema, 2).ToString();
+                        lblProporcionEnsamblesRealizadosSolicitados.Text = Math.Round(vectorEstado.propEnsamRealSobreSolic, 2).ToString();
+                        lblTiempoBloqueoTiempoOcupacion.Text = Math.Round(vectorEstado.propBloqueoSobreOcupacion, 2).ToString();
+                        lblTiempoPromedioDuracionEnsamble.Text = Math.Round(vectorEstado.duracionPromedioEnsamble, 2).ToString();
                     }
 
                     vectorEstadoMasUno = vectorEstado;
