@@ -79,7 +79,7 @@ namespace SIMULACION_TP1
             VectorEstadoDinamico vectorEstado = new VectorEstadoDinamico();
             VectorEstadoDinamico vectorEstadoMasUno = new VectorEstadoDinamico();
 
-            for (int i = 0; i <= cantProyectos; i++)
+            for (int i = 0; i < cantProyectos; i++)
             {
                 var numAleatorioLlegadaPedido = r.NextDouble();
                 var tiempoEntrePedidos = GeneracionTiemposActividad(1, txtLambdaPedidos.Text, "", numAleatorioLlegadaPedido);
@@ -103,7 +103,7 @@ namespace SIMULACION_TP1
                 {
                     vectorEstado = new VectorEstadoDinamico(i + 1, tiempoEntrePedidos, pedidoACalcular);
 
-                    if (desde == 0 && hasta == 0)
+                    if(0 <= desde)
                     {
                         tablaVectorEstado.Rows.Add(vectorEstado.nroEvento.ToString(), Math.Round(vectorEstado.reloj, 3).ToString(), (Evento)vectorEstado.evento, vectorEstado.pedido == 0 ? "-" : vectorEstado.pedido.ToString(),
                             vectorEstado.proxPedido.ToString(), ((Evento)vectorEstado.evento == Evento.LlegaPedido || (Evento)vectorEstado.evento == Evento.Inicio) ? Math.Round(numAleatorioLlegadaPedido, 3).ToString() : "-", ((Evento)vectorEstado.evento == Evento.LlegaPedido || (Evento)vectorEstado.evento == Evento.Inicio) ? Math.Round(vectorEstado.tiempoEntrePedidos, 3).ToString() : "-", ((Evento)vectorEstado.evento == Evento.LlegaPedido || (Evento)vectorEstado.evento == Evento.Inicio) ? Math.Round(vectorEstado.proxLlegada, 3).ToString() : "-",
@@ -117,6 +117,7 @@ namespace SIMULACION_TP1
                             Math.Round(vectorEstado.cantPromedioProdEnCola, 3).ToString(), vectorEstado.cantPromedioProdEnSistema.ToString(), Math.Round(vectorEstado.porcOcupacionA1, 3).ToString(), Math.Round(vectorEstado.porcOcupacionA2, 3).ToString(), Math.Round(vectorEstado.porcOcupacionA3, 3).ToString(), Math.Round(vectorEstado.porcOcupacionA4, 3).ToString(), Math.Round(vectorEstado.porcOcupacionA5, 3).ToString(),
                             vectorEstado.cantEnsamblesXHora.ToString(), Math.Round(vectorEstado.cantProbEnsamblesXHora, 3).ToString(), vectorEstado.pedidosParametroCompletadosEnUnaHora.ToString(), Math.Round(vectorEstado.probPedidosParametroCompletadosEnUnaHora, 3).ToString());
                     }
+
                     vectorEstadoMasUno = vectorEstado;
                 }
                 else
@@ -124,11 +125,11 @@ namespace SIMULACION_TP1
 
                     vectorEstado = new VectorEstadoDinamico(i + 1, tiempoEntrePedidos, pedidoACalcular, A1, A2, A3, A4, A5, vectorEstadoMasUno);
 
-                    if ((desde != 0 && hasta != 0
-                        && vectorEstadoMasUno.nroEvento >= desde && vectorEstadoMasUno.nroEvento <= hasta)
+                    if ((hasta != 0
+                        && vectorEstado.nroEvento >= desde && vectorEstado.nroEvento <= hasta)
                         ||
                         (desde == 0 && hasta == 0
-                        //&& (vectorEstadoMasUno.nroEvento < 20 || vectorEstadoMasUno.nroEvento % 10000 == 0)
+                        //&& (vectorEstado.nroEvento < 20 || vectorEstado.nroEvento % 10000 == 0)
                         ))
                     {
                         tablaVectorEstado.Rows.Add(vectorEstado.nroEvento.ToString(), Math.Round(vectorEstado.reloj, 3).ToString(), (Evento)vectorEstado.evento, vectorEstado.pedido == 0 ? "-" : vectorEstado.pedido.ToString(),
