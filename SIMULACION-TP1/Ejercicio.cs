@@ -73,8 +73,8 @@ namespace SIMULACION_TP1
             double A1, A2, A3, A4, A5;
             int pedidoACalcular = int.Parse(txt_nroEnsamblesProbabilidad.Text);
             lblCompletarEnsambles.Text = $"Probabilidad de completar {pedidoACalcular} o más ensambles por hora:";
-            tablaVectorEstado.Columns[65].HeaderText = $"{pedidoACalcular} ENSAMBLES COMPLETADOS EN 1 HORA"; 
-            tablaVectorEstado.Columns[66].HeaderText = $"PROBABILIDAD DE COMPLETAR {pedidoACalcular} O MAS ENSAMBLES";
+            tablaVectorEstado.Columns[65+5].HeaderText = $"{pedidoACalcular} ENSAMBLES COMPLETADOS EN 1 HORA"; 
+            tablaVectorEstado.Columns[66+5].HeaderText = $"PROBABILIDAD DE COMPLETAR {pedidoACalcular} O MAS ENSAMBLES";
             Random r = new Random();
 
             VectorEstadoDinamico vectorEstado = new VectorEstadoDinamico();

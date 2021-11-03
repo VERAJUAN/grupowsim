@@ -1713,7 +1713,7 @@ namespace SIMULACION_TP1
             }
             else if (cantidadEnsamblesFinalizados > 0)
             {
-                probPedidosParametroCompletadosEnUnaHora = ((double)pedidosParametroCompletadosEnUnaHora / (double)cantidadEnsamblesFinalizados);
+                probPedidosParametroCompletadosEnUnaHora = (pedidosParametroCompletadosEnUnaHora / cantidadEnsamblesFinalizados);
             }
             else
             {
