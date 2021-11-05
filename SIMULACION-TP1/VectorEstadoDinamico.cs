@@ -134,6 +134,9 @@ namespace SIMULACION_TP1
         public int pedidosParametroCompletadosEnUnaHora { get; set; }
         public double probPedidosParametroCompletadosEnUnaHora { get; set; }
 
+        //HELPER
+        public bool banderaFinHora { get; set; }
+
         VectorEstadoDinamico vectorAnterior { get; set; }
         public VectorEstadoDinamico()
         {
@@ -143,6 +146,15 @@ namespace SIMULACION_TP1
         public VectorEstadoDinamico(int nroEvento,
             double tiempoEntrePedidos, int pedidoACalcular, double A1 = 0, double A2 = 0, double A3 = 0, double A4 = 0, double A5 = 0, VectorEstadoDinamico vectorAnterior = null)
         {
+            if(nroEvento == 1)
+            {
+                banderaFinHora = false;
+            }
+            else
+            {
+                banderaFinHora = vectorAnterior.banderaFinHora;
+            }
+
             this.vectorAnterior = vectorAnterior;
 
             this.pedidoACalcular = pedidoACalcular;
@@ -151,6 +163,11 @@ namespace SIMULACION_TP1
             Reloj(); //0
             Evento(); //0
             Pedido();  //0
+
+            if(evento == 8)
+            {
+                banderaFinHora = false;
+            }
 
             ProxPedido(); //1
             this.tiempoEntrePedidos = tiempoEntrePedidos;
@@ -1695,9 +1712,10 @@ namespace SIMULACION_TP1
             {
                 pedidosParametroCompletadosEnUnaHora = 0;
             }
-            else if (cantEnsamblesXHora > pedidoACalcular)
+            else if (cantEnsamblesXHora >= pedidoACalcular && !vectorAnterior.banderaFinHora)
             {
                 pedidosParametroCompletadosEnUnaHora = vectorAnterior.pedidosParametroCompletadosEnUnaHora + 1;
+                banderaFinHora = true;
             }
             else
             {
