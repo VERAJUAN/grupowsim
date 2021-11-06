@@ -1694,13 +1694,13 @@ namespace SIMULACION_TP1
             {
                 cantProbEnsamblesXHora = 0;
             }
-            else if (cantidadEnsamblesFinalizados > 0)
+            else if(cantidadEnsamblesFinalizados > 0)
             {
-                cantProbEnsamblesXHora = cantEnsamblesXHora / cantidadEnsamblesFinalizados;
+                cantProbEnsamblesXHora = cantidadEnsamblesFinalizados / (reloj / 60);
             }
             else
             {
-                cantProbEnsamblesXHora = 0;
+                cantProbEnsamblesXHora = (vectorAnterior.cantProbEnsamblesXHora * (nroEvento - 1)) / nroEvento;
             }
         }
         #endregion
@@ -1729,13 +1729,9 @@ namespace SIMULACION_TP1
             {
                 probPedidosParametroCompletadosEnUnaHora = 0;
             }
-            else if (cantidadEnsamblesFinalizados > 0)
-            {
-                probPedidosParametroCompletadosEnUnaHora = (pedidosParametroCompletadosEnUnaHora / cantidadEnsamblesFinalizados);
-            }
             else
             {
-                probPedidosParametroCompletadosEnUnaHora = 0;
+                probPedidosParametroCompletadosEnUnaHora = pedidosParametroCompletadosEnUnaHora / (reloj/60);
             }
         }
         #endregion
