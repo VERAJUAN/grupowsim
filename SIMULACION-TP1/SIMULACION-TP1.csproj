@@ -52,6 +52,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="EcuacionDiferencial.cs" />
     <Compile Include="Ejercicio.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -29,86 +29,86 @@ namespace SIMULACION_TP1
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle161 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle162 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle163 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle164 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle165 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle166 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle167 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle168 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle169 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle170 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle171 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle172 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle173 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle174 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle175 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle176 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle177 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle178 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle179 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle180 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle181 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle182 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle183 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle184 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle185 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle186 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle187 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle188 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle189 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle190 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle191 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle192 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle193 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle194 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle195 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle196 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle197 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle198 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle199 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle200 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle201 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle202 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle203 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle204 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle205 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle206 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle207 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle208 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle209 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle210 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle211 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle212 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle213 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle214 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle215 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle216 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle217 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle218 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle219 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle220 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle221 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle222 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle223 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle224 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle225 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle226 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle227 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle228 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle229 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle230 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle231 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle232 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle233 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle234 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle235 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle236 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle237 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle238 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle239 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle240 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle561 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle562 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle563 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle564 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle565 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle566 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle567 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle568 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle569 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle570 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle571 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle572 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle573 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle574 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle575 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle576 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle577 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle578 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle579 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle580 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle581 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle582 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle583 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle584 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle585 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle586 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle587 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle588 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle589 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle590 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle591 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle592 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle593 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle594 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle595 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle596 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle597 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle598 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle599 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle600 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle601 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle602 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle603 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle604 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle605 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle606 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle607 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle608 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle609 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle610 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle611 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle612 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle613 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle614 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle615 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle616 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle617 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle618 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle619 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle620 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle621 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle622 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle623 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle624 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle625 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle626 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle627 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle628 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle629 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle630 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle631 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle632 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle633 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle634 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle635 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle636 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle637 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle638 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle639 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle640 = new System.Windows.Forms.DataGridViewCellStyle();
             this.GroupBox1 = new System.Windows.Forms.GroupBox();
             this.label4 = new System.Windows.Forms.Label();
             this.txt_nroEnsamblesProbabilidad = new System.Windows.Forms.TextBox();
@@ -298,8 +298,10 @@ namespace SIMULACION_TP1
             this.txtC = new System.Windows.Forms.TextBox();
             this.txtH = new System.Windows.Forms.TextBox();
             this.label49 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtX0 = new System.Windows.Forms.TextBox();
             this.label50 = new System.Windows.Forms.Label();
+            this.txtXder0 = new System.Windows.Forms.TextBox();
+            this.label51 = new System.Windows.Forms.Label();
             this.GroupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tablaVectorEstado)).BeginInit();
@@ -934,7 +936,7 @@ namespace SIMULACION_TP1
             this.tablaVectorEstado.Name = "tablaVectorEstado";
             this.tablaVectorEstado.ReadOnly = true;
             this.tablaVectorEstado.RowHeadersWidth = 10;
-            this.tablaVectorEstado.Size = new System.Drawing.Size(900, 369);
+            this.tablaVectorEstado.Size = new System.Drawing.Size(870, 369);
             this.tablaVectorEstado.TabIndex = 473;
             // 
             // nroEvento
@@ -950,9 +952,9 @@ namespace SIMULACION_TP1
             // reloj
             // 
             this.reloj.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            dataGridViewCellStyle161.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            dataGridViewCellStyle161.ForeColor = System.Drawing.Color.Black;
-            this.reloj.DefaultCellStyle = dataGridViewCellStyle161;
+            dataGridViewCellStyle561.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            dataGridViewCellStyle561.ForeColor = System.Drawing.Color.Black;
+            this.reloj.DefaultCellStyle = dataGridViewCellStyle561;
             this.reloj.Frozen = true;
             this.reloj.HeaderText = "RELOJ";
             this.reloj.MinimumWidth = 50;
@@ -963,8 +965,8 @@ namespace SIMULACION_TP1
             // evento
             // 
             this.evento.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            dataGridViewCellStyle162.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.evento.DefaultCellStyle = dataGridViewCellStyle162;
+            dataGridViewCellStyle562.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.evento.DefaultCellStyle = dataGridViewCellStyle562;
             this.evento.Frozen = true;
             this.evento.HeaderText = "EVENTO";
             this.evento.MinimumWidth = 100;
@@ -974,8 +976,8 @@ namespace SIMULACION_TP1
             // pedido
             // 
             this.pedido.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            dataGridViewCellStyle163.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.pedido.DefaultCellStyle = dataGridViewCellStyle163;
+            dataGridViewCellStyle563.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.pedido.DefaultCellStyle = dataGridViewCellStyle563;
             this.pedido.Frozen = true;
             this.pedido.HeaderText = "PEDIDO";
             this.pedido.MinimumWidth = 50;
@@ -1009,512 +1011,512 @@ namespace SIMULACION_TP1
             // 
             // a1Estado
             // 
-            dataGridViewCellStyle164.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-            this.a1Estado.DefaultCellStyle = dataGridViewCellStyle164;
+            dataGridViewCellStyle564.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.a1Estado.DefaultCellStyle = dataGridViewCellStyle564;
             this.a1Estado.HeaderText = "A1- ESTADO";
             this.a1Estado.Name = "a1Estado";
             this.a1Estado.ReadOnly = true;
             // 
             // a1Pedido
             // 
-            dataGridViewCellStyle165.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-            this.a1Pedido.DefaultCellStyle = dataGridViewCellStyle165;
+            dataGridViewCellStyle565.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.a1Pedido.DefaultCellStyle = dataGridViewCellStyle565;
             this.a1Pedido.HeaderText = "A1- PEDIDO";
             this.a1Pedido.Name = "a1Pedido";
             this.a1Pedido.ReadOnly = true;
             // 
             // a1Rnd
             // 
-            dataGridViewCellStyle166.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-            this.a1Rnd.DefaultCellStyle = dataGridViewCellStyle166;
+            dataGridViewCellStyle566.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.a1Rnd.DefaultCellStyle = dataGridViewCellStyle566;
             this.a1Rnd.HeaderText = "rnd";
             this.a1Rnd.Name = "a1Rnd";
             this.a1Rnd.ReadOnly = true;
             // 
             // a1Tiempo
             // 
-            dataGridViewCellStyle167.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-            this.a1Tiempo.DefaultCellStyle = dataGridViewCellStyle167;
+            dataGridViewCellStyle567.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.a1Tiempo.DefaultCellStyle = dataGridViewCellStyle567;
             this.a1Tiempo.HeaderText = "A1- TIEMPO";
             this.a1Tiempo.Name = "a1Tiempo";
             this.a1Tiempo.ReadOnly = true;
             // 
             // a1ProxFin
             // 
-            dataGridViewCellStyle168.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-            this.a1ProxFin.DefaultCellStyle = dataGridViewCellStyle168;
+            dataGridViewCellStyle568.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.a1ProxFin.DefaultCellStyle = dataGridViewCellStyle568;
             this.a1ProxFin.HeaderText = "A1- PROX FIN";
             this.a1ProxFin.Name = "a1ProxFin";
             this.a1ProxFin.ReadOnly = true;
             // 
             // a1Cola
             // 
-            dataGridViewCellStyle169.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-            this.a1Cola.DefaultCellStyle = dataGridViewCellStyle169;
+            dataGridViewCellStyle569.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.a1Cola.DefaultCellStyle = dataGridViewCellStyle569;
             this.a1Cola.HeaderText = "A1- COLA";
             this.a1Cola.Name = "a1Cola";
             this.a1Cola.ReadOnly = true;
             // 
             // a2Estado
             // 
-            dataGridViewCellStyle170.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.a2Estado.DefaultCellStyle = dataGridViewCellStyle170;
+            dataGridViewCellStyle570.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.a2Estado.DefaultCellStyle = dataGridViewCellStyle570;
             this.a2Estado.HeaderText = "A2- ESTADO";
             this.a2Estado.Name = "a2Estado";
             this.a2Estado.ReadOnly = true;
             // 
             // a2Pedido
             // 
-            dataGridViewCellStyle171.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.a2Pedido.DefaultCellStyle = dataGridViewCellStyle171;
+            dataGridViewCellStyle571.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.a2Pedido.DefaultCellStyle = dataGridViewCellStyle571;
             this.a2Pedido.HeaderText = "A2- PEDIDO";
             this.a2Pedido.Name = "a2Pedido";
             this.a2Pedido.ReadOnly = true;
             // 
             // a2Rnd
             // 
-            dataGridViewCellStyle172.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.a2Rnd.DefaultCellStyle = dataGridViewCellStyle172;
+            dataGridViewCellStyle572.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.a2Rnd.DefaultCellStyle = dataGridViewCellStyle572;
             this.a2Rnd.HeaderText = "rnd";
             this.a2Rnd.Name = "a2Rnd";
             this.a2Rnd.ReadOnly = true;
             // 
             // a2Tiempo
             // 
-            dataGridViewCellStyle173.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.a2Tiempo.DefaultCellStyle = dataGridViewCellStyle173;
+            dataGridViewCellStyle573.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.a2Tiempo.DefaultCellStyle = dataGridViewCellStyle573;
             this.a2Tiempo.HeaderText = "A2- TIEMPO";
             this.a2Tiempo.Name = "a2Tiempo";
             this.a2Tiempo.ReadOnly = true;
             // 
             // a2ProxFin
             // 
-            dataGridViewCellStyle174.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.a2ProxFin.DefaultCellStyle = dataGridViewCellStyle174;
+            dataGridViewCellStyle574.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.a2ProxFin.DefaultCellStyle = dataGridViewCellStyle574;
             this.a2ProxFin.HeaderText = "A2- PROX FIN";
             this.a2ProxFin.Name = "a2ProxFin";
             this.a2ProxFin.ReadOnly = true;
             // 
             // a2Cola
             // 
-            dataGridViewCellStyle175.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.a2Cola.DefaultCellStyle = dataGridViewCellStyle175;
+            dataGridViewCellStyle575.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.a2Cola.DefaultCellStyle = dataGridViewCellStyle575;
             this.a2Cola.HeaderText = "A2- COLA";
             this.a2Cola.Name = "a2Cola";
             this.a2Cola.ReadOnly = true;
             // 
             // a3Estado
             // 
-            dataGridViewCellStyle176.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
-            this.a3Estado.DefaultCellStyle = dataGridViewCellStyle176;
+            dataGridViewCellStyle576.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.a3Estado.DefaultCellStyle = dataGridViewCellStyle576;
             this.a3Estado.HeaderText = "A3- ESTADO";
             this.a3Estado.Name = "a3Estado";
             this.a3Estado.ReadOnly = true;
             // 
             // a3Pedido
             // 
-            dataGridViewCellStyle177.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
-            this.a3Pedido.DefaultCellStyle = dataGridViewCellStyle177;
+            dataGridViewCellStyle577.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.a3Pedido.DefaultCellStyle = dataGridViewCellStyle577;
             this.a3Pedido.HeaderText = "A3- PEDIDO";
             this.a3Pedido.Name = "a3Pedido";
             this.a3Pedido.ReadOnly = true;
             // 
             // a3Rnd
             // 
-            dataGridViewCellStyle178.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
-            this.a3Rnd.DefaultCellStyle = dataGridViewCellStyle178;
+            dataGridViewCellStyle578.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.a3Rnd.DefaultCellStyle = dataGridViewCellStyle578;
             this.a3Rnd.HeaderText = "rnd";
             this.a3Rnd.Name = "a3Rnd";
             this.a3Rnd.ReadOnly = true;
             // 
             // a3Tiempo
             // 
-            dataGridViewCellStyle179.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
-            this.a3Tiempo.DefaultCellStyle = dataGridViewCellStyle179;
+            dataGridViewCellStyle579.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.a3Tiempo.DefaultCellStyle = dataGridViewCellStyle579;
             this.a3Tiempo.HeaderText = "A3- TIEMPO";
             this.a3Tiempo.Name = "a3Tiempo";
             this.a3Tiempo.ReadOnly = true;
             // 
             // a3ProxFin
             // 
-            dataGridViewCellStyle180.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
-            this.a3ProxFin.DefaultCellStyle = dataGridViewCellStyle180;
+            dataGridViewCellStyle580.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.a3ProxFin.DefaultCellStyle = dataGridViewCellStyle580;
             this.a3ProxFin.HeaderText = "A3- PROX FIN";
             this.a3ProxFin.Name = "a3ProxFin";
             this.a3ProxFin.ReadOnly = true;
             // 
             // a3Cola
             // 
-            dataGridViewCellStyle181.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
-            this.a3Cola.DefaultCellStyle = dataGridViewCellStyle181;
+            dataGridViewCellStyle581.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.a3Cola.DefaultCellStyle = dataGridViewCellStyle581;
             this.a3Cola.HeaderText = "A3- COLA";
             this.a3Cola.Name = "a3Cola";
             this.a3Cola.ReadOnly = true;
             // 
             // a4Estado
             // 
-            dataGridViewCellStyle182.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.a4Estado.DefaultCellStyle = dataGridViewCellStyle182;
+            dataGridViewCellStyle582.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.a4Estado.DefaultCellStyle = dataGridViewCellStyle582;
             this.a4Estado.HeaderText = "A4- ESTADO";
             this.a4Estado.Name = "a4Estado";
             this.a4Estado.ReadOnly = true;
             // 
             // a4Pedido
             // 
-            dataGridViewCellStyle183.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.a4Pedido.DefaultCellStyle = dataGridViewCellStyle183;
+            dataGridViewCellStyle583.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.a4Pedido.DefaultCellStyle = dataGridViewCellStyle583;
             this.a4Pedido.HeaderText = "A4- PEDIDO";
             this.a4Pedido.Name = "a4Pedido";
             this.a4Pedido.ReadOnly = true;
             // 
             // a4Rnd
             // 
-            dataGridViewCellStyle184.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.a4Rnd.DefaultCellStyle = dataGridViewCellStyle184;
+            dataGridViewCellStyle584.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.a4Rnd.DefaultCellStyle = dataGridViewCellStyle584;
             this.a4Rnd.HeaderText = "rnd";
             this.a4Rnd.Name = "a4Rnd";
             this.a4Rnd.ReadOnly = true;
             // 
             // a4Tiempo
             // 
-            dataGridViewCellStyle185.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.a4Tiempo.DefaultCellStyle = dataGridViewCellStyle185;
+            dataGridViewCellStyle585.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.a4Tiempo.DefaultCellStyle = dataGridViewCellStyle585;
             this.a4Tiempo.HeaderText = "A4- TIEMPO";
             this.a4Tiempo.Name = "a4Tiempo";
             this.a4Tiempo.ReadOnly = true;
             // 
             // a4ProxFin
             // 
-            dataGridViewCellStyle186.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.a4ProxFin.DefaultCellStyle = dataGridViewCellStyle186;
+            dataGridViewCellStyle586.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.a4ProxFin.DefaultCellStyle = dataGridViewCellStyle586;
             this.a4ProxFin.HeaderText = "A4- PROX FIN";
             this.a4ProxFin.Name = "a4ProxFin";
             this.a4ProxFin.ReadOnly = true;
             // 
             // a4Cola
             // 
-            dataGridViewCellStyle187.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.a4Cola.DefaultCellStyle = dataGridViewCellStyle187;
+            dataGridViewCellStyle587.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.a4Cola.DefaultCellStyle = dataGridViewCellStyle587;
             this.a4Cola.HeaderText = "A4- COLA";
             this.a4Cola.Name = "a4Cola";
             this.a4Cola.ReadOnly = true;
             // 
             // a5Estado
             // 
-            dataGridViewCellStyle188.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.a5Estado.DefaultCellStyle = dataGridViewCellStyle188;
+            dataGridViewCellStyle588.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.a5Estado.DefaultCellStyle = dataGridViewCellStyle588;
             this.a5Estado.HeaderText = "A5- ESTADO";
             this.a5Estado.Name = "a5Estado";
             this.a5Estado.ReadOnly = true;
             // 
             // a5Pedido
             // 
-            dataGridViewCellStyle189.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.a5Pedido.DefaultCellStyle = dataGridViewCellStyle189;
+            dataGridViewCellStyle589.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.a5Pedido.DefaultCellStyle = dataGridViewCellStyle589;
             this.a5Pedido.HeaderText = "A5- PEDIDO";
             this.a5Pedido.Name = "a5Pedido";
             this.a5Pedido.ReadOnly = true;
             // 
             // a5Rnd
             // 
-            dataGridViewCellStyle190.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.a5Rnd.DefaultCellStyle = dataGridViewCellStyle190;
+            dataGridViewCellStyle590.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.a5Rnd.DefaultCellStyle = dataGridViewCellStyle590;
             this.a5Rnd.HeaderText = "rnd";
             this.a5Rnd.Name = "a5Rnd";
             this.a5Rnd.ReadOnly = true;
             // 
             // a5Tiempo
             // 
-            dataGridViewCellStyle191.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.a5Tiempo.DefaultCellStyle = dataGridViewCellStyle191;
+            dataGridViewCellStyle591.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.a5Tiempo.DefaultCellStyle = dataGridViewCellStyle591;
             this.a5Tiempo.HeaderText = "A5- TIEMPO";
             this.a5Tiempo.Name = "a5Tiempo";
             this.a5Tiempo.ReadOnly = true;
             // 
             // a5ProxFin
             // 
-            dataGridViewCellStyle192.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.a5ProxFin.DefaultCellStyle = dataGridViewCellStyle192;
+            dataGridViewCellStyle592.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.a5ProxFin.DefaultCellStyle = dataGridViewCellStyle592;
             this.a5ProxFin.HeaderText = "A5- PROX FIN";
             this.a5ProxFin.Name = "a5ProxFin";
             this.a5ProxFin.ReadOnly = true;
             // 
             // a5ColaA4
             // 
-            dataGridViewCellStyle193.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.a5ColaA4.DefaultCellStyle = dataGridViewCellStyle193;
+            dataGridViewCellStyle593.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.a5ColaA4.DefaultCellStyle = dataGridViewCellStyle593;
             this.a5ColaA4.HeaderText = "A5- COLA A4";
             this.a5ColaA4.Name = "a5ColaA4";
             this.a5ColaA4.ReadOnly = true;
             // 
             // a5ColaA2
             // 
-            dataGridViewCellStyle194.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.a5ColaA2.DefaultCellStyle = dataGridViewCellStyle194;
+            dataGridViewCellStyle594.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.a5ColaA2.DefaultCellStyle = dataGridViewCellStyle594;
             this.a5ColaA2.HeaderText = "A5- COLA A2";
             this.a5ColaA2.Name = "a5ColaA2";
             this.a5ColaA2.ReadOnly = true;
             // 
             // colaEncastreA3
             // 
-            dataGridViewCellStyle195.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.colaEncastreA3.DefaultCellStyle = dataGridViewCellStyle195;
+            dataGridViewCellStyle595.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.colaEncastreA3.DefaultCellStyle = dataGridViewCellStyle595;
             this.colaEncastreA3.HeaderText = "COLA ENCASTRE A3";
             this.colaEncastreA3.Name = "colaEncastreA3";
             this.colaEncastreA3.ReadOnly = true;
             // 
             // colaEncastreA5
             // 
-            dataGridViewCellStyle196.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.colaEncastreA5.DefaultCellStyle = dataGridViewCellStyle196;
+            dataGridViewCellStyle596.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.colaEncastreA5.DefaultCellStyle = dataGridViewCellStyle596;
             this.colaEncastreA5.HeaderText = "COLA ENCASTRE A5";
             this.colaEncastreA5.Name = "colaEncastreA5";
             this.colaEncastreA5.ReadOnly = true;
             // 
             // cantEnsamblesSolicitados
             // 
-            dataGridViewCellStyle197.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.cantEnsamblesSolicitados.DefaultCellStyle = dataGridViewCellStyle197;
+            dataGridViewCellStyle597.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.cantEnsamblesSolicitados.DefaultCellStyle = dataGridViewCellStyle597;
             this.cantEnsamblesSolicitados.HeaderText = "CANT ENSAMBLES SOLICITADOS";
             this.cantEnsamblesSolicitados.Name = "cantEnsamblesSolicitados";
             this.cantEnsamblesSolicitados.ReadOnly = true;
             // 
             // cantEnsamblesFinalizados
             // 
-            dataGridViewCellStyle198.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.cantEnsamblesFinalizados.DefaultCellStyle = dataGridViewCellStyle198;
+            dataGridViewCellStyle598.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.cantEnsamblesFinalizados.DefaultCellStyle = dataGridViewCellStyle598;
             this.cantEnsamblesFinalizados.HeaderText = "CANT ENSAMBLES FINALIZADOS";
             this.cantEnsamblesFinalizados.Name = "cantEnsamblesFinalizados";
             this.cantEnsamblesFinalizados.ReadOnly = true;
             // 
             // proporcionEnsamblesRealizadosSobreFinalizados
             // 
-            dataGridViewCellStyle199.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.proporcionEnsamblesRealizadosSobreFinalizados.DefaultCellStyle = dataGridViewCellStyle199;
+            dataGridViewCellStyle599.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.proporcionEnsamblesRealizadosSobreFinalizados.DefaultCellStyle = dataGridViewCellStyle599;
             this.proporcionEnsamblesRealizadosSobreFinalizados.HeaderText = "PROPORCION ENSAMBLES REALIZADOS SOBRE SOLICITADOS";
             this.proporcionEnsamblesRealizadosSobreFinalizados.Name = "proporcionEnsamblesRealizadosSobreFinalizados";
             this.proporcionEnsamblesRealizadosSobreFinalizados.ReadOnly = true;
             // 
             // duracionPromEnsamble
             // 
-            dataGridViewCellStyle200.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.duracionPromEnsamble.DefaultCellStyle = dataGridViewCellStyle200;
+            dataGridViewCellStyle600.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.duracionPromEnsamble.DefaultCellStyle = dataGridViewCellStyle600;
             this.duracionPromEnsamble.HeaderText = "DURACION PROMEDIO ENSAMBLE";
             this.duracionPromEnsamble.Name = "duracionPromEnsamble";
             this.duracionPromEnsamble.ReadOnly = true;
             // 
             // cantMaxProdCola1
             // 
-            dataGridViewCellStyle201.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.cantMaxProdCola1.DefaultCellStyle = dataGridViewCellStyle201;
+            dataGridViewCellStyle601.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.cantMaxProdCola1.DefaultCellStyle = dataGridViewCellStyle601;
             this.cantMaxProdCola1.HeaderText = "CANT MAX PROD COLA 1";
             this.cantMaxProdCola1.Name = "cantMaxProdCola1";
             this.cantMaxProdCola1.ReadOnly = true;
             // 
             // cantMaxProdCola2
             // 
-            dataGridViewCellStyle202.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.cantMaxProdCola2.DefaultCellStyle = dataGridViewCellStyle202;
+            dataGridViewCellStyle602.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.cantMaxProdCola2.DefaultCellStyle = dataGridViewCellStyle602;
             this.cantMaxProdCola2.HeaderText = "CANT MAX PROD COLA 2";
             this.cantMaxProdCola2.Name = "cantMaxProdCola2";
             this.cantMaxProdCola2.ReadOnly = true;
             // 
             // cantMaxProdCola3
             // 
-            dataGridViewCellStyle203.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.cantMaxProdCola3.DefaultCellStyle = dataGridViewCellStyle203;
+            dataGridViewCellStyle603.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.cantMaxProdCola3.DefaultCellStyle = dataGridViewCellStyle603;
             this.cantMaxProdCola3.HeaderText = "CANT MAX PROD COLA 3";
             this.cantMaxProdCola3.Name = "cantMaxProdCola3";
             this.cantMaxProdCola3.ReadOnly = true;
             // 
             // cantMaxProdCola4
             // 
-            dataGridViewCellStyle204.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.cantMaxProdCola4.DefaultCellStyle = dataGridViewCellStyle204;
+            dataGridViewCellStyle604.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.cantMaxProdCola4.DefaultCellStyle = dataGridViewCellStyle604;
             this.cantMaxProdCola4.HeaderText = "CANT MAX PROD COLA 4";
             this.cantMaxProdCola4.Name = "cantMaxProdCola4";
             this.cantMaxProdCola4.ReadOnly = true;
             // 
             // cantMaxProdCola5
             // 
-            dataGridViewCellStyle205.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.cantMaxProdCola5.DefaultCellStyle = dataGridViewCellStyle205;
+            dataGridViewCellStyle605.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.cantMaxProdCola5.DefaultCellStyle = dataGridViewCellStyle605;
             this.cantMaxProdCola5.HeaderText = "CANT MAX PROD COLA 5";
             this.cantMaxProdCola5.Name = "cantMaxProdCola5";
             this.cantMaxProdCola5.ReadOnly = true;
             // 
             // cantMaxProdColaEncastre
             // 
-            dataGridViewCellStyle206.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.cantMaxProdColaEncastre.DefaultCellStyle = dataGridViewCellStyle206;
+            dataGridViewCellStyle606.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.cantMaxProdColaEncastre.DefaultCellStyle = dataGridViewCellStyle606;
             this.cantMaxProdColaEncastre.HeaderText = "CANT MAX PROD COLA ENCASTRE";
             this.cantMaxProdColaEncastre.Name = "cantMaxProdColaEncastre";
             this.cantMaxProdColaEncastre.ReadOnly = true;
             // 
             // tiempoPromPermCola1
             // 
-            dataGridViewCellStyle207.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.tiempoPromPermCola1.DefaultCellStyle = dataGridViewCellStyle207;
+            dataGridViewCellStyle607.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.tiempoPromPermCola1.DefaultCellStyle = dataGridViewCellStyle607;
             this.tiempoPromPermCola1.HeaderText = "TIEMPO PROMEDIO DE PERMANENCIA COLA 1";
             this.tiempoPromPermCola1.Name = "tiempoPromPermCola1";
             this.tiempoPromPermCola1.ReadOnly = true;
             // 
             // tiempoPromPermCola2
             // 
-            dataGridViewCellStyle208.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.tiempoPromPermCola2.DefaultCellStyle = dataGridViewCellStyle208;
+            dataGridViewCellStyle608.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.tiempoPromPermCola2.DefaultCellStyle = dataGridViewCellStyle608;
             this.tiempoPromPermCola2.HeaderText = "TIEMPO PROMEDIO DE PERMANENCIA COLA 2";
             this.tiempoPromPermCola2.Name = "tiempoPromPermCola2";
             this.tiempoPromPermCola2.ReadOnly = true;
             // 
             // tiempoPromPermCola3
             // 
-            dataGridViewCellStyle209.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.tiempoPromPermCola3.DefaultCellStyle = dataGridViewCellStyle209;
+            dataGridViewCellStyle609.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.tiempoPromPermCola3.DefaultCellStyle = dataGridViewCellStyle609;
             this.tiempoPromPermCola3.HeaderText = "TIEMPO PROMEDIO DE PERMANENCIA COLA 3";
             this.tiempoPromPermCola3.Name = "tiempoPromPermCola3";
             this.tiempoPromPermCola3.ReadOnly = true;
             // 
             // tiempoPromPermCola4
             // 
-            dataGridViewCellStyle210.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.tiempoPromPermCola4.DefaultCellStyle = dataGridViewCellStyle210;
+            dataGridViewCellStyle610.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.tiempoPromPermCola4.DefaultCellStyle = dataGridViewCellStyle610;
             this.tiempoPromPermCola4.HeaderText = "TIEMPO PROMEDIO DE PERMANENCIA COLA 4";
             this.tiempoPromPermCola4.Name = "tiempoPromPermCola4";
             this.tiempoPromPermCola4.ReadOnly = true;
             // 
             // tiempoPromPermCola5
             // 
-            dataGridViewCellStyle211.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.tiempoPromPermCola5.DefaultCellStyle = dataGridViewCellStyle211;
+            dataGridViewCellStyle611.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.tiempoPromPermCola5.DefaultCellStyle = dataGridViewCellStyle611;
             this.tiempoPromPermCola5.HeaderText = "TIEMPO PROMEDIO DE PERMANENCIA COLA 5";
             this.tiempoPromPermCola5.Name = "tiempoPromPermCola5";
             this.tiempoPromPermCola5.ReadOnly = true;
             // 
             // tiempoPromPermColaEncastre
             // 
-            dataGridViewCellStyle212.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.tiempoPromPermColaEncastre.DefaultCellStyle = dataGridViewCellStyle212;
+            dataGridViewCellStyle612.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.tiempoPromPermColaEncastre.DefaultCellStyle = dataGridViewCellStyle612;
             this.tiempoPromPermColaEncastre.HeaderText = "TIEMPO PROMEDIO DE PERMANENCIA COLA ENCASTRE";
             this.tiempoPromPermColaEncastre.Name = "tiempoPromPermColaEncastre";
             this.tiempoPromPermColaEncastre.ReadOnly = true;
             // 
             // cantPromProdCola
             // 
-            dataGridViewCellStyle213.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.cantPromProdCola.DefaultCellStyle = dataGridViewCellStyle213;
+            dataGridViewCellStyle613.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.cantPromProdCola.DefaultCellStyle = dataGridViewCellStyle613;
             this.cantPromProdCola.HeaderText = "CANTIDAD PROMEDIO PRODUCTOS EN COLA";
             this.cantPromProdCola.Name = "cantPromProdCola";
             this.cantPromProdCola.ReadOnly = true;
             // 
             // cantPromProdSistema
             // 
-            dataGridViewCellStyle214.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.cantPromProdSistema.DefaultCellStyle = dataGridViewCellStyle214;
+            dataGridViewCellStyle614.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.cantPromProdSistema.DefaultCellStyle = dataGridViewCellStyle614;
             this.cantPromProdSistema.HeaderText = "CANTIDAD PROMEDIO PRODUCTOS EN EL SISTEMA";
             this.cantPromProdSistema.Name = "cantPromProdSistema";
             this.cantPromProdSistema.ReadOnly = true;
             // 
             // porcOcupacionA1
             // 
-            dataGridViewCellStyle215.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.porcOcupacionA1.DefaultCellStyle = dataGridViewCellStyle215;
+            dataGridViewCellStyle615.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.porcOcupacionA1.DefaultCellStyle = dataGridViewCellStyle615;
             this.porcOcupacionA1.HeaderText = "PORCENTAJE DE OCUPACION A1";
             this.porcOcupacionA1.Name = "porcOcupacionA1";
             this.porcOcupacionA1.ReadOnly = true;
             // 
             // porcOcupacionA2
             // 
-            dataGridViewCellStyle216.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.porcOcupacionA2.DefaultCellStyle = dataGridViewCellStyle216;
+            dataGridViewCellStyle616.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.porcOcupacionA2.DefaultCellStyle = dataGridViewCellStyle616;
             this.porcOcupacionA2.HeaderText = "PORCENTAJE DE OCUPACION A2";
             this.porcOcupacionA2.Name = "porcOcupacionA2";
             this.porcOcupacionA2.ReadOnly = true;
             // 
             // porcOcupacionA3
             // 
-            dataGridViewCellStyle217.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.porcOcupacionA3.DefaultCellStyle = dataGridViewCellStyle217;
+            dataGridViewCellStyle617.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.porcOcupacionA3.DefaultCellStyle = dataGridViewCellStyle617;
             this.porcOcupacionA3.HeaderText = "PORCENTAJE DE OCUPACION A3";
             this.porcOcupacionA3.Name = "porcOcupacionA3";
             this.porcOcupacionA3.ReadOnly = true;
             // 
             // porcOcupA4
             // 
-            dataGridViewCellStyle218.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.porcOcupA4.DefaultCellStyle = dataGridViewCellStyle218;
+            dataGridViewCellStyle618.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.porcOcupA4.DefaultCellStyle = dataGridViewCellStyle618;
             this.porcOcupA4.HeaderText = "PORCENTAJE DE OCUPACION A4";
             this.porcOcupA4.Name = "porcOcupA4";
             this.porcOcupA4.ReadOnly = true;
             // 
             // porcOcupacionA5
             // 
-            dataGridViewCellStyle219.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.porcOcupacionA5.DefaultCellStyle = dataGridViewCellStyle219;
+            dataGridViewCellStyle619.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.porcOcupacionA5.DefaultCellStyle = dataGridViewCellStyle619;
             this.porcOcupacionA5.HeaderText = "PORCENTAJE DE OCUPACION A5";
             this.porcOcupacionA5.Name = "porcOcupacionA5";
             this.porcOcupacionA5.ReadOnly = true;
             // 
             // tiempoBloqueoA5
             // 
-            dataGridViewCellStyle220.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.tiempoBloqueoA5.DefaultCellStyle = dataGridViewCellStyle220;
+            dataGridViewCellStyle620.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.tiempoBloqueoA5.DefaultCellStyle = dataGridViewCellStyle620;
             this.tiempoBloqueoA5.HeaderText = "TIEMPO BLOQUEO A5";
             this.tiempoBloqueoA5.Name = "tiempoBloqueoA5";
             this.tiempoBloqueoA5.ReadOnly = true;
             // 
             // propBloqueoSobreOcupacion
             // 
-            dataGridViewCellStyle221.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.propBloqueoSobreOcupacion.DefaultCellStyle = dataGridViewCellStyle221;
+            dataGridViewCellStyle621.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.propBloqueoSobreOcupacion.DefaultCellStyle = dataGridViewCellStyle621;
             this.propBloqueoSobreOcupacion.HeaderText = "PROP. TIEMPO BLOQUEO SOBRE OCUPACIÓN";
             this.propBloqueoSobreOcupacion.Name = "propBloqueoSobreOcupacion";
             this.propBloqueoSobreOcupacion.ReadOnly = true;
             // 
             // tiempoBloqueoeNCASTRE
             // 
-            dataGridViewCellStyle222.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.tiempoBloqueoeNCASTRE.DefaultCellStyle = dataGridViewCellStyle222;
+            dataGridViewCellStyle622.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.tiempoBloqueoeNCASTRE.DefaultCellStyle = dataGridViewCellStyle622;
             this.tiempoBloqueoeNCASTRE.HeaderText = "TIEMPO BLOQUEO ENCASTRE A3";
             this.tiempoBloqueoeNCASTRE.Name = "tiempoBloqueoeNCASTRE";
             this.tiempoBloqueoeNCASTRE.ReadOnly = true;
             // 
             // tiempobloqueoencastrea5
             // 
-            dataGridViewCellStyle223.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.tiempobloqueoencastrea5.DefaultCellStyle = dataGridViewCellStyle223;
+            dataGridViewCellStyle623.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.tiempobloqueoencastrea5.DefaultCellStyle = dataGridViewCellStyle623;
             this.tiempobloqueoencastrea5.HeaderText = "TIEMPO BLOQUEO ENCASTRE A5";
             this.tiempobloqueoencastrea5.Name = "tiempobloqueoencastrea5";
             this.tiempobloqueoencastrea5.ReadOnly = true;
             // 
             // cantEnsamblesHora
             // 
-            dataGridViewCellStyle224.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.cantEnsamblesHora.DefaultCellStyle = dataGridViewCellStyle224;
+            dataGridViewCellStyle624.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.cantEnsamblesHora.DefaultCellStyle = dataGridViewCellStyle624;
             this.cantEnsamblesHora.HeaderText = "CANTIDAD DE ENSAMBLES POR HORA";
             this.cantEnsamblesHora.Name = "cantEnsamblesHora";
             this.cantEnsamblesHora.ReadOnly = true;
             // 
             // cantPromEnsamblesHora
             // 
-            dataGridViewCellStyle225.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.cantPromEnsamblesHora.DefaultCellStyle = dataGridViewCellStyle225;
+            dataGridViewCellStyle625.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.cantPromEnsamblesHora.DefaultCellStyle = dataGridViewCellStyle625;
             this.cantPromEnsamblesHora.HeaderText = "CANTIDAD PROMEDIO DE ENSAMLES POR HORA";
             this.cantPromEnsamblesHora.Name = "cantPromEnsamblesHora";
             this.cantPromEnsamblesHora.ReadOnly = true;
             // 
             // ensamblesCompletadosEn1Hora
             // 
-            dataGridViewCellStyle226.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.ensamblesCompletadosEn1Hora.DefaultCellStyle = dataGridViewCellStyle226;
+            dataGridViewCellStyle626.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.ensamblesCompletadosEn1Hora.DefaultCellStyle = dataGridViewCellStyle626;
             this.ensamblesCompletadosEn1Hora.HeaderText = "3 ENSAMBLES COMPLETADOS EN 1 HORA";
             this.ensamblesCompletadosEn1Hora.Name = "ensamblesCompletadosEn1Hora";
             this.ensamblesCompletadosEn1Hora.ReadOnly = true;
             // 
             // propCompletar3OMasEnsambles
             // 
-            dataGridViewCellStyle227.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.propCompletar3OMasEnsambles.DefaultCellStyle = dataGridViewCellStyle227;
+            dataGridViewCellStyle627.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.propCompletar3OMasEnsambles.DefaultCellStyle = dataGridViewCellStyle627;
             this.propCompletar3OMasEnsambles.HeaderText = "PROBABILIDAD DE COMPLETAR 3 O MÁS ENSAMBLES";
             this.propCompletar3OMasEnsambles.Name = "propCompletar3OMasEnsambles";
             this.propCompletar3OMasEnsambles.ReadOnly = true;
@@ -1947,7 +1949,7 @@ namespace SIMULACION_TP1
             this.tablaEcDiferencial.Name = "tablaEcDiferencial";
             this.tablaEcDiferencial.ReadOnly = true;
             this.tablaEcDiferencial.RowHeadersWidth = 10;
-            this.tablaEcDiferencial.Size = new System.Drawing.Size(937, 369);
+            this.tablaEcDiferencial.Size = new System.Drawing.Size(937, 122);
             this.tablaEcDiferencial.TabIndex = 519;
             // 
             // dataGridViewTextBoxColumn1
@@ -1963,9 +1965,9 @@ namespace SIMULACION_TP1
             // dataGridViewTextBoxColumn2
             // 
             this.dataGridViewTextBoxColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            dataGridViewCellStyle228.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            dataGridViewCellStyle228.ForeColor = System.Drawing.Color.Black;
-            this.dataGridViewTextBoxColumn2.DefaultCellStyle = dataGridViewCellStyle228;
+            dataGridViewCellStyle628.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            dataGridViewCellStyle628.ForeColor = System.Drawing.Color.Black;
+            this.dataGridViewTextBoxColumn2.DefaultCellStyle = dataGridViewCellStyle628;
             this.dataGridViewTextBoxColumn2.HeaderText = "RK x1";
             this.dataGridViewTextBoxColumn2.MinimumWidth = 50;
             this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
@@ -1975,8 +1977,8 @@ namespace SIMULACION_TP1
             // dataGridViewTextBoxColumn3
             // 
             this.dataGridViewTextBoxColumn3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            dataGridViewCellStyle229.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.dataGridViewTextBoxColumn3.DefaultCellStyle = dataGridViewCellStyle229;
+            dataGridViewCellStyle629.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.dataGridViewTextBoxColumn3.DefaultCellStyle = dataGridViewCellStyle629;
             this.dataGridViewTextBoxColumn3.HeaderText = "RK k1";
             this.dataGridViewTextBoxColumn3.MinimumWidth = 100;
             this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
@@ -1985,8 +1987,8 @@ namespace SIMULACION_TP1
             // dataGridViewTextBoxColumn4
             // 
             this.dataGridViewTextBoxColumn4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            dataGridViewCellStyle230.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.dataGridViewTextBoxColumn4.DefaultCellStyle = dataGridViewCellStyle230;
+            dataGridViewCellStyle630.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.dataGridViewTextBoxColumn4.DefaultCellStyle = dataGridViewCellStyle630;
             this.dataGridViewTextBoxColumn4.HeaderText = "RK k2";
             this.dataGridViewTextBoxColumn4.MinimumWidth = 50;
             this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
@@ -1995,87 +1997,89 @@ namespace SIMULACION_TP1
             // 
             // dataGridViewTextBoxColumn5
             // 
-            dataGridViewCellStyle231.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.dataGridViewTextBoxColumn5.DefaultCellStyle = dataGridViewCellStyle231;
+            dataGridViewCellStyle631.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.dataGridViewTextBoxColumn5.DefaultCellStyle = dataGridViewCellStyle631;
             this.dataGridViewTextBoxColumn5.HeaderText = "RK k3";
             this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
             this.dataGridViewTextBoxColumn5.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn6
             // 
-            dataGridViewCellStyle232.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.dataGridViewTextBoxColumn6.DefaultCellStyle = dataGridViewCellStyle232;
+            dataGridViewCellStyle632.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.dataGridViewTextBoxColumn6.DefaultCellStyle = dataGridViewCellStyle632;
             this.dataGridViewTextBoxColumn6.HeaderText = "RK k4";
             this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
             this.dataGridViewTextBoxColumn6.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn7
             // 
-            dataGridViewCellStyle233.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.dataGridViewTextBoxColumn7.DefaultCellStyle = dataGridViewCellStyle233;
+            dataGridViewCellStyle633.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.dataGridViewTextBoxColumn7.DefaultCellStyle = dataGridViewCellStyle633;
             this.dataGridViewTextBoxColumn7.HeaderText = "RK x2";
             this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
             this.dataGridViewTextBoxColumn7.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn8
             // 
-            dataGridViewCellStyle234.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.dataGridViewTextBoxColumn8.DefaultCellStyle = dataGridViewCellStyle234;
+            dataGridViewCellStyle634.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.dataGridViewTextBoxColumn8.DefaultCellStyle = dataGridViewCellStyle634;
             this.dataGridViewTextBoxColumn8.HeaderText = "RK l1";
             this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
             this.dataGridViewTextBoxColumn8.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn9
             // 
-            dataGridViewCellStyle235.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.dataGridViewTextBoxColumn9.DefaultCellStyle = dataGridViewCellStyle235;
+            dataGridViewCellStyle635.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.dataGridViewTextBoxColumn9.DefaultCellStyle = dataGridViewCellStyle635;
             this.dataGridViewTextBoxColumn9.HeaderText = "RK l2";
             this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
             this.dataGridViewTextBoxColumn9.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn10
             // 
-            dataGridViewCellStyle236.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.dataGridViewTextBoxColumn10.DefaultCellStyle = dataGridViewCellStyle236;
+            dataGridViewCellStyle636.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.dataGridViewTextBoxColumn10.DefaultCellStyle = dataGridViewCellStyle636;
             this.dataGridViewTextBoxColumn10.HeaderText = "RK l3";
             this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
             this.dataGridViewTextBoxColumn10.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn11
             // 
-            dataGridViewCellStyle237.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.dataGridViewTextBoxColumn11.DefaultCellStyle = dataGridViewCellStyle237;
+            dataGridViewCellStyle637.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.dataGridViewTextBoxColumn11.DefaultCellStyle = dataGridViewCellStyle637;
             this.dataGridViewTextBoxColumn11.HeaderText = "RK l4";
             this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
             this.dataGridViewTextBoxColumn11.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn12
             // 
-            dataGridViewCellStyle238.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-            this.dataGridViewTextBoxColumn12.DefaultCellStyle = dataGridViewCellStyle238;
+            dataGridViewCellStyle638.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.dataGridViewTextBoxColumn12.DefaultCellStyle = dataGridViewCellStyle638;
             this.dataGridViewTextBoxColumn12.HeaderText = "EU x1";
             this.dataGridViewTextBoxColumn12.Name = "dataGridViewTextBoxColumn12";
             this.dataGridViewTextBoxColumn12.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn13
             // 
-            dataGridViewCellStyle239.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-            this.dataGridViewTextBoxColumn13.DefaultCellStyle = dataGridViewCellStyle239;
+            dataGridViewCellStyle639.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.dataGridViewTextBoxColumn13.DefaultCellStyle = dataGridViewCellStyle639;
             this.dataGridViewTextBoxColumn13.HeaderText = "EU Dx1=x2";
             this.dataGridViewTextBoxColumn13.Name = "dataGridViewTextBoxColumn13";
             this.dataGridViewTextBoxColumn13.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn14
             // 
-            dataGridViewCellStyle240.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-            this.dataGridViewTextBoxColumn14.DefaultCellStyle = dataGridViewCellStyle240;
+            dataGridViewCellStyle640.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.dataGridViewTextBoxColumn14.DefaultCellStyle = dataGridViewCellStyle640;
             this.dataGridViewTextBoxColumn14.HeaderText = "EU Dx2";
             this.dataGridViewTextBoxColumn14.Name = "dataGridViewTextBoxColumn14";
             this.dataGridViewTextBoxColumn14.ReadOnly = true;
             // 
             // asdad
             // 
-            this.asdad.Controls.Add(this.textBox1);
+            this.asdad.Controls.Add(this.txtXder0);
+            this.asdad.Controls.Add(this.label51);
+            this.asdad.Controls.Add(this.txtX0);
             this.asdad.Controls.Add(this.label50);
             this.asdad.Controls.Add(this.txtH);
             this.asdad.Controls.Add(this.label49);
@@ -2093,7 +2097,7 @@ namespace SIMULACION_TP1
             this.asdad.Size = new System.Drawing.Size(703, 115);
             this.asdad.TabIndex = 520;
             this.asdad.TabStop = false;
-            this.asdad.Text = "Parámetros ecuaciones diferenciales";
+            this.asdad.Text = "Parámetros ecuaciones diferencial";
             // 
             // label7
             // 
@@ -2190,12 +2194,12 @@ namespace SIMULACION_TP1
             this.label49.TabIndex = 9;
             this.label49.Text = "h";
             // 
-            // textBox1
+            // txtX0
             // 
-            this.textBox1.Location = new System.Drawing.Point(532, 40);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 12;
+            this.txtX0.Location = new System.Drawing.Point(532, 40);
+            this.txtX0.Name = "txtX0";
+            this.txtX0.Size = new System.Drawing.Size(100, 20);
+            this.txtX0.TabIndex = 12;
             // 
             // label50
             // 
@@ -2206,6 +2210,23 @@ namespace SIMULACION_TP1
             this.label50.Size = new System.Drawing.Size(33, 16);
             this.label50.TabIndex = 11;
             this.label50.Text = "x(0)";
+            // 
+            // txtXder0
+            // 
+            this.txtXder0.Location = new System.Drawing.Point(532, 71);
+            this.txtXder0.Name = "txtXder0";
+            this.txtXder0.Size = new System.Drawing.Size(100, 20);
+            this.txtXder0.TabIndex = 14;
+            // 
+            // label51
+            // 
+            this.label51.AutoSize = true;
+            this.label51.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label51.Location = new System.Drawing.Point(489, 71);
+            this.label51.Name = "label51";
+            this.label51.Size = new System.Drawing.Size(37, 16);
+            this.label51.TabIndex = 13;
+            this.label51.Text = "x\'(0)";
             // 
             // Ejercicio__B
             // 
@@ -2463,7 +2484,9 @@ namespace SIMULACION_TP1
         private System.Windows.Forms.Label label46;
         private System.Windows.Forms.TextBox txtH;
         private System.Windows.Forms.Label label49;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtX0;
         private System.Windows.Forms.Label label50;
+        private System.Windows.Forms.TextBox txtXder0;
+        private System.Windows.Forms.Label label51;
     }
 }

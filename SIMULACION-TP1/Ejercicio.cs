@@ -16,7 +16,7 @@ namespace SIMULACION_TP1
 {
     public partial class Ejercicio__B : System.Windows.Forms.Form
     {
-        int cantProyectos = 0;        
+        int cantProyectos = 0;
 
         private void cboSignificancia_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -47,6 +47,15 @@ namespace SIMULACION_TP1
             comboDist5.SelectedIndex = 1;
             constante5_1.Text = "5";
 
+            //SETEO INICIAL EC DIFRENCIAL
+            txtMinA.Text = "0,05";
+            txtMaxA.Text = "2";
+            txtB.Text = "10";
+            txtC.Text = "5";
+            txtH.Text = "0,05";
+            txtX0.Text = "0";
+            txtXder0.Text = "0";
+
         }
 
         private void btn_generar_Click(object sender, EventArgs e)
@@ -61,8 +70,24 @@ namespace SIMULACION_TP1
                 MessageBox.Show("La cantidad de proyectos debe ser mayor a cero.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txt_cantProy.Focus();
             }
-  
-            if(val1 && val2 && val3 && val4 && val5) Simular();
+
+            if (val1 && val2 && val3 && val4 && val5) Simular();
+
+            SimularEcDif();
+        }
+
+        private void SimularEcDif()
+        {
+            Random r = new Random();
+            var a = Distribucion.Uniforme(r.NextDouble(), double.Parse(txtMinA.Text), double.Parse(txtMaxA.Text));
+            var b = double.Parse(txtB.Text);
+            var c = double.Parse(txtC.Text);
+            var h = double.Parse(txtH.Text);
+            var x0 = double.Parse(txtX0.Text);
+            var xDeriv0 = double.Parse(txtXder0.Text);
+
+
+
         }
 
 
@@ -73,8 +98,8 @@ namespace SIMULACION_TP1
             double A1, A2, A3, A4, A5;
             int pedidoACalcular = int.Parse(txt_nroEnsamblesProbabilidad.Text);
             lblCompletarEnsambles.Text = $"Probabilidad de completar {pedidoACalcular} o más ensambles por hora:";
-            tablaVectorEstado.Columns[65+5].HeaderText = $"{pedidoACalcular} ENSAMBLES COMPLETADOS EN 1 HORA"; 
-            tablaVectorEstado.Columns[66+5].HeaderText = $"PROBABILIDAD DE COMPLETAR {pedidoACalcular} O MAS ENSAMBLES";
+            tablaVectorEstado.Columns[65 + 5].HeaderText = $"{pedidoACalcular} ENSAMBLES COMPLETADOS EN 1 HORA";
+            tablaVectorEstado.Columns[66 + 5].HeaderText = $"PROBABILIDAD DE COMPLETAR {pedidoACalcular} O MAS ENSAMBLES";
             Random r = new Random();
 
             VectorEstadoDinamico vectorEstado = new VectorEstadoDinamico();
@@ -104,7 +129,7 @@ namespace SIMULACION_TP1
                 {
                     vectorEstado = new VectorEstadoDinamico(i + 1, tiempoEntrePedidos, pedidoACalcular);
 
-                    if(0 <= desde)
+                    if (0 <= desde)
                     {
                         tablaVectorEstado.Rows.Add(vectorEstado.nroEvento.ToString(), Math.Round(vectorEstado.reloj, 3).ToString(), (Evento)vectorEstado.evento, vectorEstado.pedido == 0 ? "-" : vectorEstado.pedido.ToString(),
                             vectorEstado.proxPedido.ToString(), ((Evento)vectorEstado.evento == Evento.LlegaPedido || (Evento)vectorEstado.evento == Evento.Inicio) ? Math.Round(numAleatorioLlegadaPedido, 3).ToString() : "-", ((Evento)vectorEstado.evento == Evento.LlegaPedido || (Evento)vectorEstado.evento == Evento.Inicio) ? Math.Round(vectorEstado.tiempoEntrePedidos, 3).ToString() : "-", Math.Round(vectorEstado.proxLlegada, 3).ToString(),
