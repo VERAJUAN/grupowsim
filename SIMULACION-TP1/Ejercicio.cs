@@ -55,7 +55,7 @@ namespace SIMULACION_TP1
             txtH.Text = "0,05";
             txtX0.Text = "0";
             txtXder0.Text = "0";
-
+            comboMetodo.SelectedIndex = 0;
         }
 
         private void btn_generar_Click(object sender, EventArgs e)
@@ -78,6 +78,7 @@ namespace SIMULACION_TP1
 
         private void SimularEcDif()
         {
+            var primero = true;
             Random r = new Random();
             var a = Distribucion.Uniforme(r.NextDouble(), double.Parse(txtMinA.Text), double.Parse(txtMaxA.Text));
             var b = double.Parse(txtB.Text);
@@ -85,6 +86,38 @@ namespace SIMULACION_TP1
             var h = double.Parse(txtH.Text);
             var x0 = double.Parse(txtX0.Text);
             var xDeriv0 = double.Parse(txtXder0.Text);
+
+            var metodo = comboMetodo.SelectedIndex;
+
+            if(metodo == 0)
+            {
+                tablaEuler.Visible = false;
+                tablaRK.Visible = true;
+            }
+            else
+            {
+                tablaEuler.Visible = true;
+                tablaRK.Visible = false;
+            }
+
+            EcuacionDiferencial ecuacionAnterior = new EcuacionDiferencial();
+
+            do
+            {
+                if (primero)
+                {
+                    EcuacionDiferencial ecuacion = new EcuacionDiferencial(metodo, a, b, c, h, null, x0, xDeriv0);
+                    ecuacionAnterior = ecuacion;
+                }
+                else
+                {
+                    EcuacionDiferencial ecuacion = new EcuacionDiferencial(metodo, a, b, c, h, ecuacionAnterior);
+                }
+
+
+
+            } while (true);
+
 
 
 
