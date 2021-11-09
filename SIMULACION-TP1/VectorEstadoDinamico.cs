@@ -1207,11 +1207,11 @@ namespace SIMULACION_TP1
             {
                 cantidadEnsamblesFinalizados = 0;
             }
-            else if (evento == 4 && colaEncastreA5 < vectorAnterior.colaEncastreA5)
+            else if (evento == 9)
             {
                 cantidadEnsamblesFinalizados = vectorAnterior.cantidadEnsamblesFinalizados + 1;
             }
-            else if (evento == 6 && colaEncastreA3 < vectorAnterior.colaEncastreA3)
+            else if (evento == 9)
             {
                 cantidadEnsamblesFinalizados = vectorAnterior.cantidadEnsamblesFinalizados + 1;
             }
