@@ -62,6 +62,9 @@ namespace SIMULACION_TP1
         public int a5ColaA2 { get; set; }
 
         //ENCASTRE
+        public int encastreEstado { get; set; }
+        public double encastreTiempo { get; set; }
+        public double encastreProxFin { get; set; }
         public int colaEncastreA3 { get; set; }
         public int colaEncastreA5 { get; set; }
 
@@ -206,6 +209,9 @@ namespace SIMULACION_TP1
             A5ColaA4();
             A5ColaA2();
 
+            EncastreEstado();
+            EncastreTiempo();
+            EncastreProxFin();
             ColaEncastreA3();
             ColaEncastreA5();
 
@@ -286,8 +292,9 @@ namespace SIMULACION_TP1
                     Math.Min(vectorAnterior.a2ProxFin,
                     Math.Min(vectorAnterior.a3ProxFin,
                     Math.Min(vectorAnterior.a4ProxFin,
-                    Math.Min(vectorAnterior.a5ProxFin, vectorAnterior.proxFinHora
-                    ))))));
+                    Math.Min(vectorAnterior.a5ProxFin, 
+                    Math.Min(vectorAnterior.encastreProxFin, vectorAnterior.proxFinHora
+                    )))))));
             }
         }
 
@@ -326,6 +333,10 @@ namespace SIMULACION_TP1
                 else if (reloj == vectorAnterior.proxFinHora)
                 {
                     evento = 8;
+                }
+                else if (reloj == vectorAnterior.encastreProxFin)
+                {
+                    evento = 9;
                 }
                 else
                 {
@@ -1029,6 +1040,86 @@ namespace SIMULACION_TP1
         #endregion
 
         #region COLASENCASTRE
+        private void EncastreEstado()
+        {
+            if (vectorAnterior == null)
+            {
+                encastreEstado = 0;
+            }
+            else
+            {
+                if (evento == 9 && (vectorAnterior.colaEncastreA3 == 0 || vectorAnterior.colaEncastreA5 == 0))
+                {
+                    encastreEstado = 0;
+                }
+                else if (evento == 4 && vectorAnterior.colaEncastreA5 > 0)
+                {
+                    encastreEstado = 1;
+                }
+                else if (evento == 6 && vectorAnterior.colaEncastreA3 > 0)
+                {
+                    encastreEstado = 1;
+                }
+                else
+                {
+                    encastreEstado = vectorAnterior.encastreEstado;
+                }
+            }
+        }
+
+        private void EncastreTiempo()
+        {
+            if (vectorAnterior == null)
+            {
+                encastreTiempo = 0;
+            }
+            else
+            {
+                if (evento == 9 && (vectorAnterior.colaEncastreA3 == 0 || vectorAnterior.colaEncastreA5 == 0))
+                {
+                    encastreTiempo = 0;
+                }
+                else if (evento == 4 && vectorAnterior.colaEncastreA5 > 0)
+                {
+                    encastreTiempo = 10;
+                }
+                else if (evento == 6 && vectorAnterior.colaEncastreA3 > 0)
+                {
+                    encastreTiempo = 10;
+                }
+                else
+                {
+                    encastreTiempo = 0;
+                }
+            }
+        }
+
+        private void EncastreProxFin()
+        {
+            if (vectorAnterior == null)
+            {
+                encastreProxFin = double.PositiveInfinity; //SE REEMPLAZA CON "-"
+            }
+            else
+            {
+                if (encastreEstado == 1)
+                {
+                    if (encastreTiempo != 0)
+                    {
+                        encastreProxFin = reloj + encastreTiempo;
+                    }
+                    else
+                    {
+                        encastreProxFin = vectorAnterior.encastreProxFin;
+                    }
+                }
+                else
+                {
+                    encastreProxFin = double.PositiveInfinity;
+                }
+            }
+        }
+
         private void ColaEncastreA3()
         {
             if (vectorAnterior == null)

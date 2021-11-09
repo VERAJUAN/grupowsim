@@ -22,6 +22,7 @@ namespace SIMULACION_TP1
         FinA4 = 5,
         FinA5 = 6,
         FinJornada = 7,
-        FinHora = 8
+        FinHora = 8,
+        FinEncastre = 9
     }
 }
