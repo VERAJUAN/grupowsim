@@ -17,7 +17,7 @@ namespace SIMULACION_TP1
     public partial class Ejercicio__B : System.Windows.Forms.Form
     {
         int cantProyectos = 0;
-
+        double picoTiempoEncastre = 0;
         private void cboSignificancia_SelectedIndexChanged(object sender, EventArgs e)
         {
             comboDist1.SelectedIndex = 0;
@@ -229,11 +229,12 @@ namespace SIMULACION_TP1
 
 
                 }
+
                 ecuacionAnterior = ecuacion;
 
             } while (picos < 2);
 
-
+            picoTiempoEncastre = double.Parse(lblTn.Text);
 
         }
 
