@@ -80,6 +80,8 @@ namespace SIMULACION_TP1
 
         private void SimularEcDif()
         {
+            
+
             var primero = true;
             Random r = new Random();
             var a = Distribucion.Uniforme(r.NextDouble(), double.Parse(txtMinA.Text), double.Parse(txtMaxA.Text));
@@ -90,6 +92,17 @@ namespace SIMULACION_TP1
             var xDeriv0 = double.Parse(txtXder0.Text);
 
             var metodo = comboMetodo.SelectedIndex;
+
+            //// Genera Grafico
+            Grafico.Series.Clear();
+            if (Grafico.Titles.Count == 0)
+                Grafico.Titles.Add("Proceso encastre");
+
+            Series series = Grafico.Series.Add(metodo == 0 ? "Runge Kutta" : "Euler");
+            series.ChartType = SeriesChartType.Point;
+            series.Points.Clear();
+            Grafico.ChartAreas[0].AxisX.Title = "x1";
+            Grafico.ChartAreas[0].AxisY.Title = "tn";
 
             if (metodo == 0)
             {
@@ -133,6 +146,9 @@ namespace SIMULACION_TP1
 
                     tablaRK.Rows.Add(Math.Round(ecuacion.tn,3), Math.Round(ecuacion.rk_x1, 3), Math.Round(ecuacion.rk_k1, 3), Math.Round(ecuacion.rk_k2, 3), Math.Round(ecuacion.rk_k3, 3), Math.Round(ecuacion.rk_k4, 3),
                         Math.Round(ecuacion.rk_x2, 3), Math.Round(ecuacion.rk_l1, 3), Math.Round(ecuacion.rk_l2, 3), Math.Round(ecuacion.rk_l3, 3), Math.Round(ecuacion.rk_l4, 3));
+
+                    series.Points.AddXY(ecuacion.tn, ecuacion.rk_x1);
+
                 }
                 else
                 {
@@ -149,8 +165,8 @@ namespace SIMULACION_TP1
                     }
 
                     tablaEuler.Rows.Add(Math.Round(ecuacion.tn, 3), Math.Round(ecuacion.eu_x1,3), Math.Round(ecuacion.dx1,3), Math.Round(ecuacion.dx2,3));
+                    series.Points.AddXY(ecuacion.tn, ecuacion.eu_x1);
                 }
-
                 ecuacionAnterior = ecuacion;
 
             } while (picos < 2);
