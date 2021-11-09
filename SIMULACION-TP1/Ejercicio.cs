@@ -198,9 +198,9 @@ namespace SIMULACION_TP1
                     g1Series2.Points.AddXY(ecuacion.tn, ecuacion.rk_x2);
                     g1Series3.Points.AddXY(ecuacion.tn, ecuacion.rk_x1);
 
-                    g2Series.Points.AddXY(ecuacion.rk_x1, ecuacion.rk_l1 / h);
-                    g3Series.Points.AddXY(ecuacion.rk_x1, ecuacion.rk_x2);
-                    g4Series.Points.AddXY(ecuacion.rk_x2, ecuacion.rk_l1 / h);
+                    g2Series.Points.AddXY(Math.Round(ecuacion.rk_x1, 3), ecuacion.rk_l1 / h);
+                    g3Series.Points.AddXY(Math.Round(ecuacion.rk_x1, 3), ecuacion.rk_x2);
+                    g4Series.Points.AddXY(Math.Round(ecuacion.rk_x2, 3), ecuacion.rk_l1 / h);
 
                 }
                 else
