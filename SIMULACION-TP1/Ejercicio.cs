@@ -73,9 +73,10 @@ namespace SIMULACION_TP1
                 txt_cantProy.Focus();
             }
 
+            SimularEcDif();
+
             if (val1 && val2 && val3 && val4 && val5) Simular();
 
-            SimularEcDif();
         }
 
         private void SimularEcDif()
@@ -96,13 +97,22 @@ namespace SIMULACION_TP1
             //// Genera Grafico
             Grafico.Series.Clear();
             if (Grafico.Titles.Count == 0)
-                Grafico.Titles.Add("Proceso encastre");
+                Grafico.Titles.Add("X'', X', X en funcion de t");
 
-            Series series = Grafico.Series.Add(metodo == 0 ? "Runge Kutta" : "Euler");
-            series.ChartType = SeriesChartType.Point;
-            series.Points.Clear();
-            Grafico.ChartAreas[0].AxisX.Title = "x1";
-            Grafico.ChartAreas[0].AxisY.Title = "tn";
+            Series g1Series1 = Grafico.Series.Add("X''");
+            g1Series1.ChartType = SeriesChartType.Point;
+            g1Series1.Points.Clear();
+
+            Series g1Series2 = Grafico.Series.Add("X'");
+            g1Series2.ChartType = SeriesChartType.Point;
+            g1Series2.Points.Clear();
+
+            Series g1Series3 = Grafico.Series.Add("X");
+            g1Series3.ChartType = SeriesChartType.Point;
+            g1Series3.Points.Clear();
+
+            Grafico.ChartAreas[0].AxisX.Title = "tn";
+            Grafico.ChartAreas[0].AxisY.Title = "x1";
 
             if (metodo == 0)
             {
@@ -147,7 +157,9 @@ namespace SIMULACION_TP1
                     tablaRK.Rows.Add(Math.Round(ecuacion.tn,3), Math.Round(ecuacion.rk_x1, 3), Math.Round(ecuacion.rk_k1, 3), Math.Round(ecuacion.rk_k2, 3), Math.Round(ecuacion.rk_k3, 3), Math.Round(ecuacion.rk_k4, 3),
                         Math.Round(ecuacion.rk_x2, 3), Math.Round(ecuacion.rk_l1, 3), Math.Round(ecuacion.rk_l2, 3), Math.Round(ecuacion.rk_l3, 3), Math.Round(ecuacion.rk_l4, 3));
 
-                    series.Points.AddXY(ecuacion.tn, ecuacion.rk_x1);
+                    g1Series1.Points.AddXY(ecuacion.tn, ecuacion.rk_l1 / h);
+                    g1Series2.Points.AddXY(ecuacion.tn, ecuacion.rk_x2);
+                    g1Series3.Points.AddXY(ecuacion.tn, ecuacion.rk_x1);
 
                 }
                 else
@@ -165,7 +177,10 @@ namespace SIMULACION_TP1
                     }
 
                     tablaEuler.Rows.Add(Math.Round(ecuacion.tn, 3), Math.Round(ecuacion.eu_x1,3), Math.Round(ecuacion.dx1,3), Math.Round(ecuacion.dx2,3));
-                    series.Points.AddXY(ecuacion.tn, ecuacion.eu_x1);
+                   
+                    g1Series1.Points.AddXY(ecuacion.tn, ecuacion.dx2);
+                    g1Series2.Points.AddXY(ecuacion.tn, ecuacion.dx1);
+                    g1Series3.Points.AddXY(ecuacion.tn, ecuacion.eu_x1);
                 }
                 ecuacionAnterior = ecuacion;
 

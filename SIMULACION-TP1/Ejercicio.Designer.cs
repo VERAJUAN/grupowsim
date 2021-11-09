@@ -951,7 +951,7 @@ namespace SIMULACION_TP1
             this.tablaVectorEstado.Name = "tablaVectorEstado";
             this.tablaVectorEstado.ReadOnly = true;
             this.tablaVectorEstado.RowHeadersWidth = 10;
-            this.tablaVectorEstado.Size = new System.Drawing.Size(870, 624);
+            this.tablaVectorEstado.Size = new System.Drawing.Size(870, 279);
             this.tablaVectorEstado.TabIndex = 473;
             // 
             // nroEvento
@@ -2349,13 +2349,13 @@ namespace SIMULACION_TP1
             this.Grafico.ChartAreas.Add(chartArea1);
             legend1.Name = "Legend1";
             this.Grafico.Legends.Add(legend1);
-            this.Grafico.Location = new System.Drawing.Point(949, 782);
+            this.Grafico.Location = new System.Drawing.Point(17, 762);
             this.Grafico.Name = "Grafico";
             series1.ChartArea = "ChartArea1";
             series1.Legend = "Legend1";
             series1.Name = "Series1";
             this.Grafico.Series.Add(series1);
-            this.Grafico.Size = new System.Drawing.Size(711, 267);
+            this.Grafico.Size = new System.Drawing.Size(557, 267);
             this.Grafico.TabIndex = 526;
             this.Grafico.Text = "chart1";
             // 
