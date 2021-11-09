@@ -137,6 +137,9 @@ namespace SIMULACION_TP1
         public int pedidosParametroCompletadosEnUnaHora { get; set; }
         public double probPedidosParametroCompletadosEnUnaHora { get; set; }
 
+        //PICO ED
+        public double picoTiempoEncastre { get; set; }
+
         //HELPER
         public bool banderaFinHora { get; set; }
 
@@ -147,7 +150,7 @@ namespace SIMULACION_TP1
         }
 
         public VectorEstadoDinamico(int nroEvento,
-            double tiempoEntrePedidos, int pedidoACalcular, double A1 = 0, double A2 = 0, double A3 = 0, double A4 = 0, double A5 = 0, VectorEstadoDinamico vectorAnterior = null)
+            double tiempoEntrePedidos, int pedidoACalcular, double picoTiempoEncastre, double A1 = 0, double A2 = 0, double A3 = 0, double A4 = 0, double A5 = 0, VectorEstadoDinamico vectorAnterior = null)
         {
             if(nroEvento == 1)
             {
@@ -161,6 +164,8 @@ namespace SIMULACION_TP1
             this.vectorAnterior = vectorAnterior;
 
             this.pedidoACalcular = pedidoACalcular;
+
+            this.picoTiempoEncastre = picoTiempoEncastre;
 
             this.nroEvento = nroEvento;
             Reloj(); //0
@@ -1081,11 +1086,11 @@ namespace SIMULACION_TP1
                 }
                 else if (evento == 4 && vectorAnterior.colaEncastreA5 > 0)
                 {
-                    encastreTiempo = 10;
+                    encastreTiempo = picoTiempoEncastre;
                 }
                 else if (evento == 6 && vectorAnterior.colaEncastreA3 > 0)
                 {
-                    encastreTiempo = 10;
+                    encastreTiempo = picoTiempoEncastre;
                 }
                 else
                 {

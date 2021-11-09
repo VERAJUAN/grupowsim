@@ -246,8 +246,8 @@ namespace SIMULACION_TP1
             double A1, A2, A3, A4, A5;
             int pedidoACalcular = int.Parse(txt_nroEnsamblesProbabilidad.Text);
             lblCompletarEnsambles.Text = $"Probabilidad de completar {pedidoACalcular} o más ensambles por hora:";
-            tablaVectorEstado.Columns[65 + 5].HeaderText = $"{pedidoACalcular} ENSAMBLES COMPLETADOS EN 1 HORA";
-            tablaVectorEstado.Columns[66 + 5].HeaderText = $"PROBABILIDAD DE COMPLETAR {pedidoACalcular} O MAS ENSAMBLES";
+            tablaVectorEstado.Columns[73].HeaderText = $"{pedidoACalcular} ENSAMBLES COMPLETADOS EN 1 HORA";
+            tablaVectorEstado.Columns[74].HeaderText = $"PROBABILIDAD DE COMPLETAR {pedidoACalcular} O MAS ENSAMBLES";
             Random r = new Random();
 
             VectorEstadoDinamico vectorEstado = new VectorEstadoDinamico();
@@ -275,7 +275,7 @@ namespace SIMULACION_TP1
 
                 if (i == 0)
                 {
-                    vectorEstado = new VectorEstadoDinamico(i + 1, tiempoEntrePedidos, pedidoACalcular);
+                    vectorEstado = new VectorEstadoDinamico(i + 1, tiempoEntrePedidos, pedidoACalcular, picoTiempoEncastre);
 
                     if (0 <= desde)
                     {
@@ -286,7 +286,9 @@ namespace SIMULACION_TP1
                             (Estado)vectorEstado.a3Estado, vectorEstado.a3Pedido == 0 ? "-" : vectorEstado.a3Pedido.ToString(), (i != 0 && vectorEstado.a3Pedido != vectorEstadoMasUno.a3Pedido && vectorEstado.a3Pedido != 0) ? Math.Round(numAleatorio3, 3).ToString() : "-", (i != 0 && vectorEstado.a3Pedido != vectorEstadoMasUno.a3Pedido && vectorEstado.a3Pedido != 0) ? Math.Round(vectorEstado.a3Tiempo, 3).ToString() : "-", (vectorEstado.a3ProxFin == 0 || vectorEstado.a3ProxFin == double.PositiveInfinity) ? "-" : Math.Round(vectorEstado.a3ProxFin, 3).ToString(), vectorEstado.a3Cola.ToString(),
                             (Estado)vectorEstado.a4Estado, vectorEstado.a4Pedido == 0 ? "-" : vectorEstado.a4Pedido.ToString(), (i != 0 && vectorEstado.a4Pedido != vectorEstadoMasUno.a4Pedido && vectorEstado.a4Pedido != 0) ? Math.Round(numAleatorio4, 3).ToString() : "-", (i != 0 && vectorEstado.a4Pedido != vectorEstadoMasUno.a4Pedido && vectorEstado.a4Pedido != 0) ? Math.Round(vectorEstado.a4Tiempo, 3).ToString() : "-", (vectorEstado.a4ProxFin == 0 || vectorEstado.a4ProxFin == double.PositiveInfinity) ? "-" : Math.Round(vectorEstado.a4ProxFin, 3).ToString(), vectorEstado.a4Cola.ToString(),
                             (Estado)vectorEstado.a5Estado, vectorEstado.a5Pedido == 0 ? "-" : vectorEstado.a5Pedido.ToString(), (i != 0 && vectorEstado.a5Pedido != vectorEstadoMasUno.a5Pedido && vectorEstado.a5Pedido != 0) ? Math.Round(numAleatorio5, 3).ToString() : "-", (i != 0 && vectorEstado.a5Pedido != vectorEstadoMasUno.a5Pedido && vectorEstado.a5Pedido != 0) ? Math.Round(vectorEstado.a5Tiempo, 3).ToString() : "-", (vectorEstado.a5ProxFin == 0 || vectorEstado.a5ProxFin == double.PositiveInfinity) ? "-" : Math.Round(vectorEstado.a5ProxFin, 3).ToString(), vectorEstado.a5ColaA4.ToString(),
-                            vectorEstado.a5ColaA2.ToString(), vectorEstado.colaEncastreA3.ToString(), vectorEstado.colaEncastreA5.ToString(), vectorEstado.cantidadEnsamblesSolicitados.ToString(), vectorEstado.cantidadEnsamblesFinalizados.ToString(), Math.Round(vectorEstado.propEnsamRealSobreSolic, 3).ToString(), Math.Round(vectorEstado.duracionPromedioEnsamble, 3).ToString(), vectorEstado.maxCola1.ToString(), vectorEstado.maxCola2.ToString(), vectorEstado.maxCola3.ToString(), vectorEstado.maxCola4.ToString(),
+                            vectorEstado.a5ColaA2.ToString(),
+                            (Estado)vectorEstado.encastreEstado, (i != 0 && vectorEstado.encastreTiempo != vectorEstadoMasUno.encastreTiempo && vectorEstado.encastreTiempo != 0) ? Math.Round(vectorEstado.encastreTiempo, 3).ToString() : "-", (vectorEstado.encastreProxFin == 0 || vectorEstado.encastreProxFin == double.PositiveInfinity) ? "-" : Math.Round(vectorEstado.encastreProxFin, 3).ToString(),vectorEstado.colaEncastreA3.ToString(), vectorEstado.colaEncastreA5.ToString(),
+                            vectorEstado.cantidadEnsamblesSolicitados.ToString(), vectorEstado.cantidadEnsamblesFinalizados.ToString(), Math.Round(vectorEstado.propEnsamRealSobreSolic, 3).ToString(), Math.Round(vectorEstado.duracionPromedioEnsamble, 3).ToString(), vectorEstado.maxCola1.ToString(), vectorEstado.maxCola2.ToString(), vectorEstado.maxCola3.ToString(), vectorEstado.maxCola4.ToString(),
                             vectorEstado.maxCola5.ToString(), vectorEstado.maxColaEncastre.ToString(), Math.Round(vectorEstado.tiempoPromCola1, 3).ToString(), Math.Round(vectorEstado.tiempoPromCola2, 3).ToString(), Math.Round(vectorEstado.tiempoPromCola3, 3).ToString(), Math.Round(vectorEstado.tiempoPromCola4, 3).ToString(), Math.Round(vectorEstado.tiempoPromCola5, 3).ToString(), Math.Round(vectorEstado.tiempoPromColaEncastre, 3).ToString(),
                             Math.Round(vectorEstado.cantPromedioProdEnCola, 3).ToString(), vectorEstado.cantPromedioProdEnSistema.ToString(), Math.Round(vectorEstado.porcOcupacionA1, 3).ToString(), Math.Round(vectorEstado.porcOcupacionA2, 3).ToString(), Math.Round(vectorEstado.porcOcupacionA3, 3).ToString(), Math.Round(vectorEstado.porcOcupacionA4, 3).ToString(), Math.Round(vectorEstado.porcOcupacionA5, 3).ToString(), Math.Round(vectorEstado.tiempoBloqueoColaA5, 3).ToString(), Math.Round(vectorEstado.propBloqueoSobreOcupacion, 3).ToString(), Math.Round(vectorEstado.tiempoBloqueoColaEncastreA3, 3).ToString(),
                             Math.Round(vectorEstado.tiempoBloqueoColaEncastreA3, 3).ToString(),
@@ -298,7 +300,7 @@ namespace SIMULACION_TP1
                 else
                 {
 
-                    vectorEstado = new VectorEstadoDinamico(i + 1, tiempoEntrePedidos, pedidoACalcular, A1, A2, A3, A4, A5, vectorEstadoMasUno);
+                    vectorEstado = new VectorEstadoDinamico(i + 1, tiempoEntrePedidos, pedidoACalcular, picoTiempoEncastre, A1, A2, A3, A4, A5, vectorEstadoMasUno);
 
                     if ((hasta != 0
                         && vectorEstado.nroEvento >= desde && vectorEstado.nroEvento <= hasta)
