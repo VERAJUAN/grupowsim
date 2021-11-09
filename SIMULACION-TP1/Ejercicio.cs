@@ -80,6 +80,8 @@ namespace SIMULACION_TP1
 
         private void SimularEcDif()
         {
+            
+
             var primero = true;
             Random r = new Random();
             var a = Distribucion.Uniforme(r.NextDouble(), double.Parse(txtMinA.Text), double.Parse(txtMaxA.Text));
@@ -90,6 +92,17 @@ namespace SIMULACION_TP1
             var xDeriv0 = double.Parse(txtXder0.Text);
 
             var metodo = comboMetodo.SelectedIndex;
+
+            //// Genera Grafico
+            Grafico.Series.Clear();
+            if (Grafico.Titles.Count == 0)
+                Grafico.Titles.Add("Proceso encastre");
+
+            Series series = Grafico.Series.Add(metodo == 0 ? "Runge Kutta" : "Euler");
+            series.ChartType = SeriesChartType.Point;
+            series.Points.Clear();
+            Grafico.ChartAreas[0].AxisX.Title = "x1";
+            Grafico.ChartAreas[0].AxisY.Title = "tn";
 
             if (metodo == 0)
             {
