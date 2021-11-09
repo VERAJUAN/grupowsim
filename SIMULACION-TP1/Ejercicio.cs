@@ -94,7 +94,7 @@ namespace SIMULACION_TP1
 
             var metodo = comboMetodo.SelectedIndex;
 
-            //// Genera Grafico
+            //// Genera Grafico 1
             Grafico.Series.Clear();
             if (Grafico.Titles.Count == 0)
                 Grafico.Titles.Add("X'', X', X en funcion de t");
@@ -113,6 +113,43 @@ namespace SIMULACION_TP1
 
             Grafico.ChartAreas[0].AxisX.Title = "tn";
             Grafico.ChartAreas[0].AxisY.Title = "x1";
+
+            //// Genera Grafico 2
+            Grafico2.Series.Clear();
+            if (Grafico2.Titles.Count == 0)
+                Grafico2.Titles.Add("X'' en funcion de X");
+
+            Series g2Series = Grafico2.Series.Add("X''");
+            g2Series.ChartType = SeriesChartType.Point;
+            g2Series.Points.Clear();
+
+            Grafico2.ChartAreas[0].AxisX.Title = "X''";
+            Grafico2.ChartAreas[0].AxisY.Title = "X";
+
+            //// Genera Grafico 3
+            Grafico3.Series.Clear();
+            if (Grafico3.Titles.Count == 0)
+                Grafico3.Titles.Add("X' en funcion de X");
+
+            Series g3Series = Grafico3.Series.Add("X'");
+            g3Series.ChartType = SeriesChartType.Point;
+            g3Series.Points.Clear();
+
+            Grafico3.ChartAreas[0].AxisX.Title = "X'";
+            Grafico3.ChartAreas[0].AxisY.Title = "X";
+
+            //// Genera Grafico 4
+            Grafico4.Series.Clear();
+            if (Grafico4.Titles.Count == 0)
+                Grafico4.Titles.Add("X'' en funcion de X'");
+
+            Series g4Series = Grafico4.Series.Add("X''");
+            g4Series.ChartType = SeriesChartType.Point;
+            g4Series.Points.Clear();
+
+            Grafico4.ChartAreas[0].AxisX.Title = "X''";
+            Grafico4.ChartAreas[0].AxisY.Title = "X'";
+
 
             if (metodo == 0)
             {
@@ -161,6 +198,10 @@ namespace SIMULACION_TP1
                     g1Series2.Points.AddXY(ecuacion.tn, ecuacion.rk_x2);
                     g1Series3.Points.AddXY(ecuacion.tn, ecuacion.rk_x1);
 
+                    g2Series.Points.AddXY(ecuacion.rk_x1, ecuacion.rk_l1 / h);
+                    g3Series.Points.AddXY(ecuacion.rk_x1, ecuacion.rk_x2);
+                    g4Series.Points.AddXY(ecuacion.rk_x2, ecuacion.rk_l1 / h);
+
                 }
                 else
                 {
@@ -181,6 +222,12 @@ namespace SIMULACION_TP1
                     g1Series1.Points.AddXY(ecuacion.tn, ecuacion.dx2);
                     g1Series2.Points.AddXY(ecuacion.tn, ecuacion.dx1);
                     g1Series3.Points.AddXY(ecuacion.tn, ecuacion.eu_x1);
+
+                    g2Series.Points.AddXY(ecuacion.eu_x1, ecuacion.dx2);
+                    g3Series.Points.AddXY(ecuacion.eu_x1, ecuacion.dx1);
+                    g4Series.Points.AddXY(ecuacion.dx1, ecuacion.dx2);
+
+
                 }
                 ecuacionAnterior = ecuacion;
 

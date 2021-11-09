@@ -112,6 +112,15 @@ namespace SIMULACION_TP1
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.GroupBox1 = new System.Windows.Forms.GroupBox();
             this.label4 = new System.Windows.Forms.Label();
             this.txt_nroEnsamblesProbabilidad = new System.Windows.Forms.TextBox();
@@ -315,6 +324,9 @@ namespace SIMULACION_TP1
             this.lblTn = new System.Windows.Forms.Label();
             this.lblX1 = new System.Windows.Forms.Label();
             this.Grafico = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.Grafico2 = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.Grafico3 = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.Grafico4 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.GroupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tablaVectorEstado)).BeginInit();
@@ -322,6 +334,9 @@ namespace SIMULACION_TP1
             this.asdad.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tablaEuler)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Grafico)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Grafico2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Grafico3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Grafico4)).BeginInit();
             this.SuspendLayout();
             // 
             // GroupBox1
@@ -2355,15 +2370,66 @@ namespace SIMULACION_TP1
             series1.Legend = "Legend1";
             series1.Name = "Series1";
             this.Grafico.Series.Add(series1);
-            this.Grafico.Size = new System.Drawing.Size(557, 267);
+            this.Grafico.Size = new System.Drawing.Size(539, 267);
             this.Grafico.TabIndex = 526;
             this.Grafico.Text = "chart1";
+            // 
+            // Grafico2
+            // 
+            chartArea2.Name = "ChartArea1";
+            this.Grafico2.ChartAreas.Add(chartArea2);
+            legend2.Name = "Legend1";
+            this.Grafico2.Legends.Add(legend2);
+            this.Grafico2.Location = new System.Drawing.Point(562, 762);
+            this.Grafico2.Name = "Grafico2";
+            series2.ChartArea = "ChartArea1";
+            series2.Legend = "Legend1";
+            series2.Name = "Series1";
+            this.Grafico2.Series.Add(series2);
+            this.Grafico2.Size = new System.Drawing.Size(408, 267);
+            this.Grafico2.TabIndex = 527;
+            this.Grafico2.Text = "chart1";
+            // 
+            // Grafico3
+            // 
+            chartArea3.Name = "ChartArea1";
+            this.Grafico3.ChartAreas.Add(chartArea3);
+            legend3.Name = "Legend1";
+            this.Grafico3.Legends.Add(legend3);
+            this.Grafico3.Location = new System.Drawing.Point(976, 762);
+            this.Grafico3.Name = "Grafico3";
+            series3.ChartArea = "ChartArea1";
+            series3.Legend = "Legend1";
+            series3.Name = "Series1";
+            this.Grafico3.Series.Add(series3);
+            this.Grafico3.Size = new System.Drawing.Size(434, 267);
+            this.Grafico3.TabIndex = 528;
+            this.Grafico3.Text = "chart1";
+            // 
+            // Grafico4
+            // 
+            chartArea4.Name = "ChartArea1";
+            this.Grafico4.ChartAreas.Add(chartArea4);
+            legend4.Name = "Legend1";
+            this.Grafico4.Legends.Add(legend4);
+            this.Grafico4.Location = new System.Drawing.Point(1419, 762);
+            this.Grafico4.Name = "Grafico4";
+            series4.ChartArea = "ChartArea1";
+            series4.Legend = "Legend1";
+            series4.Name = "Series1";
+            this.Grafico4.Series.Add(series4);
+            this.Grafico4.Size = new System.Drawing.Size(420, 267);
+            this.Grafico4.TabIndex = 529;
+            this.Grafico4.Text = "chart2";
             // 
             // Ejercicio__B
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1893, 1061);
+            this.Controls.Add(this.Grafico4);
+            this.Controls.Add(this.Grafico3);
+            this.Controls.Add(this.Grafico2);
             this.Controls.Add(this.Grafico);
             this.Controls.Add(this.lblX1);
             this.Controls.Add(this.lblTn);
@@ -2428,6 +2494,9 @@ namespace SIMULACION_TP1
             this.asdad.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tablaEuler)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Grafico)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Grafico2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Grafico3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Grafico4)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -2638,5 +2707,8 @@ namespace SIMULACION_TP1
         internal System.Windows.Forms.Label lblTn;
         internal System.Windows.Forms.Label lblX1;
         private System.Windows.Forms.DataVisualization.Charting.Chart Grafico;
+        private System.Windows.Forms.DataVisualization.Charting.Chart Grafico2;
+        private System.Windows.Forms.DataVisualization.Charting.Chart Grafico3;
+        private System.Windows.Forms.DataVisualization.Charting.Chart Grafico4;
     }
 }
