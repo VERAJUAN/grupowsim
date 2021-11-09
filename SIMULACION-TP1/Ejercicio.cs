@@ -146,6 +146,9 @@ namespace SIMULACION_TP1
 
                     tablaRK.Rows.Add(Math.Round(ecuacion.tn,3), Math.Round(ecuacion.rk_x1, 3), Math.Round(ecuacion.rk_k1, 3), Math.Round(ecuacion.rk_k2, 3), Math.Round(ecuacion.rk_k3, 3), Math.Round(ecuacion.rk_k4, 3),
                         Math.Round(ecuacion.rk_x2, 3), Math.Round(ecuacion.rk_l1, 3), Math.Round(ecuacion.rk_l2, 3), Math.Round(ecuacion.rk_l3, 3), Math.Round(ecuacion.rk_l4, 3));
+
+                    series.Points.AddXY(ecuacion.rk_x1, ecuacion.tn);
+
                 }
                 else
                 {
@@ -162,8 +165,8 @@ namespace SIMULACION_TP1
                     }
 
                     tablaEuler.Rows.Add(Math.Round(ecuacion.tn, 3), Math.Round(ecuacion.eu_x1,3), Math.Round(ecuacion.dx1,3), Math.Round(ecuacion.dx2,3));
+                    series.Points.AddXY(ecuacion.eu_x1, ecuacion.tn);
                 }
-
                 ecuacionAnterior = ecuacion;
 
             } while (picos < 2);
