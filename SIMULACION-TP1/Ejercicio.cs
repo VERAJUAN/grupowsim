@@ -56,6 +56,8 @@ namespace SIMULACION_TP1
             txtX0.Text = "0";
             txtXder0.Text = "0";
             comboMetodo.SelectedIndex = 0;
+            tablaEuler.Visible = false;
+            tablaRK.Visible = false;
         }
 
         private void btn_generar_Click(object sender, EventArgs e)
@@ -89,7 +91,7 @@ namespace SIMULACION_TP1
 
             var metodo = comboMetodo.SelectedIndex;
 
-            if(metodo == 0)
+            if (metodo == 0)
             {
                 tablaEuler.Visible = false;
                 tablaRK.Visible = true;
@@ -100,24 +102,58 @@ namespace SIMULACION_TP1
                 tablaRK.Visible = false;
             }
 
+            EcuacionDiferencial ecuacion = new EcuacionDiferencial();
             EcuacionDiferencial ecuacionAnterior = new EcuacionDiferencial();
 
+            var picos = 0;
             do
             {
                 if (primero)
                 {
-                    EcuacionDiferencial ecuacion = new EcuacionDiferencial(metodo, a, b, c, h, null, x0, xDeriv0);
-                    ecuacionAnterior = ecuacion;
+                    ecuacion = new EcuacionDiferencial(metodo, a, b, c, h, null, x0, xDeriv0);
+                    primero = false;
                 }
                 else
                 {
-                    EcuacionDiferencial ecuacion = new EcuacionDiferencial(metodo, a, b, c, h, ecuacionAnterior);
+                    ecuacion = new EcuacionDiferencial(metodo, a, b, c, h, ecuacionAnterior);
                 }
 
+                if(metodo == 0)
+                {
+                    if (ecuacion.rk_x1 > ecuacionAnterior.rk_x1)
+                    {
+                        ecuacion.posiblePico = true;
+                    }
+                    else if (ecuacion.rk_x1 < ecuacionAnterior.rk_x1 && ecuacionAnterior.posiblePico)
+                    {
+                        picos++;
+                        lblTn.Text = Math.Round(ecuacionAnterior.tn,3).ToString();
+                        lblX1.Text = Math.Round(ecuacionAnterior.rk_x1,3).ToString();
+                    }
 
+                    tablaRK.Rows.Add(Math.Round(ecuacion.tn,3), Math.Round(ecuacion.rk_x1, 3), Math.Round(ecuacion.rk_k1, 3), Math.Round(ecuacion.rk_k2, 3), Math.Round(ecuacion.rk_k3, 3), Math.Round(ecuacion.rk_k4, 3),
+                        Math.Round(ecuacion.rk_x2, 3), Math.Round(ecuacion.rk_l1, 3), Math.Round(ecuacion.rk_l2, 3), Math.Round(ecuacion.rk_l3, 3), Math.Round(ecuacion.rk_l4, 3));
+                }
+                else
+                {
+                    if (ecuacion.eu_x1 > ecuacionAnterior.eu_x1)
+                    {
+                        ecuacion.posiblePico = true;
+                    }
+                    else if (ecuacion.eu_x1 < ecuacionAnterior.eu_x1 && ecuacionAnterior.posiblePico)
+                    {
+                        picos++;
 
-            } while (true);
+                        lblTn.Text = Math.Round(ecuacionAnterior.tn, 3).ToString();
+                        lblX1.Text = Math.Round(ecuacionAnterior.eu_x1, 3).ToString();
+                    }
 
+                    tablaEuler.Rows.Add(Math.Round(ecuacion.tn, 3), Math.Round(ecuacion.eu_x1,3), Math.Round(ecuacion.dx1,3), Math.Round(ecuacion.dx2,3));
+                }
+
+                ecuacionAnterior = ecuacion;
+
+            } while (picos < 2);
 
 
 

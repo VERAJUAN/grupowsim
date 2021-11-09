@@ -9,23 +9,25 @@ namespace SIMULACION_TP1
     public class EcuacionDiferencial
     {
         //RUNGE KUTTA
-        double tn { get; set; }
-        double rk_x1 { get; set; }
-        double rk_k1 { get; set; }
-        double rk_k2 { get; set; }
-        double rk_k3 { get; set; }
-        double rk_k4 { get; set; }
-        double rk_x2 { get; set; }
-        double rk_l1 { get; set; }
-        double rk_l2 { get; set; }
-        double rk_l3 { get; set; }
-        double rk_l4 { get; set; }
+        public double tn { get; set; }
+        public double rk_x1 { get; set; }
+        public double rk_k1 { get; set; }
+        public double rk_k2 { get; set; }
+        public double rk_k3 { get; set; }
+        public double rk_k4 { get; set; }
+        public double rk_x2 { get; set; }
+        public double rk_l1 { get; set; }
+        public double rk_l2 { get; set; }
+        public double rk_l3 { get; set; }
+        public double rk_l4 { get; set; }
 
         //EULER
-        double eu_x1 { get; set; }
-        double dx1 { get; set; }
-        double dx2 { get; set; }
+        public double eu_x1 { get; set; }
+        public double dx1 { get; set; }
+        public double dx2 { get; set; }
 
+        //HELPER
+        public bool posiblePico { get; set; }
 
         public EcuacionDiferencial()
         {
@@ -84,12 +86,16 @@ namespace SIMULACION_TP1
 
                 rk_l4 = h * ((Math.Exp(-c * (tn + h))) - (a * (rk_x2 + rk_l3)) - (b * (rk_x1 + rk_k3)));
                 rk_k4 = h * (rk_x2 + 0.5 * rk_l3);
+
+                
             }
             else
             {
                 //EULER
                 dx2 = h * ((Math.Exp(-c * tn)) - (a * dx1) - (b * eu_x1));
             }
+
+
 
         }
 
