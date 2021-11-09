@@ -67,6 +67,7 @@ namespace SIMULACION_TP1
         public double encastreProxFin { get; set; }
         public int colaEncastreA3 { get; set; }
         public int colaEncastreA5 { get; set; }
+        public int encastrePedido { get; set; }
 
         //ENSAMBLE
         public int cantidadEnsamblesSolicitados { get; set; }
@@ -215,6 +216,7 @@ namespace SIMULACION_TP1
             A5ColaA2();
 
             EncastreEstado();
+            EncastrePedido();
             EncastreTiempo();
             EncastreProxFin();
             ColaEncastreA3();
@@ -385,6 +387,10 @@ namespace SIMULACION_TP1
                 else if (evento == 8)
                 {
                     pedido = 0;
+                }
+                else if (evento == 9)
+                {
+                    pedido = vectorAnterior.encastrePedido;
                 }
                 else
                 {
@@ -1078,23 +1084,35 @@ namespace SIMULACION_TP1
             {
                 encastreTiempo = 0;
             }
+            else if (encastrePedido != vectorAnterior.encastrePedido && encastrePedido != 0)
+            {
+                encastreTiempo = picoTiempoEncastre;
+            }
+        }
+
+        private void EncastrePedido()
+        {
+            if (vectorAnterior == null)
+            {
+                encastrePedido = 0; //SE REEMPLAZA CON "-"
+            }
             else
             {
-                if (evento == 9 && (vectorAnterior.colaEncastreA3 == 0 || vectorAnterior.colaEncastreA5 == 0))
+                if (vectorAnterior.encastreEstado == 0 && evento == 4 && vectorAnterior.colaEncastreA5 > 0)
                 {
-                    encastreTiempo = 0;
+                    encastrePedido = pedido;
                 }
-                else if (evento == 4 && vectorAnterior.colaEncastreA5 > 0)
+                else if (vectorAnterior.encastreEstado == 0 && evento == 6 && vectorAnterior.colaEncastreA3 > 0)
                 {
-                    encastreTiempo = picoTiempoEncastre;
+                    encastrePedido = pedido;
                 }
-                else if (evento == 6 && vectorAnterior.colaEncastreA3 > 0)
+                else if (vectorAnterior.encastreEstado == 1 && evento != 9)
                 {
-                    encastreTiempo = picoTiempoEncastre;
+                    encastrePedido = vectorAnterior.encastrePedido;
                 }
-                else
+                else if (evento == 9 && vectorAnterior.colaEncastreA5 > 0 && vectorAnterior.colaEncastreA5 > 0)
                 {
-                    encastreTiempo = 0;
+                    encastrePedido = pedido + 1;
                 }
             }
         }
