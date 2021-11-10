@@ -470,6 +470,10 @@ namespace SIMULACION_TP1
                 {
                     a1Estado = 0;
                 }
+                else if (vectorAnterior.a1Cola == 0 && evento != 1 && vectorAnterior.a1Estado == 0)
+                {
+                    a1Estado = 0;
+                }
                 else
                 {
                     a1Estado = 1;
@@ -578,6 +582,10 @@ namespace SIMULACION_TP1
                     a2Estado = 1;
                 }
                 else if (evento == 3 && vectorAnterior.a2Cola == 0)
+                {
+                    a2Estado = 0;
+                }
+                else if (vectorAnterior.a2Cola == 0 && evento != 1 && vectorAnterior.a2Estado == 0)
                 {
                     a2Estado = 0;
                 }
@@ -693,6 +701,10 @@ namespace SIMULACION_TP1
                 {
                     a3Estado = 0;
                 }
+                else if (vectorAnterior.a3Cola == 0 && evento != 1 && vectorAnterior.a3Estado == 0)
+                {
+                    a3Estado = 0;
+                } 
                 else
                 {
                     a3Estado = 1;
@@ -1149,11 +1161,15 @@ namespace SIMULACION_TP1
             {
                 colaEncastreA3 = 0;
             }
-            else if (evento == 4 && vectorAnterior.colaEncastreA5 == 0)
+            else if (evento == 4 && vectorAnterior.encastreEstado == 1)
             {
                 colaEncastreA3 = vectorAnterior.colaEncastreA3 + 1;
             }
-            else if (evento == 6 && vectorAnterior.colaEncastreA3 > 0)
+            else if (evento == 4 && vectorAnterior.encastreEstado == 0 && vectorAnterior.colaEncastreA3 == 0)
+            {
+                colaEncastreA3 = vectorAnterior.colaEncastreA3 + 1;
+            }
+            else if(evento == 9 && vectorAnterior.colaEncastreA3 > 0)
             {
                 colaEncastreA3 = vectorAnterior.colaEncastreA3 - 1;
             }
@@ -1169,11 +1185,15 @@ namespace SIMULACION_TP1
             {
                 colaEncastreA5 = 0;
             }
-            else if (evento == 6 && vectorAnterior.colaEncastreA3 == 0)
+            else if (evento == 6 && vectorAnterior.encastreEstado == 1)
             {
                 colaEncastreA5 = vectorAnterior.colaEncastreA5 + 1;
             }
-            else if (evento == 4 && vectorAnterior.colaEncastreA5 > 0)
+            else if (evento == 6 && vectorAnterior.encastreEstado == 0 && vectorAnterior.colaEncastreA5 == 0)
+            {
+                colaEncastreA5 = vectorAnterior.colaEncastreA5 + 1;
+            }
+            else if (evento == 9 && vectorAnterior.colaEncastreA5 > 0)
             {
                 colaEncastreA5 = vectorAnterior.colaEncastreA5 - 1;
             }
