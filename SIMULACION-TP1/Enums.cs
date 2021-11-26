@@ -16,13 +16,11 @@ namespace SIMULACION_TP1
     {
         Inicio = 0,
         LlegaPedido = 1,
-        FinA1 = 2,
-        FinA2 = 3,
-        FinA3 = 4,
-        FinA4 = 5,
-        FinA5 = 6,
-        FinJornada = 7,
-        FinHora = 8,
-        FinEncastre = 9
+        FinQA = 2,
+        FinAA = 3,
+        FinL1 = 4,
+        FinL2 = 5,
+        FinS = 6,
+        FinPA = 7,
     }
 }
