@@ -158,7 +158,7 @@ namespace SIMULACION_TP1
         }
 
         public VectorEstadoDinamico(int nroEvento,
-            double tiempoEntrePedidos, int pedidoACalcular, double picoTiempoEncastre, double Q1 = 0, double Q2 = 0, double A3 = 0, double A4 = 0, double A5 = 0, VectorEstadoDinamico vectorAnterior = null)
+            double tiempoEntrePedidos,/* int pedidoACalcular, double picoTiempoEncastre,*/ double QA = 0, double AA = 0, double L1 = 0, double L2 = 0, double A5 = 0, VectorEstadoDinamico vectorAnterior = null)
         {
             if(nroEvento == 1)
             {
@@ -169,21 +169,23 @@ namespace SIMULACION_TP1
                 banderaFinHora = vectorAnterior.banderaFinHora;
             }
 
+            this.colaParaLavar = new List<int>();
+
             this.vectorAnterior = vectorAnterior;
 
-            this.pedidoACalcular = pedidoACalcular;
+            //this.pedidoACalcular = pedidoACalcular;
 
-            this.picoTiempoEncastre = picoTiempoEncastre;
+            //this.picoTiempoEncastre = picoTiempoEncastre;
 
             this.nroEvento = nroEvento;
             Reloj(); //0
             Evento(); //0
             Pedido();  //0
 
-            if(evento == 8)
-            {
-                banderaFinHora = false;
-            }
+            //if(evento == 8)
+            //{
+            //    banderaFinHora = false;
+            //}
 
             ProxPedido(); //1
             this.tiempoEntrePedidos = tiempoEntrePedidos;
@@ -193,13 +195,13 @@ namespace SIMULACION_TP1
 
             QAEstado();
             QAPedido();
-            qaTiempo = QATiempo(Q1);
+            qaTiempo = QATiempo(QA);
             QAProxFin();
             QACola();
 
             AAEstado();
             AAPedido();
-            aaTiempo = AATiempo(Q2);
+            aaTiempo = AATiempo(AA);
             AAProxFin();
             AACola();
 
@@ -207,34 +209,34 @@ namespace SIMULACION_TP1
 
             L1Estado();
             L1Pedido();
-            l1Tiempo = L1Tiempo(A3);
+            l1Tiempo = L1Tiempo(L1);
             L1ProxFin();
-            L1Cola();
+            //L1Cola();
 
             L2Estado();
             L2Pedido();
-            l2Tiempo = L2Tiempo(A4);
+            l2Tiempo = L2Tiempo(L2);
             L2ProxFin();
-            L2Cola();
+            //L2Cola();
 
-            A5Estado();
-            A5Pedido();
-            a5Tiempo = A5Tiempo(A5);
-            A5ProxFin();
-            A5ColaA4();
-            A5ColaA2();
+            //A5Estado();
+            //A5Pedido();
+            //a5Tiempo = A5Tiempo(A5);
+            //A5ProxFin();
+            //A5ColaA4();
+            //A5ColaA2();
 
-            EncastreEstado();
-            EncastrePedido();
-            EncastreTiempo();
-            EncastreProxFin();
-            ColaEncastreA3();
-            ColaEncastreA5();
+            //EncastreEstado();
+            //EncastrePedido();
+            //EncastreTiempo();
+            //EncastreProxFin();
+            //ColaEncastreA3();
+            //ColaEncastreA5();
 
-            CantidadEnsamblesSolicitados();
-            CantidadEnsamblesFinalizados();
-            PropEnsamRealSobreSolic();
-            TiempoPromedioDuracionEnsamble();
+            //CantidadEnsamblesSolicitados();
+            //CantidadEnsamblesFinalizados();
+            //PropEnsamRealSobreSolic();
+            //TiempoPromedioDuracionEnsamble();
 
             //if (vectorAnterior != null)
             //{
@@ -246,52 +248,52 @@ namespace SIMULACION_TP1
             //    maxColaEncastre = Math.Max(colaEncastreA3 + colaEncastreA5, vectorAnterior.maxColaEncastre);
             //}
 
-            TiempoLlegada();
-            TiempoInicioAtencionA1();
-            TiempoPromCola1();
-            TiempoInicioAtencionA2();
-            TiempoPromCola2();
-            TiempoInicioAtencionA3();
-            TiempoPromCola3();
-            TiempoInicioAtencionA4();
-            TiempoPromCola4();
-            TiempoInicioAtencionA5();
-            TiempoPromCola5();
-            TiempoInicioAtencionEncastre();
-            TiempoPromColaEncastre();
+            //TiempoLlegada();
+            //TiempoInicioAtencionA1();
+            //TiempoPromCola1();
+            //TiempoInicioAtencionA2();
+            //TiempoPromCola2();
+            //TiempoInicioAtencionA3();
+            //TiempoPromCola3();
+            //TiempoInicioAtencionA4();
+            //TiempoPromCola4();
+            //TiempoInicioAtencionA5();
+            //TiempoPromCola5();
+            //TiempoInicioAtencionEncastre();
+            //TiempoPromColaEncastre();
 
-            CantPromedioProdEnCola();
-            CantPromedioProdEnSistema();
+            //CantPromedioProdEnCola();
+            //CantPromedioProdEnSistema();
 
-            TiempoOcupadoA1();
-            AcumuladoTiempoOcupadoA1();
-            PorcOcupacionA1();
+            //TiempoOcupadoA1();
+            //AcumuladoTiempoOcupadoA1();
+            //PorcOcupacionA1();
 
-            TiempoOcupadoA2();
-            AcumuladoTiempoOcupadoA2();
-            PorcOcupacionA2();
+            //TiempoOcupadoA2();
+            //AcumuladoTiempoOcupadoA2();
+            //PorcOcupacionA2();
 
-            TiempoOcupadoA3();
-            AcumuladoTiempoOcupadoA3();
-            PorcOcupacionA3();
+            //TiempoOcupadoA3();
+            //AcumuladoTiempoOcupadoA3();
+            //PorcOcupacionA3();
 
-            TiempoOcupadoA4();
-            AcumuladoTiempoOcupadoA4();
-            PorcOcupacionA4();
+            //TiempoOcupadoA4();
+            //AcumuladoTiempoOcupadoA4();
+            //PorcOcupacionA4();
 
-            TiempoOcupadoA5();
-            AcumuladoTiempoOcupadoA5();
-            PorcOcupacionA5();
+            //TiempoOcupadoA5();
+            //AcumuladoTiempoOcupadoA5();
+            //PorcOcupacionA5();
 
-            TiempoBloqueoColaA5();
-            TiempoBloqueoColaEncastre();
-            PropBloqueoSobreOcupacion();
+            //TiempoBloqueoColaA5();
+            //TiempoBloqueoColaEncastre();
+            //PropBloqueoSobreOcupacion();
 
-            CantEnsamblesXHora();
-            CantProbEnsamblesXHora();
+            //CantEnsamblesXHora();
+            //CantProbEnsamblesXHora();
 
-            PedidosParametroCompletadosEnUnaHora();
-            ProbPedidosParametroCompletadosEnUnaHora();
+            //PedidosParametroCompletadosEnUnaHora();
+            //ProbPedidosParametroCompletadosEnUnaHora();
         }
 
         #region EVENTO 
@@ -305,13 +307,10 @@ namespace SIMULACION_TP1
             else
             {
                 reloj = Math.Min(vectorAnterior.proxLlegada,
-                    Math.Min(vectorAnterior.a1ProxFin,
-                    Math.Min(vectorAnterior.a2ProxFin,
-                    Math.Min(vectorAnterior.a3ProxFin,
-                    Math.Min(vectorAnterior.a4ProxFin,
-                    Math.Min(vectorAnterior.a5ProxFin, 
-                    Math.Min(vectorAnterior.encastreProxFin, vectorAnterior.proxFinHora
-                    )))))));
+                    Math.Min(vectorAnterior.qaProxFin,
+                    Math.Min(vectorAnterior.aaProxFin,
+                    Math.Min(vectorAnterior.l1ProxFin, 
+                    vectorAnterior.l2ProxFin))));
             }
         }
 
@@ -327,38 +326,38 @@ namespace SIMULACION_TP1
                 {
                     evento = 1;
                 }
-                else if (reloj == vectorAnterior.a1ProxFin)
+                else if (reloj == vectorAnterior.qaProxFin)
                 {
                     evento = 2;
                 }
-                else if (reloj == vectorAnterior.a2ProxFin)
+                else if (reloj == vectorAnterior.aaProxFin)
                 {
                     evento = 3;
                 }
-                else if (reloj == vectorAnterior.a3ProxFin)
+                else if (reloj == vectorAnterior.l1ProxFin)
                 {
                     evento = 4;
                 }
-                else if (reloj == vectorAnterior.a4ProxFin)
+                else if (reloj == vectorAnterior.l2ProxFin)
                 {
                     evento = 5;
                 }
-                else if (reloj == vectorAnterior.a5ProxFin)
-                {
-                    evento = 6;
-                }
-                else if (reloj == vectorAnterior.proxFinHora)
-                {
-                    evento = 8;
-                }
-                else if (reloj == vectorAnterior.encastreProxFin)
-                {
-                    evento = 9;
-                }
-                else
-                {
-                    evento = 7;
-                }
+                //else if (reloj == vectorAnterior.a5ProxFin)
+                //{
+                //    evento = 6;
+                //}
+                //else if (reloj == vectorAnterior.proxFinHora)
+                //{
+                //    evento = 8;
+                //}
+                //else if (reloj == vectorAnterior.encastreProxFin)
+                //{
+                //    evento = 9;
+                //}
+                //else
+                //{
+                //    evento = 7;
+                //}
             }
         }
 
@@ -376,32 +375,32 @@ namespace SIMULACION_TP1
                 }
                 else if (evento == 2)
                 {
-                    pedido = vectorAnterior.a1Pedido;
+                    pedido = vectorAnterior.qaPedido;
                 }
                 else if (evento == 3)
                 {
-                    pedido = vectorAnterior.a2Pedido;
+                    pedido = vectorAnterior.aaPedido;
                 }
                 else if (evento == 4)
                 {
-                    pedido = vectorAnterior.a3Pedido;
+                    pedido = vectorAnterior.l1Pedido;
                 }
                 else if (evento == 5)
                 {
-                    pedido = vectorAnterior.a4Pedido;
+                    pedido = vectorAnterior.l2Pedido;
                 }
-                else if (evento == 6)
-                {
-                    pedido = vectorAnterior.a5Pedido;
-                }
-                else if (evento == 8)
-                {
-                    pedido = 0;
-                }
-                else if (evento == 9)
-                {
-                    pedido = vectorAnterior.encastrePedido;
-                }
+                //else if (evento == 6)
+                //{
+                //    pedido = vectorAnterior.a5Pedido;
+                //}
+                //else if (evento == 8)
+                //{
+                //    pedido = 0;
+                //}
+                //else if (evento == 9)
+                //{
+                //    pedido = vectorAnterior.encastrePedido;
+                //}
                 else
                 {
                     pedido = 0;
@@ -696,11 +695,7 @@ namespace SIMULACION_TP1
 
         private void ColaParaLavar()
         {
-            if (vectorAnterior == null)
-            {
-                colaParaLavar = null;
-            }
-            else
+            if (vectorAnterior != null)
             {
                 colaParaLavar = vectorAnterior.colaParaLavar;
 
@@ -762,7 +757,7 @@ namespace SIMULACION_TP1
             }
             else
             {
-                if (vectorAnterior.l1Estado == 0 && evento == 1)
+                if (vectorAnterior.l1Estado == 0 && evento == 2)
                 {
                     l1Pedido = pedido;
                 }
@@ -837,11 +832,11 @@ namespace SIMULACION_TP1
             }
             else
             {
-                if (evento == 5 && vectorAnterior.l2Cola == 0)
+                if (evento == 5 && vectorAnterior.colaParaLavar.Count == 0)
                 {
                     l2Estado = 0;
                 }
-                else if (evento != 2 && vectorAnterior.l2Cola == 0 && vectorAnterior.l2Estado == 0)
+                else if (evento != 2 && vectorAnterior.colaParaLavar.Count == 0 && vectorAnterior.l2Estado == 0)
                 {
                     l2Estado = 0;
                 }
@@ -873,17 +868,17 @@ namespace SIMULACION_TP1
             }
             else
             {
-                if (vectorAnterior.l2Estado == 0 && evento == 2)
+                if (vectorAnterior.l2Estado == 0 && evento == 1)
                 {
-                    l2Pedido = pedido;
+                    l1Pedido = pedido;
                 }
-                else if (vectorAnterior.l2Estado == 1 && evento != 5)
+                else if (vectorAnterior.l2Estado == 1 && evento != 4)
                 {
-                    l2Pedido = vectorAnterior.l2Pedido;
+                    l2Pedido = vectorAnterior.l1Pedido;
                 }
-                else if (evento == 5 && vectorAnterior.l2Cola > 0)
+                else if (evento == 4 && vectorAnterior.colaParaLavar.Count > 0)
                 {
-                    l2Pedido = pedido + 1;
+                    l2Pedido = vectorAnterior.colaParaLavar[vectorAnterior.colaParaLavar.Count - 1]; // VER SI ES ASI
                 }
             }
         }
@@ -939,1026 +934,1026 @@ namespace SIMULACION_TP1
 
         #endregion
 
-        #region A5
-        private void A5Estado()
-        {
-            if (vectorAnterior == null)
-            {
-                a5Estado = 0;
-            }
-            else
-            {
-                if (evento == 6 && (vectorAnterior.a5ColaA4 == 0 || vectorAnterior.a5ColaA2 == 0))
-                {
-                    a5Estado = 0;
-                }
-                else if (evento == 5 && vectorAnterior.a5ColaA2 > 0)
-                {
-                    a5Estado = 1;
-                }
-                else if (evento == 3 && vectorAnterior.a5ColaA4 > 0)
-                {
-                    a5Estado = 1;
-                }
-                else
-                {
-                    a5Estado = vectorAnterior.a5Estado;
-                }
-            }
-        }
+        //#region A5
+        //private void A5Estado()
+        //{
+        //    if (vectorAnterior == null)
+        //    {
+        //        a5Estado = 0;
+        //    }
+        //    else
+        //    {
+        //        if (evento == 6 && (vectorAnterior.a5ColaA4 == 0 || vectorAnterior.a5ColaA2 == 0))
+        //        {
+        //            a5Estado = 0;
+        //        }
+        //        else if (evento == 5 && vectorAnterior.a5ColaA2 > 0)
+        //        {
+        //            a5Estado = 1;
+        //        }
+        //        else if (evento == 3 && vectorAnterior.a5ColaA4 > 0)
+        //        {
+        //            a5Estado = 1;
+        //        }
+        //        else
+        //        {
+        //            a5Estado = vectorAnterior.a5Estado;
+        //        }
+        //    }
+        //}
 
-        private double A5Tiempo(double A)
-        {
-            double atiempo = 0;
-            if (vectorAnterior == null)
-            {
-                atiempo = 0;
-            }
-            else if (a5Pedido != vectorAnterior.a5Pedido && a5Pedido != 0)
-            {
-                atiempo = A;
-            }
-            return atiempo;
-        }
+        //private double A5Tiempo(double A)
+        //{
+        //    double atiempo = 0;
+        //    if (vectorAnterior == null)
+        //    {
+        //        atiempo = 0;
+        //    }
+        //    else if (a5Pedido != vectorAnterior.a5Pedido && a5Pedido != 0)
+        //    {
+        //        atiempo = A;
+        //    }
+        //    return atiempo;
+        //}
 
-        private void A5Pedido()
-        {
-            if (vectorAnterior == null)
-            {
-                a5Pedido = 0; //SE REEMPLAZA CON "-"
-            }
-            else
-            {
-                if (vectorAnterior.a5Estado == 0 && evento == 5 && vectorAnterior.a5ColaA2 > 0)
-                {
-                    a5Pedido = pedido;
-                }
-                else if (vectorAnterior.a5Estado == 0 && evento == 3 && vectorAnterior.a5ColaA4 > 0)
-                {
-                    a5Pedido = pedido;
-                }
-                else if (vectorAnterior.a5Estado == 1 && evento != 6)
-                {
-                    a5Pedido = vectorAnterior.a5Pedido;
-                }
-                else if (evento == 6 && vectorAnterior.a5ColaA4 > 0 && vectorAnterior.a5ColaA2 > 0)
-                {
-                    a5Pedido = pedido + 1;
-                }
-            }
-        }
+        //private void A5Pedido()
+        //{
+        //    if (vectorAnterior == null)
+        //    {
+        //        a5Pedido = 0; //SE REEMPLAZA CON "-"
+        //    }
+        //    else
+        //    {
+        //        if (vectorAnterior.a5Estado == 0 && evento == 5 && vectorAnterior.a5ColaA2 > 0)
+        //        {
+        //            a5Pedido = pedido;
+        //        }
+        //        else if (vectorAnterior.a5Estado == 0 && evento == 3 && vectorAnterior.a5ColaA4 > 0)
+        //        {
+        //            a5Pedido = pedido;
+        //        }
+        //        else if (vectorAnterior.a5Estado == 1 && evento != 6)
+        //        {
+        //            a5Pedido = vectorAnterior.a5Pedido;
+        //        }
+        //        else if (evento == 6 && vectorAnterior.a5ColaA4 > 0 && vectorAnterior.a5ColaA2 > 0)
+        //        {
+        //            a5Pedido = pedido + 1;
+        //        }
+        //    }
+        //}
 
-        private void A5ProxFin()
-        {
-            if (vectorAnterior == null)
-            {
-                a5ProxFin = double.PositiveInfinity; //SE REEMPLAZA CON "-"
-            }
-            else
-            {
-                if (a5Estado == 1)
-                {
-                    if (a5Tiempo != 0)
-                    {
-                        a5ProxFin = reloj + a5Tiempo;
-                    }
-                    else
-                    {
-                        a5ProxFin = vectorAnterior.a5ProxFin;
-                    }
-                }
-                else
-                {
-                    a5ProxFin = double.PositiveInfinity;
-                }
-            }
-        }
+        //private void A5ProxFin()
+        //{
+        //    if (vectorAnterior == null)
+        //    {
+        //        a5ProxFin = double.PositiveInfinity; //SE REEMPLAZA CON "-"
+        //    }
+        //    else
+        //    {
+        //        if (a5Estado == 1)
+        //        {
+        //            if (a5Tiempo != 0)
+        //            {
+        //                a5ProxFin = reloj + a5Tiempo;
+        //            }
+        //            else
+        //            {
+        //                a5ProxFin = vectorAnterior.a5ProxFin;
+        //            }
+        //        }
+        //        else
+        //        {
+        //            a5ProxFin = double.PositiveInfinity;
+        //        }
+        //    }
+        //}
 
-        private void A5ColaA4()
-        {
-            if (vectorAnterior == null)
-            {
-                a5ColaA4 = 0;
-            }
-            else
-            {
-                if (evento == 5 && vectorAnterior.a5Estado == 1)
-                {
-                    a5ColaA4 = vectorAnterior.a5ColaA4 + 1;
-                }
-                else if (evento == 5 && vectorAnterior.a5Estado == 0 && vectorAnterior.a5ColaA2 == 0)
-                {
-                    a5ColaA4 = vectorAnterior.a5ColaA4 + 1;
-                }
-                else if (evento == 6 && vectorAnterior.a5ColaA4 > 0)
-                {
-                    a5ColaA4 = vectorAnterior.a5ColaA4 - 1;
-                }
-                else
-                {
-                    a5ColaA4 = vectorAnterior.a5ColaA4;
-                }
-            }
-        }
+        //private void A5ColaA4()
+        //{
+        //    if (vectorAnterior == null)
+        //    {
+        //        a5ColaA4 = 0;
+        //    }
+        //    else
+        //    {
+        //        if (evento == 5 && vectorAnterior.a5Estado == 1)
+        //        {
+        //            a5ColaA4 = vectorAnterior.a5ColaA4 + 1;
+        //        }
+        //        else if (evento == 5 && vectorAnterior.a5Estado == 0 && vectorAnterior.a5ColaA2 == 0)
+        //        {
+        //            a5ColaA4 = vectorAnterior.a5ColaA4 + 1;
+        //        }
+        //        else if (evento == 6 && vectorAnterior.a5ColaA4 > 0)
+        //        {
+        //            a5ColaA4 = vectorAnterior.a5ColaA4 - 1;
+        //        }
+        //        else
+        //        {
+        //            a5ColaA4 = vectorAnterior.a5ColaA4;
+        //        }
+        //    }
+        //}
 
-        private void A5ColaA2()
-        {
-            if (vectorAnterior == null)
-            {
-                a5ColaA2 = 0;
-            }
-            else
-            {
-                if (evento == 3 && vectorAnterior.a5Estado == 1)
-                {
-                    a5ColaA2 = vectorAnterior.a5ColaA2 + 1;
-                }
-                else if (evento == 3 && vectorAnterior.a5Estado == 0 && vectorAnterior.a5ColaA4 == 0)
-                {
-                    a5ColaA2 = vectorAnterior.a5ColaA2 + 1;
-                }
-                else if (evento == 6 && vectorAnterior.a5ColaA2 > 0)
-                {
-                    a5ColaA2 = vectorAnterior.a5ColaA2 - 1;
-                }
-                else
-                {
-                    a5ColaA2 = vectorAnterior.a5ColaA2;
-                }
-            }
-        }
+        //private void A5ColaA2()
+        //{
+        //    if (vectorAnterior == null)
+        //    {
+        //        a5ColaA2 = 0;
+        //    }
+        //    else
+        //    {
+        //        if (evento == 3 && vectorAnterior.a5Estado == 1)
+        //        {
+        //            a5ColaA2 = vectorAnterior.a5ColaA2 + 1;
+        //        }
+        //        else if (evento == 3 && vectorAnterior.a5Estado == 0 && vectorAnterior.a5ColaA4 == 0)
+        //        {
+        //            a5ColaA2 = vectorAnterior.a5ColaA2 + 1;
+        //        }
+        //        else if (evento == 6 && vectorAnterior.a5ColaA2 > 0)
+        //        {
+        //            a5ColaA2 = vectorAnterior.a5ColaA2 - 1;
+        //        }
+        //        else
+        //        {
+        //            a5ColaA2 = vectorAnterior.a5ColaA2;
+        //        }
+        //    }
+        //}
 
-        #endregion
+        //#endregion
 
-        #region COLASENCASTRE
-        private void EncastreEstado()
-        {
-            if (vectorAnterior == null)
-            {
-                encastreEstado = 0;
-            }
-            else
-            {
-                if (evento == 9 && (vectorAnterior.colaEncastreA3 == 0 || vectorAnterior.colaEncastreA5 == 0))
-                {
-                    encastreEstado = 0;
-                }
-                else if (evento == 4 && vectorAnterior.colaEncastreA5 > 0)
-                {
-                    encastreEstado = 1;
-                }
-                else if (evento == 6 && vectorAnterior.colaEncastreA3 > 0)
-                {
-                    encastreEstado = 1;
-                }
-                else
-                {
-                    encastreEstado = vectorAnterior.encastreEstado;
-                }
-            }
-        }
+        //#region COLASENCASTRE
+        //private void EncastreEstado()
+        //{
+        //    if (vectorAnterior == null)
+        //    {
+        //        encastreEstado = 0;
+        //    }
+        //    else
+        //    {
+        //        if (evento == 9 && (vectorAnterior.colaEncastreA3 == 0 || vectorAnterior.colaEncastreA5 == 0))
+        //        {
+        //            encastreEstado = 0;
+        //        }
+        //        else if (evento == 4 && vectorAnterior.colaEncastreA5 > 0)
+        //        {
+        //            encastreEstado = 1;
+        //        }
+        //        else if (evento == 6 && vectorAnterior.colaEncastreA3 > 0)
+        //        {
+        //            encastreEstado = 1;
+        //        }
+        //        else
+        //        {
+        //            encastreEstado = vectorAnterior.encastreEstado;
+        //        }
+        //    }
+        //}
 
-        private void EncastreTiempo()
-        {
-            if (vectorAnterior == null)
-            {
-                encastreTiempo = 0;
-            }
-            else if (encastrePedido != vectorAnterior.encastrePedido && encastrePedido != 0)
-            {
-                encastreTiempo = picoTiempoEncastre;
-            }
-        }
+        //private void EncastreTiempo()
+        //{
+        //    if (vectorAnterior == null)
+        //    {
+        //        encastreTiempo = 0;
+        //    }
+        //    else if (encastrePedido != vectorAnterior.encastrePedido && encastrePedido != 0)
+        //    {
+        //        encastreTiempo = picoTiempoEncastre;
+        //    }
+        //}
 
-        private void EncastrePedido()
-        {
-            if (vectorAnterior == null)
-            {
-                encastrePedido = 0; //SE REEMPLAZA CON "-"
-            }
-            else
-            {
-                if (vectorAnterior.encastreEstado == 0 && evento == 4 && vectorAnterior.colaEncastreA5 > 0)
-                {
-                    encastrePedido = pedido;
-                }
-                else if (vectorAnterior.encastreEstado == 0 && evento == 6 && vectorAnterior.colaEncastreA3 > 0)
-                {
-                    encastrePedido = pedido;
-                }
-                else if (vectorAnterior.encastreEstado == 1 && evento != 9)
-                {
-                    encastrePedido = vectorAnterior.encastrePedido;
-                }
-                else if (evento == 9 && vectorAnterior.colaEncastreA5 > 0 && vectorAnterior.colaEncastreA5 > 0)
-                {
-                    encastrePedido = pedido + 1;
-                }
-            }
-        }
+        //private void EncastrePedido()
+        //{
+        //    if (vectorAnterior == null)
+        //    {
+        //        encastrePedido = 0; //SE REEMPLAZA CON "-"
+        //    }
+        //    else
+        //    {
+        //        if (vectorAnterior.encastreEstado == 0 && evento == 4 && vectorAnterior.colaEncastreA5 > 0)
+        //        {
+        //            encastrePedido = pedido;
+        //        }
+        //        else if (vectorAnterior.encastreEstado == 0 && evento == 6 && vectorAnterior.colaEncastreA3 > 0)
+        //        {
+        //            encastrePedido = pedido;
+        //        }
+        //        else if (vectorAnterior.encastreEstado == 1 && evento != 9)
+        //        {
+        //            encastrePedido = vectorAnterior.encastrePedido;
+        //        }
+        //        else if (evento == 9 && vectorAnterior.colaEncastreA5 > 0 && vectorAnterior.colaEncastreA5 > 0)
+        //        {
+        //            encastrePedido = pedido + 1;
+        //        }
+        //    }
+        //}
 
-        private void EncastreProxFin()
-        {
-            if (vectorAnterior == null)
-            {
-                encastreProxFin = double.PositiveInfinity; //SE REEMPLAZA CON "-"
-            }
-            else
-            {
-                if (encastreEstado == 1)
-                {
-                    if (encastreTiempo != 0)
-                    {
-                        encastreProxFin = reloj + encastreTiempo;
-                    }
-                    else
-                    {
-                        encastreProxFin = vectorAnterior.encastreProxFin;
-                    }
-                }
-                else
-                {
-                    encastreProxFin = double.PositiveInfinity;
-                }
-            }
-        }
+        //private void EncastreProxFin()
+        //{
+        //    if (vectorAnterior == null)
+        //    {
+        //        encastreProxFin = double.PositiveInfinity; //SE REEMPLAZA CON "-"
+        //    }
+        //    else
+        //    {
+        //        if (encastreEstado == 1)
+        //        {
+        //            if (encastreTiempo != 0)
+        //            {
+        //                encastreProxFin = reloj + encastreTiempo;
+        //            }
+        //            else
+        //            {
+        //                encastreProxFin = vectorAnterior.encastreProxFin;
+        //            }
+        //        }
+        //        else
+        //        {
+        //            encastreProxFin = double.PositiveInfinity;
+        //        }
+        //    }
+        //}
 
-        private void ColaEncastreA3()
-        {
-            if (vectorAnterior == null)
-            {
-                colaEncastreA3 = 0;
-            }
-            else if (evento == 4 && vectorAnterior.encastreEstado == 1)
-            {
-                colaEncastreA3 = vectorAnterior.colaEncastreA3 + 1;
-            }
-            else if (evento == 4 && vectorAnterior.encastreEstado == 0 && vectorAnterior.colaEncastreA3 == 0)
-            {
-                colaEncastreA3 = vectorAnterior.colaEncastreA3 + 1;
-            }
-            else if(evento == 9 && vectorAnterior.colaEncastreA3 > 0)
-            {
-                colaEncastreA3 = vectorAnterior.colaEncastreA3 - 1;
-            }
-            else
-            {
-                colaEncastreA3 = vectorAnterior.colaEncastreA3;
-            }
-        }
+        //private void ColaEncastreA3()
+        //{
+        //    if (vectorAnterior == null)
+        //    {
+        //        colaEncastreA3 = 0;
+        //    }
+        //    else if (evento == 4 && vectorAnterior.encastreEstado == 1)
+        //    {
+        //        colaEncastreA3 = vectorAnterior.colaEncastreA3 + 1;
+        //    }
+        //    else if (evento == 4 && vectorAnterior.encastreEstado == 0 && vectorAnterior.colaEncastreA3 == 0)
+        //    {
+        //        colaEncastreA3 = vectorAnterior.colaEncastreA3 + 1;
+        //    }
+        //    else if(evento == 9 && vectorAnterior.colaEncastreA3 > 0)
+        //    {
+        //        colaEncastreA3 = vectorAnterior.colaEncastreA3 - 1;
+        //    }
+        //    else
+        //    {
+        //        colaEncastreA3 = vectorAnterior.colaEncastreA3;
+        //    }
+        //}
 
-        private void ColaEncastreA5()
-        {
-            if (vectorAnterior == null)
-            {
-                colaEncastreA5 = 0;
-            }
-            else if (evento == 6 && vectorAnterior.encastreEstado == 1)
-            {
-                colaEncastreA5 = vectorAnterior.colaEncastreA5 + 1;
-            }
-            else if (evento == 6 && vectorAnterior.encastreEstado == 0 && vectorAnterior.colaEncastreA5 == 0)
-            {
-                colaEncastreA5 = vectorAnterior.colaEncastreA5 + 1;
-            }
-            else if (evento == 9 && vectorAnterior.colaEncastreA5 > 0)
-            {
-                colaEncastreA5 = vectorAnterior.colaEncastreA5 - 1;
-            }
-            else
-            {
-                colaEncastreA5 = vectorAnterior.colaEncastreA5;
-            }
-        }
-        #endregion
+        //private void ColaEncastreA5()
+        //{
+        //    if (vectorAnterior == null)
+        //    {
+        //        colaEncastreA5 = 0;
+        //    }
+        //    else if (evento == 6 && vectorAnterior.encastreEstado == 1)
+        //    {
+        //        colaEncastreA5 = vectorAnterior.colaEncastreA5 + 1;
+        //    }
+        //    else if (evento == 6 && vectorAnterior.encastreEstado == 0 && vectorAnterior.colaEncastreA5 == 0)
+        //    {
+        //        colaEncastreA5 = vectorAnterior.colaEncastreA5 + 1;
+        //    }
+        //    else if (evento == 9 && vectorAnterior.colaEncastreA5 > 0)
+        //    {
+        //        colaEncastreA5 = vectorAnterior.colaEncastreA5 - 1;
+        //    }
+        //    else
+        //    {
+        //        colaEncastreA5 = vectorAnterior.colaEncastreA5;
+        //    }
+        //}
+        //#endregion
 
-        #region ProporcionEnsamblesRealizadosSobreSolicitados
-        private void CantidadEnsamblesSolicitados()
-        {
-            if (vectorAnterior == null)
-            {
-                cantidadEnsamblesSolicitados = 0;
-            }
-            else if (evento == 1)
-            {
-                cantidadEnsamblesSolicitados = vectorAnterior.cantidadEnsamblesSolicitados + 1;
-            }
-            else
-            {
-                cantidadEnsamblesSolicitados = vectorAnterior.cantidadEnsamblesSolicitados;
-            }
-        }
+        //#region ProporcionEnsamblesRealizadosSobreSolicitados
+        //private void CantidadEnsamblesSolicitados()
+        //{
+        //    if (vectorAnterior == null)
+        //    {
+        //        cantidadEnsamblesSolicitados = 0;
+        //    }
+        //    else if (evento == 1)
+        //    {
+        //        cantidadEnsamblesSolicitados = vectorAnterior.cantidadEnsamblesSolicitados + 1;
+        //    }
+        //    else
+        //    {
+        //        cantidadEnsamblesSolicitados = vectorAnterior.cantidadEnsamblesSolicitados;
+        //    }
+        //}
 
-        private void CantidadEnsamblesFinalizados()
-        {
-            if (vectorAnterior == null)
-            {
-                cantidadEnsamblesFinalizados = 0;
-            }
-            else if (evento == 9)
-            {
-                cantidadEnsamblesFinalizados = vectorAnterior.cantidadEnsamblesFinalizados + 1;
-            }
-            else if (evento == 9)
-            {
-                cantidadEnsamblesFinalizados = vectorAnterior.cantidadEnsamblesFinalizados + 1;
-            }
-            else
-            {
-                cantidadEnsamblesFinalizados = vectorAnterior.cantidadEnsamblesFinalizados;
-            }
-        }
+        //private void CantidadEnsamblesFinalizados()
+        //{
+        //    if (vectorAnterior == null)
+        //    {
+        //        cantidadEnsamblesFinalizados = 0;
+        //    }
+        //    else if (evento == 9)
+        //    {
+        //        cantidadEnsamblesFinalizados = vectorAnterior.cantidadEnsamblesFinalizados + 1;
+        //    }
+        //    else if (evento == 9)
+        //    {
+        //        cantidadEnsamblesFinalizados = vectorAnterior.cantidadEnsamblesFinalizados + 1;
+        //    }
+        //    else
+        //    {
+        //        cantidadEnsamblesFinalizados = vectorAnterior.cantidadEnsamblesFinalizados;
+        //    }
+        //}
 
-        private void PropEnsamRealSobreSolic()
-        {
-            if (vectorAnterior == null)
-            {
-                propEnsamRealSobreSolic = 0;
-            }
-            else if (cantidadEnsamblesFinalizados == 0)
-            {
-                propEnsamRealSobreSolic = vectorAnterior.propEnsamRealSobreSolic;
-            }
-            else
-            {
-                propEnsamRealSobreSolic = (double)cantidadEnsamblesFinalizados / (double)cantidadEnsamblesSolicitados;
-            }
-        }
+        //private void PropEnsamRealSobreSolic()
+        //{
+        //    if (vectorAnterior == null)
+        //    {
+        //        propEnsamRealSobreSolic = 0;
+        //    }
+        //    else if (cantidadEnsamblesFinalizados == 0)
+        //    {
+        //        propEnsamRealSobreSolic = vectorAnterior.propEnsamRealSobreSolic;
+        //    }
+        //    else
+        //    {
+        //        propEnsamRealSobreSolic = (double)cantidadEnsamblesFinalizados / (double)cantidadEnsamblesSolicitados;
+        //    }
+        //}
 
-        private void TiempoPromedioDuracionEnsamble()
-        {
-            if (vectorAnterior == null)
-            {
-                duracionPromedioEnsamble = 0;
-            }
-            else
-            {
-                if(cantidadEnsamblesFinalizados != 0)
-                {
-                    duracionPromedioEnsamble = reloj / cantidadEnsamblesFinalizados;
-                }
-                else
-                {
-                    duracionPromedioEnsamble = cantidadEnsamblesFinalizados;
-                }
-            }
-        }
+        //private void TiempoPromedioDuracionEnsamble()
+        //{
+        //    if (vectorAnterior == null)
+        //    {
+        //        duracionPromedioEnsamble = 0;
+        //    }
+        //    else
+        //    {
+        //        if(cantidadEnsamblesFinalizados != 0)
+        //        {
+        //            duracionPromedioEnsamble = reloj / cantidadEnsamblesFinalizados;
+        //        }
+        //        else
+        //        {
+        //            duracionPromedioEnsamble = cantidadEnsamblesFinalizados;
+        //        }
+        //    }
+        //}
 
-        #endregion
+        //#endregion
 
-        #region TIEMPOS PROMEDIOS 
-        private void TiempoLlegada()
-        {
-            if (vectorAnterior == null)
-            {
-                tiempoLlegada = 0;
-            }
-            else if (evento == 1 && pedido == pedidoACalcular)
-            {
-                tiempoLlegada = reloj;
-            }
-            else
-            {
-                tiempoLlegada = vectorAnterior.tiempoLlegada;
-            }
-        }
+        //#region TIEMPOS PROMEDIOS 
+        //private void TiempoLlegada()
+        //{
+        //    if (vectorAnterior == null)
+        //    {
+        //        tiempoLlegada = 0;
+        //    }
+        //    else if (evento == 1 && pedido == pedidoACalcular)
+        //    {
+        //        tiempoLlegada = reloj;
+        //    }
+        //    else
+        //    {
+        //        tiempoLlegada = vectorAnterior.tiempoLlegada;
+        //    }
+        //}
 
-        private void TiempoInicioAtencionA1()
-        {
-            if (vectorAnterior == null)
-            {
-                tiempoInicioAtencionA1 = 0;
-            }
-            else if (a1Tiempo > 0 && a1Pedido == pedidoACalcular)
-            {
-                tiempoInicioAtencionA1 = reloj;
-            }
-            else
-            {
-                tiempoInicioAtencionA1 = vectorAnterior.tiempoInicioAtencionA1;
-            }
-        }
-        private void TiempoPromCola1()
-        {
-            if (vectorAnterior == null)
-            {
-                tiempoPromCola1 = 0;
-            }
-            else if (tiempoInicioAtencionA1 >= tiempoLlegada)
-            {
-                tiempoPromCola1 = tiempoInicioAtencionA1 - tiempoLlegada;
-            }
-            else
-            {
-                tiempoPromCola1 = vectorAnterior.tiempoPromCola1;
-            }
-        }
-        private void TiempoInicioAtencionA2()
-        {
-            if (vectorAnterior == null)
-            {
-                tiempoInicioAtencionA2 = 0;
-            }
-            else if (a2Tiempo > 0 && a2Pedido == pedidoACalcular)
-            {
-                tiempoInicioAtencionA2 = reloj;
-            }
-            else
-            {
-                tiempoInicioAtencionA2 = vectorAnterior.tiempoInicioAtencionA2;
-            }
-        }
-        private void TiempoPromCola2()
-        {
-            if (vectorAnterior == null)
-            {
-                tiempoPromCola2 = 0;
-            }
-            else if (tiempoInicioAtencionA2 >= tiempoLlegada)
-            {
-                tiempoPromCola2 = tiempoInicioAtencionA2 - tiempoLlegada;
-            }
-            else
-            {
-                tiempoPromCola2 = vectorAnterior.tiempoPromCola2;
-            }
-        }
-        private void TiempoInicioAtencionA3()
-        {
-            if (vectorAnterior == null)
-            {
-                tiempoInicioAtencionA3 = 0;
-            }
-            else if (a3Tiempo > 0 && a3Pedido == pedidoACalcular)
-            {
-                tiempoInicioAtencionA3 = reloj;
-            }
-            else
-            {
-                tiempoInicioAtencionA3 = vectorAnterior.tiempoInicioAtencionA3;
-            }
-        }
-        private void TiempoPromCola3()
-        {
-            if (vectorAnterior == null)
-            {
-                tiempoPromCola3 = 0;
-            }
-            else if (tiempoInicioAtencionA3 >= tiempoLlegada)
-            {
-                tiempoPromCola3 = tiempoInicioAtencionA3 - tiempoLlegada;
-            }
-            else
-            {
-                tiempoPromCola3 = vectorAnterior.tiempoPromCola3;
-            }
-        }
-        private void TiempoInicioAtencionA4()
-        {
-            if (vectorAnterior == null)
-            {
-                tiempoInicioAtencionA4 = 0;
-            }
-            else if (a4Tiempo > 0 && a4Pedido == pedidoACalcular)
-            {
-                tiempoInicioAtencionA4 = reloj;
-            }
-            else
-            {
-                tiempoInicioAtencionA4 = vectorAnterior.tiempoInicioAtencionA4;
-            }
-        }
-        private void TiempoPromCola4()
-        {
-            if (vectorAnterior == null)
-            {
-                tiempoPromCola4 = 0;
-            }
-            else if (tiempoInicioAtencionA4 >= tiempoLlegada)
-            {
-                tiempoPromCola4 = tiempoInicioAtencionA4 - tiempoLlegada;
-            }
-            else
-            {
-                tiempoPromCola4 = vectorAnterior.tiempoPromCola4;
-            }
-        }
-        private void TiempoInicioAtencionA5()
-        {
-            if (vectorAnterior == null)
-            {
-                tiempoInicioAtencionA5 = 0;
-            }
-            else if (a5Tiempo > 0 && a5Pedido == pedidoACalcular)
-            {
-                tiempoInicioAtencionA5 = reloj;
-            }
-            else
-            {
-                tiempoInicioAtencionA5 = vectorAnterior.tiempoInicioAtencionA5;
-            }
-        }
-        private void TiempoPromCola5()
-        {
-            if (vectorAnterior == null)
-            {
-                tiempoPromCola5 = 0;
-            }
-            else if (tiempoInicioAtencionA5 >= tiempoLlegada)
-            {
-                tiempoPromCola5 = tiempoInicioAtencionA5 - tiempoLlegada;
-            }
-            else
-            {
-                tiempoPromCola5 = vectorAnterior.tiempoPromCola5;
-            }
-        }
-        private void TiempoInicioAtencionEncastre()
-        {
-            if (vectorAnterior == null)
-            {
-                tiempoInicioAtencionEncastre = 0;
-            }
-            else
-            {
-                if(colaEncastreA3 > vectorAnterior.colaEncastreA3 || colaEncastreA5 > vectorAnterior.colaEncastreA5)
-                {
-                    tiempoInicioAtencionEncastre = reloj;
-                }
-                else
-                {
-                    tiempoInicioAtencionEncastre = vectorAnterior.tiempoInicioAtencionEncastre;
-                }
-            }
-        }
-        private void TiempoPromColaEncastre()
-        {
-            if (vectorAnterior == null)
-            {
-                tiempoPromColaEncastre = 0;
-            }
-            else if (tiempoInicioAtencionEncastre >= tiempoLlegada)
-            {
-                tiempoPromColaEncastre = tiempoInicioAtencionEncastre - tiempoLlegada;
-            }
-            else
-            {
-                tiempoPromColaEncastre = vectorAnterior.tiempoPromColaEncastre;
-            }
-        }
-        #endregion
+        //private void TiempoInicioAtencionA1()
+        //{
+        //    if (vectorAnterior == null)
+        //    {
+        //        tiempoInicioAtencionA1 = 0;
+        //    }
+        //    else if (a1Tiempo > 0 && a1Pedido == pedidoACalcular)
+        //    {
+        //        tiempoInicioAtencionA1 = reloj;
+        //    }
+        //    else
+        //    {
+        //        tiempoInicioAtencionA1 = vectorAnterior.tiempoInicioAtencionA1;
+        //    }
+        //}
+        //private void TiempoPromCola1()
+        //{
+        //    if (vectorAnterior == null)
+        //    {
+        //        tiempoPromCola1 = 0;
+        //    }
+        //    else if (tiempoInicioAtencionA1 >= tiempoLlegada)
+        //    {
+        //        tiempoPromCola1 = tiempoInicioAtencionA1 - tiempoLlegada;
+        //    }
+        //    else
+        //    {
+        //        tiempoPromCola1 = vectorAnterior.tiempoPromCola1;
+        //    }
+        //}
+        //private void TiempoInicioAtencionA2()
+        //{
+        //    if (vectorAnterior == null)
+        //    {
+        //        tiempoInicioAtencionA2 = 0;
+        //    }
+        //    else if (a2Tiempo > 0 && a2Pedido == pedidoACalcular)
+        //    {
+        //        tiempoInicioAtencionA2 = reloj;
+        //    }
+        //    else
+        //    {
+        //        tiempoInicioAtencionA2 = vectorAnterior.tiempoInicioAtencionA2;
+        //    }
+        //}
+        //private void TiempoPromCola2()
+        //{
+        //    if (vectorAnterior == null)
+        //    {
+        //        tiempoPromCola2 = 0;
+        //    }
+        //    else if (tiempoInicioAtencionA2 >= tiempoLlegada)
+        //    {
+        //        tiempoPromCola2 = tiempoInicioAtencionA2 - tiempoLlegada;
+        //    }
+        //    else
+        //    {
+        //        tiempoPromCola2 = vectorAnterior.tiempoPromCola2;
+        //    }
+        //}
+        //private void TiempoInicioAtencionA3()
+        //{
+        //    if (vectorAnterior == null)
+        //    {
+        //        tiempoInicioAtencionA3 = 0;
+        //    }
+        //    else if (a3Tiempo > 0 && a3Pedido == pedidoACalcular)
+        //    {
+        //        tiempoInicioAtencionA3 = reloj;
+        //    }
+        //    else
+        //    {
+        //        tiempoInicioAtencionA3 = vectorAnterior.tiempoInicioAtencionA3;
+        //    }
+        //}
+        //private void TiempoPromCola3()
+        //{
+        //    if (vectorAnterior == null)
+        //    {
+        //        tiempoPromCola3 = 0;
+        //    }
+        //    else if (tiempoInicioAtencionA3 >= tiempoLlegada)
+        //    {
+        //        tiempoPromCola3 = tiempoInicioAtencionA3 - tiempoLlegada;
+        //    }
+        //    else
+        //    {
+        //        tiempoPromCola3 = vectorAnterior.tiempoPromCola3;
+        //    }
+        //}
+        //private void TiempoInicioAtencionA4()
+        //{
+        //    if (vectorAnterior == null)
+        //    {
+        //        tiempoInicioAtencionA4 = 0;
+        //    }
+        //    else if (a4Tiempo > 0 && a4Pedido == pedidoACalcular)
+        //    {
+        //        tiempoInicioAtencionA4 = reloj;
+        //    }
+        //    else
+        //    {
+        //        tiempoInicioAtencionA4 = vectorAnterior.tiempoInicioAtencionA4;
+        //    }
+        //}
+        //private void TiempoPromCola4()
+        //{
+        //    if (vectorAnterior == null)
+        //    {
+        //        tiempoPromCola4 = 0;
+        //    }
+        //    else if (tiempoInicioAtencionA4 >= tiempoLlegada)
+        //    {
+        //        tiempoPromCola4 = tiempoInicioAtencionA4 - tiempoLlegada;
+        //    }
+        //    else
+        //    {
+        //        tiempoPromCola4 = vectorAnterior.tiempoPromCola4;
+        //    }
+        //}
+        //private void TiempoInicioAtencionA5()
+        //{
+        //    if (vectorAnterior == null)
+        //    {
+        //        tiempoInicioAtencionA5 = 0;
+        //    }
+        //    else if (a5Tiempo > 0 && a5Pedido == pedidoACalcular)
+        //    {
+        //        tiempoInicioAtencionA5 = reloj;
+        //    }
+        //    else
+        //    {
+        //        tiempoInicioAtencionA5 = vectorAnterior.tiempoInicioAtencionA5;
+        //    }
+        //}
+        //private void TiempoPromCola5()
+        //{
+        //    if (vectorAnterior == null)
+        //    {
+        //        tiempoPromCola5 = 0;
+        //    }
+        //    else if (tiempoInicioAtencionA5 >= tiempoLlegada)
+        //    {
+        //        tiempoPromCola5 = tiempoInicioAtencionA5 - tiempoLlegada;
+        //    }
+        //    else
+        //    {
+        //        tiempoPromCola5 = vectorAnterior.tiempoPromCola5;
+        //    }
+        //}
+        //private void TiempoInicioAtencionEncastre()
+        //{
+        //    if (vectorAnterior == null)
+        //    {
+        //        tiempoInicioAtencionEncastre = 0;
+        //    }
+        //    else
+        //    {
+        //        if(colaEncastreA3 > vectorAnterior.colaEncastreA3 || colaEncastreA5 > vectorAnterior.colaEncastreA5)
+        //        {
+        //            tiempoInicioAtencionEncastre = reloj;
+        //        }
+        //        else
+        //        {
+        //            tiempoInicioAtencionEncastre = vectorAnterior.tiempoInicioAtencionEncastre;
+        //        }
+        //    }
+        //}
+        //private void TiempoPromColaEncastre()
+        //{
+        //    if (vectorAnterior == null)
+        //    {
+        //        tiempoPromColaEncastre = 0;
+        //    }
+        //    else if (tiempoInicioAtencionEncastre >= tiempoLlegada)
+        //    {
+        //        tiempoPromColaEncastre = tiempoInicioAtencionEncastre - tiempoLlegada;
+        //    }
+        //    else
+        //    {
+        //        tiempoPromColaEncastre = vectorAnterior.tiempoPromColaEncastre;
+        //    }
+        //}
+        //#endregion
 
-        #region CANTIDAD PROMEDIO      
-        private void CantPromedioProdEnCola()
-        {
-            if (vectorAnterior == null)
-            {
-                cantPromedioProdEnCola = 0;
-            }
-            else
-            {
-                cantPromedioProdEnCola = (double)(a1Cola + a2Cola + a3Cola + a4Cola + a5ColaA2 + a5ColaA4 + colaEncastreA3 + colaEncastreA5) / 6;
-            }
-        }
+        //#region CANTIDAD PROMEDIO      
+        //private void CantPromedioProdEnCola()
+        //{
+        //    if (vectorAnterior == null)
+        //    {
+        //        cantPromedioProdEnCola = 0;
+        //    }
+        //    else
+        //    {
+        //        cantPromedioProdEnCola = (double)(a1Cola + a2Cola + a3Cola + a4Cola + a5ColaA2 + a5ColaA4 + colaEncastreA3 + colaEncastreA5) / 6;
+        //    }
+        //}
 
-        private void CantPromedioProdEnSistema()
-        {
-            if (vectorAnterior == null)
-            {
-                cantPromedioProdEnSistema = 0;
-            }
-            else
-            {
-                cantPromedioProdEnSistema = (double)(a1Estado + a2Estado + a3Estado + a4Estado + a5Estado +
-                                                a1Cola + a2Cola + a3Cola + a4Cola + a5ColaA2 + a5ColaA4 + colaEncastreA3 + colaEncastreA5) / 6;
-            }
-        }
-        #endregion
+        //private void CantPromedioProdEnSistema()
+        //{
+        //    if (vectorAnterior == null)
+        //    {
+        //        cantPromedioProdEnSistema = 0;
+        //    }
+        //    else
+        //    {
+        //        cantPromedioProdEnSistema = (double)(a1Estado + a2Estado + a3Estado + a4Estado + a5Estado +
+        //                                        a1Cola + a2Cola + a3Cola + a4Cola + a5ColaA2 + a5ColaA4 + colaEncastreA3 + colaEncastreA5) / 6;
+        //    }
+        //}
+        //#endregion
 
-        #region PORCENTAJE DE OCUPACION
-        private void TiempoOcupadoA1()
-        {
-            if (vectorAnterior == null)
-            {
-                tiempoOcupadoA1 = 0;
-            }
-            else if (a1Estado == 1 && vectorAnterior.a1Estado == 0)
-            {
-                tiempoOcupadoA1 = 3; //"x"
-            }
-            else 
-            {
-                if (a1Estado == 0 && vectorAnterior.a1Estado == 1)
-                    tiempoOcupadoA1 = 0;
-                else
-                    tiempoOcupadoA1 = vectorAnterior.tiempoOcupadoA1;
-            }
+        //#region PORCENTAJE DE OCUPACION
+        //private void TiempoOcupadoA1()
+        //{
+        //    if (vectorAnterior == null)
+        //    {
+        //        tiempoOcupadoA1 = 0;
+        //    }
+        //    else if (a1Estado == 1 && vectorAnterior.a1Estado == 0)
+        //    {
+        //        tiempoOcupadoA1 = 3; //"x"
+        //    }
+        //    else 
+        //    {
+        //        if (a1Estado == 0 && vectorAnterior.a1Estado == 1)
+        //            tiempoOcupadoA1 = 0;
+        //        else
+        //            tiempoOcupadoA1 = vectorAnterior.tiempoOcupadoA1;
+        //    }
             
-        }
-        private void AcumuladoTiempoOcupadoA1()
-        {
-            if (vectorAnterior == null)
-            {
-                acumuladoTiempoOcupadoA1 = 0;
-            }
-            else if (tiempoOcupadoA1 == 3 && vectorAnterior.tiempoOcupadoA1 == 0)
-            {
-                acumuladoTiempoOcupadoA1 = 0;
-            }
-            else if(tiempoOcupadoA1 == 3 && vectorAnterior.tiempoOcupadoA1 == 3)
-            {
-                acumuladoTiempoOcupadoA1 = reloj - vectorAnterior.reloj + vectorAnterior.acumuladoTiempoOcupadoA1;
-            } 
-            else
-            {
-                acumuladoTiempoOcupadoA1 = vectorAnterior.acumuladoTiempoOcupadoA1;
-            }
-        }
+        //}
+        //private void AcumuladoTiempoOcupadoA1()
+        //{
+        //    if (vectorAnterior == null)
+        //    {
+        //        acumuladoTiempoOcupadoA1 = 0;
+        //    }
+        //    else if (tiempoOcupadoA1 == 3 && vectorAnterior.tiempoOcupadoA1 == 0)
+        //    {
+        //        acumuladoTiempoOcupadoA1 = 0;
+        //    }
+        //    else if(tiempoOcupadoA1 == 3 && vectorAnterior.tiempoOcupadoA1 == 3)
+        //    {
+        //        acumuladoTiempoOcupadoA1 = reloj - vectorAnterior.reloj + vectorAnterior.acumuladoTiempoOcupadoA1;
+        //    } 
+        //    else
+        //    {
+        //        acumuladoTiempoOcupadoA1 = vectorAnterior.acumuladoTiempoOcupadoA1;
+        //    }
+        //}
 
-        private void PorcOcupacionA1()
-        {
-            if (vectorAnterior == null)
-            {
-                porcOcupacionA1 = 0;
-            }
-            else if (tiempoOcupadoA1 == 3 && vectorAnterior.tiempoOcupadoA1 == 3)
-            {
-                porcOcupacionA1 = (acumuladoTiempoOcupadoA1 * 100) / reloj;
-            }
-            else
-            {
-                porcOcupacionA1 = vectorAnterior.porcOcupacionA1;
-            }
-        }
+        //private void PorcOcupacionA1()
+        //{
+        //    if (vectorAnterior == null)
+        //    {
+        //        porcOcupacionA1 = 0;
+        //    }
+        //    else if (tiempoOcupadoA1 == 3 && vectorAnterior.tiempoOcupadoA1 == 3)
+        //    {
+        //        porcOcupacionA1 = (acumuladoTiempoOcupadoA1 * 100) / reloj;
+        //    }
+        //    else
+        //    {
+        //        porcOcupacionA1 = vectorAnterior.porcOcupacionA1;
+        //    }
+        //}
 
-        private void TiempoOcupadoA2()
-        {
-            if (vectorAnterior == null)
-            {
-                tiempoOcupadoA2 = 0;
-            }
-            else if (a2Estado == 1 && vectorAnterior.a2Estado == 0)
-            {
-                tiempoOcupadoA2 = 3; //"x"
-            }
-            else
-            {
-                if (a2Estado == 0 && vectorAnterior.a2Estado == 1)
-                    tiempoOcupadoA2 = 0;
-                else
-                    tiempoOcupadoA2 = vectorAnterior.tiempoOcupadoA2;
-            }
-        }
+        //private void TiempoOcupadoA2()
+        //{
+        //    if (vectorAnterior == null)
+        //    {
+        //        tiempoOcupadoA2 = 0;
+        //    }
+        //    else if (a2Estado == 1 && vectorAnterior.a2Estado == 0)
+        //    {
+        //        tiempoOcupadoA2 = 3; //"x"
+        //    }
+        //    else
+        //    {
+        //        if (a2Estado == 0 && vectorAnterior.a2Estado == 1)
+        //            tiempoOcupadoA2 = 0;
+        //        else
+        //            tiempoOcupadoA2 = vectorAnterior.tiempoOcupadoA2;
+        //    }
+        //}
 
-        private void AcumuladoTiempoOcupadoA2()
-        {
-            if (vectorAnterior == null)
-            {
-                acumuladoTiempoOcupadoA2 = 0;
-            }
-            else if (tiempoOcupadoA2 == 3 && vectorAnterior.tiempoOcupadoA2 == 0)
-            {
-                acumuladoTiempoOcupadoA2 = 0;
-            }
-            else if (tiempoOcupadoA2 == 3 && vectorAnterior.tiempoOcupadoA2 == 3)
-            {
-                acumuladoTiempoOcupadoA2 = reloj - vectorAnterior.reloj + vectorAnterior.acumuladoTiempoOcupadoA2;
-            }
-            else
-            {
-                acumuladoTiempoOcupadoA2 = vectorAnterior.acumuladoTiempoOcupadoA2;
-            }
-        }
+        //private void AcumuladoTiempoOcupadoA2()
+        //{
+        //    if (vectorAnterior == null)
+        //    {
+        //        acumuladoTiempoOcupadoA2 = 0;
+        //    }
+        //    else if (tiempoOcupadoA2 == 3 && vectorAnterior.tiempoOcupadoA2 == 0)
+        //    {
+        //        acumuladoTiempoOcupadoA2 = 0;
+        //    }
+        //    else if (tiempoOcupadoA2 == 3 && vectorAnterior.tiempoOcupadoA2 == 3)
+        //    {
+        //        acumuladoTiempoOcupadoA2 = reloj - vectorAnterior.reloj + vectorAnterior.acumuladoTiempoOcupadoA2;
+        //    }
+        //    else
+        //    {
+        //        acumuladoTiempoOcupadoA2 = vectorAnterior.acumuladoTiempoOcupadoA2;
+        //    }
+        //}
 
-        private void PorcOcupacionA2()
-        {
-            if (vectorAnterior == null)
-            {
-                porcOcupacionA2 = 0;
-            }
-            else if (tiempoOcupadoA2 == 3 && vectorAnterior.tiempoOcupadoA2 == 3)
-            {
-                porcOcupacionA2 = (acumuladoTiempoOcupadoA2 * 100) / reloj;
-            }
-            else
-            {
-                porcOcupacionA2 = vectorAnterior.porcOcupacionA2;
-            }
-        }
+        //private void PorcOcupacionA2()
+        //{
+        //    if (vectorAnterior == null)
+        //    {
+        //        porcOcupacionA2 = 0;
+        //    }
+        //    else if (tiempoOcupadoA2 == 3 && vectorAnterior.tiempoOcupadoA2 == 3)
+        //    {
+        //        porcOcupacionA2 = (acumuladoTiempoOcupadoA2 * 100) / reloj;
+        //    }
+        //    else
+        //    {
+        //        porcOcupacionA2 = vectorAnterior.porcOcupacionA2;
+        //    }
+        //}
 
-        private void TiempoOcupadoA3()
-        {
-            if (vectorAnterior == null)
-            {
-                tiempoOcupadoA3 = 0;
-            }
-            else if (a3Estado == 1 && vectorAnterior.a3Estado == 0)
-            {
-                tiempoOcupadoA3 = 3; //"x"
-            }
-            else
-            {
-                if (a3Estado == 0 && vectorAnterior.a3Estado == 1)
-                    tiempoOcupadoA3 = 0;
-                else
-                    tiempoOcupadoA3 = vectorAnterior.tiempoOcupadoA3;
-            }
-        }
+        //private void TiempoOcupadoA3()
+        //{
+        //    if (vectorAnterior == null)
+        //    {
+        //        tiempoOcupadoA3 = 0;
+        //    }
+        //    else if (a3Estado == 1 && vectorAnterior.a3Estado == 0)
+        //    {
+        //        tiempoOcupadoA3 = 3; //"x"
+        //    }
+        //    else
+        //    {
+        //        if (a3Estado == 0 && vectorAnterior.a3Estado == 1)
+        //            tiempoOcupadoA3 = 0;
+        //        else
+        //            tiempoOcupadoA3 = vectorAnterior.tiempoOcupadoA3;
+        //    }
+        //}
 
-        private void AcumuladoTiempoOcupadoA3()
-        {
-            if (vectorAnterior == null)
-            {
-                acumuladoTiempoOcupadoA3 = 0;
-            }
-            else if (tiempoOcupadoA3 == 3 && vectorAnterior.tiempoOcupadoA3 == 0)
-            {
-                acumuladoTiempoOcupadoA3 = 0;
-            }
-            else if (tiempoOcupadoA3 == 3 && vectorAnterior.tiempoOcupadoA3 == 3)
-            {
-                acumuladoTiempoOcupadoA3 = reloj - vectorAnterior.reloj + vectorAnterior.acumuladoTiempoOcupadoA3;
-            }
-            else
-            {
-                acumuladoTiempoOcupadoA3 = vectorAnterior.acumuladoTiempoOcupadoA3;
-            }
-        }
+        //private void AcumuladoTiempoOcupadoA3()
+        //{
+        //    if (vectorAnterior == null)
+        //    {
+        //        acumuladoTiempoOcupadoA3 = 0;
+        //    }
+        //    else if (tiempoOcupadoA3 == 3 && vectorAnterior.tiempoOcupadoA3 == 0)
+        //    {
+        //        acumuladoTiempoOcupadoA3 = 0;
+        //    }
+        //    else if (tiempoOcupadoA3 == 3 && vectorAnterior.tiempoOcupadoA3 == 3)
+        //    {
+        //        acumuladoTiempoOcupadoA3 = reloj - vectorAnterior.reloj + vectorAnterior.acumuladoTiempoOcupadoA3;
+        //    }
+        //    else
+        //    {
+        //        acumuladoTiempoOcupadoA3 = vectorAnterior.acumuladoTiempoOcupadoA3;
+        //    }
+        //}
 
-        private void PorcOcupacionA3()
-        {
-            if (vectorAnterior == null)
-            {
-                porcOcupacionA3 = 0;
-            }
-            else if (tiempoOcupadoA3 == 3 && vectorAnterior.tiempoOcupadoA3 == 3)
-            {
-                porcOcupacionA3 = (acumuladoTiempoOcupadoA3 * 100) / reloj;
-            }
-            else
-            {
-                porcOcupacionA3 = vectorAnterior.porcOcupacionA3;
-            }
-        }
+        //private void PorcOcupacionA3()
+        //{
+        //    if (vectorAnterior == null)
+        //    {
+        //        porcOcupacionA3 = 0;
+        //    }
+        //    else if (tiempoOcupadoA3 == 3 && vectorAnterior.tiempoOcupadoA3 == 3)
+        //    {
+        //        porcOcupacionA3 = (acumuladoTiempoOcupadoA3 * 100) / reloj;
+        //    }
+        //    else
+        //    {
+        //        porcOcupacionA3 = vectorAnterior.porcOcupacionA3;
+        //    }
+        //}
 
-        private void TiempoOcupadoA4()
-        {
-            if (vectorAnterior == null)
-            {
-                tiempoOcupadoA4 = 0;
-            }
-            else if (a4Estado == 1 && vectorAnterior.a4Estado == 0)
-            {
-                tiempoOcupadoA4 = 3; //"x"
-            }
-            else
-            {
-                if (a4Estado == 0 && vectorAnterior.a4Estado == 1)
-                    tiempoOcupadoA4 = 0;
-                else
-                    tiempoOcupadoA4 = vectorAnterior.tiempoOcupadoA4;
-            }
-        }
+        //private void TiempoOcupadoA4()
+        //{
+        //    if (vectorAnterior == null)
+        //    {
+        //        tiempoOcupadoA4 = 0;
+        //    }
+        //    else if (a4Estado == 1 && vectorAnterior.a4Estado == 0)
+        //    {
+        //        tiempoOcupadoA4 = 3; //"x"
+        //    }
+        //    else
+        //    {
+        //        if (a4Estado == 0 && vectorAnterior.a4Estado == 1)
+        //            tiempoOcupadoA4 = 0;
+        //        else
+        //            tiempoOcupadoA4 = vectorAnterior.tiempoOcupadoA4;
+        //    }
+        //}
 
-        private void AcumuladoTiempoOcupadoA4()
-        {
-            if (vectorAnterior == null)
-            {
-                acumuladoTiempoOcupadoA4 = 0;
-            }
-            else if (tiempoOcupadoA4 == 3 && vectorAnterior.tiempoOcupadoA4 == 0)
-            {
-                acumuladoTiempoOcupadoA4 = 0;
-            }
-            else if (tiempoOcupadoA4 == 3 && vectorAnterior.tiempoOcupadoA4 == 3)
-            {
-                acumuladoTiempoOcupadoA4 = reloj - vectorAnterior.reloj + vectorAnterior.acumuladoTiempoOcupadoA4;
-            }
-            else
-            {
-                acumuladoTiempoOcupadoA4 = vectorAnterior.acumuladoTiempoOcupadoA4;
-            }
-        }
+        //private void AcumuladoTiempoOcupadoA4()
+        //{
+        //    if (vectorAnterior == null)
+        //    {
+        //        acumuladoTiempoOcupadoA4 = 0;
+        //    }
+        //    else if (tiempoOcupadoA4 == 3 && vectorAnterior.tiempoOcupadoA4 == 0)
+        //    {
+        //        acumuladoTiempoOcupadoA4 = 0;
+        //    }
+        //    else if (tiempoOcupadoA4 == 3 && vectorAnterior.tiempoOcupadoA4 == 3)
+        //    {
+        //        acumuladoTiempoOcupadoA4 = reloj - vectorAnterior.reloj + vectorAnterior.acumuladoTiempoOcupadoA4;
+        //    }
+        //    else
+        //    {
+        //        acumuladoTiempoOcupadoA4 = vectorAnterior.acumuladoTiempoOcupadoA4;
+        //    }
+        //}
 
-        private void PorcOcupacionA4()
-        {
-            if (vectorAnterior == null)
-            {
-                porcOcupacionA4 = 0;
-            }
-            else if (tiempoOcupadoA4 == 3 && vectorAnterior.tiempoOcupadoA4 == 3)
-            {
-                porcOcupacionA4 = (acumuladoTiempoOcupadoA4 * 100) / reloj;
-            }
-            else
-            {
-                porcOcupacionA4 = vectorAnterior.porcOcupacionA4;
-            }
-        }
+        //private void PorcOcupacionA4()
+        //{
+        //    if (vectorAnterior == null)
+        //    {
+        //        porcOcupacionA4 = 0;
+        //    }
+        //    else if (tiempoOcupadoA4 == 3 && vectorAnterior.tiempoOcupadoA4 == 3)
+        //    {
+        //        porcOcupacionA4 = (acumuladoTiempoOcupadoA4 * 100) / reloj;
+        //    }
+        //    else
+        //    {
+        //        porcOcupacionA4 = vectorAnterior.porcOcupacionA4;
+        //    }
+        //}
 
-        private void TiempoOcupadoA5()
-        {
-            if (vectorAnterior == null)
-            {
-                tiempoOcupadoA5 = 0;
-            }
-            else if (a5Estado == 1 && vectorAnterior.a5Estado == 0)
-            {
-                tiempoOcupadoA5 = 3; //"x"
-            }
-            else
-            {
-                if (a5Estado == 0 && vectorAnterior.a5Estado == 1)
-                    tiempoOcupadoA5 = 0;
-                else
-                    tiempoOcupadoA5 = vectorAnterior.tiempoOcupadoA5;
-            }
-        }
-        private void AcumuladoTiempoOcupadoA5()
-        {
-            if (vectorAnterior == null)
-            {
-                acumuladoTiempoOcupadoA5 = 0;
-            }
-            else if (tiempoOcupadoA5 == 3 && vectorAnterior.tiempoOcupadoA5 == 0)
-            {
-                acumuladoTiempoOcupadoA5 = 0;
-            }
-            else if (tiempoOcupadoA5 == 3 && vectorAnterior.tiempoOcupadoA5 == 3)
-            {
-                acumuladoTiempoOcupadoA5 = reloj - vectorAnterior.reloj + vectorAnterior.acumuladoTiempoOcupadoA5;
-            }
-            else
-            {
-                acumuladoTiempoOcupadoA5 = vectorAnterior.acumuladoTiempoOcupadoA5;
-            }
-        }
+        //private void TiempoOcupadoA5()
+        //{
+        //    if (vectorAnterior == null)
+        //    {
+        //        tiempoOcupadoA5 = 0;
+        //    }
+        //    else if (a5Estado == 1 && vectorAnterior.a5Estado == 0)
+        //    {
+        //        tiempoOcupadoA5 = 3; //"x"
+        //    }
+        //    else
+        //    {
+        //        if (a5Estado == 0 && vectorAnterior.a5Estado == 1)
+        //            tiempoOcupadoA5 = 0;
+        //        else
+        //            tiempoOcupadoA5 = vectorAnterior.tiempoOcupadoA5;
+        //    }
+        //}
+        //private void AcumuladoTiempoOcupadoA5()
+        //{
+        //    if (vectorAnterior == null)
+        //    {
+        //        acumuladoTiempoOcupadoA5 = 0;
+        //    }
+        //    else if (tiempoOcupadoA5 == 3 && vectorAnterior.tiempoOcupadoA5 == 0)
+        //    {
+        //        acumuladoTiempoOcupadoA5 = 0;
+        //    }
+        //    else if (tiempoOcupadoA5 == 3 && vectorAnterior.tiempoOcupadoA5 == 3)
+        //    {
+        //        acumuladoTiempoOcupadoA5 = reloj - vectorAnterior.reloj + vectorAnterior.acumuladoTiempoOcupadoA5;
+        //    }
+        //    else
+        //    {
+        //        acumuladoTiempoOcupadoA5 = vectorAnterior.acumuladoTiempoOcupadoA5;
+        //    }
+        //}
 
-        private void PorcOcupacionA5()
-        {
-            if (vectorAnterior == null)
-            {
-                porcOcupacionA5 = 0;
-            }
-            else if (tiempoOcupadoA5 == 3 && vectorAnterior.tiempoOcupadoA5 == 3)
-            {
-                porcOcupacionA5 = (acumuladoTiempoOcupadoA5 * 100) / reloj;
-            }
-            else
-            {
-                porcOcupacionA5 = vectorAnterior.porcOcupacionA5;
-            }
-        }
-        #endregion
+        //private void PorcOcupacionA5()
+        //{
+        //    if (vectorAnterior == null)
+        //    {
+        //        porcOcupacionA5 = 0;
+        //    }
+        //    else if (tiempoOcupadoA5 == 3 && vectorAnterior.tiempoOcupadoA5 == 3)
+        //    {
+        //        porcOcupacionA5 = (acumuladoTiempoOcupadoA5 * 100) / reloj;
+        //    }
+        //    else
+        //    {
+        //        porcOcupacionA5 = vectorAnterior.porcOcupacionA5;
+        //    }
+        //}
+        //#endregion
 
-        #region CANTIDAD ENSAMBLES X HORA
-        private void CantEnsamblesXHora()
-        {
-            if (vectorAnterior == null)
-            {
-                cantEnsamblesXHora = 0;
-            }
-            else if (evento == 4 && colaEncastreA5 < vectorAnterior.colaEncastreA5)
-            {
-                if (evento != 8)
-                {
-                    cantEnsamblesXHora = vectorAnterior.cantEnsamblesXHora + 1;
-                }
-                else
-                {
-                    cantEnsamblesXHora = vectorAnterior.cantEnsamblesXHora;
-                }
-            }
-            else if (evento == 6 && colaEncastreA3 < vectorAnterior.colaEncastreA3)
-            {
-                if (evento != 8)
-                {
-                    cantEnsamblesXHora = vectorAnterior.cantEnsamblesXHora + 1;
-                }
-                else
-                {
-                    cantEnsamblesXHora = vectorAnterior.cantEnsamblesXHora;
-                }
-            }
-            else if (evento == 8)
-            {
-                cantEnsamblesXHora = 0;
-            }
-            else
-            {
-                cantEnsamblesXHora = vectorAnterior.cantEnsamblesXHora;
-            }
-        }
+        //#region CANTIDAD ENSAMBLES X HORA
+        //private void CantEnsamblesXHora()
+        //{
+        //    if (vectorAnterior == null)
+        //    {
+        //        cantEnsamblesXHora = 0;
+        //    }
+        //    else if (evento == 4 && colaEncastreA5 < vectorAnterior.colaEncastreA5)
+        //    {
+        //        if (evento != 8)
+        //        {
+        //            cantEnsamblesXHora = vectorAnterior.cantEnsamblesXHora + 1;
+        //        }
+        //        else
+        //        {
+        //            cantEnsamblesXHora = vectorAnterior.cantEnsamblesXHora;
+        //        }
+        //    }
+        //    else if (evento == 6 && colaEncastreA3 < vectorAnterior.colaEncastreA3)
+        //    {
+        //        if (evento != 8)
+        //        {
+        //            cantEnsamblesXHora = vectorAnterior.cantEnsamblesXHora + 1;
+        //        }
+        //        else
+        //        {
+        //            cantEnsamblesXHora = vectorAnterior.cantEnsamblesXHora;
+        //        }
+        //    }
+        //    else if (evento == 8)
+        //    {
+        //        cantEnsamblesXHora = 0;
+        //    }
+        //    else
+        //    {
+        //        cantEnsamblesXHora = vectorAnterior.cantEnsamblesXHora;
+        //    }
+        //}
 
-        private void CantProbEnsamblesXHora()
-        {
-            if (vectorAnterior == null)
-            {
-                cantProbEnsamblesXHora = 0;
-            }
-            else if(cantidadEnsamblesFinalizados > 0)
-            {
-                cantProbEnsamblesXHora = cantidadEnsamblesFinalizados / (reloj / 60);
-            }
-            else
-            {
-                cantProbEnsamblesXHora = (vectorAnterior.cantProbEnsamblesXHora * (nroEvento - 1)) / nroEvento;
-            }
-        }
-        #endregion
+        //private void CantProbEnsamblesXHora()
+        //{
+        //    if (vectorAnterior == null)
+        //    {
+        //        cantProbEnsamblesXHora = 0;
+        //    }
+        //    else if(cantidadEnsamblesFinalizados > 0)
+        //    {
+        //        cantProbEnsamblesXHora = cantidadEnsamblesFinalizados / (reloj / 60);
+        //    }
+        //    else
+        //    {
+        //        cantProbEnsamblesXHora = (vectorAnterior.cantProbEnsamblesXHora * (nroEvento - 1)) / nroEvento;
+        //    }
+        //}
+        //#endregion
 
-        #region PEDIDOS POR PARAMETROS COMPLETADOS EN UNA HORA
-        private void PedidosParametroCompletadosEnUnaHora()
-        {
-            if (vectorAnterior == null)
-            {
-                pedidosParametroCompletadosEnUnaHora = 0;
-            }
-            else if (cantEnsamblesXHora >= pedidoACalcular && !vectorAnterior.banderaFinHora)
-            {
-                pedidosParametroCompletadosEnUnaHora = vectorAnterior.pedidosParametroCompletadosEnUnaHora + 1;
-                banderaFinHora = true;
-            }
-            else
-            {
-                pedidosParametroCompletadosEnUnaHora = vectorAnterior.pedidosParametroCompletadosEnUnaHora;
-            }
-        }
+        //#region PEDIDOS POR PARAMETROS COMPLETADOS EN UNA HORA
+        //private void PedidosParametroCompletadosEnUnaHora()
+        //{
+        //    if (vectorAnterior == null)
+        //    {
+        //        pedidosParametroCompletadosEnUnaHora = 0;
+        //    }
+        //    else if (cantEnsamblesXHora >= pedidoACalcular && !vectorAnterior.banderaFinHora)
+        //    {
+        //        pedidosParametroCompletadosEnUnaHora = vectorAnterior.pedidosParametroCompletadosEnUnaHora + 1;
+        //        banderaFinHora = true;
+        //    }
+        //    else
+        //    {
+        //        pedidosParametroCompletadosEnUnaHora = vectorAnterior.pedidosParametroCompletadosEnUnaHora;
+        //    }
+        //}
 
-        private void ProbPedidosParametroCompletadosEnUnaHora()
-        {
-            if (vectorAnterior == null)
-            {
-                probPedidosParametroCompletadosEnUnaHora = 0;
-            }
-            else
-            {
-                probPedidosParametroCompletadosEnUnaHora = pedidosParametroCompletadosEnUnaHora / (reloj/60);
-            }
-        }
-        #endregion
+        //private void ProbPedidosParametroCompletadosEnUnaHora()
+        //{
+        //    if (vectorAnterior == null)
+        //    {
+        //        probPedidosParametroCompletadosEnUnaHora = 0;
+        //    }
+        //    else
+        //    {
+        //        probPedidosParametroCompletadosEnUnaHora = pedidosParametroCompletadosEnUnaHora / (reloj/60);
+        //    }
+        //}
+        //#endregion
 
-        #region TIEMPOS BLOQUEO
+        //#region TIEMPOS BLOQUEO
         
-        private void TiempoBloqueoColaA5()
-        {
-            if (vectorAnterior == null)
-            {
-                tiempoBloqueoColaA5 = 0;
-            }
-            else if (a5Estado == 0 && a4Cola == 0 && a2Cola > 0)
-            {
-                tiempoBloqueoColaA5 = reloj - vectorAnterior.reloj + vectorAnterior.tiempoBloqueoColaA5;
-            }
-            else if (a5Estado == 0 && a4Cola > 0 && a2Cola == 0)
-            {
-                tiempoBloqueoColaA5 = reloj - vectorAnterior.reloj + vectorAnterior.tiempoBloqueoColaA5;
-            }
-            else
-            {
-                tiempoBloqueoColaA5 = 0;
-            }
-        }
+        //private void TiempoBloqueoColaA5()
+        //{
+        //    if (vectorAnterior == null)
+        //    {
+        //        tiempoBloqueoColaA5 = 0;
+        //    }
+        //    else if (a5Estado == 0 && a4Cola == 0 && a2Cola > 0)
+        //    {
+        //        tiempoBloqueoColaA5 = reloj - vectorAnterior.reloj + vectorAnterior.tiempoBloqueoColaA5;
+        //    }
+        //    else if (a5Estado == 0 && a4Cola > 0 && a2Cola == 0)
+        //    {
+        //        tiempoBloqueoColaA5 = reloj - vectorAnterior.reloj + vectorAnterior.tiempoBloqueoColaA5;
+        //    }
+        //    else
+        //    {
+        //        tiempoBloqueoColaA5 = 0;
+        //    }
+        //}
 
-        private void TiempoBloqueoColaEncastre()
-        {
-            if (vectorAnterior == null)
-            {
-                tiempoBloqueoColaEncastreA3 = 0;
-                tiempoBloqueoColaEncastreA5 = 0;
-            }
-            else if (colaEncastreA3 == 0 && colaEncastreA5 > 0)
-            {
-                tiempoBloqueoColaEncastreA5 = reloj - vectorAnterior.reloj + vectorAnterior.tiempoBloqueoColaEncastreA5;
-                tiempoBloqueoColaEncastreA3 = 0;
-            }
-            else if (colaEncastreA3 > 0 && colaEncastreA5 == 0)
-            {
-                tiempoBloqueoColaEncastreA3 = reloj - vectorAnterior.reloj + vectorAnterior.tiempoBloqueoColaEncastreA3;
-                tiempoBloqueoColaEncastreA5 = 0;
-            }
-            else
-            {
-                tiempoBloqueoColaEncastreA3 = 0;
-                tiempoBloqueoColaEncastreA5 = 0;
-            }
-        }
+        //private void TiempoBloqueoColaEncastre()
+        //{
+        //    if (vectorAnterior == null)
+        //    {
+        //        tiempoBloqueoColaEncastreA3 = 0;
+        //        tiempoBloqueoColaEncastreA5 = 0;
+        //    }
+        //    else if (colaEncastreA3 == 0 && colaEncastreA5 > 0)
+        //    {
+        //        tiempoBloqueoColaEncastreA5 = reloj - vectorAnterior.reloj + vectorAnterior.tiempoBloqueoColaEncastreA5;
+        //        tiempoBloqueoColaEncastreA3 = 0;
+        //    }
+        //    else if (colaEncastreA3 > 0 && colaEncastreA5 == 0)
+        //    {
+        //        tiempoBloqueoColaEncastreA3 = reloj - vectorAnterior.reloj + vectorAnterior.tiempoBloqueoColaEncastreA3;
+        //        tiempoBloqueoColaEncastreA5 = 0;
+        //    }
+        //    else
+        //    {
+        //        tiempoBloqueoColaEncastreA3 = 0;
+        //        tiempoBloqueoColaEncastreA5 = 0;
+        //    }
+        //}
 
-        private void PropBloqueoSobreOcupacion()
-        {
-            if (vectorAnterior == null)
-            {
-                propBloqueoSobreOcupacion = 0;
-            }
-            else if (acumuladoTiempoOcupadoA5 > 0)
-            {
-                propBloqueoSobreOcupacion = tiempoBloqueoColaA5 / acumuladoTiempoOcupadoA5;
-            } 
-            else
-            {
-                propBloqueoSobreOcupacion = 0;
-            }
-        }
-        #endregion
+        //private void PropBloqueoSobreOcupacion()
+        //{
+        //    if (vectorAnterior == null)
+        //    {
+        //        propBloqueoSobreOcupacion = 0;
+        //    }
+        //    else if (acumuladoTiempoOcupadoA5 > 0)
+        //    {
+        //        propBloqueoSobreOcupacion = tiempoBloqueoColaA5 / acumuladoTiempoOcupadoA5;
+        //    } 
+        //    else
+        //    {
+        //        propBloqueoSobreOcupacion = 0;
+        //    }
+        //}
+        //#endregion
     }
 }
