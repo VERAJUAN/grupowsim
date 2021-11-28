@@ -45,6 +45,7 @@ namespace SIMULACION_TP1
         //CAMINO 2
 
         public List<int> colaParaLavar;
+        public int autoASecar;
 
         //L1
         public int l1Estado { get; set; }
@@ -61,12 +62,11 @@ namespace SIMULACION_TP1
         //public int l2Cola { get; set; }
 
         //S
-        public int a5Estado { get; set; }
-        public int a5Pedido { get; set; }
-        public double a5Tiempo { get; set; }
-        public double a5ProxFin { get; set; }
-        public int a5ColaA4 { get; set; }
-        public int a5ColaA2 { get; set; }
+        public int sEstado { get; set; }
+        public int sPedido { get; set; }
+        public double sTiempo { get; set; }
+        public double sProxFin { get; set; }
+        public int sCola { get; set; }
 
         //ENCASTRE
         public int encastreEstado { get; set; }
@@ -158,9 +158,9 @@ namespace SIMULACION_TP1
         }
 
         public VectorEstadoDinamico(int nroEvento,
-            double tiempoEntrePedidos,/* int pedidoACalcular, double picoTiempoEncastre,*/ double QA = 0, double AA = 0, double L1 = 0, double L2 = 0, double A5 = 0, VectorEstadoDinamico vectorAnterior = null)
+            double tiempoEntrePedidos,/* int pedidoACalcular, double picoTiempoEncastre,*/ double QA = 0, double AA = 0, double L1 = 0, double L2 = 0, double S = 0, double PA = 0, VectorEstadoDinamico vectorAnterior = null)
         {
-            if(nroEvento == 1)
+            if (nroEvento == 1)
             {
                 banderaFinHora = false;
             }
@@ -219,12 +219,13 @@ namespace SIMULACION_TP1
             L2ProxFin();
             //L2Cola();
 
-            //A5Estado();
-            //A5Pedido();
-            //a5Tiempo = A5Tiempo(A5);
-            //A5ProxFin();
-            //A5ColaA4();
-            //A5ColaA2();
+            AutoParaSecar();
+
+            SEstado();
+            SPedido();
+            sTiempo = STiempo(S); //Cambiar S por el tiempo de humedad
+            SProxFin();
+            SCola();
 
             //EncastreEstado();
             //EncastrePedido();
@@ -309,7 +310,7 @@ namespace SIMULACION_TP1
                 reloj = Math.Min(vectorAnterior.proxLlegada,
                     Math.Min(vectorAnterior.qaProxFin,
                     Math.Min(vectorAnterior.aaProxFin,
-                    Math.Min(vectorAnterior.l1ProxFin, 
+                    Math.Min(vectorAnterior.l1ProxFin,
                     vectorAnterior.l2ProxFin))));
             }
         }
@@ -701,9 +702,13 @@ namespace SIMULACION_TP1
                 {
                     colaParaLavar.Add(pedido);
                 }
-                else if((evento == 4 || evento == 5) && colaParaLavar.Count > 0)
+                else if (evento == 4 && colaParaLavar.Count > 0)  //Arreglar para secado
                 {
-                    colaParaLavar.RemoveAt(0); //VER SI ELIMINA EL MÁS VIEJO
+                    colaParaLavar.RemoveAt(0);
+                }
+                else if (evento == 5 && colaParaLavar.Count > 0) //Arreglar para secados
+                {
+                    colaParaLavar.RemoveAt(0);
                 }
             }
         }
@@ -942,156 +947,142 @@ namespace SIMULACION_TP1
 
         #endregion
 
-        //#region A5
-        //private void A5Estado()
-        //{
-        //    if (vectorAnterior == null)
-        //    {
-        //        a5Estado = 0;
-        //    }
-        //    else
-        //    {
-        //        if (evento == 6 && (vectorAnterior.a5ColaA4 == 0 || vectorAnterior.a5ColaA2 == 0))
-        //        {
-        //            a5Estado = 0;
-        //        }
-        //        else if (evento == 5 && vectorAnterior.a5ColaA2 > 0)
-        //        {
-        //            a5Estado = 1;
-        //        }
-        //        else if (evento == 3 && vectorAnterior.a5ColaA4 > 0)
-        //        {
-        //            a5Estado = 1;
-        //        }
-        //        else
-        //        {
-        //            a5Estado = vectorAnterior.a5Estado;
-        //        }
-        //    }
-        //}
+        public void AutoParaSecar()
+        {
+            if (vectorAnterior == null)
+            {
+                autoASecar = 0;
+            }
+            else
+            {
+                if ((evento == 4 || evento == 5) && sEstado == 1)
+                {
+                    autoASecar = pedido;
+                }
+            }
+        }
 
-        //private double A5Tiempo(double A)
-        //{
-        //    double atiempo = 0;
-        //    if (vectorAnterior == null)
-        //    {
-        //        atiempo = 0;
-        //    }
-        //    else if (a5Pedido != vectorAnterior.a5Pedido && a5Pedido != 0)
-        //    {
-        //        atiempo = A;
-        //    }
-        //    return atiempo;
-        //}
+        #region S
+        private void SEstado()
+        {
+            if (vectorAnterior == null)
+            {
+                sEstado = 0;
+            }
+            else
+            {
+                if (evento == 6 && vectorAnterior.sCola == 0)
+                {
+                    sEstado = 0;
+                }
+                else if (evento != 4 && evento != 5 && vectorAnterior.sCola == 0)
+                {
+                    sEstado = 0;
+                }
+                else
+                {
+                    sEstado = 1;
+                }
 
-        //private void A5Pedido()
-        //{
-        //    if (vectorAnterior == null)
-        //    {
-        //        a5Pedido = 0; //SE REEMPLAZA CON "-"
-        //    }
-        //    else
-        //    {
-        //        if (vectorAnterior.a5Estado == 0 && evento == 5 && vectorAnterior.a5ColaA2 > 0)
-        //        {
-        //            a5Pedido = pedido;
-        //        }
-        //        else if (vectorAnterior.a5Estado == 0 && evento == 3 && vectorAnterior.a5ColaA4 > 0)
-        //        {
-        //            a5Pedido = pedido;
-        //        }
-        //        else if (vectorAnterior.a5Estado == 1 && evento != 6)
-        //        {
-        //            a5Pedido = vectorAnterior.a5Pedido;
-        //        }
-        //        else if (evento == 6 && vectorAnterior.a5ColaA4 > 0 && vectorAnterior.a5ColaA2 > 0)
-        //        {
-        //            a5Pedido = pedido + 1;
-        //        }
-        //    }
-        //}
 
-        //private void A5ProxFin()
-        //{
-        //    if (vectorAnterior == null)
-        //    {
-        //        a5ProxFin = double.PositiveInfinity; //SE REEMPLAZA CON "-"
-        //    }
-        //    else
-        //    {
-        //        if (a5Estado == 1)
-        //        {
-        //            if (a5Tiempo != 0)
-        //            {
-        //                a5ProxFin = reloj + a5Tiempo;
-        //            }
-        //            else
-        //            {
-        //                a5ProxFin = vectorAnterior.a5ProxFin;
-        //            }
-        //        }
-        //        else
-        //        {
-        //            a5ProxFin = double.PositiveInfinity;
-        //        }
-        //    }
-        //}
+            }
+        }
 
-        //private void A5ColaA4()
-        //{
-        //    if (vectorAnterior == null)
-        //    {
-        //        a5ColaA4 = 0;
-        //    }
-        //    else
-        //    {
-        //        if (evento == 5 && vectorAnterior.a5Estado == 1)
-        //        {
-        //            a5ColaA4 = vectorAnterior.a5ColaA4 + 1;
-        //        }
-        //        else if (evento == 5 && vectorAnterior.a5Estado == 0 && vectorAnterior.a5ColaA2 == 0)
-        //        {
-        //            a5ColaA4 = vectorAnterior.a5ColaA4 + 1;
-        //        }
-        //        else if (evento == 6 && vectorAnterior.a5ColaA4 > 0)
-        //        {
-        //            a5ColaA4 = vectorAnterior.a5ColaA4 - 1;
-        //        }
-        //        else
-        //        {
-        //            a5ColaA4 = vectorAnterior.a5ColaA4;
-        //        }
-        //    }
-        //}
+        private double STiempo(double A)
+        {
+            double atiempo = 0;
+            if (vectorAnterior == null)
+            {
+                atiempo = 0;
+            }
+            else if (sPedido != vectorAnterior.sPedido && sPedido != 0)
+            {
+                atiempo = A;
+            }
+            return atiempo;
+        }
 
-        //private void A5ColaA2()
-        //{
-        //    if (vectorAnterior == null)
-        //    {
-        //        a5ColaA2 = 0;
-        //    }
-        //    else
-        //    {
-        //        if (evento == 3 && vectorAnterior.a5Estado == 1)
-        //        {
-        //            a5ColaA2 = vectorAnterior.a5ColaA2 + 1;
-        //        }
-        //        else if (evento == 3 && vectorAnterior.a5Estado == 0 && vectorAnterior.a5ColaA4 == 0)
-        //        {
-        //            a5ColaA2 = vectorAnterior.a5ColaA2 + 1;
-        //        }
-        //        else if (evento == 6 && vectorAnterior.a5ColaA2 > 0)
-        //        {
-        //            a5ColaA2 = vectorAnterior.a5ColaA2 - 1;
-        //        }
-        //        else
-        //        {
-        //            a5ColaA2 = vectorAnterior.a5ColaA2;
-        //        }
-        //    }
-        //}
+        private void SPedido()
+        {
+            if (vectorAnterior == null)
+            {
+                sPedido = 0; //SE REEMPLAZA CON "-"
+            }
+            else
+            {
+                if (vectorAnterior.sEstado == 0 && evento == 5 && vectorAnterior.sColaA2 > 0)
+                {
+                    sPedido = pedido;
+                }
+                else if (vectorAnterior.sEstado == 0 && evento == 3 && vectorAnterior.sColaA4 > 0)
+                {
+                    sPedido = pedido;
+                }
+                else if (vectorAnterior.sEstado == 1 && evento != 6)
+                {
+                    sPedido = vectorAnterior.sPedido;
+                }
+                else if (evento == 6 && vectorAnterior.sColaA4 > 0 && vectorAnterior.sColaA2 > 0)
+                {
+                    sPedido = pedido + 1;
+                }
+            }
+        }
 
-        //#endregion
+        private void SProxFin()
+        {
+            if (vectorAnterior == null)
+            {
+                sProxFin = double.PositiveInfinity; //SE REEMPLAZA CON "-"
+            }
+            else
+            {
+                if (sEstado == 1)
+                {
+                    if (sTiempo != 0)
+                    {
+                        sProxFin = reloj + sTiempo;
+                    }
+                    else
+                    {
+                        sProxFin = vectorAnterior.sProxFin;
+                    }
+                }
+                else
+                {
+                    sProxFin = double.PositiveInfinity;
+                }
+            }
+        }
+
+        private void SCola()
+        {
+            if (vectorAnterior == null)
+            {
+                sColaA4 = 0;
+            }
+            else
+            {
+                if (evento == 5 && vectorAnterior.sEstado == 1)
+                {
+                    sColaA4 = vectorAnterior.sColaA4 + 1;
+                }
+                else if (evento == 5 && vectorAnterior.sEstado == 0 && vectorAnterior.sColaA2 == 0)
+                {
+                    sColaA4 = vectorAnterior.sColaA4 + 1;
+                }
+                else if (evento == 6 && vectorAnterior.sColaA4 > 0)
+                {
+                    sColaA4 = vectorAnterior.sColaA4 - 1;
+                }
+                else
+                {
+                    sColaA4 = vectorAnterior.sColaA4;
+                }
+            }
+        }
+
+        #endregion
 
         //#region COLASENCASTRE
         //private void EncastreEstado()
@@ -1556,7 +1547,7 @@ namespace SIMULACION_TP1
         //        else
         //            tiempoOcupadoA1 = vectorAnterior.tiempoOcupadoA1;
         //    }
-            
+
         //}
         //private void AcumuladoTiempoOcupadoA1()
         //{
@@ -1902,7 +1893,7 @@ namespace SIMULACION_TP1
         //#endregion
 
         //#region TIEMPOS BLOQUEO
-        
+
         //private void TiempoBloqueoColaA5()
         //{
         //    if (vectorAnterior == null)

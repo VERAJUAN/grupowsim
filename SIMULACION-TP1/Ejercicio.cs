@@ -245,7 +245,7 @@ namespace SIMULACION_TP1
         {
             tablaVectorEstado.Rows.Clear();
             cantProyectos = int.Parse(txt_cantProy.Text);
-            double QA, AA, L1, L2, PA;
+            double QA, AA, L1, L2, PA, S;
             int pedidoACalcular = int.Parse(txt_nroEnsamblesProbabilidad.Text);
             //lblCompletarEnsambles.Text = $"Probabilidad de completar {pedidoACalcular} o más ensambles por hora:";
             //tablaVectorEstado.Columns[74].HeaderText = $"{pedidoACalcular} ENSAMBLES COMPLETADOS EN 1 HORA";
@@ -271,6 +271,8 @@ namespace SIMULACION_TP1
 
                 var numAleatorio4 = r.NextDouble();
                 L2 = GeneracionTiemposActividad(comboDist4.SelectedIndex, constante4_1.Text, constante4_2.Text, numAleatorio4);
+                
+                S = 2; //Cambiar los 2 por la humedad en 0
 
                 //var numAleatorio5 = r.NextDouble();
                 PA = 3; //Siempre 3 minutos.
@@ -303,7 +305,7 @@ namespace SIMULACION_TP1
                 else
                 {
 
-                    vectorEstado = new VectorEstadoDinamico(i + 1, tiempoEntrePedidos, /*pedidoACalcular, picoTiempoEncastre,*/ QA, AA, L1, L2, PA, vectorEstadoMasUno);
+                    vectorEstado = new VectorEstadoDinamico(i + 1, tiempoEntrePedidos, /*pedidoACalcular, picoTiempoEncastre,*/ QA, AA, L1, L2, S, PA, vectorEstadoMasUno);
 
                     if ((hasta != 0
                         && vectorEstado.nroEvento >= desde && vectorEstado.nroEvento <= hasta)
