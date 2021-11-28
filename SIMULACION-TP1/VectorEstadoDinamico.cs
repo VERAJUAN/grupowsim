@@ -701,11 +701,21 @@ namespace SIMULACION_TP1
                 {
                     colaParaLavar.Add(pedido);
                 }
-                else if(evento == 4 || evento == 5)
+                else if((evento == 4 || evento == 5) && colaParaLavar.Count > 0)
                 {
-                    colaParaLavar.RemoveAt(colaParaLavar.Count - 1); //VER SI ELIMINA EL MÁS VIEJO
+                    colaParaLavar.RemoveAt(0); //VER SI ELIMINA EL MÁS VIEJO
                 }
             }
+        }
+
+        public string ColaParaLavarTostring()
+        {
+            string cola = "-";
+            foreach (var auto in colaParaLavar)
+            {
+                cola += auto.ToString() + "-";
+            }
+            return cola;
         }
 
 

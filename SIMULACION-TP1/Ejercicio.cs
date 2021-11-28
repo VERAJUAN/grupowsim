@@ -20,7 +20,7 @@ namespace SIMULACION_TP1
         double picoTiempoEncastre = 0;
         private void cboSignificancia_SelectedIndexChanged(object sender, EventArgs e)
         {
-            comboDist1.SelectedIndex = 0;
+            //comboDist1.SelectedIndex = 0;
         }
 
         public Ejercicio__B()
@@ -29,9 +29,9 @@ namespace SIMULACION_TP1
             tablaVectorEstado.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.DisplayedCells;
 
             //SETEO INICIAL DE ACTIVIDADES
-            comboDist1.SelectedIndex = 2;
-            constante1_1.Text = "20";
-            constante1_2.Text = "30";
+            //comboDist1.SelectedIndex = 2;
+            //constante1_1.Text = "20";
+            //constante1_2.Text = "30";
 
             comboDist2.SelectedIndex = 2;
             constante2_1.Text = "3";
@@ -42,11 +42,12 @@ namespace SIMULACION_TP1
             constante3_2.Text = "12";
 
             comboDist4.SelectedIndex = 2;
-            constante4_1.Text = "10";
-            constante4_2.Text = "30";
+            constante4_1.Text = "6";
+            constante4_2.Text = "12";
 
-            comboDist5.SelectedIndex = 1;
-            constante5_1.Text = "5";
+            //comboDist5.SelectedIndex = 1;
+            //constante5_1.Text = "6";
+            //constante5_2.Text = "12";
 
             //SETEO INICIAL EC DIFRENCIAL
             txtMinA.Text = "0,05";
@@ -63,11 +64,11 @@ namespace SIMULACION_TP1
 
         private void btn_generar_Click(object sender, EventArgs e)
         {
-            var val1 = validaciones(comboDist1.SelectedIndex, constante1_1.Text, constante1_2.Text);
+            //var val1 = validaciones(comboDist1.SelectedIndex, constante1_1.Text, constante1_2.Text);
             var val2 = validaciones(comboDist2.SelectedIndex, constante2_1.Text, constante2_2.Text);
             var val3 = validaciones(comboDist3.SelectedIndex, constante3_1.Text, constante3_2.Text);
             var val4 = validaciones(comboDist4.SelectedIndex, constante4_1.Text, constante4_2.Text);
-            var val5 = validaciones(comboDist5.SelectedIndex, constante5_1.Text, constante5_2.Text);
+            //var val5 = validaciones(comboDist5.SelectedIndex, constante5_1.Text, constante5_2.Text);
             if (int.Parse(txt_cantProy.Text) < 1)
             {
                 MessageBox.Show("La cantidad de proyectos debe ser mayor a cero.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -76,7 +77,7 @@ namespace SIMULACION_TP1
 
             SimularEcDif();
 
-            if (val1 && val2 && val3 && val4 && val5) Simular();
+            if (val2 && val3 && val4) Simular();
 
         }
 
@@ -244,7 +245,7 @@ namespace SIMULACION_TP1
         {
             tablaVectorEstado.Rows.Clear();
             cantProyectos = int.Parse(txt_cantProy.Text);
-            double QA, AA, L1, L2, A5;
+            double QA, AA, L1, L2, PA;
             int pedidoACalcular = int.Parse(txt_nroEnsamblesProbabilidad.Text);
             //lblCompletarEnsambles.Text = $"Probabilidad de completar {pedidoACalcular} o más ensambles por hora:";
             //tablaVectorEstado.Columns[74].HeaderText = $"{pedidoACalcular} ENSAMBLES COMPLETADOS EN 1 HORA";
@@ -271,8 +272,8 @@ namespace SIMULACION_TP1
                 var numAleatorio4 = r.NextDouble();
                 L2 = GeneracionTiemposActividad(comboDist4.SelectedIndex, constante4_1.Text, constante4_2.Text, numAleatorio4);
 
-                var numAleatorio5 = r.NextDouble();
-                A5 = GeneracionTiemposActividad(comboDist5.SelectedIndex, constante5_1.Text, constante5_2.Text, numAleatorio5);
+                //var numAleatorio5 = r.NextDouble();
+                PA = 3; //Siempre 3 minutos.
 
                 if (i == 0)
                 {
@@ -284,7 +285,7 @@ namespace SIMULACION_TP1
                             vectorEstado.proxPedido.ToString(), ((Evento)vectorEstado.evento == Evento.LlegaPedido || (Evento)vectorEstado.evento == Evento.Inicio) ? Math.Round(numAleatorioLlegadaPedido, 3).ToString() : "-", ((Evento)vectorEstado.evento == Evento.LlegaPedido || (Evento)vectorEstado.evento == Evento.Inicio) ? Math.Round(vectorEstado.tiempoEntrePedidos, 3).ToString() : "-", Math.Round(vectorEstado.proxLlegada, 3).ToString(),
                             (Estado)vectorEstado.qaEstado, vectorEstado.qaPedido == 0 ? "-" : vectorEstado.qaPedido.ToString(), (i != 0 && vectorEstado.qaPedido != vectorEstadoMasUno.qaPedido && vectorEstado.qaPedido != 0) ? Math.Round(vectorEstado.qaTiempo, 3).ToString() : "-", (vectorEstado.qaProxFin == 0 || vectorEstado.qaProxFin == double.PositiveInfinity) ? "-" : Math.Round(vectorEstado.qaProxFin, 3).ToString(), vectorEstado.qaCola.ToString(),
                             (Estado)vectorEstado.aaEstado, vectorEstado.aaPedido == 0 ? "-" : vectorEstado.aaPedido.ToString(), (i != 0 && vectorEstado.aaPedido != vectorEstadoMasUno.aaPedido && vectorEstado.aaPedido != 0) ? Math.Round(numAleatorio2, 3).ToString() : "-", (i != 0 && vectorEstado.aaPedido != vectorEstadoMasUno.aaPedido && vectorEstado.aaPedido != 0) ? Math.Round(vectorEstado.aaTiempo, 3).ToString() : "-", (vectorEstado.aaProxFin == 0 || vectorEstado.aaProxFin == double.PositiveInfinity) ? "-" : Math.Round(vectorEstado.aaProxFin, 3).ToString(), vectorEstado.aaCola.ToString(),
-                            (Estado)vectorEstado.l1Estado, vectorEstado.l1Pedido == 0 ? "-" : vectorEstado.l1Pedido.ToString(), (i != 0 && vectorEstado.l1Pedido != vectorEstadoMasUno.l1Pedido && vectorEstado.l1Pedido != 0) ? Math.Round(numAleatorio3, 3).ToString() : "-", (i != 0 && vectorEstado.l1Pedido != vectorEstadoMasUno.l1Pedido && vectorEstado.l1Pedido != 0) ? Math.Round(vectorEstado.l1Tiempo, 3).ToString() : "-", (vectorEstado.l1ProxFin == 0 || vectorEstado.l1ProxFin == double.PositiveInfinity) ? "-" : Math.Round(vectorEstado.l1ProxFin, 3).ToString(), /*vectorEstado.l1Cola.ToString(),*/
+                            vectorEstado.ColaParaLavarTostring(), (Estado)vectorEstado.l1Estado, vectorEstado.l1Pedido == 0 ? "-" : vectorEstado.l1Pedido.ToString(), (i != 0 && vectorEstado.l1Pedido != vectorEstadoMasUno.l1Pedido && vectorEstado.l1Pedido != 0) ? Math.Round(numAleatorio3, 3).ToString() : "-", (i != 0 && vectorEstado.l1Pedido != vectorEstadoMasUno.l1Pedido && vectorEstado.l1Pedido != 0) ? Math.Round(vectorEstado.l1Tiempo, 3).ToString() : "-", (vectorEstado.l1ProxFin == 0 || vectorEstado.l1ProxFin == double.PositiveInfinity) ? "-" : Math.Round(vectorEstado.l1ProxFin, 3).ToString(), /*vectorEstado.l1Cola.ToString(),*/
                             (Estado)vectorEstado.l2Estado, vectorEstado.l2Pedido == 0 ? "-" : vectorEstado.l2Pedido.ToString(), (i != 0 && vectorEstado.l2Pedido != vectorEstadoMasUno.l2Pedido && vectorEstado.l2Pedido != 0) ? Math.Round(numAleatorio4, 3).ToString() : "-", (i != 0 && vectorEstado.l2Pedido != vectorEstadoMasUno.l2Pedido && vectorEstado.l2Pedido != 0) ? Math.Round(vectorEstado.l2Tiempo, 3).ToString() : "-", (vectorEstado.l2ProxFin == 0 || vectorEstado.l2ProxFin == double.PositiveInfinity) ? "-" : Math.Round(vectorEstado.l2ProxFin, 3).ToString() /*vectorEstado.l2Cola.ToString(),*/
                             //(Estado)vectorEstado.a5Estado, vectorEstado.a5Pedido == 0 ? "-" : vectorEstado.a5Pedido.ToString(), (i != 0 && vectorEstado.a5Pedido != vectorEstadoMasUno.a5Pedido && vectorEstado.a5Pedido != 0) ? Math.Round(numAleatorio5, 3).ToString() : "-", (i != 0 && vectorEstado.a5Pedido != vectorEstadoMasUno.a5Pedido && vectorEstado.a5Pedido != 0) ? Math.Round(vectorEstado.a5Tiempo, 3).ToString() : "-", (vectorEstado.a5ProxFin == 0 || vectorEstado.a5ProxFin == double.PositiveInfinity) ? "-" : Math.Round(vectorEstado.a5ProxFin, 3).ToString(), vectorEstado.a5Colal2.ToString(),
                             //vectorEstado.a5Colaaa.ToString(),
@@ -302,7 +303,7 @@ namespace SIMULACION_TP1
                 else
                 {
 
-                    vectorEstado = new VectorEstadoDinamico(i + 1, tiempoEntrePedidos, /*pedidoACalcular, picoTiempoEncastre,*/ QA, AA, L1, L2, A5, vectorEstadoMasUno);
+                    vectorEstado = new VectorEstadoDinamico(i + 1, tiempoEntrePedidos, /*pedidoACalcular, picoTiempoEncastre,*/ QA, AA, L1, L2, PA, vectorEstadoMasUno);
 
                     if ((hasta != 0
                         && vectorEstado.nroEvento >= desde && vectorEstado.nroEvento <= hasta)
@@ -315,7 +316,7 @@ namespace SIMULACION_TP1
                             vectorEstado.proxPedido.ToString(), ((Evento)vectorEstado.evento == Evento.LlegaPedido || (Evento)vectorEstado.evento == Evento.Inicio) ? Math.Round(numAleatorioLlegadaPedido, 3).ToString() : "-", ((Evento)vectorEstado.evento == Evento.LlegaPedido || (Evento)vectorEstado.evento == Evento.Inicio) ? Math.Round(vectorEstado.tiempoEntrePedidos, 3).ToString() : "-", Math.Round(vectorEstado.proxLlegada, 3).ToString(),
                             (Estado)vectorEstado.qaEstado, vectorEstado.qaPedido == 0 ? "-" : vectorEstado.qaPedido.ToString(), (i != 0 && vectorEstado.qaPedido != vectorEstadoMasUno.qaPedido && vectorEstado.qaPedido != 0) ? Math.Round(vectorEstado.qaTiempo, 3).ToString() : "-", (vectorEstado.qaProxFin == 0 || vectorEstado.qaProxFin == double.PositiveInfinity) ? "-" : Math.Round(vectorEstado.qaProxFin, 3).ToString(), vectorEstado.qaCola.ToString(),
                             (Estado)vectorEstado.aaEstado, vectorEstado.aaPedido == 0 ? "-" : vectorEstado.aaPedido.ToString(), (i != 0 && vectorEstado.aaPedido != vectorEstadoMasUno.aaPedido && vectorEstado.aaPedido != 0) ? Math.Round(numAleatorio2, 3).ToString() : "-", (i != 0 && vectorEstado.aaPedido != vectorEstadoMasUno.aaPedido && vectorEstado.aaPedido != 0) ? Math.Round(vectorEstado.aaTiempo, 3).ToString() : "-", (vectorEstado.aaProxFin == 0 || vectorEstado.aaProxFin == double.PositiveInfinity) ? "-" : Math.Round(vectorEstado.aaProxFin, 3).ToString(), vectorEstado.aaCola.ToString(),
-                            (Estado)vectorEstado.l1Estado, vectorEstado.l1Pedido == 0 ? "-" : vectorEstado.l1Pedido.ToString(), (i != 0 && vectorEstado.l1Pedido != vectorEstadoMasUno.l1Pedido && vectorEstado.l1Pedido != 0) ? Math.Round(numAleatorio3, 3).ToString() : "-", (i != 0 && vectorEstado.l1Pedido != vectorEstadoMasUno.l1Pedido && vectorEstado.l1Pedido != 0) ? Math.Round(vectorEstado.l1Tiempo, 3).ToString() : "-", (vectorEstado.l1ProxFin == 0 || vectorEstado.l1ProxFin == double.PositiveInfinity) ? "-" : Math.Round(vectorEstado.l1ProxFin, 3).ToString(), /*vectorEstado.l1Cola.ToString(),*/
+                            vectorEstado.ColaParaLavarTostring(), (Estado)vectorEstado.l1Estado, vectorEstado.l1Pedido == 0 ? "-" : vectorEstado.l1Pedido.ToString(), (i != 0 && vectorEstado.l1Pedido != vectorEstadoMasUno.l1Pedido && vectorEstado.l1Pedido != 0) ? Math.Round(numAleatorio3, 3).ToString() : "-", (i != 0 && vectorEstado.l1Pedido != vectorEstadoMasUno.l1Pedido && vectorEstado.l1Pedido != 0) ? Math.Round(vectorEstado.l1Tiempo, 3).ToString() : "-", (vectorEstado.l1ProxFin == 0 || vectorEstado.l1ProxFin == double.PositiveInfinity) ? "-" : Math.Round(vectorEstado.l1ProxFin, 3).ToString(), /*vectorEstado.l1Cola.ToString(),*/
                             (Estado)vectorEstado.l2Estado, vectorEstado.l2Pedido == 0 ? "-" : vectorEstado.l2Pedido.ToString(), (i != 0 && vectorEstado.l2Pedido != vectorEstadoMasUno.l2Pedido && vectorEstado.l2Pedido != 0) ? Math.Round(numAleatorio4, 3).ToString() : "-", (i != 0 && vectorEstado.l2Pedido != vectorEstadoMasUno.l2Pedido && vectorEstado.l2Pedido != 0) ? Math.Round(vectorEstado.l2Tiempo, 3).ToString() : "-", (vectorEstado.l2ProxFin == 0 || vectorEstado.l2ProxFin == double.PositiveInfinity) ? "-" : Math.Round(vectorEstado.l2ProxFin, 3).ToString() /*vectorEstado.l2Cola.ToString(),*/
                             //(Estado)vectorEstado.a5Estado, vectorEstado.a5Pedido == 0 ? "-" : vectorEstado.a5Pedido.ToString(), (i != 0 && vectorEstado.a5Pedido != vectorEstadoMasUno.a5Pedido && vectorEstado.a5Pedido != 0) ? Math.Round(numAleatorio5, 3).ToString() : "-", (i != 0 && vectorEstado.a5Pedido != vectorEstadoMasUno.a5Pedido && vectorEstado.a5Pedido != 0) ? Math.Round(vectorEstado.a5Tiempo, 3).ToString() : "-", (vectorEstado.a5ProxFin == 0 || vectorEstado.a5ProxFin == double.PositiveInfinity) ? "-" : Math.Round(vectorEstado.a5ProxFin, 3).ToString(), vectorEstado.a5Colal2.ToString(),
                             //vectorEstado.a5Colaaa.ToString(),
@@ -470,40 +471,40 @@ namespace SIMULACION_TP1
 
         private void comboDist_SelectedIndexChanged(object sender, EventArgs e)
         {
-            switch (comboDist1.SelectedIndex)
-            {
-                case 0:
-                    label10.Text = "Media";
-                    label11.Text = "Desviación";
-                    label10.Visible = true;
-                    label11.Visible = true;
-                    constante1_1.Visible = true;
-                    constante1_2.Visible = true;
-                    break;
+            //switch (comboDist1.SelectedIndex)
+            //{
+            //    case 0:
+            //        label10.Text = "Media";
+            //        label11.Text = "Desviación";
+            //        label10.Visible = true;
+            //        label11.Visible = true;
+            //        constante1_1.Visible = true;
+            //        constante1_2.Visible = true;
+            //        break;
 
-                case 1:
-                    label10.Text = "Lambda";
-                    label10.Visible = true;
-                    label11.Visible = false;
-                    constante1_1.Visible = true;
-                    constante1_2.Visible = false;
-                    break;
-                case 2:
-                    label10.Text = "Desde";
-                    label11.Text = "Hasta";
-                    label10.Visible = true;
-                    label11.Visible = true;
-                    constante1_1.Visible = true;
-                    constante1_2.Visible = true;
-                    break;
-                default:
+            //    case 1:
+            //        label10.Text = "Lambda";
+            //        label10.Visible = true;
+            //        label11.Visible = false;
+            //        constante1_1.Visible = true;
+            //        constante1_2.Visible = false;
+            //        break;
+            //    case 2:
+            //        label10.Text = "Desde";
+            //        label11.Text = "Hasta";
+            //        label10.Visible = true;
+            //        label11.Visible = true;
+            //        constante1_1.Visible = true;
+            //        constante1_2.Visible = true;
+            //        break;
+            //    default:
 
-                    label10.Visible = false;
-                    label11.Visible = false;
-                    constante1_1.Visible = false;
-                    constante1_2.Visible = false;
-                    break;
-            }
+            //        label10.Visible = false;
+            //        label11.Visible = false;
+            //        constante1_1.Visible = false;
+            //        constante1_2.Visible = false;
+            //        break;
+            //}
         }
 
         private void comboDist3_SelectedIndexChanged(object sender, EventArgs e)
@@ -638,40 +639,40 @@ namespace SIMULACION_TP1
 
         private void comboDist5_SelectedIndexChanged(object sender, EventArgs e)
         {
-            switch (comboDist5.SelectedIndex)
-            {
-                case 0:
-                    label31.Text = "Media";
-                    label30.Text = "Desviación";
-                    label31.Visible = true;
-                    label30.Visible = true;
-                    constante5_1.Visible = true;
-                    constante5_2.Visible = true;
-                    break;
+            //switch (comboDist5.SelectedIndex)
+            //{
+            //    case 0:
+            //        label31.Text = "Media";
+            //        label30.Text = "Desviación";
+            //        label31.Visible = true;
+            //        label30.Visible = true;
+            //        constante5_1.Visible = true;
+            //        constante5_2.Visible = true;
+            //        break;
 
-                case 1:
-                    label31.Text = "Lambda";
-                    label31.Visible = true;
-                    label30.Visible = false;
-                    constante5_1.Visible = true;
-                    constante5_2.Visible = false;
-                    break;
-                case 2:
-                    label31.Text = "Desde";
-                    label30.Text = "Hasta";
-                    label31.Visible = true;
-                    label30.Visible = true;
-                    constante5_1.Visible = true;
-                    constante5_2.Visible = true;
-                    break;
-                default:
+            //    case 1:
+            //        label31.Text = "Lambda";
+            //        label31.Visible = true;
+            //        label30.Visible = false;
+            //        constante5_1.Visible = true;
+            //        constante5_2.Visible = false;
+            //        break;
+            //    case 2:
+            //        label31.Text = "Desde";
+            //        label30.Text = "Hasta";
+            //        label31.Visible = true;
+            //        label30.Visible = true;
+            //        constante5_1.Visible = true;
+            //        constante5_2.Visible = true;
+            //        break;
+            //    default:
 
-                    label31.Visible = false;
-                    label30.Visible = false;
-                    constante5_1.Visible = false;
-                    constante5_2.Visible = false;
-                    break;
-            }
+            //        label31.Visible = false;
+            //        label30.Visible = false;
+            //        constante5_1.Visible = false;
+            //        constante5_2.Visible = false;
+            //        break;
+            //}
         }
 
         private void Grafico_Click(object sender, EventArgs e)
