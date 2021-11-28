@@ -586,15 +586,11 @@ namespace SIMULACION_TP1
             }
             else
             {
-                if (evento == 1 && vectorAnterior.aaEstado == 1)
-                {
-                    aaEstado = 1;
-                }
-                else if (evento == 3 && vectorAnterior.aaCola == 0)
+                if (evento == 3 && vectorAnterior.aaCola == 0)
                 {
                     aaEstado = 0;
                 }
-                else if (vectorAnterior.aaCola == 0 && evento != 1 && vectorAnterior.aaEstado == 0)
+                else if (evento != 2 && vectorAnterior.aaCola == 0 && vectorAnterior.aaEstado == 0)
                 {
                     aaEstado = 0;
                 }
@@ -602,6 +598,8 @@ namespace SIMULACION_TP1
                 {
                     aaEstado = 1;
                 }
+
+
             }
         }
 
@@ -627,7 +625,7 @@ namespace SIMULACION_TP1
             }
             else
             {
-                if (vectorAnterior.aaEstado == 0 && evento == 1)
+                if (vectorAnterior.aaEstado == 0 && evento == 2)
                 {
                     aaPedido = pedido;
                 }
