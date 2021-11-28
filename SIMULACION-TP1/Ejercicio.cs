@@ -34,11 +34,12 @@ namespace SIMULACION_TP1
             constante1_2.Text = "30";
 
             comboDist2.SelectedIndex = 2;
-            constante2_1.Text = "30";
-            constante2_2.Text = "50";
+            constante2_1.Text = "3";
+            constante2_2.Text = "5";
 
-            comboDist3.SelectedIndex = 1;
-            constante3_1.Text = "30";
+            comboDist3.SelectedIndex = 2;
+            constante3_1.Text = "6";
+            constante3_2.Text = "12";
 
             comboDist4.SelectedIndex = 2;
             constante4_1.Text = "10";
