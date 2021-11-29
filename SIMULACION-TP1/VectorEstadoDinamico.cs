@@ -781,11 +781,7 @@ namespace SIMULACION_TP1
                 }
                 else if (evento == 4 && vectorAnterior.colaParaLavar.Count > 0)
                 {
-                    l1Pedido = vectorAnterior.colaParaLavar.ElementAt(0); // VER SI ES ASI
-                }
-                else
-                {
-                    l1Pedido = vectorAnterior.l1Pedido;
+                    l1Pedido = vectorAnterior.colaParaLavar.ElementAt(0);
                 }
             }
         }
@@ -858,6 +854,10 @@ namespace SIMULACION_TP1
                 {
                     l2Estado = 0;
                 }
+                else if(evento == 2 && l1Pedido == pedido && vectorAnterior.colaParaLavar.Count == 0)
+                {
+                    l2Estado = 0;
+                }
                 else
                 {
                     l2Estado = 1;
@@ -878,6 +878,7 @@ namespace SIMULACION_TP1
             }
             return atiempo;
         }
+
         private void L2Pedido()
         {
             if (vectorAnterior == null)
@@ -886,17 +887,17 @@ namespace SIMULACION_TP1
             }
             else
             {
-                if (vectorAnterior.l2Estado == 0 && evento == 1)
+                if (vectorAnterior.l2Estado == 0 && evento == 2 && l1Pedido != pedido)
                 {
                     l2Pedido = pedido;
                 }
-                else if (vectorAnterior.l2Estado == 1 && evento != 4)
+                else if (vectorAnterior.l2Estado == 1 && evento != 5)
                 {
                     l2Pedido = vectorAnterior.l2Pedido;
                 }
-                else if (evento == 4 && vectorAnterior.colaParaLavar.Count > 0)
+                else if (evento == 5 && vectorAnterior.colaParaLavar.Count > 0)
                 {
-                    l2Pedido = vectorAnterior.colaParaLavar[vectorAnterior.colaParaLavar.Count - 1]; // VER SI ES ASI
+                    l2Pedido = vectorAnterior.colaParaLavar.ElementAt(0);
                 }
             }
         }

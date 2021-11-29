@@ -42,5 +42,10 @@ namespace SIMULACION_TP1
         {
 
         }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
