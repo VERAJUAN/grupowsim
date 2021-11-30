@@ -45,7 +45,7 @@ namespace SIMULACION_TP1
         //CAMINO 2
 
         public List<int> colaParaLavar;
-        public int autoASecar;
+        public List<int> colaParaSecar;
 
         //L1
         public int l1Estado { get; set; }
@@ -170,6 +170,7 @@ namespace SIMULACION_TP1
             }
 
             this.colaParaLavar = new List<int>();
+            this.colaParaSecar = new List<int>();
 
             this.vectorAnterior = vectorAnterior;
 
@@ -219,8 +220,7 @@ namespace SIMULACION_TP1
             //L2Cola();
 
             ColaParaLavar();
-
-            AutoParaSecar();
+            ColaParaSecar();
 
             SEstado();
             SPedido();
@@ -312,7 +312,8 @@ namespace SIMULACION_TP1
                     Math.Min(vectorAnterior.qaProxFin,
                     Math.Min(vectorAnterior.aaProxFin,
                     Math.Min(vectorAnterior.l1ProxFin,
-                    vectorAnterior.l2ProxFin))));
+                    Math.Min(vectorAnterior.l2ProxFin,
+                    vectorAnterior.sProxFin)))));
             }
         }
 
@@ -344,22 +345,10 @@ namespace SIMULACION_TP1
                 {
                     evento = 5;
                 }
-                //else if (reloj == vectorAnterior.a5ProxFin)
-                //{
-                //    evento = 6;
-                //}
-                //else if (reloj == vectorAnterior.proxFinHora)
-                //{
-                //    evento = 8;
-                //}
-                //else if (reloj == vectorAnterior.encastreProxFin)
-                //{
-                //    evento = 9;
-                //}
-                //else
-                //{
-                //    evento = 7;
-                //}
+                else if (reloj == vectorAnterior.sProxFin)
+                {
+                    evento = 6;
+                }
             }
         }
 
@@ -714,7 +703,7 @@ namespace SIMULACION_TP1
             }
         }
 
-        public string ColaParaLavarTostring()
+        public string ColaParaLavarToString()
         {
             string cola = "-";
             foreach (var auto in colaParaLavar)
@@ -742,7 +731,7 @@ namespace SIMULACION_TP1
                 {
                     l1Estado = 0;
                 }
-                else
+                else/* if()*/
                 {
                     l1Estado = 1;
                 }
@@ -953,27 +942,35 @@ namespace SIMULACION_TP1
 
         #endregion
 
-        public void AutoParaSecar()
+        public void ColaParaSecar()
         {
-            if (vectorAnterior == null)
+            if (vectorAnterior != null)
             {
-                autoASecar = 0;
-            }
-            else
-            {
-                if ((evento == 4 || evento == 5) && vectorAnterior.sEstado == 1)
+                colaParaSecar = vectorAnterior.colaParaSecar;
+
+                if (evento == 4 && vectorAnterior.sEstado == 1)
                 {
-                    autoASecar = pedido;
+                    colaParaSecar.Add(pedido);
                 }
-                else if (evento == 6)
+                else if (evento == 5 && vectorAnterior.sEstado == 1)
                 {
-                    autoASecar = 0;
+                    colaParaSecar.Add(pedido);
                 }
-                else
+                else if (evento == 6 && colaParaSecar.Count > 0)  
                 {
-                    autoASecar = vectorAnterior.autoASecar;
+                    colaParaSecar.RemoveAt(0);
                 }
             }
+        }
+
+        public string ColaParaSecarToString()
+        {
+            string cola = "-";
+            foreach (var auto in colaParaSecar)
+            {
+                cola += auto.ToString() + "-";
+            }
+            return cola;
         }
 
         #region S
@@ -985,11 +982,11 @@ namespace SIMULACION_TP1
             }
             else
             {
-                if (evento == 6 && vectorAnterior.sCola == 0)
+                if (evento == 6 && vectorAnterior.colaParaSecar.Count == 0)
                 {
                     sEstado = 0;
                 }
-                else if (evento != 4 && evento != 5 && vectorAnterior.sCola == 0)
+                else if (evento != 4 && evento != 5 && vectorAnterior.colaParaSecar.Count == 0 && vectorAnterior.sEstado == 0)
                 {
                     sEstado = 0;
                 }
@@ -1024,11 +1021,11 @@ namespace SIMULACION_TP1
             }
             else
             {
-                if (evento == 6 && vectorAnterior.autoASecar > 0)
+                if (evento == 6 && vectorAnterior.colaParaSecar.Count > 0)
                 {
-                    sPedido = vectorAnterior.autoASecar;
+                    sPedido = vectorAnterior.colaParaSecar.Count;
                 }
-                else if ((evento == 4 || evento == 5) && vectorAnterior.sEstado == 0 && vectorAnterior.autoASecar == 0)
+                else if ((evento == 4 || evento == 5) && vectorAnterior.sEstado == 0 && vectorAnterior.colaParaSecar.Count == 0)
                 {
                     sPedido = pedido;
                 }
