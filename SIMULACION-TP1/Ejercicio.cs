@@ -17,7 +17,7 @@ namespace SIMULACION_TP1
     public partial class Ejercicio__B : System.Windows.Forms.Form
     {
         int cantProyectos = 0;
-        double picoTiempoEncastre = 0;
+        double picoTiempoDescarga = 0;
         private void cboSignificancia_SelectedIndexChanged(object sender, EventArgs e)
         {
             comboDist1.SelectedIndex = 0;
@@ -234,7 +234,7 @@ namespace SIMULACION_TP1
 
             } while (picos < 2);
 
-            picoTiempoEncastre = double.Parse(lblTn.Text);
+            picoTiempoDescarga = double.Parse(lblTn.Text);
 
         }
 
@@ -243,56 +243,50 @@ namespace SIMULACION_TP1
         {
             tablaVectorEstado.Rows.Clear();
             cantProyectos = int.Parse(txt_cantProy.Text);
-            double A1, A2, A3, A4, A5;
-            int pedidoACalcular = int.Parse(txt_nroEnsamblesProbabilidad.Text);
-            lblCompletarEnsambles.Text = $"Probabilidad de completar {pedidoACalcular} o más ensambles por hora:";
-            tablaVectorEstado.Columns[74].HeaderText = $"{pedidoACalcular} ENSAMBLES COMPLETADOS EN 1 HORA";
-            tablaVectorEstado.Columns[75].HeaderText = $"PROBABILIDAD DE COMPLETAR {pedidoACalcular} O MAS ENSAMBLES";
+            double SILO1, SILO2, SILO3, SILO4, tiempoAbasteciendoPlanta, tiempoCambioSilo;
             Random r = new Random();
 
-            VectorEstadoDinamico vectorEstado = new VectorEstadoDinamico();
-            VectorEstadoDinamico vectorEstadoMasUno = new VectorEstadoDinamico();
+            Vector vectorEstado = new Vector();
+            Vector vectorEstadoMasUno = new Vector();
 
             for (int i = 0; i < cantProyectos; i++)
             {
-                var numAleatorioLlegadaPedido = r.NextDouble();
-                var tiempoEntrePedidos = GeneracionTiemposActividad(1, txtLambdaPedidos.Text, "", numAleatorioLlegadaPedido);
+                var numAleatorioLlegadaCamion = r.NextDouble();
+                var tiempoEntreCamiones = GeneracionTiemposActividad(comboDist1.SelectedIndex, constante1_1.Text, constante1_2.Text, numAleatorioLlegadaCamion);
 
                 var numAleatorio1 = r.NextDouble();
-                A1 = GeneracionTiemposActividad(comboDist1.SelectedIndex, constante1_1.Text, constante1_2.Text, numAleatorio1);
+                SILO1 = GeneracionTiemposActividad(comboDist1.SelectedIndex, constante1_1.Text, constante1_2.Text, numAleatorio1);
 
                 var numAleatorio2 = r.NextDouble();
-                A2 = GeneracionTiemposActividad(comboDist2.SelectedIndex, constante2_1.Text, constante2_2.Text, numAleatorio2);
+                SILO2 = GeneracionTiemposActividad(comboDist2.SelectedIndex, constante2_1.Text, constante2_2.Text, numAleatorio2);
 
                 var numAleatorio3 = r.NextDouble();
-                A3 = GeneracionTiemposActividad(comboDist3.SelectedIndex, constante3_1.Text, constante3_2.Text, numAleatorio3);
+                SILO3 = GeneracionTiemposActividad(comboDist3.SelectedIndex, constante3_1.Text, constante3_2.Text, numAleatorio3);
 
                 var numAleatorio4 = r.NextDouble();
-                A4 = GeneracionTiemposActividad(comboDist4.SelectedIndex, constante4_1.Text, constante4_2.Text, numAleatorio4);
+                SILO4 = GeneracionTiemposActividad(comboDist4.SelectedIndex, constante4_1.Text, constante4_2.Text, numAleatorio4);
 
                 var numAleatorio5 = r.NextDouble();
-                A5 = GeneracionTiemposActividad(comboDist5.SelectedIndex, constante5_1.Text, constante5_2.Text, numAleatorio5);
+                tiempoAbasteciendoPlanta = GeneracionTiemposActividad(comboDist4.SelectedIndex, constante4_1.Text, constante4_2.Text, numAleatorio5);
+
+                var numAleatorio6 = r.NextDouble();
+                tiempoCambioSilo = GeneracionTiemposActividad(comboDist4.SelectedIndex, constante4_1.Text, constante4_2.Text, numAleatorio6);
 
                 if (i == 0)
                 {
-                    vectorEstado = new VectorEstadoDinamico(i + 1, tiempoEntrePedidos, pedidoACalcular, picoTiempoEncastre);
+                    vectorEstado = new Vector(i + 1, tiempoEntreCamiones, picoTiempoDescarga);
 
                     if (0 <= desde)
                     {
-                        tablaVectorEstado.Rows.Add(vectorEstado.nroEvento.ToString(), Math.Round(vectorEstado.reloj, 3).ToString(), (Evento)vectorEstado.evento, vectorEstado.pedido == 0 ? "-" : vectorEstado.pedido.ToString(),
-                            vectorEstado.proxPedido.ToString(), ((Evento)vectorEstado.evento == Evento.LlegaPedido || (Evento)vectorEstado.evento == Evento.Inicio) ? Math.Round(numAleatorioLlegadaPedido, 3).ToString() : "-", ((Evento)vectorEstado.evento == Evento.LlegaPedido || (Evento)vectorEstado.evento == Evento.Inicio) ? Math.Round(vectorEstado.tiempoEntrePedidos, 3).ToString() : "-", Math.Round(vectorEstado.proxLlegada, 3).ToString(),
-                            (Estado)vectorEstado.a1Estado, vectorEstado.a1Pedido == 0 ? "-" : vectorEstado.a1Pedido.ToString(), (i != 0 && vectorEstado.a1Pedido != vectorEstadoMasUno.a1Pedido && vectorEstado.a1Pedido != 0) ? Math.Round(numAleatorio1, 3).ToString() : "-", (i != 0 && vectorEstado.a1Pedido != vectorEstadoMasUno.a1Pedido && vectorEstado.a1Pedido != 0) ? Math.Round(vectorEstado.a1Tiempo, 3).ToString() : "-", (vectorEstado.a1ProxFin == 0 || vectorEstado.a1ProxFin == double.PositiveInfinity) ? "-" : Math.Round(vectorEstado.a1ProxFin, 3).ToString(), vectorEstado.a1Cola.ToString(),
-                            (Estado)vectorEstado.a2Estado, vectorEstado.a2Pedido == 0 ? "-" : vectorEstado.a2Pedido.ToString(), (i != 0 && vectorEstado.a2Pedido != vectorEstadoMasUno.a2Pedido && vectorEstado.a2Pedido != 0) ? Math.Round(numAleatorio2, 3).ToString() : "-", (i != 0 && vectorEstado.a2Pedido != vectorEstadoMasUno.a2Pedido && vectorEstado.a2Pedido != 0) ? Math.Round(vectorEstado.a2Tiempo, 3).ToString() : "-", (vectorEstado.a2ProxFin == 0 || vectorEstado.a2ProxFin == double.PositiveInfinity) ? "-" : Math.Round(vectorEstado.a2ProxFin, 3).ToString(), vectorEstado.a2Cola.ToString(),
-                            (Estado)vectorEstado.a3Estado, vectorEstado.a3Pedido == 0 ? "-" : vectorEstado.a3Pedido.ToString(), (i != 0 && vectorEstado.a3Pedido != vectorEstadoMasUno.a3Pedido && vectorEstado.a3Pedido != 0) ? Math.Round(numAleatorio3, 3).ToString() : "-", (i != 0 && vectorEstado.a3Pedido != vectorEstadoMasUno.a3Pedido && vectorEstado.a3Pedido != 0) ? Math.Round(vectorEstado.a3Tiempo, 3).ToString() : "-", (vectorEstado.a3ProxFin == 0 || vectorEstado.a3ProxFin == double.PositiveInfinity) ? "-" : Math.Round(vectorEstado.a3ProxFin, 3).ToString(), vectorEstado.a3Cola.ToString(),
-                            (Estado)vectorEstado.a4Estado, vectorEstado.a4Pedido == 0 ? "-" : vectorEstado.a4Pedido.ToString(), (i != 0 && vectorEstado.a4Pedido != vectorEstadoMasUno.a4Pedido && vectorEstado.a4Pedido != 0) ? Math.Round(numAleatorio4, 3).ToString() : "-", (i != 0 && vectorEstado.a4Pedido != vectorEstadoMasUno.a4Pedido && vectorEstado.a4Pedido != 0) ? Math.Round(vectorEstado.a4Tiempo, 3).ToString() : "-", (vectorEstado.a4ProxFin == 0 || vectorEstado.a4ProxFin == double.PositiveInfinity) ? "-" : Math.Round(vectorEstado.a4ProxFin, 3).ToString(), vectorEstado.a4Cola.ToString(),
-                            (Estado)vectorEstado.a5Estado, vectorEstado.a5Pedido == 0 ? "-" : vectorEstado.a5Pedido.ToString(), (i != 0 && vectorEstado.a5Pedido != vectorEstadoMasUno.a5Pedido && vectorEstado.a5Pedido != 0) ? Math.Round(numAleatorio5, 3).ToString() : "-", (i != 0 && vectorEstado.a5Pedido != vectorEstadoMasUno.a5Pedido && vectorEstado.a5Pedido != 0) ? Math.Round(vectorEstado.a5Tiempo, 3).ToString() : "-", (vectorEstado.a5ProxFin == 0 || vectorEstado.a5ProxFin == double.PositiveInfinity) ? "-" : Math.Round(vectorEstado.a5ProxFin, 3).ToString(), vectorEstado.a5ColaA4.ToString(),
-                            vectorEstado.a5ColaA2.ToString(),
-                            (Estado)vectorEstado.encastreEstado, vectorEstado.encastrePedido == 0 ? "-" : vectorEstado.encastrePedido.ToString(), (i != 0 && vectorEstado.encastreTiempo != vectorEstadoMasUno.encastreTiempo && vectorEstado.encastreTiempo != 0) ? Math.Round(vectorEstado.encastreTiempo, 3).ToString() : "-", (vectorEstado.encastreProxFin == 0 || vectorEstado.encastreProxFin == double.PositiveInfinity) ? "-" : Math.Round(vectorEstado.encastreProxFin, 3).ToString(),vectorEstado.colaEncastreA3.ToString(), vectorEstado.colaEncastreA5.ToString(),
-                            vectorEstado.cantidadEnsamblesSolicitados.ToString(), vectorEstado.cantidadEnsamblesFinalizados.ToString(), Math.Round(vectorEstado.propEnsamRealSobreSolic, 3).ToString(), Math.Round(vectorEstado.duracionPromedioEnsamble, 3).ToString(), vectorEstado.maxCola1.ToString(), vectorEstado.maxCola2.ToString(), vectorEstado.maxCola3.ToString(), vectorEstado.maxCola4.ToString(),
-                            vectorEstado.maxCola5.ToString(), vectorEstado.maxColaEncastre.ToString(), Math.Round(vectorEstado.tiempoPromCola1, 3).ToString(), Math.Round(vectorEstado.tiempoPromCola2, 3).ToString(), Math.Round(vectorEstado.tiempoPromCola3, 3).ToString(), Math.Round(vectorEstado.tiempoPromCola4, 3).ToString(), Math.Round(vectorEstado.tiempoPromCola5, 3).ToString(), Math.Round(vectorEstado.tiempoPromColaEncastre, 3).ToString(),
-                            Math.Round(vectorEstado.cantPromedioProdEnCola, 3).ToString(), vectorEstado.cantPromedioProdEnSistema.ToString(), Math.Round(vectorEstado.porcOcupacionA1, 3).ToString(), Math.Round(vectorEstado.porcOcupacionA2, 3).ToString(), Math.Round(vectorEstado.porcOcupacionA3, 3).ToString(), Math.Round(vectorEstado.porcOcupacionA4, 3).ToString(), Math.Round(vectorEstado.porcOcupacionA5, 3).ToString(), Math.Round(vectorEstado.tiempoBloqueoColaA5, 3).ToString(), Math.Round(vectorEstado.propBloqueoSobreOcupacion, 3).ToString(), Math.Round(vectorEstado.tiempoBloqueoColaEncastreA3, 3).ToString(),
-                            Math.Round(vectorEstado.tiempoBloqueoColaEncastreA3, 3).ToString(),
-                            vectorEstado.cantEnsamblesXHora.ToString(), Math.Round(vectorEstado.cantProbEnsamblesXHora, 3).ToString(), vectorEstado.pedidosParametroCompletadosEnUnaHora.ToString(), Math.Round(vectorEstado.probPedidosParametroCompletadosEnUnaHora, 3).ToString());
+                        tablaVectorEstado.Rows.Add(vectorEstado.nroEvento.ToString(), Math.Round(vectorEstado.reloj, 3).ToString(), (Evento)vectorEstado.evento, vectorEstado.camion == 0 ? "-" : vectorEstado.camion.ToString(),
+                            vectorEstado.proxcamion.ToString(), ((Evento)vectorEstado.evento == Evento.LlegaCamion || (Evento)vectorEstado.evento == Evento.Inicio) ? Math.Round(numAleatorioLlegadaCamion, 3).ToString() : "-", ((Evento)vectorEstado.evento == Evento.LlegaCamion || (Evento)vectorEstado.evento == Evento.Inicio) ? Math.Round(vectorEstado.tiempoEntreCamiones, 3).ToString() : "-", Math.Round(vectorEstado.proxLlegada, 3).ToString(),
+                            vectorEstado.rndTnCamion == 0 ? "-" : Math.Round(vectorEstado.rndTnCamion, 3).ToString(), vectorEstado.tnCamion == 0 ? "-" : Math.Round(vectorEstado.tnCamion, 3).ToString(), vectorEstado.ingresaASilo == 0 ? "-" : vectorEstado.ingresaASilo.ToString(), vectorEstado.siloAbasteciendoPlanta == 0 ? "-" : vectorEstado.siloAbasteciendoPlanta.ToString(), vectorEstado.rndTiempoAbasteciendoPlanta == 0 ? "-" : Math.Round(vectorEstado.rndTiempoAbasteciendoPlanta, 3).ToString(),
+                            vectorEstado.tiempoAbasteciendoPlanta == 0 ? "-" : Math.Round(vectorEstado.tiempoAbasteciendoPlanta, 3).ToString(), vectorEstado.proximoFinAbasteciendoPlanta == 0 ? "-" : Math.Round(vectorEstado.proximoFinAbasteciendoPlanta, 3).ToString(), vectorEstado.sobraTnCambioSilo == 0 ? "-" : vectorEstado.sobraTnCambioSilo.ToString(), vectorEstado.siloCambioSilo == 0 ? "-" : vectorEstado.siloCambioSilo.ToString(), vectorEstado.camionCambioSilo == 0 ? "-" : vectorEstado.camionCambioSilo.ToString(),
+                            vectorEstado.siguienteSiloCambioSilo == 0 ? "-" : vectorEstado.siguienteSiloCambioSilo.ToString(), vectorEstado.tiempoCambioSilo == 0 ? "-" : Math.Round(vectorEstado.tiempoCambioSilo, 3).ToString(), vectorEstado.proximoFinCambioSilo == 0 ? "-" : Math.Round(vectorEstado.proximoFinCambioSilo, 3).ToString(),
+                            (Estado)vectorEstado.estadoSilo1, vectorEstado.camionSilo1 == 0 ? "-" : vectorEstado.camionSilo1.ToString(), (i != 0 && vectorEstado.camionSilo1 != vectorEstadoMasUno.camionSilo1 && vectorEstado.camionSilo1 != 0) ? Math.Round(numAleatorio1, 3).ToString() : "-", (i != 0 && vectorEstado.camionSilo1 != vectorEstadoMasUno.camionSilo1 && vectorEstado.camionSilo1 != 0) ? Math.Round(vectorEstado.tiempoSilo1, 3).ToString() : "-", (vectorEstado.proximoFinSilo1 == 0 || vectorEstado.proximoFinSilo1 == double.PositiveInfinity) ? "-" : Math.Round(vectorEstado.proximoFinSilo1, 3).ToString(), vectorEstado.colaFinSilo1.ToString(), "Clientes en cola",
+                            (Estado)vectorEstado.estadoSilo2, vectorEstado.camionSilo2 == 0 ? "-" : vectorEstado.camionSilo2.ToString(), (i != 0 && vectorEstado.camionSilo2 != vectorEstadoMasUno.camionSilo2 && vectorEstado.camionSilo2 != 0) ? Math.Round(numAleatorio1, 3).ToString() : "-", (i != 0 && vectorEstado.camionSilo2 != vectorEstadoMasUno.camionSilo2 && vectorEstado.camionSilo2 != 0) ? Math.Round(vectorEstado.tiempoSilo2, 3).ToString() : "-", (vectorEstado.proximoFinSilo2 == 0 || vectorEstado.proximoFinSilo2 == double.PositiveInfinity) ? "-" : Math.Round(vectorEstado.proximoFinSilo2, 3).ToString(), vectorEstado.colaFinSilo2.ToString(), "Clientes en cola",
+                            (Estado)vectorEstado.estadoSilo3, vectorEstado.camionSilo3 == 0 ? "-" : vectorEstado.camionSilo3.ToString(), (i != 0 && vectorEstado.camionSilo3 != vectorEstadoMasUno.camionSilo3 && vectorEstado.camionSilo3 != 0) ? Math.Round(numAleatorio1, 3).ToString() : "-", (i != 0 && vectorEstado.camionSilo3 != vectorEstadoMasUno.camionSilo3 && vectorEstado.camionSilo3 != 0) ? Math.Round(vectorEstado.tiempoSilo3, 3).ToString() : "-", (vectorEstado.proximoFinSilo3 == 0 || vectorEstado.proximoFinSilo3 == double.PositiveInfinity) ? "-" : Math.Round(vectorEstado.proximoFinSilo3, 3).ToString(), vectorEstado.colaFinSilo3.ToString(), "Clientes en cola",
+                            (Estado)vectorEstado.estadoSilo4, vectorEstado.camionSilo4 == 0 ? "-" : vectorEstado.camionSilo4.ToString(), (i != 0 && vectorEstado.camionSilo4 != vectorEstadoMasUno.camionSilo4 && vectorEstado.camionSilo4 != 0) ? Math.Round(numAleatorio1, 3).ToString() : "-", (i != 0 && vectorEstado.camionSilo4 != vectorEstadoMasUno.camionSilo4 && vectorEstado.camionSilo4 != 0) ? Math.Round(vectorEstado.tiempoSilo4, 3).ToString() : "-", (vectorEstado.proximoFinSilo4 == 0 || vectorEstado.proximoFinSilo4 == double.PositiveInfinity) ? "-" : Math.Round(vectorEstado.proximoFinSilo4, 3).ToString(), vectorEstado.colaFinSilo4.ToString(), "Clientes en cola");
                     }
 
                     vectorEstadoMasUno = vectorEstado;
@@ -300,53 +294,23 @@ namespace SIMULACION_TP1
                 else
                 {
 
-                    vectorEstado = new VectorEstadoDinamico(i + 1, tiempoEntrePedidos, pedidoACalcular, picoTiempoEncastre, A1, A2, A3, A4, A5, vectorEstadoMasUno);
+                    vectorEstado = new Vector(i + 1, tiempoEntreCamiones, picoTiempoDescarga, 20,tiempoAbasteciendoPlanta, tiempoCambioSilo, SILO1, SILO2, SILO3, SILO4, vectorEstadoMasUno);
 
                     if ((hasta != 0
                         && vectorEstado.nroEvento >= desde && vectorEstado.nroEvento <= hasta)
                         ||
                         (desde == 0 && hasta == 0
-                        //&& (vectorEstado.nroEvento < 20 || vectorEstado.nroEvento % 10000 == 0)
                         ))
                     {
-                        tablaVectorEstado.Rows.Add(vectorEstado.nroEvento.ToString(), Math.Round(vectorEstado.reloj, 3).ToString(), (Evento)vectorEstado.evento, vectorEstado.pedido == 0 ? "-" : vectorEstado.pedido.ToString(),
-                            vectorEstado.proxPedido.ToString(), ((Evento)vectorEstado.evento == Evento.LlegaPedido || (Evento)vectorEstado.evento == Evento.Inicio) ? Math.Round(numAleatorioLlegadaPedido, 3).ToString() : "-", ((Evento)vectorEstado.evento == Evento.LlegaPedido || (Evento)vectorEstado.evento == Evento.Inicio) ? Math.Round(vectorEstado.tiempoEntrePedidos, 3).ToString() : "-", Math.Round(vectorEstado.proxLlegada, 3).ToString(),
-                            (Estado)vectorEstado.a1Estado, vectorEstado.a1Pedido == 0 ? "-" : vectorEstado.a1Pedido.ToString(), (i != 0 && vectorEstado.a1Pedido != vectorEstadoMasUno.a1Pedido && vectorEstado.a1Pedido != 0) ? Math.Round(numAleatorio1, 3).ToString() : "-", (i != 0 && vectorEstado.a1Pedido != vectorEstadoMasUno.a1Pedido && vectorEstado.a1Pedido != 0) ? Math.Round(vectorEstado.a1Tiempo, 3).ToString() : "-", (vectorEstado.a1ProxFin == 0 || vectorEstado.a1ProxFin == double.PositiveInfinity) ? "-" : Math.Round(vectorEstado.a1ProxFin, 3).ToString(), vectorEstado.a1Cola.ToString(),
-                            (Estado)vectorEstado.a2Estado, vectorEstado.a2Pedido == 0 ? "-" : vectorEstado.a2Pedido.ToString(), (i != 0 && vectorEstado.a2Pedido != vectorEstadoMasUno.a2Pedido && vectorEstado.a2Pedido != 0) ? Math.Round(numAleatorio2, 3).ToString() : "-", (i != 0 && vectorEstado.a2Pedido != vectorEstadoMasUno.a2Pedido && vectorEstado.a2Pedido != 0) ? Math.Round(vectorEstado.a2Tiempo, 3).ToString() : "-", (vectorEstado.a2ProxFin == 0 || vectorEstado.a2ProxFin == double.PositiveInfinity) ? "-" : Math.Round(vectorEstado.a2ProxFin, 3).ToString(), vectorEstado.a2Cola.ToString(),
-                            (Estado)vectorEstado.a3Estado, vectorEstado.a3Pedido == 0 ? "-" : vectorEstado.a3Pedido.ToString(), (i != 0 && vectorEstado.a3Pedido != vectorEstadoMasUno.a3Pedido && vectorEstado.a3Pedido != 0) ? Math.Round(numAleatorio3, 3).ToString() : "-", (i != 0 && vectorEstado.a3Pedido != vectorEstadoMasUno.a3Pedido && vectorEstado.a3Pedido != 0) ? Math.Round(vectorEstado.a3Tiempo, 3).ToString() : "-", (vectorEstado.a3ProxFin == 0 || vectorEstado.a3ProxFin == double.PositiveInfinity) ? "-" : Math.Round(vectorEstado.a3ProxFin, 3).ToString(), vectorEstado.a3Cola.ToString(),
-                            (Estado)vectorEstado.a4Estado, vectorEstado.a4Pedido == 0 ? "-" : vectorEstado.a4Pedido.ToString(), (i != 0 && vectorEstado.a4Pedido != vectorEstadoMasUno.a4Pedido && vectorEstado.a4Pedido != 0) ? Math.Round(numAleatorio4, 3).ToString() : "-", (i != 0 && vectorEstado.a4Pedido != vectorEstadoMasUno.a4Pedido && vectorEstado.a4Pedido != 0) ? Math.Round(vectorEstado.a4Tiempo, 3).ToString() : "-", (vectorEstado.a4ProxFin == 0 || vectorEstado.a4ProxFin == double.PositiveInfinity) ? "-" : Math.Round(vectorEstado.a4ProxFin, 3).ToString(), vectorEstado.a4Cola.ToString(),
-                            (Estado)vectorEstado.a5Estado, vectorEstado.a5Pedido == 0 ? "-" : vectorEstado.a5Pedido.ToString(), (i != 0 && vectorEstado.a5Pedido != vectorEstadoMasUno.a5Pedido && vectorEstado.a5Pedido != 0) ? Math.Round(numAleatorio5, 3).ToString() : "-", (i != 0 && vectorEstado.a5Pedido != vectorEstadoMasUno.a5Pedido && vectorEstado.a5Pedido != 0) ? Math.Round(vectorEstado.a5Tiempo, 3).ToString() : "-", (vectorEstado.a5ProxFin == 0 || vectorEstado.a5ProxFin == double.PositiveInfinity) ? "-" : Math.Round(vectorEstado.a5ProxFin, 3).ToString(), vectorEstado.a5ColaA4.ToString(),
-                            vectorEstado.a5ColaA2.ToString(),
-                            (Estado)vectorEstado.encastreEstado, vectorEstado.encastrePedido == 0 ? "-" : vectorEstado.encastrePedido.ToString(), (i != 0 && vectorEstado.encastreTiempo != vectorEstadoMasUno.encastreTiempo && vectorEstado.encastreTiempo != 0) ? Math.Round(vectorEstado.encastreTiempo, 3).ToString() : "-", (vectorEstado.encastreProxFin == 0 || vectorEstado.encastreProxFin == double.PositiveInfinity) ? "-" : Math.Round(vectorEstado.encastreProxFin, 3).ToString(), vectorEstado.colaEncastreA3.ToString(), vectorEstado.colaEncastreA5.ToString(),
-                            vectorEstado.cantidadEnsamblesSolicitados.ToString(), vectorEstado.cantidadEnsamblesFinalizados.ToString(), Math.Round(vectorEstado.propEnsamRealSobreSolic, 3).ToString(), Math.Round(vectorEstado.duracionPromedioEnsamble, 3).ToString(), vectorEstado.maxCola1.ToString(), vectorEstado.maxCola2.ToString(), vectorEstado.maxCola3.ToString(), vectorEstado.maxCola4.ToString(),
-                            vectorEstado.maxCola5.ToString(), vectorEstado.maxColaEncastre.ToString(), Math.Round(vectorEstado.tiempoPromCola1, 3).ToString(), Math.Round(vectorEstado.tiempoPromCola2, 3).ToString(), Math.Round(vectorEstado.tiempoPromCola3, 3).ToString(), Math.Round(vectorEstado.tiempoPromCola4, 3).ToString(), Math.Round(vectorEstado.tiempoPromCola5, 3).ToString(), Math.Round(vectorEstado.tiempoPromColaEncastre, 3).ToString(),
-                            Math.Round(vectorEstado.cantPromedioProdEnCola, 3).ToString(), vectorEstado.cantPromedioProdEnSistema.ToString(), Math.Round(vectorEstado.porcOcupacionA1, 3).ToString(), Math.Round(vectorEstado.porcOcupacionA2, 3).ToString(), Math.Round(vectorEstado.porcOcupacionA3, 3).ToString(), Math.Round(vectorEstado.porcOcupacionA4, 3).ToString(), Math.Round(vectorEstado.porcOcupacionA5, 3).ToString(), Math.Round(vectorEstado.tiempoBloqueoColaA5, 3).ToString(), Math.Round(vectorEstado.propBloqueoSobreOcupacion, 3).ToString(), Math.Round(vectorEstado.tiempoBloqueoColaEncastreA3, 3).ToString(),
-                            Math.Round(vectorEstado.tiempoBloqueoColaEncastreA3, 3).ToString(),
-                            vectorEstado.cantEnsamblesXHora.ToString(), Math.Round(vectorEstado.cantProbEnsamblesXHora, 3).ToString(), vectorEstado.pedidosParametroCompletadosEnUnaHora.ToString(), Math.Round(vectorEstado.probPedidosParametroCompletadosEnUnaHora, 3).ToString());
-                    }
-
-                    if (i == (cantProyectos - 1))
-                    {
-                        lblCantidadEventosSimulados.Text = vectorEstado.nroEvento.ToString();
-                        lblCantMaxProductosEncastre.Text = vectorEstado.maxColaEncastre.ToString();
-                        lblCantMaxProductosS1.Text = vectorEstado.maxCola1.ToString();
-                        lblCantMaxProductosS2.Text = vectorEstado.maxCola2.ToString();
-                        lblCantMaxProductosS3.Text = vectorEstado.maxCola3.ToString();
-                        lblCantMaxProductosS4.Text = vectorEstado.maxCola4.ToString();
-                        lblCantMaxProductosS5.Text = vectorEstado.maxCola5.ToString();
-                        lblEnsamblesRealizados.Text = vectorEstado.cantidadEnsamblesFinalizados.ToString();
-                        lblEnsamblesSolicitados.Text = vectorEstado.cantidadEnsamblesSolicitados.ToString();
-                        lblPorcentajeOcupacionS1.Text = Math.Round(vectorEstado.porcOcupacionA1, 2).ToString() + "%";
-                        lblPorcentajeOcupacionS2.Text = Math.Round(vectorEstado.porcOcupacionA2, 2).ToString() + "%";
-                        lblPorcentajeOcupacionS3.Text = Math.Round(vectorEstado.porcOcupacionA3, 2).ToString() + "%";
-                        lblPorcentajeOcupacionS4.Text = Math.Round(vectorEstado.porcOcupacionA4, 2).ToString() + "%";
-                        lblPorcentajeOcupacionS5.Text = Math.Round(vectorEstado.porcOcupacionA5, 2).ToString() + "%";
-                        lblProbCompletar3oMasEnsamblesXHora.Text = Math.Round(vectorEstado.probPedidosParametroCompletadosEnUnaHora, 2).ToString();
-                        lblPromedioEnsamblesXHora.Text = Math.Round(vectorEstado.cantProbEnsamblesXHora, 2).ToString();
-                        lblPromedioProductosEnSistema.Text = Math.Round(vectorEstado.cantPromedioProdEnSistema, 2).ToString();
-                        lblProporcionEnsamblesRealizadosSolicitados.Text = Math.Round(vectorEstado.propEnsamRealSobreSolic, 2).ToString();
-                        lblTiempoBloqueoTiempoOcupacion.Text = Math.Round(vectorEstado.propBloqueoSobreOcupacion, 2).ToString();
-                        lblTiempoPromedioDuracionEnsamble.Text = Math.Round(vectorEstado.duracionPromedioEnsamble, 2).ToString();
+                        tablaVectorEstado.Rows.Add(vectorEstado.nroEvento.ToString(), Math.Round(vectorEstado.reloj, 3).ToString(), (Evento)vectorEstado.evento, vectorEstado.camion == 0 ? "-" : vectorEstado.camion.ToString(),
+                            vectorEstado.proxcamion.ToString(), ((Evento)vectorEstado.evento == Evento.LlegaCamion || (Evento)vectorEstado.evento == Evento.Inicio) ? Math.Round(numAleatorioLlegadaCamion, 3).ToString() : "-", ((Evento)vectorEstado.evento == Evento.LlegaCamion || (Evento)vectorEstado.evento == Evento.Inicio) ? Math.Round(vectorEstado.tiempoEntreCamiones, 3).ToString() : "-", Math.Round(vectorEstado.proxLlegada, 3).ToString(),
+                            vectorEstado.rndTnCamion == 0 ? "-" : Math.Round(vectorEstado.rndTnCamion, 3).ToString(), vectorEstado.tnCamion == 0 ? "-" : Math.Round(vectorEstado.tnCamion, 3).ToString(), vectorEstado.ingresaASilo == 0 ? "-" : vectorEstado.ingresaASilo.ToString(), vectorEstado.siloAbasteciendoPlanta == 0 ? "-" : vectorEstado.siloAbasteciendoPlanta.ToString(), vectorEstado.rndTiempoAbasteciendoPlanta == 0 ? "-" : Math.Round(vectorEstado.rndTiempoAbasteciendoPlanta, 3).ToString(),
+                            vectorEstado.tiempoAbasteciendoPlanta == 0 ? "-" : Math.Round(vectorEstado.tiempoAbasteciendoPlanta, 3).ToString(), vectorEstado.proximoFinAbasteciendoPlanta == 0 ? "-" : Math.Round(vectorEstado.proximoFinAbasteciendoPlanta, 3).ToString(), vectorEstado.sobraTnCambioSilo == 0 ? "-" : vectorEstado.sobraTnCambioSilo.ToString(), vectorEstado.siloCambioSilo == 0 ? "-" : vectorEstado.siloCambioSilo.ToString(), vectorEstado.camionCambioSilo == 0 ? "-" : vectorEstado.camionCambioSilo.ToString(),
+                            vectorEstado.siguienteSiloCambioSilo == 0 ? "-" : vectorEstado.siguienteSiloCambioSilo.ToString(), vectorEstado.tiempoCambioSilo == 0 ? "-" : Math.Round(vectorEstado.tiempoCambioSilo, 3).ToString(), vectorEstado.proximoFinCambioSilo == 0 ? "-" : Math.Round(vectorEstado.proximoFinCambioSilo, 3).ToString(),
+                            (Estado)vectorEstado.estadoSilo1, vectorEstado.camionSilo1 == 0 ? "-" : vectorEstado.camionSilo1.ToString(), (i != 0 && vectorEstado.camionSilo1 != vectorEstadoMasUno.camionSilo1 && vectorEstado.camionSilo1 != 0) ? Math.Round(numAleatorio1, 3).ToString() : "-", (i != 0 && vectorEstado.camionSilo1 != vectorEstadoMasUno.camionSilo1 && vectorEstado.camionSilo1 != 0) ? Math.Round(vectorEstado.tiempoSilo1, 3).ToString() : "-", (vectorEstado.proximoFinSilo1 == 0 || vectorEstado.proximoFinSilo1 == double.PositiveInfinity) ? "-" : Math.Round(vectorEstado.proximoFinSilo1, 3).ToString(), vectorEstado.colaFinSilo1.ToString(), "Clientes en cola",
+                            (Estado)vectorEstado.estadoSilo2, vectorEstado.camionSilo2 == 0 ? "-" : vectorEstado.camionSilo2.ToString(), (i != 0 && vectorEstado.camionSilo2 != vectorEstadoMasUno.camionSilo2 && vectorEstado.camionSilo2 != 0) ? Math.Round(numAleatorio1, 3).ToString() : "-", (i != 0 && vectorEstado.camionSilo2 != vectorEstadoMasUno.camionSilo2 && vectorEstado.camionSilo2 != 0) ? Math.Round(vectorEstado.tiempoSilo2, 3).ToString() : "-", (vectorEstado.proximoFinSilo2 == 0 || vectorEstado.proximoFinSilo2 == double.PositiveInfinity) ? "-" : Math.Round(vectorEstado.proximoFinSilo2, 3).ToString(), vectorEstado.colaFinSilo2.ToString(), "Clientes en cola",
+                            (Estado)vectorEstado.estadoSilo3, vectorEstado.camionSilo3 == 0 ? "-" : vectorEstado.camionSilo3.ToString(), (i != 0 && vectorEstado.camionSilo3 != vectorEstadoMasUno.camionSilo3 && vectorEstado.camionSilo3 != 0) ? Math.Round(numAleatorio1, 3).ToString() : "-", (i != 0 && vectorEstado.camionSilo3 != vectorEstadoMasUno.camionSilo3 && vectorEstado.camionSilo3 != 0) ? Math.Round(vectorEstado.tiempoSilo3, 3).ToString() : "-", (vectorEstado.proximoFinSilo3 == 0 || vectorEstado.proximoFinSilo3 == double.PositiveInfinity) ? "-" : Math.Round(vectorEstado.proximoFinSilo3, 3).ToString(), vectorEstado.colaFinSilo3.ToString(), "Clientes en cola",
+                            (Estado)vectorEstado.estadoSilo4, vectorEstado.camionSilo4 == 0 ? "-" : vectorEstado.camionSilo4.ToString(), (i != 0 && vectorEstado.camionSilo4 != vectorEstadoMasUno.camionSilo4 && vectorEstado.camionSilo4 != 0) ? Math.Round(numAleatorio1, 3).ToString() : "-", (i != 0 && vectorEstado.camionSilo4 != vectorEstadoMasUno.camionSilo4 && vectorEstado.camionSilo4 != 0) ? Math.Round(vectorEstado.tiempoSilo4, 3).ToString() : "-", (vectorEstado.proximoFinSilo4 == 0 || vectorEstado.proximoFinSilo4 == double.PositiveInfinity) ? "-" : Math.Round(vectorEstado.proximoFinSilo4, 3).ToString(), vectorEstado.colaFinSilo4.ToString(), "Clientes en cola");
                     }
 
                     vectorEstadoMasUno = vectorEstado;

@@ -52,7 +52,7 @@
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(173, 40);
             this.button2.TabIndex = 2;
-            this.button2.Text = "Ejercicio TP6";
+            this.button2.Text = "Ejercicio TP7";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
@@ -64,18 +64,18 @@
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(162, 42);
             this.label2.TabIndex = 4;
-            this.label2.Text = "TP6 SIM";
+            this.label2.Text = "TP7 SIM";
             this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // textBox1
             // 
+            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox1.Location = new System.Drawing.Point(19, 264);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(248, 94);
             this.textBox1.TabIndex = 5;
-            this.textBox1.Text = "Alumnos grupo W - 4k4:\r\n- Veronica Romio\r\n- Martin Nicolas Cuello\r\n- Juan Ignacio" +
-    " Vera\r\n- Leandro Demarchi\r\n- Agustin Lencina";
+            this.textBox1.Text = "Alumno - 4k4:\r\n- Martin Nicolas Cuello";
             // 
             // Menu
             // 

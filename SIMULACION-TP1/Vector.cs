@@ -85,7 +85,7 @@ namespace SIMULACION_TP1
         }
 
         public Vector(int nroEvento,
-            double tiempoEntreCamiones, int parametroCapacidadSilo,double tiempoAbasteciendoPlanta = 0, double tiempoCambioSilo = 0, double TiempoSilo1 = 0, double TiempoSilo2 = 0, double TiempoSilo3 = 0, double TiempoSilo4 = 0, Vector vectorAnterior = null)
+            double tiempoEntreCamiones, double picoTiempoDescarga, int parametroCapacidadSilo = 20, double tiempoAbasteciendoPlanta = 0, double tiempoCambioSilo = 0, double TiempoSilo1 = 0, double TiempoSilo2 = 0, double TiempoSilo3 = 0, double TiempoSilo4 = 0, Vector vectorAnterior = null)
         {
             this.vectorAnterior = vectorAnterior;
             this.tiempoEntreCamiones = tiempoEntreCamiones;
@@ -103,52 +103,52 @@ namespace SIMULACION_TP1
             TnCamion();
             IngresaASilo();
 
-            SiloAbasteciendoPlanta();
-            RndTiempoAbasteciendoPlanta();
-            this.tiempoAbasteciendoPlanta = TiempoAbasteciendoPlanta(tiempoAbasteciendoPlanta);
-            this.proximoFinAbasteciendoPlanta = ProximoFinAbasteciendoPlanta(this.tiempoAbasteciendoPlanta);
+            //SiloAbasteciendoPlanta();
+            //RndTiempoAbasteciendoPlanta();
+            //this.tiempoAbasteciendoPlanta = TiempoAbasteciendoPlanta(tiempoAbasteciendoPlanta);
+            //this.proximoFinAbasteciendoPlanta = ProximoFinAbasteciendoPlanta(this.tiempoAbasteciendoPlanta);
 
-            SobraTnCambioSilo();
-            SiloCambioSilo();
-            CamionCambioSilo();
-            SiguienteSiloCambioSilo();
-            this.tiempoCambioSilo = TiempoCambioSilo(tiempoCambioSilo);
-            this.proximoFinCambioSilo = ProximoFinCambioSilo(this.tiempoCambioSilo);
+            //SobraTnCambioSilo();
+            //SiloCambioSilo();
+            //CamionCambioSilo();
+            //SiguienteSiloCambioSilo();
+            //this.tiempoCambioSilo = TiempoCambioSilo(tiempoCambioSilo);
+            //this.proximoFinCambioSilo = ProximoFinCambioSilo(this.tiempoCambioSilo);
 
-            estadoSilo1 = EstadoSilo(1, vectorAnterior.estadoSilo1, 2, vectorAnterior.colaFinSilo1);
-            estadoSilo2 = EstadoSilo(2, vectorAnterior.estadoSilo2, 3, vectorAnterior.colaFinSilo2);
-            estadoSilo3 = EstadoSilo(3, vectorAnterior.estadoSilo3, 4, vectorAnterior.colaFinSilo3);
-            estadoSilo4 = EstadoSilo(4, vectorAnterior.estadoSilo4, 5, vectorAnterior.colaFinSilo4);
+            //estadoSilo1 = EstadoSilo(1, vectorAnterior.estadoSilo1, 2, vectorAnterior.colaFinSilo1);
+            //estadoSilo2 = EstadoSilo(2, vectorAnterior.estadoSilo2, 3, vectorAnterior.colaFinSilo2);
+            //estadoSilo3 = EstadoSilo(3, vectorAnterior.estadoSilo3, 4, vectorAnterior.colaFinSilo3);
+            //estadoSilo4 = EstadoSilo(4, vectorAnterior.estadoSilo4, 5, vectorAnterior.colaFinSilo4);
 
-            contenidoTnSilo1 = ContenidoTnSilo(1, vectorAnterior.contenidoTnSilo1);
-            contenidoTnSilo2 = ContenidoTnSilo(2, vectorAnterior.contenidoTnSilo2);
-            contenidoTnSilo3 = ContenidoTnSilo(3, vectorAnterior.contenidoTnSilo3);
-            contenidoTnSilo4 = ContenidoTnSilo(4, vectorAnterior.contenidoTnSilo4);
+            //contenidoTnSilo1 = ContenidoTnSilo(1, vectorAnterior.contenidoTnSilo1);
+            //contenidoTnSilo2 = ContenidoTnSilo(2, vectorAnterior.contenidoTnSilo2);
+            //contenidoTnSilo3 = ContenidoTnSilo(3, vectorAnterior.contenidoTnSilo3);
+            //contenidoTnSilo4 = ContenidoTnSilo(4, vectorAnterior.contenidoTnSilo4);
 
-            camionSilo1 = CamionSilo(estadoSilo1, vectorAnterior.camionSilo1, 2, vectorAnterior.colaFinSilo1, clientesEnColaSilo1);
-            camionSilo2 = CamionSilo(estadoSilo2, vectorAnterior.camionSilo2, 3, vectorAnterior.colaFinSilo2, clientesEnColaSilo2);
-            camionSilo3 = CamionSilo(estadoSilo3, vectorAnterior.camionSilo3, 4, vectorAnterior.colaFinSilo3, clientesEnColaSilo3);
-            camionSilo4 = CamionSilo(estadoSilo4, vectorAnterior.camionSilo4, 5, vectorAnterior.colaFinSilo4, clientesEnColaSilo4);
+            //camionSilo1 = CamionSilo(estadoSilo1, vectorAnterior.camionSilo1, 2, vectorAnterior.colaFinSilo1, clientesEnColaSilo1);
+            //camionSilo2 = CamionSilo(estadoSilo2, vectorAnterior.camionSilo2, 3, vectorAnterior.colaFinSilo2, clientesEnColaSilo2);
+            //camionSilo3 = CamionSilo(estadoSilo3, vectorAnterior.camionSilo3, 4, vectorAnterior.colaFinSilo3, clientesEnColaSilo3);
+            //camionSilo4 = CamionSilo(estadoSilo4, vectorAnterior.camionSilo4, 5, vectorAnterior.colaFinSilo4, clientesEnColaSilo4);
 
-            tiempoSilo1 = TiempoSilo(TiempoSilo1, camionSilo1, vectorAnterior.camionSilo1);
-            tiempoSilo2 = TiempoSilo(TiempoSilo2, camionSilo2, vectorAnterior.camionSilo2);
-            tiempoSilo3 = TiempoSilo(TiempoSilo3, camionSilo3, vectorAnterior.camionSilo3);
-            tiempoSilo4 = TiempoSilo(TiempoSilo4, camionSilo4, vectorAnterior.camionSilo4);
+            //tiempoSilo1 = TiempoSilo(TiempoSilo1, camionSilo1, vectorAnterior.camionSilo1);
+            //tiempoSilo2 = TiempoSilo(TiempoSilo2, camionSilo2, vectorAnterior.camionSilo2);
+            //tiempoSilo3 = TiempoSilo(TiempoSilo3, camionSilo3, vectorAnterior.camionSilo3);
+            //tiempoSilo4 = TiempoSilo(TiempoSilo4, camionSilo4, vectorAnterior.camionSilo4);
 
-            proximoFinSilo1 = ProximoFinSilo(tiempoSilo1, estadoSilo1, vectorAnterior.proximoFinSilo1);
-            proximoFinSilo2 = ProximoFinSilo(tiempoSilo2, estadoSilo2, vectorAnterior.proximoFinSilo2);
-            proximoFinSilo3 = ProximoFinSilo(tiempoSilo3, estadoSilo3, vectorAnterior.proximoFinSilo3);
-            proximoFinSilo4 = ProximoFinSilo(tiempoSilo4, estadoSilo4, vectorAnterior.proximoFinSilo4);
+            //proximoFinSilo1 = ProximoFinSilo(tiempoSilo1, estadoSilo1, vectorAnterior.proximoFinSilo1);
+            //proximoFinSilo2 = ProximoFinSilo(tiempoSilo2, estadoSilo2, vectorAnterior.proximoFinSilo2);
+            //proximoFinSilo3 = ProximoFinSilo(tiempoSilo3, estadoSilo3, vectorAnterior.proximoFinSilo3);
+            //proximoFinSilo4 = ProximoFinSilo(tiempoSilo4, estadoSilo4, vectorAnterior.proximoFinSilo4);
 
-            colaFinSilo1 = ColaFinSilo(1, ingresaASilo, estadoSilo1, vectorAnterior.colaFinSilo1);
-            colaFinSilo2 = ColaFinSilo(2, ingresaASilo, estadoSilo2, vectorAnterior.colaFinSilo2);
-            colaFinSilo3 = ColaFinSilo(3, ingresaASilo, estadoSilo3, vectorAnterior.colaFinSilo3);
-            colaFinSilo4 = ColaFinSilo(4, ingresaASilo, estadoSilo4, vectorAnterior.colaFinSilo4);
+            //colaFinSilo1 = ColaFinSilo(1, ingresaASilo, estadoSilo1, vectorAnterior.colaFinSilo1);
+            //colaFinSilo2 = ColaFinSilo(2, ingresaASilo, estadoSilo2, vectorAnterior.colaFinSilo2);
+            //colaFinSilo3 = ColaFinSilo(3, ingresaASilo, estadoSilo3, vectorAnterior.colaFinSilo3);
+            //colaFinSilo4 = ColaFinSilo(4, ingresaASilo, estadoSilo4, vectorAnterior.colaFinSilo4);
 
-            clientesEnColaSilo1 = ClientesEnColaSilo(vectorAnterior.clientesEnColaSilo1, colaFinSilo1, vectorAnterior.colaFinSilo1, camion);
-            clientesEnColaSilo2 = ClientesEnColaSilo(vectorAnterior.clientesEnColaSilo2, colaFinSilo2, vectorAnterior.colaFinSilo2, camion);
-            clientesEnColaSilo3 = ClientesEnColaSilo(vectorAnterior.clientesEnColaSilo3, colaFinSilo3, vectorAnterior.colaFinSilo3, camion);
-            clientesEnColaSilo4 = ClientesEnColaSilo(vectorAnterior.clientesEnColaSilo4, colaFinSilo4, vectorAnterior.colaFinSilo4, camion);
+            //clientesEnColaSilo1 = ClientesEnColaSilo(vectorAnterior.clientesEnColaSilo1, colaFinSilo1, vectorAnterior.colaFinSilo1, camion);
+            //clientesEnColaSilo2 = ClientesEnColaSilo(vectorAnterior.clientesEnColaSilo2, colaFinSilo2, vectorAnterior.colaFinSilo2, camion);
+            //clientesEnColaSilo3 = ClientesEnColaSilo(vectorAnterior.clientesEnColaSilo3, colaFinSilo3, vectorAnterior.colaFinSilo3, camion);
+            //clientesEnColaSilo4 = ClientesEnColaSilo(vectorAnterior.clientesEnColaSilo4, colaFinSilo4, vectorAnterior.colaFinSilo4, camion);
 
         }
 
@@ -340,368 +340,368 @@ namespace SIMULACION_TP1
         }
         #endregion
 
-        #region Abastecimiento Planta
-        private void SiloAbasteciendoPlanta()
-        {
-            if (vectorAnterior == null)
-            {
-                siloAbasteciendoPlanta = 0;
-            }
-            else if(evento == 6)
-            {
-                siloAbasteciendoPlanta = 0;
-            }
-            else if (contenidoTnSilo1 == parametroCapacidadSilo)
-            {
-                siloAbasteciendoPlanta = 1;
-            }
-            else if (contenidoTnSilo2 == parametroCapacidadSilo)
-            {
-                siloAbasteciendoPlanta = 2;
-            }
-            else if (contenidoTnSilo3 == parametroCapacidadSilo)
-            {
-                siloAbasteciendoPlanta = 3;
-            }
-            else if (contenidoTnSilo1 == parametroCapacidadSilo)
-            {
-                siloAbasteciendoPlanta = 4;
-            }
-            else
-            {
-                siloAbasteciendoPlanta = 0;
-            }
-        }
+        //#region Abastecimiento Planta
+        //private void SiloAbasteciendoPlanta()
+        //{
+        //    if (vectorAnterior == null)
+        //    {
+        //        siloAbasteciendoPlanta = 0;
+        //    }
+        //    else if(evento == 6)
+        //    {
+        //        siloAbasteciendoPlanta = 0;
+        //    }
+        //    else if (contenidoTnSilo1 == parametroCapacidadSilo)
+        //    {
+        //        siloAbasteciendoPlanta = 1;
+        //    }
+        //    else if (contenidoTnSilo2 == parametroCapacidadSilo)
+        //    {
+        //        siloAbasteciendoPlanta = 2;
+        //    }
+        //    else if (contenidoTnSilo3 == parametroCapacidadSilo)
+        //    {
+        //        siloAbasteciendoPlanta = 3;
+        //    }
+        //    else if (contenidoTnSilo1 == parametroCapacidadSilo)
+        //    {
+        //        siloAbasteciendoPlanta = 4;
+        //    }
+        //    else
+        //    {
+        //        siloAbasteciendoPlanta = 0;
+        //    }
+        //}
 
-        private void RndTiempoAbasteciendoPlanta()
-        {
-            if (vectorAnterior == null)
-            {
-                rndTiempoAbasteciendoPlanta = 0;
-            }
-            else if(siloAbasteciendoPlanta != 0 && vectorAnterior.siloAbasteciendoPlanta != siloAbasteciendoPlanta)
-            {
-                Random rnd = new Random();
+        //private void RndTiempoAbasteciendoPlanta()
+        //{
+        //    if (vectorAnterior == null)
+        //    {
+        //        rndTiempoAbasteciendoPlanta = 0;
+        //    }
+        //    else if(siloAbasteciendoPlanta != 0 && vectorAnterior.siloAbasteciendoPlanta != siloAbasteciendoPlanta)
+        //    {
+        //        Random rnd = new Random();
 
-                rndTiempoAbasteciendoPlanta = rnd.NextDouble();
-            }
-            else
-            {
-                rndTiempoAbasteciendoPlanta = 0;
-            }
+        //        rndTiempoAbasteciendoPlanta = rnd.NextDouble();
+        //    }
+        //    else
+        //    {
+        //        rndTiempoAbasteciendoPlanta = 0;
+        //    }
 
-        }
+        //}
 
-        private double TiempoAbasteciendoPlanta(double tiempoAbasteciendoPlanta)
-        {
-            if (vectorAnterior == null)
-            {
-                return 0;
-            }
-            else if(siloAbasteciendoPlanta != 0)
-            {
-                return tiempoAbasteciendoPlanta;
-            }
-            else
-            {
-                return 0;
-            }
-        }
+        //private double TiempoAbasteciendoPlanta(double tiempoAbasteciendoPlanta)
+        //{
+        //    if (vectorAnterior == null)
+        //    {
+        //        return 0;
+        //    }
+        //    else if(siloAbasteciendoPlanta != 0)
+        //    {
+        //        return tiempoAbasteciendoPlanta;
+        //    }
+        //    else
+        //    {
+        //        return 0;
+        //    }
+        //}
 
-        private double ProximoFinAbasteciendoPlanta(double TiempoSilo1)
-        {
-            if (vectorAnterior == null)
-            {
-                return double.PositiveInfinity;
-            }
-            else if(siloAbasteciendoPlanta != 0)
-            {
-                if(rndTiempoAbasteciendoPlanta != 0)
-                {
-                    return reloj + TiempoSilo1;
-                }
-                else
-                {
-                    return vectorAnterior.proximoFinAbasteciendoPlanta;
-                }
-            }
-            else
-            {
-                return double.PositiveInfinity;
-            }
-        }
+        //private double ProximoFinAbasteciendoPlanta(double TiempoSilo1)
+        //{
+        //    if (vectorAnterior == null)
+        //    {
+        //        return double.PositiveInfinity;
+        //    }
+        //    else if(siloAbasteciendoPlanta != 0)
+        //    {
+        //        if(rndTiempoAbasteciendoPlanta != 0)
+        //        {
+        //            return reloj + TiempoSilo1;
+        //        }
+        //        else
+        //        {
+        //            return vectorAnterior.proximoFinAbasteciendoPlanta;
+        //        }
+        //    }
+        //    else
+        //    {
+        //        return double.PositiveInfinity;
+        //    }
+        //}
 
-        #endregion
+        //#endregion
 
-        #region Cambio Silos
+        //#region Cambio Silos
 
-        private void SobraTnCambioSilo()
-        {
-            if (vectorAnterior == null)
-            {
-                sobraTnCambioSilo = 0;
-            }
-            else if(ingresaASilo != 0)
-            {
-                sobraTnCambioSilo = ingresaASilo == 1 ? (contenidoTnSilo1 + tnCamion) > parametroCapacidadSilo ? contenidoTnSilo1 + tnCamion - parametroCapacidadSilo : 0 :
-                                    ingresaASilo == 2 ? (contenidoTnSilo2 + tnCamion) > parametroCapacidadSilo ? contenidoTnSilo2 + tnCamion - parametroCapacidadSilo : 0 :
-                                    ingresaASilo == 3 ? (contenidoTnSilo3 + tnCamion) > parametroCapacidadSilo ? contenidoTnSilo3 + tnCamion - parametroCapacidadSilo : 0 :
-                                    ingresaASilo == 4 ? (contenidoTnSilo4 + tnCamion) > parametroCapacidadSilo ? contenidoTnSilo4 + tnCamion - parametroCapacidadSilo : 0 : 0;
-            }
-            else
-            {
-                sobraTnCambioSilo = evento == 7 ? 0 : vectorAnterior.sobraTnCambioSilo; 
-            }
-        }
+        //private void SobraTnCambioSilo()
+        //{
+        //    if (vectorAnterior == null)
+        //    {
+        //        sobraTnCambioSilo = 0;
+        //    }
+        //    else if(ingresaASilo != 0)
+        //    {
+        //        sobraTnCambioSilo = ingresaASilo == 1 ? (contenidoTnSilo1 + tnCamion) > parametroCapacidadSilo ? contenidoTnSilo1 + tnCamion - parametroCapacidadSilo : 0 :
+        //                            ingresaASilo == 2 ? (contenidoTnSilo2 + tnCamion) > parametroCapacidadSilo ? contenidoTnSilo2 + tnCamion - parametroCapacidadSilo : 0 :
+        //                            ingresaASilo == 3 ? (contenidoTnSilo3 + tnCamion) > parametroCapacidadSilo ? contenidoTnSilo3 + tnCamion - parametroCapacidadSilo : 0 :
+        //                            ingresaASilo == 4 ? (contenidoTnSilo4 + tnCamion) > parametroCapacidadSilo ? contenidoTnSilo4 + tnCamion - parametroCapacidadSilo : 0 : 0;
+        //    }
+        //    else
+        //    {
+        //        sobraTnCambioSilo = evento == 7 ? 0 : vectorAnterior.sobraTnCambioSilo; 
+        //    }
+        //}
 
-        private void SiloCambioSilo()
-        {
-            if (vectorAnterior == null)
-            {
-                siloCambioSilo = 0;
-            }
-            else if (sobraTnCambioSilo != 0)
-            {
-                siloCambioSilo = siloCambioSilo != vectorAnterior.siloCambioSilo ? ingresaASilo : vectorAnterior.siloCambioSilo;
-            }
-            else
-            {
-                siloCambioSilo = 0;
-            }
-        }
+        //private void SiloCambioSilo()
+        //{
+        //    if (vectorAnterior == null)
+        //    {
+        //        siloCambioSilo = 0;
+        //    }
+        //    else if (sobraTnCambioSilo != 0)
+        //    {
+        //        siloCambioSilo = siloCambioSilo != vectorAnterior.siloCambioSilo ? ingresaASilo : vectorAnterior.siloCambioSilo;
+        //    }
+        //    else
+        //    {
+        //        siloCambioSilo = 0;
+        //    }
+        //}
 
-        private void CamionCambioSilo()
-        {
-            if (vectorAnterior == null)
-            {
-                camionCambioSilo = 0;
-            }
-            else if (siloCambioSilo != 0 && vectorAnterior.camionCambioSilo != 0)
-            {
-                camionCambioSilo = vectorAnterior.camionCambioSilo;
-            }
-            else if(siloCambioSilo != 0)
-            {
-                camionCambioSilo = contenidoTnSilo1 == parametroCapacidadSilo ? camionSilo1 :
-                                   contenidoTnSilo2 == parametroCapacidadSilo ? camionSilo2 :
-                                   contenidoTnSilo3 == parametroCapacidadSilo ? camionSilo3 :
-                                   contenidoTnSilo4 == parametroCapacidadSilo ? camionSilo4 : 0;
+        //private void CamionCambioSilo()
+        //{
+        //    if (vectorAnterior == null)
+        //    {
+        //        camionCambioSilo = 0;
+        //    }
+        //    else if (siloCambioSilo != 0 && vectorAnterior.camionCambioSilo != 0)
+        //    {
+        //        camionCambioSilo = vectorAnterior.camionCambioSilo;
+        //    }
+        //    else if(siloCambioSilo != 0)
+        //    {
+        //        camionCambioSilo = contenidoTnSilo1 == parametroCapacidadSilo ? camionSilo1 :
+        //                           contenidoTnSilo2 == parametroCapacidadSilo ? camionSilo2 :
+        //                           contenidoTnSilo3 == parametroCapacidadSilo ? camionSilo3 :
+        //                           contenidoTnSilo4 == parametroCapacidadSilo ? camionSilo4 : 0;
                                    
-            }
-            else
-            {
-                camionCambioSilo = 0;
-            }
-        }
+        //    }
+        //    else
+        //    {
+        //        camionCambioSilo = 0;
+        //    }
+        //}
 
-        private void SiguienteSiloCambioSilo()
-        {
-            if (vectorAnterior == null)
-            {
-                siguienteSiloCambioSilo = 0;
-            }
-            else if (siloCambioSilo != 0)
-            {
-                siguienteSiloCambioSilo = siloCambioSilo == 1 && contenidoTnSilo2 <= sobraTnCambioSilo ? 2 :
-                                          siloCambioSilo == 2 && contenidoTnSilo3 <= sobraTnCambioSilo ? 3 :
-                                          siloCambioSilo == 3 && contenidoTnSilo4 <= sobraTnCambioSilo ? 4 : 1;
-            }
-            else
-            {
-                siguienteSiloCambioSilo = 0;
-            }
-        }
+        //private void SiguienteSiloCambioSilo()
+        //{
+        //    if (vectorAnterior == null)
+        //    {
+        //        siguienteSiloCambioSilo = 0;
+        //    }
+        //    else if (siloCambioSilo != 0)
+        //    {
+        //        siguienteSiloCambioSilo = siloCambioSilo == 1 && contenidoTnSilo2 <= sobraTnCambioSilo ? 2 :
+        //                                  siloCambioSilo == 2 && contenidoTnSilo3 <= sobraTnCambioSilo ? 3 :
+        //                                  siloCambioSilo == 3 && contenidoTnSilo4 <= sobraTnCambioSilo ? 4 : 1;
+        //    }
+        //    else
+        //    {
+        //        siguienteSiloCambioSilo = 0;
+        //    }
+        //}
 
-        private double TiempoCambioSilo(double tiempoCambioSilo)
-        {
-            if (vectorAnterior == null)
-            {
-                return 0;
-            }
-            else if (sobraTnCambioSilo != 0)
-            {
-                return tiempoCambioSilo;
-            }
-            else
-            {
-                return 0;
-            }
-        }
+        //private double TiempoCambioSilo(double tiempoCambioSilo)
+        //{
+        //    if (vectorAnterior == null)
+        //    {
+        //        return 0;
+        //    }
+        //    else if (sobraTnCambioSilo != 0)
+        //    {
+        //        return tiempoCambioSilo;
+        //    }
+        //    else
+        //    {
+        //        return 0;
+        //    }
+        //}
 
-        private double ProximoFinCambioSilo(double proxtiempoCambioSilo)
-        {
-            if (vectorAnterior == null)
-            {
-                return double.PositiveInfinity;
-            }
-            else if (sobraTnCambioSilo != 0)
-            {
-                if (tiempoCambioSilo != 0)
-                {
-                    return reloj + tiempoCambioSilo;
-                }
-                else
-                {
-                    return vectorAnterior.proximoFinAbasteciendoPlanta;
-                }
-            }
-            else
-            {
-                return double.PositiveInfinity;
-            }
-        }
-        #endregion
+        //private double ProximoFinCambioSilo(double proxtiempoCambioSilo)
+        //{
+        //    if (vectorAnterior == null)
+        //    {
+        //        return double.PositiveInfinity;
+        //    }
+        //    else if (sobraTnCambioSilo != 0)
+        //    {
+        //        if (tiempoCambioSilo != 0)
+        //        {
+        //            return reloj + tiempoCambioSilo;
+        //        }
+        //        else
+        //        {
+        //            return vectorAnterior.proximoFinAbasteciendoPlanta;
+        //        }
+        //    }
+        //    else
+        //    {
+        //        return double.PositiveInfinity;
+        //    }
+        //}
+        //#endregion
 
-        #region Silos
-        private int EstadoSilo(int nroSilo, int estadoAnterior, int eventoSilo, int colaAnterior)
-        {
-            if (vectorAnterior == null)
-            {
-                return 0;
-            }
-            else if(ingresaASilo == nroSilo || (proximoFinAbasteciendoPlanta != 0 && siloAbasteciendoPlanta == nroSilo))
-            {
-                return 1;
-            }
-            else if(evento != eventoSilo && evento != 6)
-            {
-                return estadoAnterior;
-            }
-            else if(evento == eventoSilo && colaAnterior > 0)
-            {
-                return 1;
-            }
-            else if(colaAnterior > 0)
-            {
-                return 1;
-            }
-            else
-            {
-                return 0;
-            }
-        }
+        //#region Silos
+        //private int EstadoSilo(int nroSilo, int estadoAnterior, int eventoSilo, int colaAnterior)
+        //{
+        //    if (vectorAnterior == null)
+        //    {
+        //        return 0;
+        //    }
+        //    else if(ingresaASilo == nroSilo || (proximoFinAbasteciendoPlanta != 0 && siloAbasteciendoPlanta == nroSilo))
+        //    {
+        //        return 1;
+        //    }
+        //    else if(evento != eventoSilo && evento != 6)
+        //    {
+        //        return estadoAnterior;
+        //    }
+        //    else if(evento == eventoSilo && colaAnterior > 0)
+        //    {
+        //        return 1;
+        //    }
+        //    else if(colaAnterior > 0)
+        //    {
+        //        return 1;
+        //    }
+        //    else
+        //    {
+        //        return 0;
+        //    }
+        //}
 
-        private double ContenidoTnSilo(int nroSilo, double contenidoTnSiloAnterior)
-        {
-            if (vectorAnterior == null)
-            {
-                return 0;
-            }
-            else if(evento == 1 && ingresaASilo == nroSilo)
-            {
-                return (contenidoTnSiloAnterior + tnCamion) > parametroCapacidadSilo ? parametroCapacidadSilo : contenidoTnSiloAnterior + tnCamion
-            }
-            else if(evento == 6 && vectorAnterior.siloAbasteciendoPlanta == nroSilo)
-            {
-                return 0;
-            }
-            else
-            {
-                return contenidoTnSiloAnterior;
-            }
-        }
+        //private double ContenidoTnSilo(int nroSilo, double contenidoTnSiloAnterior)
+        //{
+        //    if (vectorAnterior == null)
+        //    {
+        //        return 0;
+        //    }
+        //    else if(evento == 1 && ingresaASilo == nroSilo)
+        //    {
+        //        return (contenidoTnSiloAnterior + tnCamion) > parametroCapacidadSilo ? parametroCapacidadSilo : contenidoTnSiloAnterior + tnCamion;
+        //    }
+        //    else if(evento == 6 && vectorAnterior.siloAbasteciendoPlanta == nroSilo)
+        //    {
+        //        return 0;
+        //    }
+        //    else
+        //    {
+        //        return contenidoTnSiloAnterior;
+        //    }
+        //}
 
-        private int CamionSilo(int estadoSilo, int camionAnterior, int eventoSilo, int colaAnterior, Queue<int> primeroEnCola)
-        {
-            if (vectorAnterior == null)
-            {
-                return 0;
-            }
-            else if (estadoSilo == 0)
-            {
-                return 0;
-            }
-            else if ((evento == eventoSilo || vectorAnterior.evento == 6) && colaAnterior > 0)
-            {
-                return primeroEnCola.Peek();
-            }
-            else
-            {
-                return camionAnterior;
-            }
-        }
+        //private int CamionSilo(int estadoSilo, int camionAnterior, int eventoSilo, int colaAnterior, Queue<int> primeroEnCola)
+        //{
+        //    if (vectorAnterior == null)
+        //    {
+        //        return 0;
+        //    }
+        //    else if (estadoSilo == 0)
+        //    {
+        //        return 0;
+        //    }
+        //    else if ((evento == eventoSilo || vectorAnterior.evento == 6) && colaAnterior > 0)
+        //    {
+        //        return primeroEnCola.Peek();
+        //    }
+        //    else
+        //    {
+        //        return camionAnterior;
+        //    }
+        //}
 
-        private double TiempoSilo(double tiempoSilo, int camionSilo, int camionSiloAnterior)
-        {
-            if (vectorAnterior == null)
-            {
-                return 0;
-            }
-            else if (camionSilo != camionSiloAnterior && camionSiloAnterior != 0)
-            {
-                return tiempoSilo;
-            }
-            return 0;
-        }
+        //private double TiempoSilo(double tiempoSilo, int camionSilo, int camionSiloAnterior)
+        //{
+        //    if (vectorAnterior == null)
+        //    {
+        //        return 0;
+        //    }
+        //    else if (camionSilo != camionSiloAnterior && camionSiloAnterior != 0)
+        //    {
+        //        return tiempoSilo;
+        //    }
+        //    return 0;
+        //}
 
-        private double ProximoFinSilo(double tiempoSilo, int estadoSilo, double proxFinSiloAnterior)
-        {
-            if (vectorAnterior == null)
-            {
-                return double.PositiveInfinity;
-            }
-             else
-            {
-                if (estadoSilo == 1)
-                {
-                    if (tiempoSilo != 0)
-                    {
-                        return reloj + tiempoSilo;
-                    }
-                    else
-                    {
-                        return proxFinSiloAnterior;
-                    }
-                }
-                else
-                {
-                    return double.PositiveInfinity;
-                }
-            }
-        }
+        //private double ProximoFinSilo(double tiempoSilo, int estadoSilo, double proxFinSiloAnterior)
+        //{
+        //    if (vectorAnterior == null)
+        //    {
+        //        return double.PositiveInfinity;
+        //    }
+        //     else
+        //    {
+        //        if (estadoSilo == 1)
+        //        {
+        //            if (tiempoSilo != 0)
+        //            {
+        //                return reloj + tiempoSilo;
+        //            }
+        //            else
+        //            {
+        //                return proxFinSiloAnterior;
+        //            }
+        //        }
+        //        else
+        //        {
+        //            return double.PositiveInfinity;
+        //        }
+        //    }
+        //}
 
-        private int ColaFinSilo(int nroSilo, int ingresaASilo, int estadoSilo, int colaAnterior)
-        {
-            if (vectorAnterior == null)
-            {
-                return 0;
-            }
-            else if (ingresaASilo == nroSilo && estadoSilo == 1)
-            {
-                return colaAnterior + 1;
-            }
-            else if (evento == 6 && colaAnterior > 0)
-            {
-                return colaAnterior - 1;
-            }
-            else
-            {
-                return colaAnterior;
-            }
-        }
+        //private int ColaFinSilo(int nroSilo, int ingresaASilo, int estadoSilo, int colaAnterior)
+        //{
+        //    if (vectorAnterior == null)
+        //    {
+        //        return 0;
+        //    }
+        //    else if (ingresaASilo == nroSilo && estadoSilo == 1)
+        //    {
+        //        return colaAnterior + 1;
+        //    }
+        //    else if (evento == 6 && colaAnterior > 0)
+        //    {
+        //        return colaAnterior - 1;
+        //    }
+        //    else
+        //    {
+        //        return colaAnterior;
+        //    }
+        //}
 
-        private Queue<int>  ClientesEnColaSilo(Queue<int> clientesEnColaSilo, int colaSilo, int colaSiloAnterior, int camionEvento)
-        {
-            if (vectorAnterior == null)
-            {
-                return new Queue<int>();
-            }
-            else if (colaSilo == colaSiloAnterior)
-            {
-                return clientesEnColaSilo;
-            }
-            else if (colaSilo > colaSiloAnterior)
-            {
-                clientesEnColaSilo.Enqueue(camionEvento);
-                return clientesEnColaSilo;
-            }
-            else
-            {
-                clientesEnColaSilo.Dequeue();
-                return clientesEnColaSilo;
-            }
-        }
-        #endregion
+        //private Queue<int>  ClientesEnColaSilo(Queue<int> clientesEnColaSilo, int colaSilo, int colaSiloAnterior, int camionEvento)
+        //{
+        //    if (vectorAnterior == null)
+        //    {
+        //        return new Queue<int>();
+        //    }
+        //    else if (colaSilo == colaSiloAnterior)
+        //    {
+        //        return clientesEnColaSilo;
+        //    }
+        //    else if (colaSilo > colaSiloAnterior)
+        //    {
+        //        clientesEnColaSilo.Enqueue(camionEvento);
+        //        return clientesEnColaSilo;
+        //    }
+        //    else
+        //    {
+        //        clientesEnColaSilo.Dequeue();
+        //        return clientesEnColaSilo;
+        //    }
+        //}
+        //#endregion
 
     }
 }
