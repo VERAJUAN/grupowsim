@@ -219,14 +219,18 @@ namespace SIMULACION_TP1
             L2ProxFin();
             //L2Cola();
 
-            ColaParaLavar();
-            ColaParaSecar();
+            
 
             SEstado();
             SPedido();
             sTiempo = STiempo(S); //Cambiar S por el tiempo de humedad
             SProxFin();
             //SCola();
+
+
+
+            ColaParaLavar();
+            ColaParaSecar();
 
             //EncastreEstado();
             //EncastrePedido();
@@ -380,10 +384,10 @@ namespace SIMULACION_TP1
                 {
                     pedido = vectorAnterior.l2Pedido;
                 }
-                //else if (evento == 6)
-                //{
-                //    pedido = vectorAnterior.a5Pedido;
-                //}
+                else if (evento == 6)
+                {
+                    pedido = vectorAnterior.sPedido;
+                }
                 //else if (evento == 8)
                 //{
                 //    pedido = 0;
@@ -1023,7 +1027,7 @@ namespace SIMULACION_TP1
             {
                 if (evento == 6 && vectorAnterior.colaParaSecar.Count > 0)
                 {
-                    sPedido = vectorAnterior.colaParaSecar.Count;
+                    sPedido = vectorAnterior.colaParaSecar.ElementAt(0);
                 }
                 else if ((evento == 4 || evento == 5) && vectorAnterior.sEstado == 0 && vectorAnterior.colaParaSecar.Count == 0)
                 {
