@@ -68,6 +68,7 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Vector.cs" />
     <Compile Include="VectorEstado.cs" />
     <Compile Include="VectorEstadoDinamico.cs" />
     <EmbeddedResource Include="Ejercicio.resx">
