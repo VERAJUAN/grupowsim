@@ -66,6 +66,7 @@ namespace SIMULACION_TP1
 
         public int parametroCapacidadSilo { get; set; }
         public double tiempoDescarga { get; set; }
+        public double tiempoCambioSilo { get; set; }
         Random rnd { get; set; }
 
         public Vector()
@@ -74,13 +75,14 @@ namespace SIMULACION_TP1
         }
 
         public Vector(int nroEvento,
-            double tiempoEntreCamiones, double picoTiempoDescarga, Random rnd,int parametroCapacidadSilo = 20, double tiempoAbasteciendoPlanta = 0, double tiempoDescarga = 0, Vector vectorAnterior = null)
+            double tiempoEntreCamiones, double tiempoDescarga, Random rnd,int parametroCapacidadSilo = 20, double tiempoAbasteciendoPlanta = 0, double tiempoCambioSilo = 0, Vector vectorAnterior = null)
         {
             this.vectorAnterior = vectorAnterior;
             this.tiempoEntreCamiones = tiempoEntreCamiones;
             this.nroEvento = nroEvento;
             this.parametroCapacidadSilo = parametroCapacidadSilo;
             this.tiempoDescarga = tiempoDescarga;
+            this.tiempoCambioSilo = tiempoCambioSilo;
             this.rnd = rnd;
 
             Reloj(); //0
@@ -109,21 +111,6 @@ namespace SIMULACION_TP1
             ProximoFinPlaya();
             ColaPlaya();
             ClientesEnColaPlaya();
-
-            //estadoPlanta = EstadoSilo(1, vectorAnterior.estadoSilo1, 2, vectorAnterior.colaFinSilo1);
-            //contenidoTnPlanta = ContenidoTnSilo(1, vectorAnterior.contenidoTnSilo1);
-            //camionPlanta = CamionSilo(estadoSilo1, vectorAnterior.camionSilo1, 2, vectorAnterior.colaFinSilo1, clientesEnColaSilo1);
-            //tiempoPlanta = TiempoSilo(TiempoSilo1, camionSilo1, vectorAnterior.camionSilo1);
-            //proximoFinPlanta = ProximoFinSilo(tiempoSilo1, estadoSilo1, vectorAnterior.proximoFinSilo1);
-            //colaPlanta = ColaFinSilo(1, ingresaASilo, estadoSilo1, vectorAnterior.colaFinSilo1);
-            //clientesEnColaPlanta = ClientesEnColaSilo(vectorAnterior.clientesEnColaSilo1, colaFinSilo1, vectorAnterior.colaFinSilo1, camion);
-
-            //SobraTnCambioSilo();
-            //SiloCambioSilo();
-            //CamionCambioSilo();
-            //SiguienteSiloCambioSilo();
-            //this.tiempoCambioSilo = TiempoCambioSilo(tiempoCambioSilo);
-            //this.proximoFinCambioSilo = ProximoFinCambioSilo(this.tiempoCambioSilo);
 
             estadoSilo1 = EstadoSilo(1);
             estadoSilo2 = EstadoSilo(2);
@@ -180,6 +167,11 @@ namespace SIMULACION_TP1
                 {
                     evento = 1;
                 }
+                else if (reloj == vectorAnterior.proximoFinPlaya && vectorAnterior.sobraTnPlaya != 0 && 
+                                        (vectorAnterior.evento == 2 || vectorAnterior.evento == 3 || vectorAnterior.evento == 4 || vectorAnterior.evento == 5))
+                {
+                    evento = 7;
+                }
                 else if (reloj == vectorAnterior.proximoFinPlaya && vectorAnterior.siloPlaya == 1)
                 {
                     evento = 2;
@@ -199,10 +191,6 @@ namespace SIMULACION_TP1
                 else if (reloj == vectorAnterior.proximoFinAbasteciendoPlanta)
                 {
                     evento = 6;
-                }
-                else if (reloj == vectorAnterior.proximoFinPlaya && vectorAnterior.sobraTnPlaya != 0)
-                {
-                    evento = 7;
                 }
                 else
                 {
@@ -314,6 +302,10 @@ namespace SIMULACION_TP1
             {
                 tnCamion = vectorAnterior.sobraTnPlaya;
             }
+            else if ((evento == 2 || evento == 3 || evento == 4 || evento == 5) && vectorAnterior.sobraTnPlaya != 0)
+            {
+                tnCamion = vectorAnterior.sobraTnPlaya;
+            }
             else
             {
                 tnCamion = 0;
@@ -340,19 +332,19 @@ namespace SIMULACION_TP1
                 {
                     if (vectorAnterior.ingresaASilo == 1)
                     {
-                        ingresaASilo = vectorAnterior.contenidoTnSilo2 < parametroCapacidadSilo ? 2 : vectorAnterior.contenidoTnSilo3 < parametroCapacidadSilo ? 3 : vectorAnterior.contenidoTnSilo4 < parametroCapacidadSilo ? 4 : 1;
+                        ingresaASilo = vectorAnterior.contenidoTnSilo2 < parametroCapacidadSilo ? 2 : vectorAnterior.contenidoTnSilo3 < parametroCapacidadSilo ? 3 : vectorAnterior.contenidoTnSilo4 < parametroCapacidadSilo ? 4 : vectorAnterior.contenidoTnSilo1 < parametroCapacidadSilo ? 1 : 0;
                     }
                     else if (vectorAnterior.ingresaASilo == 2)
                     {
-                        ingresaASilo = vectorAnterior.contenidoTnSilo3 < parametroCapacidadSilo ? 3 : vectorAnterior.contenidoTnSilo4 < parametroCapacidadSilo ? 4 : 0;
+                        ingresaASilo = vectorAnterior.contenidoTnSilo3 < parametroCapacidadSilo ? 3 : vectorAnterior.contenidoTnSilo4 < parametroCapacidadSilo ? 4 : vectorAnterior.contenidoTnSilo2 < parametroCapacidadSilo ? 2 : vectorAnterior.contenidoTnSilo1 < parametroCapacidadSilo ? 1 : 0;
                     }
                     else if (vectorAnterior.ingresaASilo == 3)
                     {
-                        ingresaASilo = contenidoTnSilo4 < parametroCapacidadSilo ? 4 : 1;
+                        ingresaASilo = contenidoTnSilo4 < parametroCapacidadSilo ? 4 : vectorAnterior.contenidoTnSilo3 < parametroCapacidadSilo ? 3 : vectorAnterior.contenidoTnSilo2 < parametroCapacidadSilo ? 2 : vectorAnterior.contenidoTnSilo1 < parametroCapacidadSilo ? 1 : 0;
                     }
                     else if (vectorAnterior.ingresaASilo == 4)
                     {
-                        ingresaASilo = 1;
+                        ingresaASilo = contenidoTnSilo1 < parametroCapacidadSilo ? 1 :vectorAnterior.contenidoTnSilo2 < parametroCapacidadSilo ? 2 : vectorAnterior.contenidoTnSilo3 < parametroCapacidadSilo ? 3 : vectorAnterior.contenidoTnSilo4 < parametroCapacidadSilo ? 4 : 0;
                     }
                     else
                     {
@@ -494,7 +486,7 @@ namespace SIMULACION_TP1
             {
                 return 0;
             }
-            else if (evento == 1 && siloPlaya == nroSilo && vectorAnterior.siloPlaya != siloPlaya)
+            else if ((evento == 1 || evento == 2 || evento == 3 || evento == 4 || evento == 5) && siloPlaya == nroSilo && vectorAnterior.camionPlaya != camionPlaya)
             {
                 return (contenidoTnSiloAnterior + tnCamion) > parametroCapacidadSilo ? parametroCapacidadSilo : contenidoTnSiloAnterior + tnCamion;
             }
@@ -541,7 +533,7 @@ namespace SIMULACION_TP1
             {
                 estadoPlaya = 0;
             }
-            else if (evento == 1 || evento == 7 || vectorAnterior.colaPlaya > 0)
+            else if (evento == 1 || evento == 7 || vectorAnterior.colaPlaya > 0 || vectorAnterior.siguienteSiloPlaya != 0)
             {
                 estadoPlaya = 1;
             }
@@ -561,7 +553,8 @@ namespace SIMULACION_TP1
             {
                 camionPlaya = vectorAnterior.camionPlaya;
             }
-            else if (vectorAnterior.estadoPlaya == 0)
+            else if (vectorAnterior.estadoPlaya == 0 && (vectorAnterior.contenidoTnSilo1 < parametroCapacidadSilo || vectorAnterior.contenidoTnSilo2 < parametroCapacidadSilo ||
+                                          vectorAnterior.contenidoTnSilo3 < parametroCapacidadSilo || vectorAnterior.contenidoTnSilo4 < parametroCapacidadSilo))
             {
                 camionPlaya = camion;
             }
@@ -569,12 +562,25 @@ namespace SIMULACION_TP1
             {
                 camionPlaya = vectorAnterior.camionPlaya;
             }
-            else if ((evento == 1 || evento == 2 || evento == 3 || evento == 4 || evento == 5) && estadoPlaya == 1 && vectorAnterior.colaPlaya > 0)
+            else if (((evento == 1 || evento == 2 || evento == 3 || evento == 4 || evento == 5) && estadoPlaya == 1 && vectorAnterior.colaPlaya > 0) && 
+                                          (vectorAnterior.contenidoTnSilo1 < parametroCapacidadSilo || vectorAnterior.contenidoTnSilo2 < parametroCapacidadSilo ||
+                                          vectorAnterior.contenidoTnSilo3 < parametroCapacidadSilo || vectorAnterior.contenidoTnSilo4 < parametroCapacidadSilo))
             {
-                camionPlaya = vectorAnterior.clientesEnColaPlaya.Dequeue();
+                if (vectorAnterior.clientesEnColaPlaya.Count > 0)
+                    camionPlaya = vectorAnterior.clientesEnColaPlaya.Dequeue();
+                else
+                {
+                    Console.WriteLine("Dequeue: " + nroEvento);
+                    camionPlaya = 0;
+                }
+            }
+            else if (vectorAnterior.sobraTnPlaya != 0 && vectorAnterior.camionPlaya == camion && vectorAnterior.camionPlaya != 0)
+            {
+                camionPlaya = vectorAnterior.camion;
             }
             else
             {
+                Console.WriteLine("else: " + nroEvento);
                 camionPlaya = 0;
             }
         }
@@ -586,7 +592,8 @@ namespace SIMULACION_TP1
             {
                 siloPlaya = 0;
             }
-            else if (estadoPlaya == 1)
+            else if (estadoPlaya == 1 && (vectorAnterior.contenidoTnSilo1 < parametroCapacidadSilo || vectorAnterior.contenidoTnSilo2 < parametroCapacidadSilo ||
+                                          vectorAnterior.contenidoTnSilo3 < parametroCapacidadSilo || vectorAnterior.contenidoTnSilo4 < parametroCapacidadSilo))
             {
                 if (camion == vectorAnterior.camionPlaya)
                 {
@@ -627,21 +634,21 @@ namespace SIMULACION_TP1
             }
             else if (estadoPlaya == 1)
             {
-                if (camionPlaya != vectorAnterior.camionPlaya)
+                if ((camionPlaya != vectorAnterior.camionPlaya))
                 {
                     if (evento == 1)
                     {
-                        if ((contenidoTnSilo1 + tnCamion) > parametroCapacidadSilo && siloPlaya == 1)
-                            sobraTnPlaya = contenidoTnSilo1 + tnCamion - parametroCapacidadSilo;
+                        if ((vectorAnterior.contenidoTnSilo1 + tnCamion) > parametroCapacidadSilo && siloPlaya == 1)
+                            sobraTnPlaya = vectorAnterior.contenidoTnSilo1 + tnCamion - parametroCapacidadSilo;
 
-                        else if ((contenidoTnSilo2 + tnCamion) > parametroCapacidadSilo && siloPlaya == 2)
-                            sobraTnPlaya = contenidoTnSilo2 + tnCamion - parametroCapacidadSilo;
+                        else if ((vectorAnterior.contenidoTnSilo2 + tnCamion) > parametroCapacidadSilo && siloPlaya == 2)
+                            sobraTnPlaya = vectorAnterior.contenidoTnSilo2 + tnCamion - parametroCapacidadSilo;
 
-                        else if ((contenidoTnSilo3 + tnCamion) > parametroCapacidadSilo && siloPlaya == 3)
-                            sobraTnPlaya = contenidoTnSilo3 + tnCamion - parametroCapacidadSilo;
+                        else if ((vectorAnterior.contenidoTnSilo3 + tnCamion) > parametroCapacidadSilo && siloPlaya == 3)
+                            sobraTnPlaya = vectorAnterior.contenidoTnSilo3 + tnCamion - parametroCapacidadSilo;
 
-                        else if ((contenidoTnSilo4 + tnCamion) > parametroCapacidadSilo && siloPlaya == 4)
-                            sobraTnPlaya = contenidoTnSilo4 + tnCamion - parametroCapacidadSilo;
+                        else if ((vectorAnterior.contenidoTnSilo4 + tnCamion) > parametroCapacidadSilo && siloPlaya == 4)
+                            sobraTnPlaya = vectorAnterior.contenidoTnSilo4 + tnCamion - parametroCapacidadSilo;
 
                         else
                         {
@@ -649,6 +656,13 @@ namespace SIMULACION_TP1
                         }
                     }
                     else
+                    {
+                        sobraTnPlaya = vectorAnterior.sobraTnPlaya;
+                    }
+                }
+                else if (camionPlaya == vectorAnterior.camionPlaya && vectorAnterior.sobraTnPlaya != 0)
+                {
+                    if (evento == 2 || evento == 3 || evento == 4 || evento == 5)
                     {
                         sobraTnPlaya = vectorAnterior.sobraTnPlaya;
                     }
@@ -667,36 +681,25 @@ namespace SIMULACION_TP1
             {
                 siguienteSiloPlaya = 0;
             }
-            else if (estadoPlaya == 1)
+            else if (sobraTnPlaya != 0)
             {
-                if (camionPlaya != vectorAnterior.camionPlaya)
+                if ((vectorAnterior.contenidoTnSilo1 + tnCamion) >= parametroCapacidadSilo && siloPlaya == 1)
+                    siguienteSiloPlaya = 2;
+
+                else if ((vectorAnterior.contenidoTnSilo2 + tnCamion) >= parametroCapacidadSilo && siloPlaya == 2)
+                    siguienteSiloPlaya = 3;
+
+                else if ((vectorAnterior.contenidoTnSilo3 + tnCamion) >= parametroCapacidadSilo && siloPlaya == 3)
+                    siguienteSiloPlaya = 4;
+
+                else if ((vectorAnterior.contenidoTnSilo4 + tnCamion) >= parametroCapacidadSilo && siloPlaya == 4)
+                    siguienteSiloPlaya = 1;
+                else
                 {
-                    if (evento == 1)
-                    {
-                        if ((contenidoTnSilo1 + sobraTnPlaya) >= parametroCapacidadSilo && siloPlaya == 1)
-                            siguienteSiloPlaya = 2;
-
-                        else if ((contenidoTnSilo2 + sobraTnPlaya) >= parametroCapacidadSilo && siloPlaya == 2)
-                            siguienteSiloPlaya = 3;
-
-                        else if ((contenidoTnSilo3 + sobraTnPlaya) >= parametroCapacidadSilo && siloPlaya == 3)
-                            siguienteSiloPlaya = 4;
-
-                        else if ((contenidoTnSilo4 + sobraTnPlaya) >= parametroCapacidadSilo && siloPlaya == 4)
-                            siguienteSiloPlaya = 1;
-
-                        else
-                        {
-                            siguienteSiloPlaya = 0;
-                        }
-                    }
-                    else
-                    {
-                        siguienteSiloPlaya = vectorAnterior.siguienteSiloPlaya;
-                    }
+                    siguienteSiloPlaya = vectorAnterior.siguienteSiloPlaya;
                 }
             }
-            else
+            else 
             {
                 siguienteSiloPlaya = 0;
             }
@@ -710,14 +713,17 @@ namespace SIMULACION_TP1
             }
             else if (estadoPlaya == 1)
             {
-                if (camionPlaya != vectorAnterior.camionPlaya)
+                if (camionPlaya != vectorAnterior.camionPlaya && camionPlaya != 0)
                 {
-                    if (sobraTnPlaya != 0)
-                        tiempoPlaya = 1 / 6;
-                    else
-                    {
-                        tiempoPlaya = tiempoDescarga;
-                    }
+                    tiempoPlaya = tiempoDescarga;
+                }
+                else if((evento == 2 || evento == 3 || evento == 4 || evento == 5) && vectorAnterior.sobraTnPlaya != 0)
+                {
+                    tiempoPlaya = tiempoCambioSilo;
+                }
+                else if (evento == 7)
+                {
+                    tiempoPlaya = tiempoPlaya = tiempoDescarga;
                 }
                 else
                 {
@@ -738,10 +744,14 @@ namespace SIMULACION_TP1
             }
             else if (siloPlaya != 0)
             {
-                if(siloPlaya != vectorAnterior.siloPlaya)
+                if(siloPlaya != vectorAnterior.siloPlaya || camionPlaya != vectorAnterior.camionPlaya)
                 {
                     proximoFinPlaya = tiempoPlaya + reloj;
                 } 
+                else if (evento == 7)
+                {
+                    proximoFinPlaya = tiempoPlaya + reloj;
+                }
                 else
                 {
                     proximoFinPlaya = vectorAnterior.proximoFinPlaya;
@@ -760,7 +770,8 @@ namespace SIMULACION_TP1
             {
                 colaPlaya = 0;
             }
-            else if (vectorAnterior.estadoPlaya == 1 && (evento == 1 || evento == 7))
+            else if ((vectorAnterior.estadoPlaya == 1 && (evento == 1 || evento == 7)) ||  (vectorAnterior.contenidoTnSilo1 == parametroCapacidadSilo && vectorAnterior.contenidoTnSilo2 == parametroCapacidadSilo &&
+                                          vectorAnterior.contenidoTnSilo3 == parametroCapacidadSilo && vectorAnterior.contenidoTnSilo4 == parametroCapacidadSilo))
             {
                 colaPlaya = vectorAnterior.colaPlaya + 1;
             }
