@@ -45,6 +45,8 @@ namespace SIMULACION_TP1
         //CAMINO 2
 
         public List<int> colaParaLavar;
+
+
         public List<int> colaParaSecar;
 
         //L1
@@ -171,6 +173,12 @@ namespace SIMULACION_TP1
 
             this.colaParaLavar = new List<int>();
             this.colaParaSecar = new List<int>();
+
+            if(vectorAnterior != null)
+            {
+                colaParaSecar = vectorAnterior.colaParaSecar;
+            }
+
 
             this.vectorAnterior = vectorAnterior;
 
@@ -692,15 +700,17 @@ namespace SIMULACION_TP1
             {
                 colaParaLavar = vectorAnterior.colaParaLavar;
 
-                if (evento == 2 && vectorAnterior.l1Estado == 1 && vectorAnterior.l2Estado == 1)
+                if (evento == 2 && 
+                    ((vectorAnterior.l1Estado == 1 && vectorAnterior.l2Estado == 1)
+                    || (colaParaSecar.Count == 2)
+                    || (vectorAnterior.colaParaSecar.Count == 1 && (vectorAnterior.l1Estado == 1 || vectorAnterior.l2Estado == 1))
+                    ))
                 {
                     colaParaLavar.Add(pedido);
                 }
-                else if (evento == 4 && colaParaLavar.Count > 0)  //Arreglar para secado
-                {
-                    colaParaLavar.RemoveAt(0);
-                }
-                else if (evento == 5 && colaParaLavar.Count > 0) //Arreglar para secados
+                else if ((evento == 4 || evento == 5) && colaParaLavar.Count > 0 &&
+                    ((colaParaSecar.Count == 1 && vectorAnterior.l2Estado == 1) || (colaParaSecar.Count == 0))
+                    )
                 {
                     colaParaLavar.RemoveAt(0);
                 }
@@ -735,7 +745,12 @@ namespace SIMULACION_TP1
                 {
                     l1Estado = 0;
                 }
-                else/* if()*/
+                else if (colaParaSecar.Count == 2 || (evento != 6 && vectorAnterior.colaParaSecar.Count == 1 &&
+                    evento != 5 && vectorAnterior.l2Estado == 1))
+                {
+                    l1Estado = 0;
+                }
+                else
                 {
                     l1Estado = 1;
                 }
@@ -950,7 +965,6 @@ namespace SIMULACION_TP1
         {
             if (vectorAnterior != null)
             {
-                colaParaSecar = vectorAnterior.colaParaSecar;
 
                 if (evento == 4 && vectorAnterior.sEstado == 1)
                 {
