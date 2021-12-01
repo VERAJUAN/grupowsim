@@ -896,13 +896,25 @@ namespace SIMULACION_TP1
                 {
                     l2Estado = 3;
                 }
+                else if (evento == 6 && vectorAnterior.l2Pedido == pedido && vectorAnterior.colaParaLavar.Count > 0)
+                {
+                    l2Estado = 1;
+                }
+                else if (evento == 6 && vectorAnterior.l2Pedido == pedido && vectorAnterior.colaParaLavar.Count == 0)
+                {
+                    l2Estado = 0;
+                }
                 else if (evento != 2 && vectorAnterior.colaParaLavar.Count == 0 && vectorAnterior.l2Estado == 0)
                 {
                     l2Estado = 0;
                 }
+                else if (evento == 2 && vectorAnterior.l2Estado == 0 && l1Pedido != pedido)
+                {
+                    l2Estado = 1;
+                }
                 else
                 {
-                    l2Estado = vectorAnterior.l1Estado;
+                    l2Estado = vectorAnterior.l2Estado;
                 }
             }
         }
