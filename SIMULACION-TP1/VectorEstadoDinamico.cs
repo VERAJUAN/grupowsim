@@ -741,6 +741,10 @@ namespace SIMULACION_TP1
                 {
                     l1Estado = 1;
                 }
+                else if (evento == 6 && vectorAnterior.l1Pedido == pedido && vectorAnterior.colaParaLavar.Count == 0)
+                {
+                    l1Estado = 0;
+                }
                 else if (evento != 2 && vectorAnterior.colaParaLavar.Count == 0 && vectorAnterior.l1Estado == 0)
                 {
                     l1Estado = 0;
