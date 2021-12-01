@@ -45,8 +45,6 @@ namespace SIMULACION_TP1
         //CAMINO 2
 
         public List<int> colaParaLavar;
-
-
         public List<int> colaParaSecar;
 
         //L1
@@ -70,13 +68,13 @@ namespace SIMULACION_TP1
         public double sProxFin { get; set; }
         public int sCola { get; set; }
 
-        //ENCASTRE
-        public int encastreEstado { get; set; }
-        public double encastreTiempo { get; set; }
-        public double encastreProxFin { get; set; }
-        public int colaEncastreA3 { get; set; }
-        public int colaEncastreA5 { get; set; }
-        public int encastrePedido { get; set; }
+        //PA
+        public int paEstado { get; set; }
+        public double paTiempo { get; set; }
+        public double paProxFin { get; set; }
+        public List<int> colaPaAA { get; set; }
+        public List<int> colaPaS { get; set; }
+        public int paPedido { get; set; }
 
         //ENSAMBLE
         public int cantidadEnsamblesSolicitados { get; set; }
@@ -173,12 +171,8 @@ namespace SIMULACION_TP1
 
             this.colaParaLavar = new List<int>();
             this.colaParaSecar = new List<int>();
-
-            if(vectorAnterior != null)
-            {
-                colaParaSecar = vectorAnterior.colaParaSecar;
-            }
-
+            this.colaPaAA = new List<int>();
+            this.colaPaS = new List<int>();
 
             this.vectorAnterior = vectorAnterior;
 
@@ -239,12 +233,12 @@ namespace SIMULACION_TP1
             ColaParaLavar();
             ColaParaSecar();
 
-            //EncastreEstado();
-            //EncastrePedido();
-            //EncastreTiempo();
-            //EncastreProxFin();
-            //ColaEncastreA3();
-            //ColaEncastreA5();
+            PAEstado();
+            PAPedido();
+            paTiempo = PATiempo(PA);
+            PAProxFin();
+            ColaPA_AA();
+            ColaPA_S();
 
             //CantidadEnsamblesSolicitados();
             //CantidadEnsamblesFinalizados();
@@ -987,6 +981,7 @@ namespace SIMULACION_TP1
         {
             if (vectorAnterior != null)
             {
+                colaParaSecar = vectorAnterior.colaParaSecar;
 
                 if (evento == 4 && vectorAnterior.sEstado == 1)
                 {
@@ -1131,33 +1126,46 @@ namespace SIMULACION_TP1
 
         #endregion
 
-        //#region COLASENCASTRE
-        //private void EncastreEstado()
-        //{
-        //    if (vectorAnterior == null)
-        //    {
-        //        encastreEstado = 0;
-        //    }
-        //    else
-        //    {
-        //        if (evento == 9 && (vectorAnterior.colaEncastreA3 == 0 || vectorAnterior.colaEncastreA5 == 0))
-        //        {
-        //            encastreEstado = 0;
-        //        }
-        //        else if (evento == 4 && vectorAnterior.colaEncastreA5 > 0)
-        //        {
-        //            encastreEstado = 1;
-        //        }
-        //        else if (evento == 6 && vectorAnterior.colaEncastreA3 > 0)
-        //        {
-        //            encastreEstado = 1;
-        //        }
-        //        else
-        //        {
-        //            encastreEstado = vectorAnterior.encastreEstado;
-        //        }
-        //    }
-        //}
+        #region PA
+        private void PAEstado()
+        {
+            if (vectorAnterior == null)
+            {
+                paEstado = 0;
+            }
+            else
+            {
+                if (evento == 7 && (vectorAnterior.colaPaAA.Count == 0 || vectorAnterior.colaPaS.Count == 0))
+                {
+                    paEstado = 0;
+                }
+                else if (evento == 3 && vectorAnterior.colaPaS.Contains(pedido)) // si termina alfombra y esta ya terminado carroceria
+                {
+                    paEstado = 1;
+                }
+                else if (evento == 6 && vectorAnterior.colaPaAA.Contains(pedido)) // si termina carroceria y esta ya terminado alfombra
+                {
+                    paEstado = 1;
+                }
+                else
+                {
+                    paEstado = vectorAnterior.paEstado;
+                }
+            }
+        }
+        private double PATiempo(double A)
+        {
+            double atiempo = 0;
+            if (vectorAnterior == null)
+            {
+                atiempo = 0;
+            }
+            else if (sPedido != vectorAnterior.sPedido && sPedido != 0)
+            {
+                atiempo = A;
+            }
+            return atiempo;
+        }
 
         //private void EncastreTiempo()
         //{
@@ -1171,107 +1179,140 @@ namespace SIMULACION_TP1
         //    }
         //}
 
-        //private void EncastrePedido()
-        //{
-        //    if (vectorAnterior == null)
-        //    {
-        //        encastrePedido = 0; //SE REEMPLAZA CON "-"
-        //    }
-        //    else
-        //    {
-        //        if (vectorAnterior.encastreEstado == 0 && evento == 4 && vectorAnterior.colaEncastreA5 > 0)
-        //        {
-        //            encastrePedido = pedido;
-        //        }
-        //        else if (vectorAnterior.encastreEstado == 0 && evento == 6 && vectorAnterior.colaEncastreA3 > 0)
-        //        {
-        //            encastrePedido = pedido;
-        //        }
-        //        else if (vectorAnterior.encastreEstado == 1 && evento != 9)
-        //        {
-        //            encastrePedido = vectorAnterior.encastrePedido;
-        //        }
-        //        else if (evento == 9 && vectorAnterior.colaEncastreA5 > 0 && vectorAnterior.colaEncastreA5 > 0)
-        //        {
-        //            encastrePedido = pedido + 1;
-        //        }
-        //    }
-        //}
+        private void PAPedido()
+        {
+            if (vectorAnterior == null)
+            {
+                paPedido = 0; //SE REEMPLAZA CON "-"
+            }
+            else
+            {
+                if (vectorAnterior.paEstado == 0 && evento == 3 && vectorAnterior.colaPaS.Contains(pedido))
+                {
+                    paPedido = pedido;
+                }
+                else if (vectorAnterior.paEstado == 0 && evento == 6 && vectorAnterior.colaPaAA.Contains(pedido))
+                {
+                    paPedido = pedido;
+                }
+                else if (vectorAnterior.paEstado == 1 && evento != 7)
+                {
+                    paPedido = vectorAnterior.paPedido;
+                }
+                else if (evento == 7 && vectorAnterior.colaPaAA.Count > 0 && vectorAnterior.colaPaS.Count > 0)
+                {
+                    foreach (var aa in vectorAnterior.colaPaAA)
+                    {
+                        if (vectorAnterior.colaPaS.Contains(aa))
+                        {
+                            paPedido = aa;
+                            break;
+                        }
+                    }
+                }
+            }
+        }
 
-        //private void EncastreProxFin()
-        //{
-        //    if (vectorAnterior == null)
-        //    {
-        //        encastreProxFin = double.PositiveInfinity; //SE REEMPLAZA CON "-"
-        //    }
-        //    else
-        //    {
-        //        if (encastreEstado == 1)
-        //        {
-        //            if (encastreTiempo != 0)
-        //            {
-        //                encastreProxFin = reloj + encastreTiempo;
-        //            }
-        //            else
-        //            {
-        //                encastreProxFin = vectorAnterior.encastreProxFin;
-        //            }
-        //        }
-        //        else
-        //        {
-        //            encastreProxFin = double.PositiveInfinity;
-        //        }
-        //    }
-        //}
+        private void PAProxFin()
+        {
+            if (vectorAnterior == null)
+            {
+                paProxFin = double.PositiveInfinity; //SE REEMPLAZA CON "-"
+            }
+            else
+            {
+                if (paEstado == 1)
+                {
+                    if (paTiempo != 0)
+                    {
+                        paProxFin = reloj + paTiempo;
+                    }
+                    else
+                    {
+                        paProxFin = vectorAnterior.paProxFin;
+                    }
+                }
+                else
+                {
+                    paProxFin = double.PositiveInfinity;
+                }
+            }
+        }
 
-        //private void ColaEncastreA3()
-        //{
-        //    if (vectorAnterior == null)
-        //    {
-        //        colaEncastreA3 = 0;
-        //    }
-        //    else if (evento == 4 && vectorAnterior.encastreEstado == 1)
-        //    {
-        //        colaEncastreA3 = vectorAnterior.colaEncastreA3 + 1;
-        //    }
-        //    else if (evento == 4 && vectorAnterior.encastreEstado == 0 && vectorAnterior.colaEncastreA3 == 0)
-        //    {
-        //        colaEncastreA3 = vectorAnterior.colaEncastreA3 + 1;
-        //    }
-        //    else if(evento == 9 && vectorAnterior.colaEncastreA3 > 0)
-        //    {
-        //        colaEncastreA3 = vectorAnterior.colaEncastreA3 - 1;
-        //    }
-        //    else
-        //    {
-        //        colaEncastreA3 = vectorAnterior.colaEncastreA3;
-        //    }
-        //}
+        private void ColaPA_AA()
+        {
+            if (vectorAnterior != null)
+            {
+                colaPaAA = vectorAnterior.colaPaAA;
 
-        //private void ColaEncastreA5()
-        //{
-        //    if (vectorAnterior == null)
-        //    {
-        //        colaEncastreA5 = 0;
-        //    }
-        //    else if (evento == 6 && vectorAnterior.encastreEstado == 1)
-        //    {
-        //        colaEncastreA5 = vectorAnterior.colaEncastreA5 + 1;
-        //    }
-        //    else if (evento == 6 && vectorAnterior.encastreEstado == 0 && vectorAnterior.colaEncastreA5 == 0)
-        //    {
-        //        colaEncastreA5 = vectorAnterior.colaEncastreA5 + 1;
-        //    }
-        //    else if (evento == 9 && vectorAnterior.colaEncastreA5 > 0)
-        //    {
-        //        colaEncastreA5 = vectorAnterior.colaEncastreA5 - 1;
-        //    }
-        //    else
-        //    {
-        //        colaEncastreA5 = vectorAnterior.colaEncastreA5;
-        //    }
-        //}
-        //#endregion
+                if (evento == 3 && vectorAnterior.paEstado == 1)
+                {
+                    colaPaAA.Add(pedido);
+                }
+                else if (evento == 3 && !vectorAnterior.colaPaS.Contains(pedido))
+                {
+                    colaPaAA.Add(pedido);
+                }
+                else if (evento == 3 && vectorAnterior.colaPaS.Contains(pedido))
+                {
+                    colaPaAA.Remove(pedido);
+                }
+                //else if (evento == 7)
+                //{
+                //    colaPaAA.Remove(paPedido);
+                //}
+                if (paPedido != 0)
+                {
+                    colaPaAA.Remove(paPedido);
+                }
+            }
+        }
+
+        private void ColaPA_S()
+        {
+            if (vectorAnterior != null)
+            {
+                colaPaS = vectorAnterior.colaPaS;
+
+                if (evento == 6 && vectorAnterior.paEstado == 1)
+                {
+                    colaPaS.Add(pedido);
+                }
+                else if (evento == 6 && !vectorAnterior.colaPaAA.Contains(pedido))
+                {
+                    colaPaS.Add(pedido);
+                }
+                //else if (evento == 6 && vectorAnterior.colaPaAA.Contains(pedido))
+                //{
+                //    colaPaS.Remove(pedido);
+                //}
+                if (paPedido != 0)
+                {
+                    colaPaS.Remove(paPedido);
+                }
+            }
+        }
+
+        public string ColaPaAAToString()
+        {
+            string cola = "-";
+            foreach (var item in colaPaAA)
+            {
+                cola += item.ToString() + "-";
+            }
+            return cola;
+        }
+
+        public string ColaPaSToString()
+        {
+            string cola = "-";
+            foreach (var item in colaPaS)
+            {
+                cola += item.ToString() + "-";
+            }
+            return cola;
+        }
+        #endregion
 
         //#region ProporcionEnsamblesRealizadosSobreSolicitados
         //private void CantidadEnsamblesSolicitados()
