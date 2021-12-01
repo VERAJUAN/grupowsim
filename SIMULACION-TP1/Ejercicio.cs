@@ -40,10 +40,10 @@ namespace SIMULACION_TP1
             constante5_1.Text = "1/6"; 
 
             //SETEO INICIAL EC DIFRENCIAL
-            txtH.Text = "0,50";
+            txtH.Text = "0,05";
             txtX0.Text = "0";
             txtXder0.Text = "0";
-            comboMetodo.SelectedIndex = 1;
+            comboMetodo.SelectedIndex = 0;
             tablaEuler.Visible = false;
             tablaRK.Visible = false;
         }
@@ -73,6 +73,8 @@ namespace SIMULACION_TP1
             var h = double.Parse(txtH.Text);
             var x0 = double.Parse(txtX0.Text);
             var xDeriv0 = double.Parse(txtXder0.Text);
+            var a = Distribucion.Uniforme(r.NextDouble(), 0.5, 2);
+            lbla.Text = Math.Round(a, 3).ToString();
 
             var metodo = comboMetodo.SelectedIndex;
 
@@ -152,12 +154,12 @@ namespace SIMULACION_TP1
             {
                 if (primero)
                 {
-                    ecuacion = new EcuacionDiferencial(metodo, h, null, x0, xDeriv0);
+                    ecuacion = new EcuacionDiferencial(metodo, h, null, a, x0, xDeriv0);
                     primero = false;
                 }
                 else
                 {
-                    ecuacion = new EcuacionDiferencial(metodo, h, ecuacionAnterior);
+                    ecuacion = new EcuacionDiferencial(metodo, h, ecuacionAnterior, a);
                 }
 
                 if(metodo == 0)

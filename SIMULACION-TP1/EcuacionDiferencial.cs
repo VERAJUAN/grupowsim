@@ -34,7 +34,7 @@ namespace SIMULACION_TP1
 
         }
 
-        public EcuacionDiferencial(int metodo, double h, EcuacionDiferencial ecuacionAnterior, double x1 = 0, double x2 = 0)
+        public EcuacionDiferencial(int metodo, double h, EcuacionDiferencial ecuacionAnterior, double a, double x1 = 0, double x2 = 0, double b = 10, double c = 5)
         {
             if (ecuacionAnterior == null) //SIGNIFICA QUE ES LA PRIMERA FILA
             {
@@ -72,29 +72,56 @@ namespace SIMULACION_TP1
 
             }
 
+            #region TP7
+            //if (metodo == 0)
+            //{
+            //    //RUNGE KUTTA 4 * (x2)^2 + 6 * x1 + 8 * t
+            //    rk_l1 = h * ((4 * Math.Pow(rk_x2, 2)) + (6 * rk_x1) + (8 * tn));
+            //    rk_k1 = h * rk_x2;
+
+            //    rk_l2 = h * ((4 * Math.Pow((rk_x2 + 0.5 * rk_l1), 2)) + (6 * (rk_x1 + 0.5 * rk_k1)) + (8 * (tn + 0.5 * h)));
+            //    rk_k2 = h * (rk_x2 + 0.5 * rk_l1);
+
+            //    rk_l3 = h * ((4 * Math.Pow((rk_x2 + 0.5 * rk_l2), 2)) + (6 * (rk_x1 + 0.5 * rk_k2)) + (8 * (tn + 0.5 * h)));
+            //    rk_k3 = h * (rk_x2 + 0.5 * rk_l2);
+
+            //    rk_l4 = h * ((4 * Math.Pow((rk_x2 + rk_l3), 2)) + (6 * (rk_x1 + rk_k3)) + (8 * (tn + h)));
+            //    rk_k4 = h * (rk_x2 + 0.5 * rk_l3);
+
+
+            //}
+            //else
+            //{
+            //    //EULER
+            //    dx2 = h * ((4 * Math.Pow(dx1, 2)) + (6 * eu_x1) + (8 * tn));
+            //}
+            #endregion
+
+            #region TP6
             if (metodo == 0)
             {
-                //RUNGE KUTTA 4 * (x2)^2 + 6 * x1 + 8 * t
-                rk_l1 = h * ((4 * Math.Pow(rk_x2, 2)) + (6 * rk_x1) + (8 * tn));
+                //RUNGE KUTTA
+                rk_l1 = h * ((Math.Exp(-c * tn)) - (a * rk_x2) - (b * rk_x1));
                 rk_k1 = h * rk_x2;
 
-                rk_l2 = h * ((4 * Math.Pow((rk_x2 + 0.5 * rk_l1), 2)) + (6 * (rk_x1 + 0.5 * rk_k1)) + (8 * (tn + 0.5 * h)));
+                rk_l2 = h * ((Math.Exp(-c * (tn + 0.5 * h))) - (a * (rk_x2 + 0.5 * rk_l1)) - (b * (rk_x1 + 0.5 * rk_k1)));
                 rk_k2 = h * (rk_x2 + 0.5 * rk_l1);
 
-                rk_l3 = h * ((4 * Math.Pow((rk_x2 + 0.5 * rk_l2), 2)) + (6 * (rk_x1 + 0.5 * rk_k2)) + (8 * (tn + 0.5 * h)));
+                rk_l3 = h * ((Math.Exp(-c * (tn + 0.5 * h))) - (a * (rk_x2 + 0.5 * rk_l2)) - (b * (rk_x1 + 0.5 * rk_k2)));
                 rk_k3 = h * (rk_x2 + 0.5 * rk_l2);
 
-                rk_l4 = h * ((4 * Math.Pow((rk_x2 + rk_l3), 2)) + (6 * (rk_x1 + rk_k3)) + (8 * (tn + h)));
+                rk_l4 = h * ((Math.Exp(-c * (tn + h))) - (a * (rk_x2 + rk_l3)) - (b * (rk_x1 + rk_k3)));
                 rk_k4 = h * (rk_x2 + 0.5 * rk_l3);
 
-                
+
             }
             else
             {
                 //EULER
-                dx2 = h * ((4 * Math.Pow(dx1, 2)) + (6 * eu_x1) + (8 * tn));
+                dx2 = h * ((Math.Exp(-c * tn)) - (a * dx1) - (b * eu_x1));
             }
 
+            #endregion
 
 
         }
