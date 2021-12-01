@@ -538,7 +538,7 @@ namespace SIMULACION_TP1
             }
             else
             {
-                camion = 0;
+                camionPlaya = 0;
             }
         }
 

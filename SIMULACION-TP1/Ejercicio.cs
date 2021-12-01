@@ -30,27 +30,20 @@ namespace SIMULACION_TP1
 
             //SETEO INICIAL DE ACTIVIDADES
             comboDist1.SelectedIndex = 2;
-            constante1_1.Text = "20";
-            constante1_2.Text = "30";
+            constante1_1.Text = "5";
+            constante1_2.Text = "9";
 
             capacidadSilo.Text = "20";
 
-            comboDist4.SelectedIndex = 2;
-            constante4_1.Text = "10";
-            constante4_2.Text = "30";
+            abastPlantaTnXHora.Text = "0,5";
 
-            comboDist5.SelectedIndex = 1;
-            constante5_1.Text = "5";
+            constante5_1.Text = "1/6"; 
 
             //SETEO INICIAL EC DIFRENCIAL
-            txtMinA.Text = "0,05";
-            txtMaxA.Text = "2";
-            txtB.Text = "10";
-            txtC.Text = "5";
-            txtH.Text = "0,05";
+            txtH.Text = "0,50";
             txtX0.Text = "0";
             txtXder0.Text = "0";
-            comboMetodo.SelectedIndex = 0;
+            comboMetodo.SelectedIndex = 1;
             tablaEuler.Visible = false;
             tablaRK.Visible = false;
         }
@@ -58,8 +51,6 @@ namespace SIMULACION_TP1
         private void btn_generar_Click(object sender, EventArgs e)
         {
             var val1 = validaciones(comboDist1.SelectedIndex, constante1_1.Text, constante1_2.Text);
-            var val4 = validaciones(comboDist4.SelectedIndex, constante4_1.Text, constante4_2.Text);
-            var val5 = validaciones(comboDist5.SelectedIndex, constante5_1.Text, constante5_2.Text);
             if (int.Parse(txt_cantProy.Text) < 1)
             {
                 MessageBox.Show("La cantidad de proyectos debe ser mayor a cero.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -68,19 +59,17 @@ namespace SIMULACION_TP1
 
             SimularEcDif();
 
-            if (val1 && val4 && val5) Simular();
+            if (val1) Simular();
 
         }
 
         private void SimularEcDif()
         {
-            
+            tablaEuler.Rows.Clear();
+            tablaRK.Rows.Clear();
 
             var primero = true;
             Random r = new Random();
-            var a = Distribucion.Uniforme(r.NextDouble(), double.Parse(txtMinA.Text), double.Parse(txtMaxA.Text));
-            var b = double.Parse(txtB.Text);
-            var c = double.Parse(txtC.Text);
             var h = double.Parse(txtH.Text);
             var x0 = double.Parse(txtX0.Text);
             var xDeriv0 = double.Parse(txtXder0.Text);
@@ -163,12 +152,12 @@ namespace SIMULACION_TP1
             {
                 if (primero)
                 {
-                    ecuacion = new EcuacionDiferencial(metodo, a, b, c, h, null, x0, xDeriv0);
+                    ecuacion = new EcuacionDiferencial(metodo, h, null, x0, xDeriv0);
                     primero = false;
                 }
                 else
                 {
-                    ecuacion = new EcuacionDiferencial(metodo, a, b, c, h, ecuacionAnterior);
+                    ecuacion = new EcuacionDiferencial(metodo, h, ecuacionAnterior);
                 }
 
                 if(metodo == 0)
@@ -198,14 +187,10 @@ namespace SIMULACION_TP1
                 }
                 else
                 {
-                    if (ecuacion.eu_x1 > ecuacionAnterior.eu_x1)
+                    if (ecuacion.tn == 1)
                     {
                         ecuacion.posiblePico = true;
-                    }
-                    else if (ecuacion.eu_x1 < ecuacionAnterior.eu_x1 && ecuacionAnterior.posiblePico)
-                    {
-                        picos++;
-
+                        picos = 2;
                         lblTn.Text = Math.Round(ecuacionAnterior.tn, 3).ToString();
                         lblX1.Text = Math.Round(ecuacionAnterior.eu_x1, 3).ToString();
                     }
@@ -237,7 +222,15 @@ namespace SIMULACION_TP1
             tablaVectorEstado.Rows.Clear();
             cantProyectos = int.Parse(txt_cantProy.Text);
             var capacidadCilo = int.Parse(capacidadSilo.Text);
-            double tiempoAbasteciendoPlanta, tiempoCambioSilo;
+            var tiempoXHoraAbast = double.Parse(abastPlantaTnXHora.Text);
+            double tiempoAbasteciendoPlanta = (capacidadCilo / tiempoXHoraAbast);
+            double tiempoCambioSilo;
+            if (constante5_1.Text == "1/6")
+                tiempoCambioSilo = 0.166666667;
+            else
+            {
+                tiempoCambioSilo = double.Parse(constante5_1.Text);
+            }
             Random r = new Random();
 
             Vector vectorEstado = new Vector();
@@ -247,12 +240,6 @@ namespace SIMULACION_TP1
             {
                 var numAleatorioLlegadaCamion = r.NextDouble();
                 var tiempoEntreCamiones = GeneracionTiemposActividad(comboDist1.SelectedIndex, constante1_1.Text, constante1_2.Text, numAleatorioLlegadaCamion);
-
-                var numAleatorio5 = r.NextDouble();
-                tiempoAbasteciendoPlanta = GeneracionTiemposActividad(comboDist4.SelectedIndex, constante4_1.Text, constante4_2.Text, numAleatorio5);
-
-                var numAleatorio6 = r.NextDouble();
-                tiempoCambioSilo = GeneracionTiemposActividad(comboDist5.SelectedIndex, constante5_1.Text, constante5_2.Text, numAleatorio6);
 
                 if (i == 0)
                 {
@@ -469,83 +456,6 @@ namespace SIMULACION_TP1
 
             }
         }
-
-        private void comboDist4_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            switch (comboDist4.SelectedIndex)
-            {
-                case 0:
-                    label27.Text = "Media";
-                    label26.Text = "Desviación";
-                    label27.Visible = true;
-                    label26.Visible = true;
-                    constante4_1.Visible = true;
-                    constante4_2.Visible = true;
-                    break;
-
-                case 1:
-                    label27.Text = "Lambda";
-                    label27.Visible = true;
-                    label26.Visible = false;
-                    constante4_1.Visible = true;
-                    constante4_2.Visible = false;
-                    break;
-                case 2:
-                    label27.Text = "Desde";
-                    label26.Text = "Hasta";
-                    label27.Visible = true;
-                    label26.Visible = true;
-                    constante4_1.Visible = true;
-                    constante4_2.Visible = true;
-                    break;
-                default:
-
-                    label27.Visible = false;
-                    label26.Visible = false;
-                    constante4_1.Visible = false;
-                    constante4_2.Visible = false;
-                    break;
-            }
-        }
-
-        private void comboDist5_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            switch (comboDist5.SelectedIndex)
-            {
-                case 0:
-                    label31.Text = "Media";
-                    label30.Text = "Desviación";
-                    label31.Visible = true;
-                    label30.Visible = true;
-                    constante5_1.Visible = true;
-                    constante5_2.Visible = true;
-                    break;
-
-                case 1:
-                    label31.Text = "Lambda";
-                    label31.Visible = true;
-                    label30.Visible = false;
-                    constante5_1.Visible = true;
-                    constante5_2.Visible = false;
-                    break;
-                case 2:
-                    label31.Text = "Desde";
-                    label30.Text = "Hasta";
-                    label31.Visible = true;
-                    label30.Visible = true;
-                    constante5_1.Visible = true;
-                    constante5_2.Visible = true;
-                    break;
-                default:
-
-                    label31.Visible = false;
-                    label30.Visible = false;
-                    constante5_1.Visible = false;
-                    constante5_2.Visible = false;
-                    break;
-            }
-        }
-
         private void Grafico_Click(object sender, EventArgs e)
         {
 
