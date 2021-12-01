@@ -9,7 +9,9 @@ namespace SIMULACION_TP1
     public enum Estado
     {
         Libre = 0,
-        Ocupado = 1
+        Ocupado = 1,
+        EsperandoSecar = 2,
+        Secando = 3
     }
 
     public enum Evento
