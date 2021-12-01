@@ -737,9 +737,17 @@ namespace SIMULACION_TP1
                 {
                     l1Estado = 3;
                 }
+                else if(evento == 6 && vectorAnterior.l1Pedido == pedido && vectorAnterior.colaParaLavar.Count > 0)
+                {
+                    l1Estado = 1;
+                }
                 else if (evento != 2 && vectorAnterior.colaParaLavar.Count == 0 && vectorAnterior.l1Estado == 0)
                 {
                     l1Estado = 0;
+                }
+                else if (evento == 2 && vectorAnterior.l1Estado == 0)
+                {
+                    l1Estado = 1;
                 }
                 else
                 {
@@ -794,6 +802,10 @@ namespace SIMULACION_TP1
                     l1Pedido = vectorAnterior.colaParaLavar.ElementAt(0);
                 }
                 else if (vectorAnterior.l1Estado == 3 && evento == 6 && vectorAnterior.l1Pedido != pedido)
+                {
+                    l1Pedido = vectorAnterior.l1Pedido;
+                }
+                else if(l1Estado > 0)
                 {
                     l1Pedido = vectorAnterior.l1Pedido;
                 }
@@ -1046,11 +1058,12 @@ namespace SIMULACION_TP1
             }
             else
             {
-                if (evento == 6 && vectorAnterior.colaParaSecar.Count == 0)
+                if (evento == 6 && l1Estado != 2 && l2Estado != 2)
                 {
                     sEstado = 0;
                 }
-                else if (evento != 4 && evento != 5 && vectorAnterior.colaParaSecar.Count == 0 && vectorAnterior.sEstado == 0)
+                else if (evento != 4 && evento != 5 && vectorAnterior.l1Estado != 2 && vectorAnterior.l2Estado != 2
+                    && vectorAnterior.sEstado == 0)
                 {
                     sEstado = 0;
                 }
@@ -1085,11 +1098,15 @@ namespace SIMULACION_TP1
             }
             else
             {
-                if (evento == 6 && vectorAnterior.colaParaSecar.Count > 0)
+                if (evento == 6 && vectorAnterior.l1Estado == 2)
                 {
-                    sPedido = vectorAnterior.colaParaSecar.ElementAt(0);
+                    sPedido = vectorAnterior.l1Pedido;
                 }
-                else if ((evento == 4 || evento == 5) && vectorAnterior.sEstado == 0 && vectorAnterior.colaParaSecar.Count == 0)
+                else if (evento == 6 && vectorAnterior.l2Estado == 2)
+                {
+                    sPedido = vectorAnterior.l2Pedido;
+                }
+                else if ((evento == 4 || evento == 5) && vectorAnterior.sEstado == 0)
                 {
                     sPedido = pedido;
                 }
