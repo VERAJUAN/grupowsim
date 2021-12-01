@@ -947,7 +947,7 @@ namespace SIMULACION_TP1
                 //    l2Pedido = vectorAnterior.l2Pedido;
                 //}
                 //else 
-                if (vectorAnterior.l2Estado == 0 && evento == 2)
+                if (vectorAnterior.l2Estado == 0 && evento == 2 && l1Pedido != pedido)
                 {
                     l2Pedido = pedido;
                 }
@@ -965,6 +965,10 @@ namespace SIMULACION_TP1
                     l2Pedido = vectorAnterior.colaParaLavar.ElementAt(0);
                 }
                 else if (vectorAnterior.l2Estado == 3 && evento == 6 && vectorAnterior.l2Pedido != pedido)
+                {
+                    l2Pedido = vectorAnterior.l2Pedido;
+                }
+                else if (l2Estado > 0)
                 {
                     l2Pedido = vectorAnterior.l2Pedido;
                 }
