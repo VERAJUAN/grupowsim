@@ -567,7 +567,7 @@ namespace SIMULACION_TP1
                                           vectorAnterior.contenidoTnSilo3 < parametroCapacidadSilo || vectorAnterior.contenidoTnSilo4 < parametroCapacidadSilo))
             {
                 if (vectorAnterior.clientesEnColaPlaya.Count > 0)
-                    camionPlaya = vectorAnterior.clientesEnColaPlaya.Dequeue();
+                    camionPlaya = vectorAnterior.clientesEnColaPlaya.Peek();
                 else
                 {
                     Console.WriteLine("Dequeue: " + nroEvento);
@@ -770,7 +770,7 @@ namespace SIMULACION_TP1
             {
                 colaPlaya = 0;
             }
-            else if ((vectorAnterior.estadoPlaya == 1 && (evento == 1 || evento == 7)) ||  (vectorAnterior.contenidoTnSilo1 == parametroCapacidadSilo && vectorAnterior.contenidoTnSilo2 == parametroCapacidadSilo &&
+            else if ((vectorAnterior.estadoPlaya == 1 && (evento == 1 )) ||  (vectorAnterior.contenidoTnSilo1 == parametroCapacidadSilo && vectorAnterior.contenidoTnSilo2 == parametroCapacidadSilo &&
                                           vectorAnterior.contenidoTnSilo3 == parametroCapacidadSilo && vectorAnterior.contenidoTnSilo4 == parametroCapacidadSilo))
             {
                 colaPlaya = vectorAnterior.colaPlaya + 1;
