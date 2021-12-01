@@ -33,12 +33,7 @@ namespace SIMULACION_TP1
             constante1_1.Text = "20";
             constante1_2.Text = "30";
 
-            comboDist2.SelectedIndex = 2;
-            constante2_1.Text = "30";
-            constante2_2.Text = "50";
-
-            comboDist3.SelectedIndex = 1;
-            constante3_1.Text = "30";
+            capacidadSilo.Text = "20";
 
             comboDist4.SelectedIndex = 2;
             constante4_1.Text = "10";
@@ -63,8 +58,6 @@ namespace SIMULACION_TP1
         private void btn_generar_Click(object sender, EventArgs e)
         {
             var val1 = validaciones(comboDist1.SelectedIndex, constante1_1.Text, constante1_2.Text);
-            var val2 = validaciones(comboDist2.SelectedIndex, constante2_1.Text, constante2_2.Text);
-            var val3 = validaciones(comboDist3.SelectedIndex, constante3_1.Text, constante3_2.Text);
             var val4 = validaciones(comboDist4.SelectedIndex, constante4_1.Text, constante4_2.Text);
             var val5 = validaciones(comboDist5.SelectedIndex, constante5_1.Text, constante5_2.Text);
             if (int.Parse(txt_cantProy.Text) < 1)
@@ -75,7 +68,7 @@ namespace SIMULACION_TP1
 
             SimularEcDif();
 
-            if (val1 && val2 && val3 && val4 && val5) Simular();
+            if (val1 && val4 && val5) Simular();
 
         }
 
@@ -243,7 +236,8 @@ namespace SIMULACION_TP1
         {
             tablaVectorEstado.Rows.Clear();
             cantProyectos = int.Parse(txt_cantProy.Text);
-            double SILO1, SILO2, SILO3, SILO4, tiempoAbasteciendoPlanta, tiempoCambioSilo;
+            var capacidadCilo = int.Parse(capacidadSilo.Text);
+            double tiempoAbasteciendoPlanta, tiempoCambioSilo;
             Random r = new Random();
 
             Vector vectorEstado = new Vector();
@@ -254,27 +248,15 @@ namespace SIMULACION_TP1
                 var numAleatorioLlegadaCamion = r.NextDouble();
                 var tiempoEntreCamiones = GeneracionTiemposActividad(comboDist1.SelectedIndex, constante1_1.Text, constante1_2.Text, numAleatorioLlegadaCamion);
 
-                var numAleatorio1 = r.NextDouble();
-                SILO1 = GeneracionTiemposActividad(comboDist1.SelectedIndex, constante1_1.Text, constante1_2.Text, numAleatorio1);
-
-                var numAleatorio2 = r.NextDouble();
-                SILO2 = GeneracionTiemposActividad(comboDist2.SelectedIndex, constante2_1.Text, constante2_2.Text, numAleatorio2);
-
-                var numAleatorio3 = r.NextDouble();
-                SILO3 = GeneracionTiemposActividad(comboDist3.SelectedIndex, constante3_1.Text, constante3_2.Text, numAleatorio3);
-
-                var numAleatorio4 = r.NextDouble();
-                SILO4 = GeneracionTiemposActividad(comboDist4.SelectedIndex, constante4_1.Text, constante4_2.Text, numAleatorio4);
-
                 var numAleatorio5 = r.NextDouble();
                 tiempoAbasteciendoPlanta = GeneracionTiemposActividad(comboDist4.SelectedIndex, constante4_1.Text, constante4_2.Text, numAleatorio5);
 
                 var numAleatorio6 = r.NextDouble();
-                tiempoCambioSilo = GeneracionTiemposActividad(comboDist4.SelectedIndex, constante4_1.Text, constante4_2.Text, numAleatorio6);
+                tiempoCambioSilo = GeneracionTiemposActividad(comboDist5.SelectedIndex, constante5_1.Text, constante5_2.Text, numAleatorio6);
 
                 if (i == 0)
                 {
-                    vectorEstado = new Vector(i + 1, tiempoEntreCamiones, picoTiempoDescarga, r);
+                    vectorEstado = new Vector(i + 1, tiempoEntreCamiones, picoTiempoDescarga, r, capacidadCilo);
 
                     if (0 <= desde)
                     {
@@ -294,7 +276,7 @@ namespace SIMULACION_TP1
                 else
                 {
 
-                    vectorEstado = new Vector(i + 1, tiempoEntreCamiones, picoTiempoDescarga, r, 20,tiempoAbasteciendoPlanta, tiempoCambioSilo, SILO1, SILO2, SILO3, SILO4, vectorEstadoMasUno);
+                    vectorEstado = new Vector(i + 1, tiempoEntreCamiones, picoTiempoDescarga, r, capacidadCilo, tiempoAbasteciendoPlanta, tiempoCambioSilo, vectorEstadoMasUno);
 
                     if ((hasta != 0
                         && vectorEstado.nroEvento >= desde && vectorEstado.nroEvento <= hasta)
@@ -468,82 +450,6 @@ namespace SIMULACION_TP1
                     label11.Visible = false;
                     constante1_1.Visible = false;
                     constante1_2.Visible = false;
-                    break;
-            }
-        }
-
-        private void comboDist3_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            switch (comboDist3.SelectedIndex)
-            {
-                case 0:
-                    label23.Text = "Media";
-                    label22.Text = "Desviación";
-                    label23.Visible = true;
-                    label22.Visible = true;
-                    constante3_1.Visible = true;
-                    constante3_2.Visible = true;
-                    break;
-
-                case 1:
-                    label23.Text = "Lambda";
-                    label23.Visible = true;
-                    label22.Visible = false;
-                    constante3_1.Visible = true;
-                    constante3_2.Visible = false;
-                    break;
-                case 2:
-                    label23.Text = "Desde";
-                    label22.Text = "Hasta";
-                    label23.Visible = true;
-                    label22.Visible = true;
-                    constante3_1.Visible = true;
-                    constante3_2.Visible = true;
-                    break;
-                default:
-
-                    label23.Visible = false;
-                    label22.Visible = false;
-                    constante3_1.Visible = false;
-                    constante3_2.Visible = false;
-                    break;
-            }
-        }
-
-        private void comboDist2_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            switch (comboDist2.SelectedIndex)
-            {
-                case 0:
-                    label19.Text = "Media";
-                    label18.Text = "Desviación";
-                    label19.Visible = true;
-                    label18.Visible = true;
-                    constante2_1.Visible = true;
-                    constante2_2.Visible = true;
-                    break;
-
-                case 1:
-                    label19.Text = "Lambda";
-                    label19.Visible = true;
-                    label18.Visible = false;
-                    constante2_1.Visible = true;
-                    constante2_2.Visible = false;
-                    break;
-                case 2:
-                    label19.Text = "Desde";
-                    label18.Text = "Hasta";
-                    label19.Visible = true;
-                    label18.Visible = true;
-                    constante2_1.Visible = true;
-                    constante2_2.Visible = true;
-                    break;
-                default:
-
-                    label19.Visible = false;
-                    label18.Visible = false;
-                    constante2_1.Visible = false;
-                    constante2_2.Visible = false;
                     break;
             }
         }

@@ -42,18 +42,6 @@ namespace SIMULACION_TP1
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle55 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle56 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle57 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea5 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend5 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea6 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend6 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series6 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea7 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend7 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series7 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea8 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend8 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series8 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle58 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle59 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle60 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -85,6 +73,18 @@ namespace SIMULACION_TP1
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle86 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle87 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle88 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea5 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend5 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea6 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend6 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series6 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea7 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend7 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series7 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea8 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend8 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series8 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.GroupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.button1 = new System.Windows.Forms.Button();
@@ -106,20 +106,6 @@ namespace SIMULACION_TP1
             this.constante4_1 = new System.Windows.Forms.TextBox();
             this.label28 = new System.Windows.Forms.Label();
             this.comboDist4 = new System.Windows.Forms.ComboBox();
-            this.label21 = new System.Windows.Forms.Label();
-            this.constante3_2 = new System.Windows.Forms.TextBox();
-            this.label22 = new System.Windows.Forms.Label();
-            this.label23 = new System.Windows.Forms.Label();
-            this.constante3_1 = new System.Windows.Forms.TextBox();
-            this.label24 = new System.Windows.Forms.Label();
-            this.comboDist3 = new System.Windows.Forms.ComboBox();
-            this.label17 = new System.Windows.Forms.Label();
-            this.constante2_2 = new System.Windows.Forms.TextBox();
-            this.label18 = new System.Windows.Forms.Label();
-            this.label19 = new System.Windows.Forms.Label();
-            this.constante2_1 = new System.Windows.Forms.TextBox();
-            this.label20 = new System.Windows.Forms.Label();
-            this.comboDist2 = new System.Windows.Forms.ComboBox();
             this.label16 = new System.Windows.Forms.Label();
             this.txt_cantProy = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
@@ -131,6 +117,42 @@ namespace SIMULACION_TP1
             this.comboDist1 = new System.Windows.Forms.ComboBox();
             this.btn_generar = new System.Windows.Forms.Button();
             this.tablaVectorEstado = new System.Windows.Forms.DataGridView();
+            this.nroEvento = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.reloj = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.evento = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pedido = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.proxPedido = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.rnd = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tiempoEntrePedidos = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.proxLlegada = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.rndTnCamion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tnCamion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ingresaASilo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.abastPlantaSilo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.rndAbastPlanta = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.abastPlantaTiempo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.abastPlantProxFin = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.estadoPlaya = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.siloPlaya = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.camionPlaya = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sobraTnPlaya = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.siguienteSiloPlaya = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tiempoPlaya = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.proxFinPlaya = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colaPlaya = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ordenPlaya = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.estadoSilo1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.contenidoSilo1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.camionSilo1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.estadoSilo2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.contenidoSilo2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.camionSilo2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.estadoSilo3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.contenidoSilo3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.camionSilo3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.estadoSilo4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.contenidoSilo4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.camionSilo4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tablaRK = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -175,42 +197,8 @@ namespace SIMULACION_TP1
             this.Grafico2 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.Grafico3 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.Grafico4 = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.nroEvento = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.reloj = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.evento = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pedido = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.proxPedido = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.rnd = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tiempoEntrePedidos = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.proxLlegada = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.rndTnCamion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tnCamion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ingresaASilo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.abastPlantaSilo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.rndAbastPlanta = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.abastPlantaTiempo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.abastPlantProxFin = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.estadoPlaya = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.siloPlaya = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.camionPlaya = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sobraTnPlaya = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.siguienteSiloPlaya = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tiempoPlaya = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.proxFinPlaya = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colaPlaya = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ordenPlaya = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.estadoSilo1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.contenidoSilo1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.camionSilo1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.estadoSilo2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.contenidoSilo2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.camionSilo2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.estadoSilo3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.contenidoSilo3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.camionSilo3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.estadoSilo4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.contenidoSilo4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.camionSilo4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.capacidadSilo = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.GroupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tablaVectorEstado)).BeginInit();
@@ -225,6 +213,8 @@ namespace SIMULACION_TP1
             // 
             // GroupBox1
             // 
+            this.GroupBox1.Controls.Add(this.capacidadSilo);
+            this.GroupBox1.Controls.Add(this.label1);
             this.GroupBox1.Controls.Add(this.groupBox2);
             this.GroupBox1.Controls.Add(this.label29);
             this.GroupBox1.Controls.Add(this.constante5_2);
@@ -240,20 +230,6 @@ namespace SIMULACION_TP1
             this.GroupBox1.Controls.Add(this.constante4_1);
             this.GroupBox1.Controls.Add(this.label28);
             this.GroupBox1.Controls.Add(this.comboDist4);
-            this.GroupBox1.Controls.Add(this.label21);
-            this.GroupBox1.Controls.Add(this.constante3_2);
-            this.GroupBox1.Controls.Add(this.label22);
-            this.GroupBox1.Controls.Add(this.label23);
-            this.GroupBox1.Controls.Add(this.constante3_1);
-            this.GroupBox1.Controls.Add(this.label24);
-            this.GroupBox1.Controls.Add(this.comboDist3);
-            this.GroupBox1.Controls.Add(this.label17);
-            this.GroupBox1.Controls.Add(this.constante2_2);
-            this.GroupBox1.Controls.Add(this.label18);
-            this.GroupBox1.Controls.Add(this.label19);
-            this.GroupBox1.Controls.Add(this.constante2_1);
-            this.GroupBox1.Controls.Add(this.label20);
-            this.GroupBox1.Controls.Add(this.comboDist2);
             this.GroupBox1.Controls.Add(this.label16);
             this.GroupBox1.Controls.Add(this.txt_cantProy);
             this.GroupBox1.Controls.Add(this.label14);
@@ -266,7 +242,7 @@ namespace SIMULACION_TP1
             this.GroupBox1.Controls.Add(this.btn_generar);
             this.GroupBox1.Location = new System.Drawing.Point(17, 1);
             this.GroupBox1.Name = "GroupBox1";
-            this.GroupBox1.Size = new System.Drawing.Size(741, 409);
+            this.GroupBox1.Size = new System.Drawing.Size(548, 409);
             this.GroupBox1.TabIndex = 4;
             this.GroupBox1.TabStop = false;
             this.GroupBox1.Text = "Parametros";
@@ -279,7 +255,7 @@ namespace SIMULACION_TP1
             this.groupBox2.Controls.Add(this.label3);
             this.groupBox2.Controls.Add(this.txtDesde);
             this.groupBox2.Controls.Add(this.label2);
-            this.groupBox2.Location = new System.Drawing.Point(98, 339);
+            this.groupBox2.Location = new System.Drawing.Point(17, 332);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(518, 58);
             this.groupBox2.TabIndex = 473;
@@ -335,15 +311,15 @@ namespace SIMULACION_TP1
             this.label29.AutoSize = true;
             this.label29.Cursor = System.Windows.Forms.Cursors.Default;
             this.label29.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label29.Location = new System.Drawing.Point(373, 123);
+            this.label29.Location = new System.Drawing.Point(14, 202);
             this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(71, 13);
+            this.label29.Size = new System.Drawing.Size(73, 13);
             this.label29.TabIndex = 472;
-            this.label29.Text = "Actividad 5";
+            this.label29.Text = "Cambio Silo";
             // 
             // constante5_2
             // 
-            this.constante5_2.Location = new System.Drawing.Point(661, 134);
+            this.constante5_2.Location = new System.Drawing.Point(302, 213);
             this.constante5_2.Name = "constante5_2";
             this.constante5_2.Size = new System.Drawing.Size(45, 20);
             this.constante5_2.TabIndex = 11;
@@ -353,7 +329,7 @@ namespace SIMULACION_TP1
             // label30
             // 
             this.label30.AutoSize = true;
-            this.label30.Location = new System.Drawing.Point(600, 137);
+            this.label30.Location = new System.Drawing.Point(241, 216);
             this.label30.Name = "label30";
             this.label30.Size = new System.Drawing.Size(38, 13);
             this.label30.TabIndex = 470;
@@ -363,7 +339,7 @@ namespace SIMULACION_TP1
             // label31
             // 
             this.label31.AutoSize = true;
-            this.label31.Location = new System.Drawing.Point(600, 113);
+            this.label31.Location = new System.Drawing.Point(241, 192);
             this.label31.Name = "label31";
             this.label31.Size = new System.Drawing.Size(38, 13);
             this.label31.TabIndex = 469;
@@ -372,7 +348,7 @@ namespace SIMULACION_TP1
             // 
             // constante5_1
             // 
-            this.constante5_1.Location = new System.Drawing.Point(661, 110);
+            this.constante5_1.Location = new System.Drawing.Point(302, 189);
             this.constante5_1.Name = "constante5_1";
             this.constante5_1.Size = new System.Drawing.Size(45, 20);
             this.constante5_1.TabIndex = 10;
@@ -382,7 +358,7 @@ namespace SIMULACION_TP1
             // label32
             // 
             this.label32.AutoSize = true;
-            this.label32.Location = new System.Drawing.Point(454, 105);
+            this.label32.Location = new System.Drawing.Point(95, 184);
             this.label32.Name = "label32";
             this.label32.Size = new System.Drawing.Size(65, 13);
             this.label32.TabIndex = 467;
@@ -396,7 +372,7 @@ namespace SIMULACION_TP1
             "Normal",
             "Exponencial",
             "Uniforme"});
-            this.comboDist5.Location = new System.Drawing.Point(457, 121);
+            this.comboDist5.Location = new System.Drawing.Point(98, 200);
             this.comboDist5.Name = "comboDist5";
             this.comboDist5.Size = new System.Drawing.Size(121, 21);
             this.comboDist5.TabIndex = 9;
@@ -407,15 +383,15 @@ namespace SIMULACION_TP1
             this.label25.AutoSize = true;
             this.label25.Cursor = System.Windows.Forms.Cursors.Default;
             this.label25.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label25.Location = new System.Drawing.Point(373, 205);
+            this.label25.Location = new System.Drawing.Point(14, 133);
             this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(71, 13);
+            this.label25.Size = new System.Drawing.Size(79, 13);
             this.label25.TabIndex = 465;
-            this.label25.Text = "Actividad 4";
+            this.label25.Text = "Abast Planta";
             // 
             // constante4_2
             // 
-            this.constante4_2.Location = new System.Drawing.Point(661, 216);
+            this.constante4_2.Location = new System.Drawing.Point(302, 144);
             this.constante4_2.Name = "constante4_2";
             this.constante4_2.Size = new System.Drawing.Size(45, 20);
             this.constante4_2.TabIndex = 14;
@@ -425,7 +401,7 @@ namespace SIMULACION_TP1
             // label26
             // 
             this.label26.AutoSize = true;
-            this.label26.Location = new System.Drawing.Point(600, 219);
+            this.label26.Location = new System.Drawing.Point(241, 147);
             this.label26.Name = "label26";
             this.label26.Size = new System.Drawing.Size(38, 13);
             this.label26.TabIndex = 463;
@@ -435,7 +411,7 @@ namespace SIMULACION_TP1
             // label27
             // 
             this.label27.AutoSize = true;
-            this.label27.Location = new System.Drawing.Point(600, 195);
+            this.label27.Location = new System.Drawing.Point(241, 123);
             this.label27.Name = "label27";
             this.label27.Size = new System.Drawing.Size(38, 13);
             this.label27.TabIndex = 462;
@@ -444,7 +420,7 @@ namespace SIMULACION_TP1
             // 
             // constante4_1
             // 
-            this.constante4_1.Location = new System.Drawing.Point(661, 192);
+            this.constante4_1.Location = new System.Drawing.Point(302, 120);
             this.constante4_1.Name = "constante4_1";
             this.constante4_1.Size = new System.Drawing.Size(45, 20);
             this.constante4_1.TabIndex = 13;
@@ -454,7 +430,7 @@ namespace SIMULACION_TP1
             // label28
             // 
             this.label28.AutoSize = true;
-            this.label28.Location = new System.Drawing.Point(454, 189);
+            this.label28.Location = new System.Drawing.Point(95, 117);
             this.label28.Name = "label28";
             this.label28.Size = new System.Drawing.Size(65, 13);
             this.label28.TabIndex = 460;
@@ -468,170 +444,26 @@ namespace SIMULACION_TP1
             "Normal",
             "Exponencial",
             "Uniforme"});
-            this.comboDist4.Location = new System.Drawing.Point(457, 205);
+            this.comboDist4.Location = new System.Drawing.Point(98, 133);
             this.comboDist4.Name = "comboDist4";
             this.comboDist4.Size = new System.Drawing.Size(121, 21);
             this.comboDist4.TabIndex = 12;
             this.comboDist4.SelectedIndexChanged += new System.EventHandler(this.comboDist4_SelectedIndexChanged);
-            // 
-            // label21
-            // 
-            this.label21.AutoSize = true;
-            this.label21.Cursor = System.Windows.Forms.Cursors.Default;
-            this.label21.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label21.Location = new System.Drawing.Point(15, 225);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(71, 13);
-            this.label21.TabIndex = 458;
-            this.label21.Text = "Actividad 3";
-            // 
-            // constante3_2
-            // 
-            this.constante3_2.Location = new System.Drawing.Point(302, 236);
-            this.constante3_2.Name = "constante3_2";
-            this.constante3_2.Size = new System.Drawing.Size(45, 20);
-            this.constante3_2.TabIndex = 8;
-            this.constante3_2.Text = "0";
-            this.constante3_2.Visible = false;
-            // 
-            // label22
-            // 
-            this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(242, 239);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(38, 13);
-            this.label22.TabIndex = 456;
-            this.label22.Text = "label2:";
-            this.label22.Visible = false;
-            // 
-            // label23
-            // 
-            this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(242, 215);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(38, 13);
-            this.label23.TabIndex = 455;
-            this.label23.Text = "label1:";
-            this.label23.Visible = false;
-            // 
-            // constante3_1
-            // 
-            this.constante3_1.Location = new System.Drawing.Point(302, 212);
-            this.constante3_1.Name = "constante3_1";
-            this.constante3_1.Size = new System.Drawing.Size(45, 20);
-            this.constante3_1.TabIndex = 7;
-            this.constante3_1.Text = "0";
-            this.constante3_1.Visible = false;
-            // 
-            // label24
-            // 
-            this.label24.AutoSize = true;
-            this.label24.Location = new System.Drawing.Point(96, 207);
-            this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(65, 13);
-            this.label24.TabIndex = 453;
-            this.label24.Text = "Distribución:";
-            // 
-            // comboDist3
-            // 
-            this.comboDist3.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboDist3.FormattingEnabled = true;
-            this.comboDist3.Items.AddRange(new object[] {
-            "Normal",
-            "Exponencial",
-            "Uniforme"});
-            this.comboDist3.Location = new System.Drawing.Point(99, 223);
-            this.comboDist3.Name = "comboDist3";
-            this.comboDist3.Size = new System.Drawing.Size(121, 21);
-            this.comboDist3.TabIndex = 6;
-            this.comboDist3.SelectedIndexChanged += new System.EventHandler(this.comboDist3_SelectedIndexChanged);
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Cursor = System.Windows.Forms.Cursors.Default;
-            this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label17.Location = new System.Drawing.Point(14, 177);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(71, 13);
-            this.label17.TabIndex = 451;
-            this.label17.Text = "Actividad 2";
-            // 
-            // constante2_2
-            // 
-            this.constante2_2.Location = new System.Drawing.Point(302, 184);
-            this.constante2_2.Name = "constante2_2";
-            this.constante2_2.Size = new System.Drawing.Size(45, 20);
-            this.constante2_2.TabIndex = 5;
-            this.constante2_2.Text = "0";
-            this.constante2_2.Visible = false;
-            // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(241, 187);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(38, 13);
-            this.label18.TabIndex = 449;
-            this.label18.Text = "label2:";
-            this.label18.Visible = false;
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(241, 163);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(38, 13);
-            this.label19.TabIndex = 448;
-            this.label19.Text = "label1:";
-            this.label19.Visible = false;
-            // 
-            // constante2_1
-            // 
-            this.constante2_1.Location = new System.Drawing.Point(302, 160);
-            this.constante2_1.Name = "constante2_1";
-            this.constante2_1.Size = new System.Drawing.Size(45, 20);
-            this.constante2_1.TabIndex = 4;
-            this.constante2_1.Text = "0";
-            this.constante2_1.Visible = false;
-            // 
-            // label20
-            // 
-            this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(95, 159);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(65, 13);
-            this.label20.TabIndex = 446;
-            this.label20.Text = "Distribución:";
-            // 
-            // comboDist2
-            // 
-            this.comboDist2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboDist2.FormattingEnabled = true;
-            this.comboDist2.Items.AddRange(new object[] {
-            "Normal",
-            "Exponencial",
-            "Uniforme"});
-            this.comboDist2.Location = new System.Drawing.Point(98, 175);
-            this.comboDist2.Name = "comboDist2";
-            this.comboDist2.Size = new System.Drawing.Size(121, 21);
-            this.comboDist2.TabIndex = 3;
-            this.comboDist2.SelectedIndexChanged += new System.EventHandler(this.comboDist2_SelectedIndexChanged);
             // 
             // label16
             // 
             this.label16.AutoSize = true;
             this.label16.Cursor = System.Windows.Forms.Cursors.Default;
             this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.Location = new System.Drawing.Point(14, 122);
+            this.label16.Location = new System.Drawing.Point(14, 64);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(71, 13);
+            this.label16.Size = new System.Drawing.Size(76, 13);
             this.label16.TabIndex = 444;
-            this.label16.Text = "Actividad 1";
+            this.label16.Text = "Lleg Camión";
             // 
             // txt_cantProy
             // 
-            this.txt_cantProy.Location = new System.Drawing.Point(472, 291);
+            this.txt_cantProy.Location = new System.Drawing.Point(174, 284);
             this.txt_cantProy.Name = "txt_cantProy";
             this.txt_cantProy.Size = new System.Drawing.Size(45, 20);
             this.txt_cantProy.TabIndex = 17;
@@ -641,7 +473,7 @@ namespace SIMULACION_TP1
             // 
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(312, 294);
+            this.label14.Location = new System.Drawing.Point(14, 287);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(141, 13);
             this.label14.TabIndex = 442;
@@ -650,7 +482,7 @@ namespace SIMULACION_TP1
             // 
             // constante1_2
             // 
-            this.constante1_2.Location = new System.Drawing.Point(302, 133);
+            this.constante1_2.Location = new System.Drawing.Point(302, 75);
             this.constante1_2.Name = "constante1_2";
             this.constante1_2.Size = new System.Drawing.Size(45, 20);
             this.constante1_2.TabIndex = 2;
@@ -662,7 +494,7 @@ namespace SIMULACION_TP1
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(241, 136);
+            this.label11.Location = new System.Drawing.Point(241, 78);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(38, 13);
             this.label11.TabIndex = 435;
@@ -672,7 +504,7 @@ namespace SIMULACION_TP1
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(241, 112);
+            this.label10.Location = new System.Drawing.Point(241, 54);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(38, 13);
             this.label10.TabIndex = 434;
@@ -681,7 +513,7 @@ namespace SIMULACION_TP1
             // 
             // constante1_1
             // 
-            this.constante1_1.Location = new System.Drawing.Point(302, 109);
+            this.constante1_1.Location = new System.Drawing.Point(302, 51);
             this.constante1_1.Name = "constante1_1";
             this.constante1_1.Size = new System.Drawing.Size(45, 20);
             this.constante1_1.TabIndex = 1;
@@ -693,7 +525,7 @@ namespace SIMULACION_TP1
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(95, 104);
+            this.label9.Location = new System.Drawing.Point(95, 46);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(65, 13);
             this.label9.TabIndex = 431;
@@ -707,7 +539,7 @@ namespace SIMULACION_TP1
             "Normal",
             "Exponencial",
             "Uniforme"});
-            this.comboDist1.Location = new System.Drawing.Point(98, 120);
+            this.comboDist1.Location = new System.Drawing.Point(98, 62);
             this.comboDist1.Name = "comboDist1";
             this.comboDist1.Size = new System.Drawing.Size(121, 21);
             this.comboDist1.TabIndex = 0;
@@ -716,7 +548,7 @@ namespace SIMULACION_TP1
             // btn_generar
             // 
             this.btn_generar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_generar.Location = new System.Drawing.Point(526, 275);
+            this.btn_generar.Location = new System.Drawing.Point(228, 268);
             this.btn_generar.Name = "btn_generar";
             this.btn_generar.Size = new System.Drawing.Size(180, 58);
             this.btn_generar.TabIndex = 18;
@@ -774,8 +606,302 @@ namespace SIMULACION_TP1
             this.tablaVectorEstado.Name = "tablaVectorEstado";
             this.tablaVectorEstado.ReadOnly = true;
             this.tablaVectorEstado.RowHeadersWidth = 10;
-            this.tablaVectorEstado.Size = new System.Drawing.Size(870, 279);
+            this.tablaVectorEstado.Size = new System.Drawing.Size(1781, 290);
             this.tablaVectorEstado.TabIndex = 473;
+            // 
+            // nroEvento
+            // 
+            this.nroEvento.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.nroEvento.Frozen = true;
+            this.nroEvento.HeaderText = "Nro";
+            this.nroEvento.MinimumWidth = 50;
+            this.nroEvento.Name = "nroEvento";
+            this.nroEvento.ReadOnly = true;
+            this.nroEvento.Width = 50;
+            // 
+            // reloj
+            // 
+            this.reloj.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            dataGridViewCellStyle45.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            dataGridViewCellStyle45.ForeColor = System.Drawing.Color.Black;
+            this.reloj.DefaultCellStyle = dataGridViewCellStyle45;
+            this.reloj.Frozen = true;
+            this.reloj.HeaderText = "RELOJ";
+            this.reloj.MinimumWidth = 50;
+            this.reloj.Name = "reloj";
+            this.reloj.ReadOnly = true;
+            this.reloj.Width = 50;
+            // 
+            // evento
+            // 
+            this.evento.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            dataGridViewCellStyle46.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.evento.DefaultCellStyle = dataGridViewCellStyle46;
+            this.evento.Frozen = true;
+            this.evento.HeaderText = "EVENTO";
+            this.evento.MinimumWidth = 100;
+            this.evento.Name = "evento";
+            this.evento.ReadOnly = true;
+            // 
+            // pedido
+            // 
+            this.pedido.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            dataGridViewCellStyle47.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.pedido.DefaultCellStyle = dataGridViewCellStyle47;
+            this.pedido.Frozen = true;
+            this.pedido.HeaderText = "CAMION";
+            this.pedido.MinimumWidth = 50;
+            this.pedido.Name = "pedido";
+            this.pedido.ReadOnly = true;
+            this.pedido.Width = 50;
+            // 
+            // proxPedido
+            // 
+            this.proxPedido.HeaderText = "PROX CAMION";
+            this.proxPedido.Name = "proxPedido";
+            this.proxPedido.ReadOnly = true;
+            // 
+            // rnd
+            // 
+            this.rnd.HeaderText = "rnd";
+            this.rnd.Name = "rnd";
+            this.rnd.ReadOnly = true;
+            // 
+            // tiempoEntrePedidos
+            // 
+            this.tiempoEntrePedidos.HeaderText = "Tiempo entre Camiones";
+            this.tiempoEntrePedidos.Name = "tiempoEntrePedidos";
+            this.tiempoEntrePedidos.ReadOnly = true;
+            // 
+            // proxLlegada
+            // 
+            this.proxLlegada.HeaderText = "Proxima Llegada";
+            this.proxLlegada.Name = "proxLlegada";
+            this.proxLlegada.ReadOnly = true;
+            // 
+            // rndTnCamion
+            // 
+            dataGridViewCellStyle48.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.rndTnCamion.DefaultCellStyle = dataGridViewCellStyle48;
+            this.rndTnCamion.HeaderText = "rnd Tn Camion";
+            this.rndTnCamion.Name = "rndTnCamion";
+            this.rndTnCamion.ReadOnly = true;
+            // 
+            // tnCamion
+            // 
+            dataGridViewCellStyle49.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.tnCamion.DefaultCellStyle = dataGridViewCellStyle49;
+            this.tnCamion.HeaderText = "Tn Camion";
+            this.tnCamion.Name = "tnCamion";
+            this.tnCamion.ReadOnly = true;
+            // 
+            // ingresaASilo
+            // 
+            dataGridViewCellStyle50.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.ingresaASilo.DefaultCellStyle = dataGridViewCellStyle50;
+            this.ingresaASilo.HeaderText = "INGRESA A SILO";
+            this.ingresaASilo.Name = "ingresaASilo";
+            this.ingresaASilo.ReadOnly = true;
+            // 
+            // abastPlantaSilo
+            // 
+            dataGridViewCellStyle51.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.abastPlantaSilo.DefaultCellStyle = dataGridViewCellStyle51;
+            this.abastPlantaSilo.HeaderText = "ABAST PLANTA: SILO";
+            this.abastPlantaSilo.Name = "abastPlantaSilo";
+            this.abastPlantaSilo.ReadOnly = true;
+            // 
+            // rndAbastPlanta
+            // 
+            dataGridViewCellStyle52.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.rndAbastPlanta.DefaultCellStyle = dataGridViewCellStyle52;
+            this.rndAbastPlanta.HeaderText = "ABAST PLANTA: rnd";
+            this.rndAbastPlanta.Name = "rndAbastPlanta";
+            this.rndAbastPlanta.ReadOnly = true;
+            // 
+            // abastPlantaTiempo
+            // 
+            dataGridViewCellStyle53.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.abastPlantaTiempo.DefaultCellStyle = dataGridViewCellStyle53;
+            this.abastPlantaTiempo.HeaderText = "ABAST PLANTA: TIEMPO";
+            this.abastPlantaTiempo.Name = "abastPlantaTiempo";
+            this.abastPlantaTiempo.ReadOnly = true;
+            // 
+            // abastPlantProxFin
+            // 
+            dataGridViewCellStyle54.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.abastPlantProxFin.DefaultCellStyle = dataGridViewCellStyle54;
+            this.abastPlantProxFin.HeaderText = "ABAST PLANTA: PROX FIN";
+            this.abastPlantProxFin.Name = "abastPlantProxFin";
+            this.abastPlantProxFin.ReadOnly = true;
+            // 
+            // estadoPlaya
+            // 
+            dataGridViewCellStyle55.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.estadoPlaya.DefaultCellStyle = dataGridViewCellStyle55;
+            this.estadoPlaya.HeaderText = "PLAYA: ESTADO";
+            this.estadoPlaya.Name = "estadoPlaya";
+            this.estadoPlaya.ReadOnly = true;
+            // 
+            // siloPlaya
+            // 
+            dataGridViewCellStyle56.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.siloPlaya.DefaultCellStyle = dataGridViewCellStyle56;
+            this.siloPlaya.HeaderText = "PLAYA: SILO";
+            this.siloPlaya.Name = "siloPlaya";
+            this.siloPlaya.ReadOnly = true;
+            // 
+            // camionPlaya
+            // 
+            dataGridViewCellStyle57.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.camionPlaya.DefaultCellStyle = dataGridViewCellStyle57;
+            this.camionPlaya.HeaderText = "PLAYA: CAMION";
+            this.camionPlaya.Name = "camionPlaya";
+            this.camionPlaya.ReadOnly = true;
+            // 
+            // sobraTnPlaya
+            // 
+            dataGridViewCellStyle58.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.sobraTnPlaya.DefaultCellStyle = dataGridViewCellStyle58;
+            this.sobraTnPlaya.HeaderText = "PLAYA: SOBRA TN";
+            this.sobraTnPlaya.Name = "sobraTnPlaya";
+            this.sobraTnPlaya.ReadOnly = true;
+            // 
+            // siguienteSiloPlaya
+            // 
+            dataGridViewCellStyle59.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.siguienteSiloPlaya.DefaultCellStyle = dataGridViewCellStyle59;
+            this.siguienteSiloPlaya.HeaderText = "PLAYA: SIG. SILO";
+            this.siguienteSiloPlaya.Name = "siguienteSiloPlaya";
+            this.siguienteSiloPlaya.ReadOnly = true;
+            // 
+            // tiempoPlaya
+            // 
+            dataGridViewCellStyle60.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.tiempoPlaya.DefaultCellStyle = dataGridViewCellStyle60;
+            this.tiempoPlaya.HeaderText = "PLAYA: TIEMPO";
+            this.tiempoPlaya.Name = "tiempoPlaya";
+            this.tiempoPlaya.ReadOnly = true;
+            // 
+            // proxFinPlaya
+            // 
+            dataGridViewCellStyle61.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.proxFinPlaya.DefaultCellStyle = dataGridViewCellStyle61;
+            this.proxFinPlaya.HeaderText = "PLAYA: PROX FIN";
+            this.proxFinPlaya.Name = "proxFinPlaya";
+            this.proxFinPlaya.ReadOnly = true;
+            // 
+            // colaPlaya
+            // 
+            dataGridViewCellStyle62.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.colaPlaya.DefaultCellStyle = dataGridViewCellStyle62;
+            this.colaPlaya.HeaderText = "PLAYA: COLA";
+            this.colaPlaya.Name = "colaPlaya";
+            this.colaPlaya.ReadOnly = true;
+            // 
+            // ordenPlaya
+            // 
+            dataGridViewCellStyle63.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.ordenPlaya.DefaultCellStyle = dataGridViewCellStyle63;
+            this.ordenPlaya.HeaderText = "PLAYA: ORDEN";
+            this.ordenPlaya.Name = "ordenPlaya";
+            this.ordenPlaya.ReadOnly = true;
+            // 
+            // estadoSilo1
+            // 
+            dataGridViewCellStyle64.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.estadoSilo1.DefaultCellStyle = dataGridViewCellStyle64;
+            this.estadoSilo1.HeaderText = "SILO1: ESTADO";
+            this.estadoSilo1.Name = "estadoSilo1";
+            this.estadoSilo1.ReadOnly = true;
+            // 
+            // contenidoSilo1
+            // 
+            dataGridViewCellStyle65.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.contenidoSilo1.DefaultCellStyle = dataGridViewCellStyle65;
+            this.contenidoSilo1.HeaderText = "SILO1: CONTENIDO Tn";
+            this.contenidoSilo1.Name = "contenidoSilo1";
+            this.contenidoSilo1.ReadOnly = true;
+            // 
+            // camionSilo1
+            // 
+            dataGridViewCellStyle66.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.camionSilo1.DefaultCellStyle = dataGridViewCellStyle66;
+            this.camionSilo1.HeaderText = "SILO1: CAMION";
+            this.camionSilo1.Name = "camionSilo1";
+            this.camionSilo1.ReadOnly = true;
+            // 
+            // estadoSilo2
+            // 
+            dataGridViewCellStyle67.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.estadoSilo2.DefaultCellStyle = dataGridViewCellStyle67;
+            this.estadoSilo2.HeaderText = "SILO2: ESTADO";
+            this.estadoSilo2.Name = "estadoSilo2";
+            this.estadoSilo2.ReadOnly = true;
+            // 
+            // contenidoSilo2
+            // 
+            dataGridViewCellStyle68.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.contenidoSilo2.DefaultCellStyle = dataGridViewCellStyle68;
+            this.contenidoSilo2.HeaderText = "SILO2: CONTENIDO Tn";
+            this.contenidoSilo2.Name = "contenidoSilo2";
+            this.contenidoSilo2.ReadOnly = true;
+            // 
+            // camionSilo2
+            // 
+            dataGridViewCellStyle69.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.camionSilo2.DefaultCellStyle = dataGridViewCellStyle69;
+            this.camionSilo2.HeaderText = "SILO2: CAMION";
+            this.camionSilo2.Name = "camionSilo2";
+            this.camionSilo2.ReadOnly = true;
+            // 
+            // estadoSilo3
+            // 
+            dataGridViewCellStyle70.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.estadoSilo3.DefaultCellStyle = dataGridViewCellStyle70;
+            this.estadoSilo3.HeaderText = "SILO3: ESTADO";
+            this.estadoSilo3.Name = "estadoSilo3";
+            this.estadoSilo3.ReadOnly = true;
+            // 
+            // contenidoSilo3
+            // 
+            dataGridViewCellStyle71.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.contenidoSilo3.DefaultCellStyle = dataGridViewCellStyle71;
+            this.contenidoSilo3.HeaderText = "SILO3: CONTENIDO Tn";
+            this.contenidoSilo3.Name = "contenidoSilo3";
+            this.contenidoSilo3.ReadOnly = true;
+            // 
+            // camionSilo3
+            // 
+            dataGridViewCellStyle72.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.camionSilo3.DefaultCellStyle = dataGridViewCellStyle72;
+            this.camionSilo3.HeaderText = "SILO3: CAMION";
+            this.camionSilo3.Name = "camionSilo3";
+            this.camionSilo3.ReadOnly = true;
+            // 
+            // estadoSilo4
+            // 
+            dataGridViewCellStyle73.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.estadoSilo4.DefaultCellStyle = dataGridViewCellStyle73;
+            this.estadoSilo4.HeaderText = "SILO4: ESTADO";
+            this.estadoSilo4.Name = "estadoSilo4";
+            this.estadoSilo4.ReadOnly = true;
+            // 
+            // contenidoSilo4
+            // 
+            dataGridViewCellStyle74.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.contenidoSilo4.DefaultCellStyle = dataGridViewCellStyle74;
+            this.contenidoSilo4.HeaderText = "SILO4: CONTENIDO Tn";
+            this.contenidoSilo4.Name = "contenidoSilo4";
+            this.contenidoSilo4.ReadOnly = true;
+            // 
+            // camionSilo4
+            // 
+            dataGridViewCellStyle75.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.camionSilo4.DefaultCellStyle = dataGridViewCellStyle75;
+            this.camionSilo4.HeaderText = "SILO4: CAMION";
+            this.camionSilo4.Name = "camionSilo4";
+            this.camionSilo4.ReadOnly = true;
             // 
             // tablaRK
             // 
@@ -798,11 +924,11 @@ namespace SIMULACION_TP1
             this.dataGridViewTextBoxColumn9,
             this.dataGridViewTextBoxColumn10,
             this.dataGridViewTextBoxColumn11});
-            this.tablaRK.Location = new System.Drawing.Point(944, 425);
+            this.tablaRK.Location = new System.Drawing.Point(586, 142);
             this.tablaRK.Name = "tablaRK";
             this.tablaRK.ReadOnly = true;
             this.tablaRK.RowHeadersWidth = 10;
-            this.tablaRK.Size = new System.Drawing.Size(937, 279);
+            this.tablaRK.Size = new System.Drawing.Size(937, 251);
             this.tablaRK.TabIndex = 519;
             // 
             // dataGridViewTextBoxColumn1
@@ -818,9 +944,9 @@ namespace SIMULACION_TP1
             // dataGridViewTextBoxColumn2
             // 
             this.dataGridViewTextBoxColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            dataGridViewCellStyle45.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            dataGridViewCellStyle45.ForeColor = System.Drawing.Color.Black;
-            this.dataGridViewTextBoxColumn2.DefaultCellStyle = dataGridViewCellStyle45;
+            dataGridViewCellStyle76.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            dataGridViewCellStyle76.ForeColor = System.Drawing.Color.Black;
+            this.dataGridViewTextBoxColumn2.DefaultCellStyle = dataGridViewCellStyle76;
             this.dataGridViewTextBoxColumn2.HeaderText = "x1";
             this.dataGridViewTextBoxColumn2.MinimumWidth = 50;
             this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
@@ -830,8 +956,8 @@ namespace SIMULACION_TP1
             // dataGridViewTextBoxColumn3
             // 
             this.dataGridViewTextBoxColumn3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            dataGridViewCellStyle46.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.dataGridViewTextBoxColumn3.DefaultCellStyle = dataGridViewCellStyle46;
+            dataGridViewCellStyle77.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.dataGridViewTextBoxColumn3.DefaultCellStyle = dataGridViewCellStyle77;
             this.dataGridViewTextBoxColumn3.HeaderText = "k1";
             this.dataGridViewTextBoxColumn3.MinimumWidth = 100;
             this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
@@ -840,8 +966,8 @@ namespace SIMULACION_TP1
             // dataGridViewTextBoxColumn4
             // 
             this.dataGridViewTextBoxColumn4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            dataGridViewCellStyle47.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.dataGridViewTextBoxColumn4.DefaultCellStyle = dataGridViewCellStyle47;
+            dataGridViewCellStyle78.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.dataGridViewTextBoxColumn4.DefaultCellStyle = dataGridViewCellStyle78;
             this.dataGridViewTextBoxColumn4.HeaderText = "k2";
             this.dataGridViewTextBoxColumn4.MinimumWidth = 50;
             this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
@@ -850,56 +976,56 @@ namespace SIMULACION_TP1
             // 
             // dataGridViewTextBoxColumn5
             // 
-            dataGridViewCellStyle48.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.dataGridViewTextBoxColumn5.DefaultCellStyle = dataGridViewCellStyle48;
+            dataGridViewCellStyle79.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.dataGridViewTextBoxColumn5.DefaultCellStyle = dataGridViewCellStyle79;
             this.dataGridViewTextBoxColumn5.HeaderText = "k3";
             this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
             this.dataGridViewTextBoxColumn5.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn6
             // 
-            dataGridViewCellStyle49.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.dataGridViewTextBoxColumn6.DefaultCellStyle = dataGridViewCellStyle49;
+            dataGridViewCellStyle80.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.dataGridViewTextBoxColumn6.DefaultCellStyle = dataGridViewCellStyle80;
             this.dataGridViewTextBoxColumn6.HeaderText = "k4";
             this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
             this.dataGridViewTextBoxColumn6.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn7
             // 
-            dataGridViewCellStyle50.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.dataGridViewTextBoxColumn7.DefaultCellStyle = dataGridViewCellStyle50;
+            dataGridViewCellStyle81.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.dataGridViewTextBoxColumn7.DefaultCellStyle = dataGridViewCellStyle81;
             this.dataGridViewTextBoxColumn7.HeaderText = "x2";
             this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
             this.dataGridViewTextBoxColumn7.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn8
             // 
-            dataGridViewCellStyle51.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.dataGridViewTextBoxColumn8.DefaultCellStyle = dataGridViewCellStyle51;
+            dataGridViewCellStyle82.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.dataGridViewTextBoxColumn8.DefaultCellStyle = dataGridViewCellStyle82;
             this.dataGridViewTextBoxColumn8.HeaderText = "l1";
             this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
             this.dataGridViewTextBoxColumn8.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn9
             // 
-            dataGridViewCellStyle52.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.dataGridViewTextBoxColumn9.DefaultCellStyle = dataGridViewCellStyle52;
+            dataGridViewCellStyle83.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.dataGridViewTextBoxColumn9.DefaultCellStyle = dataGridViewCellStyle83;
             this.dataGridViewTextBoxColumn9.HeaderText = "l2";
             this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
             this.dataGridViewTextBoxColumn9.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn10
             // 
-            dataGridViewCellStyle53.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.dataGridViewTextBoxColumn10.DefaultCellStyle = dataGridViewCellStyle53;
+            dataGridViewCellStyle84.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.dataGridViewTextBoxColumn10.DefaultCellStyle = dataGridViewCellStyle84;
             this.dataGridViewTextBoxColumn10.HeaderText = "l3";
             this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
             this.dataGridViewTextBoxColumn10.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn11
             // 
-            dataGridViewCellStyle54.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.dataGridViewTextBoxColumn11.DefaultCellStyle = dataGridViewCellStyle54;
+            dataGridViewCellStyle85.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.dataGridViewTextBoxColumn11.DefaultCellStyle = dataGridViewCellStyle85;
             this.dataGridViewTextBoxColumn11.HeaderText = "l4";
             this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
             this.dataGridViewTextBoxColumn11.ReadOnly = true;
@@ -923,7 +1049,7 @@ namespace SIMULACION_TP1
             this.asdad.Controls.Add(this.afasf);
             this.asdad.Controls.Add(this.label45);
             this.asdad.Controls.Add(this.label7);
-            this.asdad.Location = new System.Drawing.Point(944, 295);
+            this.asdad.Location = new System.Drawing.Point(586, 12);
             this.asdad.Name = "asdad";
             this.asdad.Size = new System.Drawing.Size(807, 115);
             this.asdad.TabIndex = 520;
@@ -1095,11 +1221,11 @@ namespace SIMULACION_TP1
             this.dataGridViewTextBoxColumn26,
             this.dataGridViewTextBoxColumn27,
             this.dataGridViewTextBoxColumn28});
-            this.tablaEuler.Location = new System.Drawing.Point(944, 425);
+            this.tablaEuler.Location = new System.Drawing.Point(586, 142);
             this.tablaEuler.Name = "tablaEuler";
             this.tablaEuler.ReadOnly = true;
             this.tablaEuler.RowHeadersWidth = 10;
-            this.tablaEuler.Size = new System.Drawing.Size(466, 279);
+            this.tablaEuler.Size = new System.Drawing.Size(466, 251);
             this.tablaEuler.TabIndex = 521;
             // 
             // dataGridViewTextBoxColumn15
@@ -1114,24 +1240,24 @@ namespace SIMULACION_TP1
             // 
             // dataGridViewTextBoxColumn26
             // 
-            dataGridViewCellStyle55.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-            this.dataGridViewTextBoxColumn26.DefaultCellStyle = dataGridViewCellStyle55;
+            dataGridViewCellStyle86.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.dataGridViewTextBoxColumn26.DefaultCellStyle = dataGridViewCellStyle86;
             this.dataGridViewTextBoxColumn26.HeaderText = "x1";
             this.dataGridViewTextBoxColumn26.Name = "dataGridViewTextBoxColumn26";
             this.dataGridViewTextBoxColumn26.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn27
             // 
-            dataGridViewCellStyle56.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-            this.dataGridViewTextBoxColumn27.DefaultCellStyle = dataGridViewCellStyle56;
+            dataGridViewCellStyle87.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.dataGridViewTextBoxColumn27.DefaultCellStyle = dataGridViewCellStyle87;
             this.dataGridViewTextBoxColumn27.HeaderText = "Dx1=x2";
             this.dataGridViewTextBoxColumn27.Name = "dataGridViewTextBoxColumn27";
             this.dataGridViewTextBoxColumn27.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn28
             // 
-            dataGridViewCellStyle57.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-            this.dataGridViewTextBoxColumn28.DefaultCellStyle = dataGridViewCellStyle57;
+            dataGridViewCellStyle88.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.dataGridViewTextBoxColumn28.DefaultCellStyle = dataGridViewCellStyle88;
             this.dataGridViewTextBoxColumn28.HeaderText = "Dx2";
             this.dataGridViewTextBoxColumn28.Name = "dataGridViewTextBoxColumn28";
             this.dataGridViewTextBoxColumn28.ReadOnly = true;
@@ -1140,7 +1266,7 @@ namespace SIMULACION_TP1
             // 
             this.label53.AutoSize = true;
             this.label53.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label53.Location = new System.Drawing.Point(946, 707);
+            this.label53.Location = new System.Drawing.Point(1412, 52);
             this.label53.Name = "label53";
             this.label53.Size = new System.Drawing.Size(126, 16);
             this.label53.TabIndex = 18;
@@ -1150,7 +1276,7 @@ namespace SIMULACION_TP1
             // 
             this.label54.AutoSize = true;
             this.label54.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label54.Location = new System.Drawing.Point(1099, 723);
+            this.label54.Location = new System.Drawing.Point(1565, 68);
             this.label54.Name = "label54";
             this.label54.Size = new System.Drawing.Size(35, 16);
             this.label54.TabIndex = 522;
@@ -1160,7 +1286,7 @@ namespace SIMULACION_TP1
             // 
             this.label55.AutoSize = true;
             this.label55.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label55.Location = new System.Drawing.Point(1099, 707);
+            this.label55.Location = new System.Drawing.Point(1565, 52);
             this.label55.Name = "label55";
             this.label55.Size = new System.Drawing.Size(32, 16);
             this.label55.TabIndex = 523;
@@ -1169,7 +1295,7 @@ namespace SIMULACION_TP1
             // lblTn
             // 
             this.lblTn.AutoSize = true;
-            this.lblTn.Location = new System.Drawing.Point(1137, 709);
+            this.lblTn.Location = new System.Drawing.Point(1603, 53);
             this.lblTn.Name = "lblTn";
             this.lblTn.Size = new System.Drawing.Size(17, 13);
             this.lblTn.TabIndex = 524;
@@ -1178,7 +1304,7 @@ namespace SIMULACION_TP1
             // lblX1
             // 
             this.lblX1.AutoSize = true;
-            this.lblX1.Location = new System.Drawing.Point(1140, 726);
+            this.lblX1.Location = new System.Drawing.Point(1606, 70);
             this.lblX1.Name = "lblX1";
             this.lblX1.Size = new System.Drawing.Size(17, 13);
             this.lblX1.TabIndex = 525;
@@ -1190,7 +1316,7 @@ namespace SIMULACION_TP1
             this.Grafico.ChartAreas.Add(chartArea5);
             legend5.Name = "Legend1";
             this.Grafico.Legends.Add(legend5);
-            this.Grafico.Location = new System.Drawing.Point(17, 762);
+            this.Grafico.Location = new System.Drawing.Point(9, 734);
             this.Grafico.Name = "Grafico";
             series5.ChartArea = "ChartArea1";
             series5.Legend = "Legend1";
@@ -1206,7 +1332,7 @@ namespace SIMULACION_TP1
             this.Grafico2.ChartAreas.Add(chartArea6);
             legend6.Name = "Legend1";
             this.Grafico2.Legends.Add(legend6);
-            this.Grafico2.Location = new System.Drawing.Point(562, 762);
+            this.Grafico2.Location = new System.Drawing.Point(554, 734);
             this.Grafico2.Name = "Grafico2";
             series6.ChartArea = "ChartArea1";
             series6.Legend = "Legend1";
@@ -1222,7 +1348,7 @@ namespace SIMULACION_TP1
             this.Grafico3.ChartAreas.Add(chartArea7);
             legend7.Name = "Legend1";
             this.Grafico3.Legends.Add(legend7);
-            this.Grafico3.Location = new System.Drawing.Point(976, 762);
+            this.Grafico3.Location = new System.Drawing.Point(968, 734);
             this.Grafico3.Name = "Grafico3";
             series7.ChartArea = "ChartArea1";
             series7.Legend = "Legend1";
@@ -1238,7 +1364,7 @@ namespace SIMULACION_TP1
             this.Grafico4.ChartAreas.Add(chartArea8);
             legend8.Name = "Legend1";
             this.Grafico4.Legends.Add(legend8);
-            this.Grafico4.Location = new System.Drawing.Point(1419, 762);
+            this.Grafico4.Location = new System.Drawing.Point(1411, 734);
             this.Grafico4.Name = "Grafico4";
             series8.ChartArea = "ChartArea1";
             series8.Legend = "Legend1";
@@ -1248,305 +1374,29 @@ namespace SIMULACION_TP1
             this.Grafico4.TabIndex = 529;
             this.Grafico4.Text = "chart2";
             // 
-            // nroEvento
-            // 
-            this.nroEvento.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.nroEvento.Frozen = true;
-            this.nroEvento.HeaderText = "Nro";
-            this.nroEvento.MinimumWidth = 50;
-            this.nroEvento.Name = "nroEvento";
-            this.nroEvento.ReadOnly = true;
-            this.nroEvento.Width = 50;
-            // 
-            // reloj
-            // 
-            this.reloj.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            dataGridViewCellStyle58.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            dataGridViewCellStyle58.ForeColor = System.Drawing.Color.Black;
-            this.reloj.DefaultCellStyle = dataGridViewCellStyle58;
-            this.reloj.Frozen = true;
-            this.reloj.HeaderText = "RELOJ";
-            this.reloj.MinimumWidth = 50;
-            this.reloj.Name = "reloj";
-            this.reloj.ReadOnly = true;
-            this.reloj.Width = 50;
-            // 
-            // evento
-            // 
-            this.evento.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            dataGridViewCellStyle59.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.evento.DefaultCellStyle = dataGridViewCellStyle59;
-            this.evento.Frozen = true;
-            this.evento.HeaderText = "EVENTO";
-            this.evento.MinimumWidth = 100;
-            this.evento.Name = "evento";
-            this.evento.ReadOnly = true;
-            // 
-            // pedido
-            // 
-            this.pedido.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            dataGridViewCellStyle60.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.pedido.DefaultCellStyle = dataGridViewCellStyle60;
-            this.pedido.Frozen = true;
-            this.pedido.HeaderText = "CAMION";
-            this.pedido.MinimumWidth = 50;
-            this.pedido.Name = "pedido";
-            this.pedido.ReadOnly = true;
-            this.pedido.Width = 50;
-            // 
-            // proxPedido
-            // 
-            this.proxPedido.HeaderText = "PROX CAMION";
-            this.proxPedido.Name = "proxPedido";
-            this.proxPedido.ReadOnly = true;
-            // 
-            // rnd
-            // 
-            this.rnd.HeaderText = "rnd";
-            this.rnd.Name = "rnd";
-            this.rnd.ReadOnly = true;
-            // 
-            // tiempoEntrePedidos
-            // 
-            this.tiempoEntrePedidos.HeaderText = "Tiempo entre Camiones";
-            this.tiempoEntrePedidos.Name = "tiempoEntrePedidos";
-            this.tiempoEntrePedidos.ReadOnly = true;
-            // 
-            // proxLlegada
-            // 
-            this.proxLlegada.HeaderText = "Proxima Llegada";
-            this.proxLlegada.Name = "proxLlegada";
-            this.proxLlegada.ReadOnly = true;
-            // 
-            // rndTnCamion
-            // 
-            dataGridViewCellStyle61.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.rndTnCamion.DefaultCellStyle = dataGridViewCellStyle61;
-            this.rndTnCamion.HeaderText = "rnd Tn Camion";
-            this.rndTnCamion.Name = "rndTnCamion";
-            this.rndTnCamion.ReadOnly = true;
-            // 
-            // tnCamion
-            // 
-            dataGridViewCellStyle62.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.tnCamion.DefaultCellStyle = dataGridViewCellStyle62;
-            this.tnCamion.HeaderText = "Tn Camion";
-            this.tnCamion.Name = "tnCamion";
-            this.tnCamion.ReadOnly = true;
-            // 
-            // ingresaASilo
-            // 
-            dataGridViewCellStyle63.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-            this.ingresaASilo.DefaultCellStyle = dataGridViewCellStyle63;
-            this.ingresaASilo.HeaderText = "INGRESA A SILO";
-            this.ingresaASilo.Name = "ingresaASilo";
-            this.ingresaASilo.ReadOnly = true;
-            // 
-            // abastPlantaSilo
-            // 
-            dataGridViewCellStyle64.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.abastPlantaSilo.DefaultCellStyle = dataGridViewCellStyle64;
-            this.abastPlantaSilo.HeaderText = "ABAST PLANTA: SILO";
-            this.abastPlantaSilo.Name = "abastPlantaSilo";
-            this.abastPlantaSilo.ReadOnly = true;
-            // 
-            // rndAbastPlanta
-            // 
-            dataGridViewCellStyle65.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.rndAbastPlanta.DefaultCellStyle = dataGridViewCellStyle65;
-            this.rndAbastPlanta.HeaderText = "ABAST PLANTA: rnd";
-            this.rndAbastPlanta.Name = "rndAbastPlanta";
-            this.rndAbastPlanta.ReadOnly = true;
-            // 
-            // abastPlantaTiempo
-            // 
-            dataGridViewCellStyle66.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.abastPlantaTiempo.DefaultCellStyle = dataGridViewCellStyle66;
-            this.abastPlantaTiempo.HeaderText = "ABAST PLANTA: TIEMPO";
-            this.abastPlantaTiempo.Name = "abastPlantaTiempo";
-            this.abastPlantaTiempo.ReadOnly = true;
-            // 
-            // abastPlantProxFin
-            // 
-            dataGridViewCellStyle67.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.abastPlantProxFin.DefaultCellStyle = dataGridViewCellStyle67;
-            this.abastPlantProxFin.HeaderText = "ABAST PLANTA: PROX FIN";
-            this.abastPlantProxFin.Name = "abastPlantProxFin";
-            this.abastPlantProxFin.ReadOnly = true;
-            // 
-            // estadoPlaya
-            // 
-            dataGridViewCellStyle68.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.estadoPlaya.DefaultCellStyle = dataGridViewCellStyle68;
-            this.estadoPlaya.HeaderText = "PLAYA: ESTADO";
-            this.estadoPlaya.Name = "estadoPlaya";
-            this.estadoPlaya.ReadOnly = true;
-            // 
-            // siloPlaya
-            // 
-            dataGridViewCellStyle69.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.siloPlaya.DefaultCellStyle = dataGridViewCellStyle69;
-            this.siloPlaya.HeaderText = "PLAYA: SILO";
-            this.siloPlaya.Name = "siloPlaya";
-            this.siloPlaya.ReadOnly = true;
-            // 
-            // camionPlaya
-            // 
-            dataGridViewCellStyle70.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.camionPlaya.DefaultCellStyle = dataGridViewCellStyle70;
-            this.camionPlaya.HeaderText = "PLAYA: CAMION";
-            this.camionPlaya.Name = "camionPlaya";
-            this.camionPlaya.ReadOnly = true;
-            // 
-            // sobraTnPlaya
-            // 
-            dataGridViewCellStyle71.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.sobraTnPlaya.DefaultCellStyle = dataGridViewCellStyle71;
-            this.sobraTnPlaya.HeaderText = "PLAYA: SOBRA TN";
-            this.sobraTnPlaya.Name = "sobraTnPlaya";
-            this.sobraTnPlaya.ReadOnly = true;
-            // 
-            // siguienteSiloPlaya
-            // 
-            dataGridViewCellStyle72.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.siguienteSiloPlaya.DefaultCellStyle = dataGridViewCellStyle72;
-            this.siguienteSiloPlaya.HeaderText = "PLAYA: SIG. SILO";
-            this.siguienteSiloPlaya.Name = "siguienteSiloPlaya";
-            this.siguienteSiloPlaya.ReadOnly = true;
-            // 
-            // tiempoPlaya
-            // 
-            dataGridViewCellStyle73.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.tiempoPlaya.DefaultCellStyle = dataGridViewCellStyle73;
-            this.tiempoPlaya.HeaderText = "PLAYA: TIEMPO";
-            this.tiempoPlaya.Name = "tiempoPlaya";
-            this.tiempoPlaya.ReadOnly = true;
-            // 
-            // proxFinPlaya
-            // 
-            dataGridViewCellStyle74.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.proxFinPlaya.DefaultCellStyle = dataGridViewCellStyle74;
-            this.proxFinPlaya.HeaderText = "PLAYA: PROX FIN";
-            this.proxFinPlaya.Name = "proxFinPlaya";
-            this.proxFinPlaya.ReadOnly = true;
-            // 
-            // colaPlaya
-            // 
-            dataGridViewCellStyle75.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.colaPlaya.DefaultCellStyle = dataGridViewCellStyle75;
-            this.colaPlaya.HeaderText = "PLAYA: COLA";
-            this.colaPlaya.Name = "colaPlaya";
-            this.colaPlaya.ReadOnly = true;
-            // 
-            // ordenPlaya
-            // 
-            dataGridViewCellStyle76.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.ordenPlaya.DefaultCellStyle = dataGridViewCellStyle76;
-            this.ordenPlaya.HeaderText = "PLAYA: ORDEN";
-            this.ordenPlaya.Name = "ordenPlaya";
-            this.ordenPlaya.ReadOnly = true;
-            // 
-            // estadoSilo1
-            // 
-            dataGridViewCellStyle77.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.estadoSilo1.DefaultCellStyle = dataGridViewCellStyle77;
-            this.estadoSilo1.HeaderText = "SILO1: ESTADO";
-            this.estadoSilo1.Name = "estadoSilo1";
-            this.estadoSilo1.ReadOnly = true;
-            // 
-            // contenidoSilo1
-            // 
-            dataGridViewCellStyle78.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.contenidoSilo1.DefaultCellStyle = dataGridViewCellStyle78;
-            this.contenidoSilo1.HeaderText = "SILO1: CONTENIDO Tn";
-            this.contenidoSilo1.Name = "contenidoSilo1";
-            this.contenidoSilo1.ReadOnly = true;
-            // 
-            // camionSilo1
-            // 
-            dataGridViewCellStyle79.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.camionSilo1.DefaultCellStyle = dataGridViewCellStyle79;
-            this.camionSilo1.HeaderText = "SILO1: CAMION";
-            this.camionSilo1.Name = "camionSilo1";
-            this.camionSilo1.ReadOnly = true;
-            // 
-            // estadoSilo2
-            // 
-            dataGridViewCellStyle80.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.estadoSilo2.DefaultCellStyle = dataGridViewCellStyle80;
-            this.estadoSilo2.HeaderText = "SILO2: ESTADO";
-            this.estadoSilo2.Name = "estadoSilo2";
-            this.estadoSilo2.ReadOnly = true;
-            // 
-            // contenidoSilo2
-            // 
-            dataGridViewCellStyle81.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.contenidoSilo2.DefaultCellStyle = dataGridViewCellStyle81;
-            this.contenidoSilo2.HeaderText = "SILO2: CONTENIDO Tn";
-            this.contenidoSilo2.Name = "contenidoSilo2";
-            this.contenidoSilo2.ReadOnly = true;
-            // 
-            // camionSilo2
-            // 
-            dataGridViewCellStyle82.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.camionSilo2.DefaultCellStyle = dataGridViewCellStyle82;
-            this.camionSilo2.HeaderText = "SILO2: CAMION";
-            this.camionSilo2.Name = "camionSilo2";
-            this.camionSilo2.ReadOnly = true;
-            // 
-            // estadoSilo3
-            // 
-            dataGridViewCellStyle83.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-            this.estadoSilo3.DefaultCellStyle = dataGridViewCellStyle83;
-            this.estadoSilo3.HeaderText = "SILO3: ESTADO";
-            this.estadoSilo3.Name = "estadoSilo3";
-            this.estadoSilo3.ReadOnly = true;
-            // 
-            // contenidoSilo3
-            // 
-            dataGridViewCellStyle84.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-            this.contenidoSilo3.DefaultCellStyle = dataGridViewCellStyle84;
-            this.contenidoSilo3.HeaderText = "SILO3: CONTENIDO Tn";
-            this.contenidoSilo3.Name = "contenidoSilo3";
-            this.contenidoSilo3.ReadOnly = true;
-            // 
-            // camionSilo3
-            // 
-            dataGridViewCellStyle85.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-            this.camionSilo3.DefaultCellStyle = dataGridViewCellStyle85;
-            this.camionSilo3.HeaderText = "SILO3: CAMION";
-            this.camionSilo3.Name = "camionSilo3";
-            this.camionSilo3.ReadOnly = true;
-            // 
-            // estadoSilo4
-            // 
-            dataGridViewCellStyle86.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.estadoSilo4.DefaultCellStyle = dataGridViewCellStyle86;
-            this.estadoSilo4.HeaderText = "SILO4: ESTADO";
-            this.estadoSilo4.Name = "estadoSilo4";
-            this.estadoSilo4.ReadOnly = true;
-            // 
-            // contenidoSilo4
-            // 
-            dataGridViewCellStyle87.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.contenidoSilo4.DefaultCellStyle = dataGridViewCellStyle87;
-            this.contenidoSilo4.HeaderText = "SILO4: CONTENIDO Tn";
-            this.contenidoSilo4.Name = "contenidoSilo4";
-            this.contenidoSilo4.ReadOnly = true;
-            // 
-            // camionSilo4
-            // 
-            dataGridViewCellStyle88.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.camionSilo4.DefaultCellStyle = dataGridViewCellStyle88;
-            this.camionSilo4.HeaderText = "SILO4: CAMION";
-            this.camionSilo4.Name = "camionSilo4";
-            this.camionSilo4.ReadOnly = true;
+            // capacidadSilo
+            // 
+            this.capacidadSilo.Location = new System.Drawing.Point(112, 253);
+            this.capacidadSilo.Name = "capacidadSilo";
+            this.capacidadSilo.Size = new System.Drawing.Size(45, 20);
+            this.capacidadSilo.TabIndex = 474;
+            this.capacidadSilo.Text = "20";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(14, 256);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(92, 13);
+            this.label1.TabIndex = 475;
+            this.label1.Text = "Capacidad Silo";
             // 
             // Ejercicio__B
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1893, 1061);
+            this.ClientSize = new System.Drawing.Size(1893, 1033);
             this.Controls.Add(this.Grafico4);
             this.Controls.Add(this.Grafico3);
             this.Controls.Add(this.Grafico2);
@@ -1608,20 +1458,6 @@ namespace SIMULACION_TP1
         internal System.Windows.Forms.TextBox constante4_1;
         internal System.Windows.Forms.Label label28;
         private System.Windows.Forms.ComboBox comboDist4;
-        private System.Windows.Forms.Label label21;
-        internal System.Windows.Forms.TextBox constante3_2;
-        internal System.Windows.Forms.Label label22;
-        internal System.Windows.Forms.Label label23;
-        internal System.Windows.Forms.TextBox constante3_1;
-        internal System.Windows.Forms.Label label24;
-        private System.Windows.Forms.ComboBox comboDist3;
-        private System.Windows.Forms.Label label17;
-        internal System.Windows.Forms.TextBox constante2_2;
-        internal System.Windows.Forms.Label label18;
-        internal System.Windows.Forms.Label label19;
-        internal System.Windows.Forms.TextBox constante2_1;
-        internal System.Windows.Forms.Label label20;
-        private System.Windows.Forms.ComboBox comboDist2;
         private System.Windows.Forms.Label label16;
         internal System.Windows.Forms.DataGridView tablaVectorEstado;
         private System.Windows.Forms.GroupBox groupBox2;
@@ -1710,5 +1546,7 @@ namespace SIMULACION_TP1
         private System.Windows.Forms.DataGridViewTextBoxColumn estadoSilo4;
         private System.Windows.Forms.DataGridViewTextBoxColumn contenidoSilo4;
         private System.Windows.Forms.DataGridViewTextBoxColumn camionSilo4;
+        internal System.Windows.Forms.TextBox capacidadSilo;
+        internal System.Windows.Forms.Label label1;
     }
 }
