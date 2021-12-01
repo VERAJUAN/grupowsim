@@ -318,7 +318,8 @@ namespace SIMULACION_TP1
                     Math.Min(vectorAnterior.aaProxFin,
                     Math.Min(vectorAnterior.l1ProxFin,
                     Math.Min(vectorAnterior.l2ProxFin,
-                    vectorAnterior.sProxFin)))));
+                    Math.Min(vectorAnterior.sProxFin,
+                    vectorAnterior.paProxFin))))));
             }
         }
 
@@ -353,6 +354,10 @@ namespace SIMULACION_TP1
                 else if (reloj == vectorAnterior.sProxFin)
                 {
                     evento = 6;
+                }
+                else if (reloj == vectorAnterior.paProxFin)
+                {
+                    evento = 7;
                 }
             }
         }
@@ -389,14 +394,10 @@ namespace SIMULACION_TP1
                 {
                     pedido = vectorAnterior.sPedido;
                 }
-                //else if (evento == 8)
-                //{
-                //    pedido = 0;
-                //}
-                //else if (evento == 9)
-                //{
-                //    pedido = vectorAnterior.encastrePedido;
-                //}
+                else if (evento == 7)
+                {
+                    pedido = vectorAnterior.paPedido;
+                }
                 else
                 {
                     pedido = 0;
