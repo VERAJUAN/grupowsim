@@ -236,7 +236,6 @@ namespace SIMULACION_TP1
             //SCola();
 
 
-
             ColaParaLavar();
             ColaParaSecar();
 
@@ -750,6 +749,18 @@ namespace SIMULACION_TP1
                 {
                     l1Estado = 0;
                 }
+                else if (evento == 6 && vectorAnterior.colaParaSecar.Count == 1 && vectorAnterior.l2Estado == 1)
+                {
+                    l1Estado = 0;
+                }
+                else if(vectorAnterior.l1Estado == 1 && evento == 4 && vectorAnterior.colaParaSecar.Count == 1)
+                {
+                    l1Estado = 0;
+                }
+                else if (vectorAnterior.l2Estado == 1 && evento == 5 && vectorAnterior.colaParaSecar.Count == 1)
+                {
+                    l1Estado = 0;
+                }
                 else
                 {
                     l1Estado = 1;
@@ -779,7 +790,12 @@ namespace SIMULACION_TP1
             }
             else
             {
-                if (vectorAnterior.l1Estado == 0 && evento == 2)
+                if (colaParaSecar.Count == 2 || (evento != 6 && vectorAnterior.colaParaSecar.Count == 1 &&
+                     evento != 5 && vectorAnterior.l2Estado == 1))
+                {
+                    l1Pedido = vectorAnterior.l1Pedido;
+                }
+                else if (vectorAnterior.l1Estado == 0 && evento == 2)
                 {
                     l1Pedido = pedido;
                 }
@@ -862,7 +878,12 @@ namespace SIMULACION_TP1
                 {
                     l2Estado = 0;
                 }
-                else if(evento == 2 && l1Pedido == pedido && vectorAnterior.colaParaLavar.Count == 0 && vectorAnterior.l2Estado == 0)
+                else if (evento == 2 && l1Pedido == pedido && vectorAnterior.colaParaLavar.Count == 0 && vectorAnterior.l2Estado == 0)
+                {
+                    l2Estado = 0;
+                }
+                else if (colaParaSecar.Count == 2 || (evento != 6 && vectorAnterior.colaParaSecar.Count == 1 &&
+                    evento != 4 && vectorAnterior.l1Estado == 1))
                 {
                     l2Estado = 0;
                 }
@@ -895,7 +916,12 @@ namespace SIMULACION_TP1
             }
             else
             {
-                if (vectorAnterior.l2Estado == 0 && evento == 2 && l1Pedido != pedido)
+                if (colaParaSecar.Count == 2 || (evento != 6 && vectorAnterior.colaParaSecar.Count == 1 &&
+                     evento != 4 && vectorAnterior.l1Estado == 1))
+                {
+                    l2Pedido = vectorAnterior.l2Pedido;
+                }
+                else if (vectorAnterior.l2Estado == 0 && evento == 2 && l1Pedido != pedido)
                 {
                     l2Pedido = pedido;
                 }
