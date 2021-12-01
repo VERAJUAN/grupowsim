@@ -95,8 +95,6 @@ namespace SIMULACION_TP1
             TnCamion();
             IngresaASilo();
 
-
-
             SiloAbasteciendoPlanta();
             RndTiempoAbasteciendoPlanta();
             this.tiempoAbasteciendoPlanta = TiempoAbasteciendoPlanta(tiempoAbasteciendoPlanta);
@@ -292,7 +290,7 @@ namespace SIMULACION_TP1
             {
                 rndTnCamion = 0;
             }
-            else if (evento == 1 || evento == 2 || evento == 3 || evento == 4 || evento == 5)
+            else if ((evento == 1 || evento == 2 || evento == 3 || evento == 4 || evento == 5) && (vectorAnterior.colaPlaya > 0 || nroEvento == 2 || vectorAnterior.estadoPlaya == 0))
             {
                 rndTnCamion = rnd.NextDouble();
             }
@@ -308,7 +306,7 @@ namespace SIMULACION_TP1
             {
                 tnCamion = 0;
             }
-            else if ((rndTnCamion != 0) || (evento == 2 || evento == 3 || evento == 4 || evento == 5))
+            else if (rndTnCamion != 0)
             {
                 tnCamion = rndTnCamion < 0.5 ? 10 : 12; 
             }
@@ -328,10 +326,44 @@ namespace SIMULACION_TP1
             {
                 ingresaASilo = 0;
             }
+            else if (evento == 7)
+            {
+                ingresaASilo = vectorAnterior.siguienteSiloPlaya;
+            }
             else if (tnCamion != 0)
             {
-                ingresaASilo = contenidoTnSilo1 < parametroCapacidadSilo ? 1 :
-                                contenidoTnSilo2 < parametroCapacidadSilo ? 2 : contenidoTnSilo3 < parametroCapacidadSilo ? 3 : contenidoTnSilo4 < parametroCapacidadSilo ? 4 : 0;
+                if (vectorAnterior.siguienteSiloPlaya != 0)
+                {
+                    ingresaASilo = vectorAnterior.siguienteSiloPlaya;
+                }
+                else if(vectorAnterior.ingresaASilo != 0) 
+                {
+                    if (vectorAnterior.ingresaASilo == 1)
+                    {
+                        ingresaASilo = contenidoTnSilo2 < parametroCapacidadSilo ? 2 : contenidoTnSilo3 < parametroCapacidadSilo ? 3 : contenidoTnSilo4 < parametroCapacidadSilo ? 4 : 1;
+                    }
+                    else if (vectorAnterior.ingresaASilo == 2)
+                    {
+                        ingresaASilo = contenidoTnSilo3 < parametroCapacidadSilo ? 3 : contenidoTnSilo4 < parametroCapacidadSilo ? 4 : 0;
+                    }
+                    else if (vectorAnterior.ingresaASilo == 3)
+                    {
+                        ingresaASilo = contenidoTnSilo4 < parametroCapacidadSilo ? 4 : 1;
+                    }
+                    else if (vectorAnterior.ingresaASilo == 4)
+                    {
+                        ingresaASilo = 1;
+                    }
+                    else
+                    {
+                        ingresaASilo = 0;
+                    }
+                }
+                else
+                {
+                    ingresaASilo = 1;
+                }
+                
             }
             else
             {
