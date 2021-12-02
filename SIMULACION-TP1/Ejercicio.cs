@@ -189,8 +189,8 @@ namespace SIMULACION_TP1
 
                     if (corte)
                     {
-                        lblTn.Text = Math.Round(ecuacionAnterior.tn, 3).ToString();
-                        lblX1.Text = Math.Round(ecuacionAnterior.rk_x1, 3).ToString();
+                        lblTn.Text = Math.Round(ecuacion.tn, 3).ToString();
+                        lblX1.Text = Math.Round(ecuacion.rk_x1, 3).ToString();
                     }
 
                     tablaRK.Rows.Add(Math.Round(ecuacion.tn,3), Math.Round(ecuacion.rk_x1, 3), Math.Round(ecuacion.rk_k1, 3), Math.Round(ecuacion.rk_k2, 3), Math.Round(ecuacion.rk_k3, 3), Math.Round(ecuacion.rk_k4, 3),
@@ -214,8 +214,8 @@ namespace SIMULACION_TP1
 
                     if (corte)
                     {
-                        lblTn.Text = Math.Round(ecuacionAnterior.tn, 3).ToString();
-                        lblX1.Text = Math.Round(ecuacionAnterior.eu_x1, 3).ToString();
+                        lblTn.Text = Math.Round(ecuacion.tn, 3).ToString();
+                        lblX1.Text = Math.Round(ecuacion.eu_x1, 3).ToString();
                     }
 
                     tablaEuler.Rows.Add(Math.Round(ecuacion.tn, 3), Math.Round(ecuacion.eu_x1,3), Math.Round(ecuacion.dx1,3), Math.Round(ecuacion.dx2,3));

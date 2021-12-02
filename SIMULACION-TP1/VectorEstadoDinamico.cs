@@ -1202,6 +1202,18 @@ namespace SIMULACION_TP1
                 {
                     paEstado = 0;
                 }
+                else if (evento == 7 && vectorAnterior.colaPaAA.Count > 0 && vectorAnterior.colaPaS.Count > 0)
+                {
+                    foreach (var aa in vectorAnterior.colaPaAA)
+                    {
+                        paEstado = 0;
+                        if (vectorAnterior.colaPaS.Contains(aa))
+                        {
+                            paEstado = 1;
+                            break;
+                        }
+                    }
+                }
                 else if (evento == 3 && vectorAnterior.colaPaS.Contains(pedido)) // si termina alfombra y esta ya terminado carroceria
                 {
                     paEstado = 1;
@@ -1223,7 +1235,7 @@ namespace SIMULACION_TP1
             {
                 atiempo = 0;
             }
-            else if (sPedido != vectorAnterior.sPedido && sPedido != 0)
+            else if (paPedido != vectorAnterior.paPedido && paPedido != 0)
             {
                 atiempo = A;
             }

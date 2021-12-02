@@ -29,13 +29,13 @@ namespace SIMULACION_TP1
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle67 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle68 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle69 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle70 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle71 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle72 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle73 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle36 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle37 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle38 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle39 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle40 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle41 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle42 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -71,37 +71,6 @@ namespace SIMULACION_TP1
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle33 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle34 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle35 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle36 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle37 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle38 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle39 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle40 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle41 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle42 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle43 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle44 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle45 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle46 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle47 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle48 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle49 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle50 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle51 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle52 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle53 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle54 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle55 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle56 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle57 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle58 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle59 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle60 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle61 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle62 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle63 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle64 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle65 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle66 = new System.Windows.Forms.DataGridViewCellStyle();
             this.GroupBox1 = new System.Windows.Forms.GroupBox();
             this.label4 = new System.Windows.Forms.Label();
             this.txt_nroEnsamblesProbabilidad = new System.Windows.Forms.TextBox();
@@ -200,37 +169,6 @@ namespace SIMULACION_TP1
             this.p2Pedido = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.p2Tiempo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.p2ProxFin = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cantEnsamblesSolicitados = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cantEnsamblesFinalizados = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.proporcionEnsamblesRealizadosSobreFinalizados = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.duracionPromEnsamble = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cantMaxProdCola1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cantMaxProdCola2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cantMaxProdCola3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cantMaxProdCola4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cantMaxProdCola5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cantMaxProdColaEncastre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tiempoPromPermCola1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tiempoPromPermCola2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tiempoPromPermCola3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tiempoPromPermCola4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tiempoPromPermCola5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tiempoPromPermColaEncastre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cantPromProdCola = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cantPromProdSistema = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.porcOcupacionA1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.porcOcupacionA2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.porcOcupacionA3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.porcOcupA4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.porcOcupacionA5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tiempoBloqueoA5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.propBloqueoSobreOcupacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tiempoBloqueoeNCASTRE = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tiempobloqueoencastrea5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cantEnsamblesHora = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cantPromEnsamblesHora = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ensamblesCompletadosEn1Hora = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.propCompletar3OMasEnsambles = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.GroupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tablaVectorEstado)).BeginInit();
@@ -667,38 +605,7 @@ namespace SIMULACION_TP1
             this.paEstado,
             this.p2Pedido,
             this.p2Tiempo,
-            this.p2ProxFin,
-            this.cantEnsamblesSolicitados,
-            this.cantEnsamblesFinalizados,
-            this.proporcionEnsamblesRealizadosSobreFinalizados,
-            this.duracionPromEnsamble,
-            this.cantMaxProdCola1,
-            this.cantMaxProdCola2,
-            this.cantMaxProdCola3,
-            this.cantMaxProdCola4,
-            this.cantMaxProdCola5,
-            this.cantMaxProdColaEncastre,
-            this.tiempoPromPermCola1,
-            this.tiempoPromPermCola2,
-            this.tiempoPromPermCola3,
-            this.tiempoPromPermCola4,
-            this.tiempoPromPermCola5,
-            this.tiempoPromPermColaEncastre,
-            this.cantPromProdCola,
-            this.cantPromProdSistema,
-            this.porcOcupacionA1,
-            this.porcOcupacionA2,
-            this.porcOcupacionA3,
-            this.porcOcupA4,
-            this.porcOcupacionA5,
-            this.tiempoBloqueoA5,
-            this.propBloqueoSobreOcupacion,
-            this.tiempoBloqueoeNCASTRE,
-            this.tiempobloqueoencastrea5,
-            this.cantEnsamblesHora,
-            this.cantPromEnsamblesHora,
-            this.ensamblesCompletadosEn1Hora,
-            this.propCompletar3OMasEnsambles});
+            this.p2ProxFin});
             this.tablaVectorEstado.Location = new System.Drawing.Point(12, 478);
             this.tablaVectorEstado.Name = "tablaVectorEstado";
             this.tablaVectorEstado.ReadOnly = true;
@@ -742,9 +649,9 @@ namespace SIMULACION_TP1
             // dataGridViewTextBoxColumn2
             // 
             this.dataGridViewTextBoxColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            dataGridViewCellStyle67.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            dataGridViewCellStyle67.ForeColor = System.Drawing.Color.Black;
-            this.dataGridViewTextBoxColumn2.DefaultCellStyle = dataGridViewCellStyle67;
+            dataGridViewCellStyle36.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            dataGridViewCellStyle36.ForeColor = System.Drawing.Color.Black;
+            this.dataGridViewTextBoxColumn2.DefaultCellStyle = dataGridViewCellStyle36;
             this.dataGridViewTextBoxColumn2.HeaderText = "x1";
             this.dataGridViewTextBoxColumn2.MinimumWidth = 50;
             this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
@@ -754,8 +661,8 @@ namespace SIMULACION_TP1
             // dataGridViewTextBoxColumn3
             // 
             this.dataGridViewTextBoxColumn3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            dataGridViewCellStyle68.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.dataGridViewTextBoxColumn3.DefaultCellStyle = dataGridViewCellStyle68;
+            dataGridViewCellStyle37.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.dataGridViewTextBoxColumn3.DefaultCellStyle = dataGridViewCellStyle37;
             this.dataGridViewTextBoxColumn3.HeaderText = "k1";
             this.dataGridViewTextBoxColumn3.MinimumWidth = 100;
             this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
@@ -764,8 +671,8 @@ namespace SIMULACION_TP1
             // dataGridViewTextBoxColumn4
             // 
             this.dataGridViewTextBoxColumn4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            dataGridViewCellStyle69.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.dataGridViewTextBoxColumn4.DefaultCellStyle = dataGridViewCellStyle69;
+            dataGridViewCellStyle38.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.dataGridViewTextBoxColumn4.DefaultCellStyle = dataGridViewCellStyle38;
             this.dataGridViewTextBoxColumn4.HeaderText = "k2";
             this.dataGridViewTextBoxColumn4.MinimumWidth = 50;
             this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
@@ -774,16 +681,16 @@ namespace SIMULACION_TP1
             // 
             // dataGridViewTextBoxColumn5
             // 
-            dataGridViewCellStyle70.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.dataGridViewTextBoxColumn5.DefaultCellStyle = dataGridViewCellStyle70;
+            dataGridViewCellStyle39.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.dataGridViewTextBoxColumn5.DefaultCellStyle = dataGridViewCellStyle39;
             this.dataGridViewTextBoxColumn5.HeaderText = "k3";
             this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
             this.dataGridViewTextBoxColumn5.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn6
             // 
-            dataGridViewCellStyle71.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.dataGridViewTextBoxColumn6.DefaultCellStyle = dataGridViewCellStyle71;
+            dataGridViewCellStyle40.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.dataGridViewTextBoxColumn6.DefaultCellStyle = dataGridViewCellStyle40;
             this.dataGridViewTextBoxColumn6.HeaderText = "k4";
             this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
             this.dataGridViewTextBoxColumn6.ReadOnly = true;
@@ -891,16 +798,16 @@ namespace SIMULACION_TP1
             // 
             // dataGridViewTextBoxColumn26
             // 
-            dataGridViewCellStyle72.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-            this.dataGridViewTextBoxColumn26.DefaultCellStyle = dataGridViewCellStyle72;
+            dataGridViewCellStyle41.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.dataGridViewTextBoxColumn26.DefaultCellStyle = dataGridViewCellStyle41;
             this.dataGridViewTextBoxColumn26.HeaderText = "x1";
             this.dataGridViewTextBoxColumn26.Name = "dataGridViewTextBoxColumn26";
             this.dataGridViewTextBoxColumn26.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn27
             // 
-            dataGridViewCellStyle73.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-            this.dataGridViewTextBoxColumn27.DefaultCellStyle = dataGridViewCellStyle73;
+            dataGridViewCellStyle42.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.dataGridViewTextBoxColumn27.DefaultCellStyle = dataGridViewCellStyle42;
             this.dataGridViewTextBoxColumn27.HeaderText = "Dx1";
             this.dataGridViewTextBoxColumn27.Name = "dataGridViewTextBoxColumn27";
             this.dataGridViewTextBoxColumn27.ReadOnly = true;
@@ -1269,254 +1176,6 @@ namespace SIMULACION_TP1
             this.p2ProxFin.Name = "p2ProxFin";
             this.p2ProxFin.ReadOnly = true;
             // 
-            // cantEnsamblesSolicitados
-            // 
-            dataGridViewCellStyle36.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.cantEnsamblesSolicitados.DefaultCellStyle = dataGridViewCellStyle36;
-            this.cantEnsamblesSolicitados.HeaderText = "CANT ENSAMBLES SOLICITADOS";
-            this.cantEnsamblesSolicitados.Name = "cantEnsamblesSolicitados";
-            this.cantEnsamblesSolicitados.ReadOnly = true;
-            // 
-            // cantEnsamblesFinalizados
-            // 
-            dataGridViewCellStyle37.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.cantEnsamblesFinalizados.DefaultCellStyle = dataGridViewCellStyle37;
-            this.cantEnsamblesFinalizados.HeaderText = "CANT ENSAMBLES FINALIZADOS";
-            this.cantEnsamblesFinalizados.Name = "cantEnsamblesFinalizados";
-            this.cantEnsamblesFinalizados.ReadOnly = true;
-            // 
-            // proporcionEnsamblesRealizadosSobreFinalizados
-            // 
-            dataGridViewCellStyle38.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.proporcionEnsamblesRealizadosSobreFinalizados.DefaultCellStyle = dataGridViewCellStyle38;
-            this.proporcionEnsamblesRealizadosSobreFinalizados.HeaderText = "PROPORCION ENSAMBLES REALIZADOS SOBRE SOLICITADOS";
-            this.proporcionEnsamblesRealizadosSobreFinalizados.Name = "proporcionEnsamblesRealizadosSobreFinalizados";
-            this.proporcionEnsamblesRealizadosSobreFinalizados.ReadOnly = true;
-            // 
-            // duracionPromEnsamble
-            // 
-            dataGridViewCellStyle39.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.duracionPromEnsamble.DefaultCellStyle = dataGridViewCellStyle39;
-            this.duracionPromEnsamble.HeaderText = "DURACION PROMEDIO ENSAMBLE";
-            this.duracionPromEnsamble.Name = "duracionPromEnsamble";
-            this.duracionPromEnsamble.ReadOnly = true;
-            // 
-            // cantMaxProdCola1
-            // 
-            dataGridViewCellStyle40.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.cantMaxProdCola1.DefaultCellStyle = dataGridViewCellStyle40;
-            this.cantMaxProdCola1.HeaderText = "CANT MAX PROD COLA 1";
-            this.cantMaxProdCola1.Name = "cantMaxProdCola1";
-            this.cantMaxProdCola1.ReadOnly = true;
-            // 
-            // cantMaxProdCola2
-            // 
-            dataGridViewCellStyle41.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.cantMaxProdCola2.DefaultCellStyle = dataGridViewCellStyle41;
-            this.cantMaxProdCola2.HeaderText = "CANT MAX PROD COLA 2";
-            this.cantMaxProdCola2.Name = "cantMaxProdCola2";
-            this.cantMaxProdCola2.ReadOnly = true;
-            // 
-            // cantMaxProdCola3
-            // 
-            dataGridViewCellStyle42.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.cantMaxProdCola3.DefaultCellStyle = dataGridViewCellStyle42;
-            this.cantMaxProdCola3.HeaderText = "CANT MAX PROD COLA 3";
-            this.cantMaxProdCola3.Name = "cantMaxProdCola3";
-            this.cantMaxProdCola3.ReadOnly = true;
-            // 
-            // cantMaxProdCola4
-            // 
-            dataGridViewCellStyle43.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.cantMaxProdCola4.DefaultCellStyle = dataGridViewCellStyle43;
-            this.cantMaxProdCola4.HeaderText = "CANT MAX PROD COLA 4";
-            this.cantMaxProdCola4.Name = "cantMaxProdCola4";
-            this.cantMaxProdCola4.ReadOnly = true;
-            // 
-            // cantMaxProdCola5
-            // 
-            dataGridViewCellStyle44.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.cantMaxProdCola5.DefaultCellStyle = dataGridViewCellStyle44;
-            this.cantMaxProdCola5.HeaderText = "CANT MAX PROD COLA 5";
-            this.cantMaxProdCola5.Name = "cantMaxProdCola5";
-            this.cantMaxProdCola5.ReadOnly = true;
-            // 
-            // cantMaxProdColaEncastre
-            // 
-            dataGridViewCellStyle45.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.cantMaxProdColaEncastre.DefaultCellStyle = dataGridViewCellStyle45;
-            this.cantMaxProdColaEncastre.HeaderText = "CANT MAX PROD COLA ENCASTRE";
-            this.cantMaxProdColaEncastre.Name = "cantMaxProdColaEncastre";
-            this.cantMaxProdColaEncastre.ReadOnly = true;
-            // 
-            // tiempoPromPermCola1
-            // 
-            dataGridViewCellStyle46.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.tiempoPromPermCola1.DefaultCellStyle = dataGridViewCellStyle46;
-            this.tiempoPromPermCola1.HeaderText = "TIEMPO PROMEDIO DE PERMANENCIA COLA 1";
-            this.tiempoPromPermCola1.Name = "tiempoPromPermCola1";
-            this.tiempoPromPermCola1.ReadOnly = true;
-            // 
-            // tiempoPromPermCola2
-            // 
-            dataGridViewCellStyle47.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.tiempoPromPermCola2.DefaultCellStyle = dataGridViewCellStyle47;
-            this.tiempoPromPermCola2.HeaderText = "TIEMPO PROMEDIO DE PERMANENCIA COLA 2";
-            this.tiempoPromPermCola2.Name = "tiempoPromPermCola2";
-            this.tiempoPromPermCola2.ReadOnly = true;
-            // 
-            // tiempoPromPermCola3
-            // 
-            dataGridViewCellStyle48.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.tiempoPromPermCola3.DefaultCellStyle = dataGridViewCellStyle48;
-            this.tiempoPromPermCola3.HeaderText = "TIEMPO PROMEDIO DE PERMANENCIA COLA 3";
-            this.tiempoPromPermCola3.Name = "tiempoPromPermCola3";
-            this.tiempoPromPermCola3.ReadOnly = true;
-            // 
-            // tiempoPromPermCola4
-            // 
-            dataGridViewCellStyle49.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.tiempoPromPermCola4.DefaultCellStyle = dataGridViewCellStyle49;
-            this.tiempoPromPermCola4.HeaderText = "TIEMPO PROMEDIO DE PERMANENCIA COLA 4";
-            this.tiempoPromPermCola4.Name = "tiempoPromPermCola4";
-            this.tiempoPromPermCola4.ReadOnly = true;
-            // 
-            // tiempoPromPermCola5
-            // 
-            dataGridViewCellStyle50.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.tiempoPromPermCola5.DefaultCellStyle = dataGridViewCellStyle50;
-            this.tiempoPromPermCola5.HeaderText = "TIEMPO PROMEDIO DE PERMANENCIA COLA 5";
-            this.tiempoPromPermCola5.Name = "tiempoPromPermCola5";
-            this.tiempoPromPermCola5.ReadOnly = true;
-            // 
-            // tiempoPromPermColaEncastre
-            // 
-            dataGridViewCellStyle51.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.tiempoPromPermColaEncastre.DefaultCellStyle = dataGridViewCellStyle51;
-            this.tiempoPromPermColaEncastre.HeaderText = "TIEMPO PROMEDIO DE PERMANENCIA COLA ENCASTRE";
-            this.tiempoPromPermColaEncastre.Name = "tiempoPromPermColaEncastre";
-            this.tiempoPromPermColaEncastre.ReadOnly = true;
-            // 
-            // cantPromProdCola
-            // 
-            dataGridViewCellStyle52.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.cantPromProdCola.DefaultCellStyle = dataGridViewCellStyle52;
-            this.cantPromProdCola.HeaderText = "CANTIDAD PROMEDIO PRODUCTOS EN COLA";
-            this.cantPromProdCola.Name = "cantPromProdCola";
-            this.cantPromProdCola.ReadOnly = true;
-            // 
-            // cantPromProdSistema
-            // 
-            dataGridViewCellStyle53.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.cantPromProdSistema.DefaultCellStyle = dataGridViewCellStyle53;
-            this.cantPromProdSistema.HeaderText = "CANTIDAD PROMEDIO PRODUCTOS EN EL SISTEMA";
-            this.cantPromProdSistema.Name = "cantPromProdSistema";
-            this.cantPromProdSistema.ReadOnly = true;
-            // 
-            // porcOcupacionA1
-            // 
-            dataGridViewCellStyle54.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.porcOcupacionA1.DefaultCellStyle = dataGridViewCellStyle54;
-            this.porcOcupacionA1.HeaderText = "PORCENTAJE DE OCUPACION A1";
-            this.porcOcupacionA1.Name = "porcOcupacionA1";
-            this.porcOcupacionA1.ReadOnly = true;
-            // 
-            // porcOcupacionA2
-            // 
-            dataGridViewCellStyle55.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.porcOcupacionA2.DefaultCellStyle = dataGridViewCellStyle55;
-            this.porcOcupacionA2.HeaderText = "PORCENTAJE DE OCUPACION A2";
-            this.porcOcupacionA2.Name = "porcOcupacionA2";
-            this.porcOcupacionA2.ReadOnly = true;
-            // 
-            // porcOcupacionA3
-            // 
-            dataGridViewCellStyle56.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.porcOcupacionA3.DefaultCellStyle = dataGridViewCellStyle56;
-            this.porcOcupacionA3.HeaderText = "PORCENTAJE DE OCUPACION A3";
-            this.porcOcupacionA3.Name = "porcOcupacionA3";
-            this.porcOcupacionA3.ReadOnly = true;
-            // 
-            // porcOcupA4
-            // 
-            dataGridViewCellStyle57.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.porcOcupA4.DefaultCellStyle = dataGridViewCellStyle57;
-            this.porcOcupA4.HeaderText = "PORCENTAJE DE OCUPACION A4";
-            this.porcOcupA4.Name = "porcOcupA4";
-            this.porcOcupA4.ReadOnly = true;
-            // 
-            // porcOcupacionA5
-            // 
-            dataGridViewCellStyle58.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.porcOcupacionA5.DefaultCellStyle = dataGridViewCellStyle58;
-            this.porcOcupacionA5.HeaderText = "PORCENTAJE DE OCUPACION A5";
-            this.porcOcupacionA5.Name = "porcOcupacionA5";
-            this.porcOcupacionA5.ReadOnly = true;
-            // 
-            // tiempoBloqueoA5
-            // 
-            dataGridViewCellStyle59.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.tiempoBloqueoA5.DefaultCellStyle = dataGridViewCellStyle59;
-            this.tiempoBloqueoA5.HeaderText = "TIEMPO BLOQUEO A5";
-            this.tiempoBloqueoA5.Name = "tiempoBloqueoA5";
-            this.tiempoBloqueoA5.ReadOnly = true;
-            // 
-            // propBloqueoSobreOcupacion
-            // 
-            dataGridViewCellStyle60.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.propBloqueoSobreOcupacion.DefaultCellStyle = dataGridViewCellStyle60;
-            this.propBloqueoSobreOcupacion.HeaderText = "PROP. TIEMPO BLOQUEO SOBRE OCUPACIÓN";
-            this.propBloqueoSobreOcupacion.Name = "propBloqueoSobreOcupacion";
-            this.propBloqueoSobreOcupacion.ReadOnly = true;
-            // 
-            // tiempoBloqueoeNCASTRE
-            // 
-            dataGridViewCellStyle61.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.tiempoBloqueoeNCASTRE.DefaultCellStyle = dataGridViewCellStyle61;
-            this.tiempoBloqueoeNCASTRE.HeaderText = "TIEMPO BLOQUEO ENCASTRE A3";
-            this.tiempoBloqueoeNCASTRE.Name = "tiempoBloqueoeNCASTRE";
-            this.tiempoBloqueoeNCASTRE.ReadOnly = true;
-            // 
-            // tiempobloqueoencastrea5
-            // 
-            dataGridViewCellStyle62.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.tiempobloqueoencastrea5.DefaultCellStyle = dataGridViewCellStyle62;
-            this.tiempobloqueoencastrea5.HeaderText = "TIEMPO BLOQUEO ENCASTRE A5";
-            this.tiempobloqueoencastrea5.Name = "tiempobloqueoencastrea5";
-            this.tiempobloqueoencastrea5.ReadOnly = true;
-            // 
-            // cantEnsamblesHora
-            // 
-            dataGridViewCellStyle63.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.cantEnsamblesHora.DefaultCellStyle = dataGridViewCellStyle63;
-            this.cantEnsamblesHora.HeaderText = "CANTIDAD DE ENSAMBLES POR HORA";
-            this.cantEnsamblesHora.Name = "cantEnsamblesHora";
-            this.cantEnsamblesHora.ReadOnly = true;
-            // 
-            // cantPromEnsamblesHora
-            // 
-            dataGridViewCellStyle64.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.cantPromEnsamblesHora.DefaultCellStyle = dataGridViewCellStyle64;
-            this.cantPromEnsamblesHora.HeaderText = "CANTIDAD PROMEDIO DE ENSAMLES POR HORA";
-            this.cantPromEnsamblesHora.Name = "cantPromEnsamblesHora";
-            this.cantPromEnsamblesHora.ReadOnly = true;
-            // 
-            // ensamblesCompletadosEn1Hora
-            // 
-            dataGridViewCellStyle65.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.ensamblesCompletadosEn1Hora.DefaultCellStyle = dataGridViewCellStyle65;
-            this.ensamblesCompletadosEn1Hora.HeaderText = "3 ENSAMBLES COMPLETADOS EN 1 HORA";
-            this.ensamblesCompletadosEn1Hora.Name = "ensamblesCompletadosEn1Hora";
-            this.ensamblesCompletadosEn1Hora.ReadOnly = true;
-            // 
-            // propCompletar3OMasEnsambles
-            // 
-            dataGridViewCellStyle66.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.propCompletar3OMasEnsambles.DefaultCellStyle = dataGridViewCellStyle66;
-            this.propCompletar3OMasEnsambles.HeaderText = "PROBABILIDAD DE COMPLETAR 3 O MÁS ENSAMBLES";
-            this.propCompletar3OMasEnsambles.Name = "propCompletar3OMasEnsambles";
-            this.propCompletar3OMasEnsambles.ReadOnly = true;
-            // 
             // Ejercicio__B
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1648,36 +1307,5 @@ namespace SIMULACION_TP1
         private System.Windows.Forms.DataGridViewTextBoxColumn p2Pedido;
         private System.Windows.Forms.DataGridViewTextBoxColumn p2Tiempo;
         private System.Windows.Forms.DataGridViewTextBoxColumn p2ProxFin;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cantEnsamblesSolicitados;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cantEnsamblesFinalizados;
-        private System.Windows.Forms.DataGridViewTextBoxColumn proporcionEnsamblesRealizadosSobreFinalizados;
-        private System.Windows.Forms.DataGridViewTextBoxColumn duracionPromEnsamble;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cantMaxProdCola1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cantMaxProdCola2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cantMaxProdCola3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cantMaxProdCola4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cantMaxProdCola5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cantMaxProdColaEncastre;
-        private System.Windows.Forms.DataGridViewTextBoxColumn tiempoPromPermCola1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn tiempoPromPermCola2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn tiempoPromPermCola3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn tiempoPromPermCola4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn tiempoPromPermCola5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn tiempoPromPermColaEncastre;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cantPromProdCola;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cantPromProdSistema;
-        private System.Windows.Forms.DataGridViewTextBoxColumn porcOcupacionA1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn porcOcupacionA2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn porcOcupacionA3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn porcOcupA4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn porcOcupacionA5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn tiempoBloqueoA5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn propBloqueoSobreOcupacion;
-        private System.Windows.Forms.DataGridViewTextBoxColumn tiempoBloqueoeNCASTRE;
-        private System.Windows.Forms.DataGridViewTextBoxColumn tiempobloqueoencastrea5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cantEnsamblesHora;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cantPromEnsamblesHora;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ensamblesCompletadosEn1Hora;
-        private System.Windows.Forms.DataGridViewTextBoxColumn propCompletar3OMasEnsambles;
     }
 }
