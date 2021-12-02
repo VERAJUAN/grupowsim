@@ -1078,12 +1078,11 @@ namespace SIMULACION_TP1
             }
             else
             {
-                if (evento == 6 && l1Estado != 2 && l2Estado != 2)
+                if (evento == 6 && vectorAnterior.l1Estado != 2 && vectorAnterior.l2Estado != 2)
                 {
                     sEstado = 0;
                 }
-                else if (evento != 4 && evento != 5 && vectorAnterior.l1Estado != 2 && vectorAnterior.l2Estado != 2
-                    && vectorAnterior.sEstado == 0)
+                else if (evento != 4 && evento != 5 && vectorAnterior.sEstado == 0)
                 {
                     sEstado = 0;
                 }
@@ -1091,8 +1090,6 @@ namespace SIMULACION_TP1
                 {
                     sEstado = 1;
                 }
-
-
             }
         }
 
