@@ -17,7 +17,7 @@ namespace SIMULACION_TP1
     public partial class Ejercicio__B : System.Windows.Forms.Form
     {
         int cantProyectos = 0;
-        double picoTiempoEncastre = 0;
+        double minSecado = 0;
         private void cboSignificancia_SelectedIndexChanged(object sender, EventArgs e)
         {
             //comboDist1.SelectedIndex = 0;
@@ -50,13 +50,13 @@ namespace SIMULACION_TP1
             //constante5_2.Text = "12";
 
             //SETEO INICIAL EC DIFRENCIAL
-            txtMinA.Text = "0,05";
-            txtMaxA.Text = "2";
-            txtB.Text = "10";
-            txtC.Text = "5";
-            txtH.Text = "0,05";
-            txtX0.Text = "0";
-            txtXder0.Text = "0";
+            //txtMinA.Text = "0,05";
+            //txtMaxA.Text = "2";
+            //txtB.Text = "10";
+            //txtC.Text = "5";
+            txtH.Text = "0,01";
+            txtX0.Text = "100";
+            //txtXder0.Text = "0";
             comboMetodo.SelectedIndex = 0;
             tablaEuler.Visible = false;
             tablaRK.Visible = false;
@@ -87,12 +87,12 @@ namespace SIMULACION_TP1
 
             var primero = true;
             Random r = new Random();
-            var a = Distribucion.Uniforme(r.NextDouble(), double.Parse(txtMinA.Text), double.Parse(txtMaxA.Text));
-            var b = double.Parse(txtB.Text);
-            var c = double.Parse(txtC.Text);
+            //var a = Distribucion.Uniforme(r.NextDouble(), double.Parse(txtMinA.Text), double.Parse(txtMaxA.Text));
+            //var b = double.Parse(txtB.Text);
+            //var c = double.Parse(txtC.Text);
             var h = double.Parse(txtH.Text);
             var x0 = double.Parse(txtX0.Text);
-            var xDeriv0 = double.Parse(txtXder0.Text);
+            //var xDeriv0 = double.Parse(txtXder0.Text);
 
             var metodo = comboMetodo.SelectedIndex;
 
@@ -167,30 +167,30 @@ namespace SIMULACION_TP1
             EcuacionDiferencial ecuacion = new EcuacionDiferencial();
             EcuacionDiferencial ecuacionAnterior = new EcuacionDiferencial();
 
-            var picos = 0;
+            var corte = false;
             do
             {
                 if (primero)
                 {
-                    ecuacion = new EcuacionDiferencial(metodo, a, b, c, h, null, x0, xDeriv0);
+                    ecuacion = new EcuacionDiferencial(metodo, h, null, x0);
                     primero = false;
                 }
                 else
                 {
-                    ecuacion = new EcuacionDiferencial(metodo, a, b, c, h, ecuacionAnterior);
+                    ecuacion = new EcuacionDiferencial(metodo, h, ecuacionAnterior);
                 }
 
                 if(metodo == 0)
                 {
-                    if (ecuacion.rk_x1 > ecuacionAnterior.rk_x1)
+                    if (ecuacion.rk_x1 < 0)
                     {
-                        ecuacion.posiblePico = true;
+                        corte = true;
                     }
-                    else if (ecuacion.rk_x1 < ecuacionAnterior.rk_x1 && ecuacionAnterior.posiblePico)
+
+                    if (corte)
                     {
-                        picos++;
-                        lblTn.Text = Math.Round(ecuacionAnterior.tn,3).ToString();
-                        lblX1.Text = Math.Round(ecuacionAnterior.rk_x1,3).ToString();
+                        lblTn.Text = Math.Round(ecuacionAnterior.tn, 3).ToString();
+                        lblX1.Text = Math.Round(ecuacionAnterior.rk_x1, 3).ToString();
                     }
 
                     tablaRK.Rows.Add(Math.Round(ecuacion.tn,3), Math.Round(ecuacion.rk_x1, 3), Math.Round(ecuacion.rk_k1, 3), Math.Round(ecuacion.rk_k2, 3), Math.Round(ecuacion.rk_k3, 3), Math.Round(ecuacion.rk_k4, 3),
@@ -207,14 +207,13 @@ namespace SIMULACION_TP1
                 }
                 else
                 {
-                    if (ecuacion.eu_x1 > ecuacionAnterior.eu_x1)
+                    if (ecuacion.eu_x1 < 0)
                     {
-                        ecuacion.posiblePico = true;
+                        corte = true;
                     }
-                    else if (ecuacion.eu_x1 < ecuacionAnterior.eu_x1 && ecuacionAnterior.posiblePico)
-                    {
-                        picos++;
 
+                    if (corte)
+                    {
                         lblTn.Text = Math.Round(ecuacionAnterior.tn, 3).ToString();
                         lblX1.Text = Math.Round(ecuacionAnterior.eu_x1, 3).ToString();
                     }
@@ -234,9 +233,9 @@ namespace SIMULACION_TP1
 
                 ecuacionAnterior = ecuacion;
 
-            } while (picos < 2);
+            } while (!corte);
 
-            picoTiempoEncastre = double.Parse(lblTn.Text);
+            minSecado = double.Parse(lblTn.Text);
 
         }
 
@@ -272,7 +271,7 @@ namespace SIMULACION_TP1
                 var numAleatorio4 = r.NextDouble();
                 L2 = GeneracionTiemposActividad(comboDist4.SelectedIndex, constante4_1.Text, constante4_2.Text, numAleatorio4);
                 
-                S = 10; //Cambiar los 2 por la humedad en 0
+                S = minSecado; //Cambiar los 2 por la humedad en 0
 
                 //var numAleatorio5 = r.NextDouble();
                 PA = 3; //Siempre 3 minutos.

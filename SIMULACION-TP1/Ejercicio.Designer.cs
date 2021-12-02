@@ -36,12 +36,6 @@ namespace SIMULACION_TP1
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle71 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle72 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle73 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle74 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle75 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle76 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle77 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle78 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle79 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -151,35 +145,17 @@ namespace SIMULACION_TP1
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.asdad = new System.Windows.Forms.GroupBox();
             this.comboMetodo = new System.Windows.Forms.ComboBox();
             this.label52 = new System.Windows.Forms.Label();
-            this.txtXder0 = new System.Windows.Forms.TextBox();
-            this.label51 = new System.Windows.Forms.Label();
             this.txtX0 = new System.Windows.Forms.TextBox();
             this.label50 = new System.Windows.Forms.Label();
             this.txtH = new System.Windows.Forms.TextBox();
             this.label49 = new System.Windows.Forms.Label();
-            this.txtC = new System.Windows.Forms.TextBox();
-            this.txtB = new System.Windows.Forms.TextBox();
-            this.label48 = new System.Windows.Forms.Label();
-            this.label46 = new System.Windows.Forms.Label();
-            this.txtMaxA = new System.Windows.Forms.TextBox();
-            this.txtMinA = new System.Windows.Forms.TextBox();
-            this.afasf = new System.Windows.Forms.Label();
-            this.label45 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
             this.tablaEuler = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn26 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn27 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn28 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.label53 = new System.Windows.Forms.Label();
             this.label54 = new System.Windows.Forms.Label();
             this.label55 = new System.Windows.Forms.Label();
             this.lblTn = new System.Windows.Forms.Label();
@@ -745,12 +721,7 @@ namespace SIMULACION_TP1
             this.dataGridViewTextBoxColumn3,
             this.dataGridViewTextBoxColumn4,
             this.dataGridViewTextBoxColumn5,
-            this.dataGridViewTextBoxColumn6,
-            this.dataGridViewTextBoxColumn7,
-            this.dataGridViewTextBoxColumn8,
-            this.dataGridViewTextBoxColumn9,
-            this.dataGridViewTextBoxColumn10,
-            this.dataGridViewTextBoxColumn11});
+            this.dataGridViewTextBoxColumn6});
             this.tablaRK.Location = new System.Drawing.Point(764, 131);
             this.tablaRK.Name = "tablaRK";
             this.tablaRK.ReadOnly = true;
@@ -817,68 +788,17 @@ namespace SIMULACION_TP1
             this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
             this.dataGridViewTextBoxColumn6.ReadOnly = true;
             // 
-            // dataGridViewTextBoxColumn7
-            // 
-            dataGridViewCellStyle72.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.dataGridViewTextBoxColumn7.DefaultCellStyle = dataGridViewCellStyle72;
-            this.dataGridViewTextBoxColumn7.HeaderText = "x2";
-            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
-            this.dataGridViewTextBoxColumn7.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn8
-            // 
-            dataGridViewCellStyle73.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.dataGridViewTextBoxColumn8.DefaultCellStyle = dataGridViewCellStyle73;
-            this.dataGridViewTextBoxColumn8.HeaderText = "l1";
-            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
-            this.dataGridViewTextBoxColumn8.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn9
-            // 
-            dataGridViewCellStyle74.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.dataGridViewTextBoxColumn9.DefaultCellStyle = dataGridViewCellStyle74;
-            this.dataGridViewTextBoxColumn9.HeaderText = "l2";
-            this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
-            this.dataGridViewTextBoxColumn9.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn10
-            // 
-            dataGridViewCellStyle75.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.dataGridViewTextBoxColumn10.DefaultCellStyle = dataGridViewCellStyle75;
-            this.dataGridViewTextBoxColumn10.HeaderText = "l3";
-            this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
-            this.dataGridViewTextBoxColumn10.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn11
-            // 
-            dataGridViewCellStyle76.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.dataGridViewTextBoxColumn11.DefaultCellStyle = dataGridViewCellStyle76;
-            this.dataGridViewTextBoxColumn11.HeaderText = "l4";
-            this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
-            this.dataGridViewTextBoxColumn11.ReadOnly = true;
-            // 
             // asdad
             // 
             this.asdad.Controls.Add(this.comboMetodo);
             this.asdad.Controls.Add(this.label52);
-            this.asdad.Controls.Add(this.txtXder0);
-            this.asdad.Controls.Add(this.label51);
             this.asdad.Controls.Add(this.txtX0);
             this.asdad.Controls.Add(this.label50);
             this.asdad.Controls.Add(this.txtH);
             this.asdad.Controls.Add(this.label49);
-            this.asdad.Controls.Add(this.txtC);
-            this.asdad.Controls.Add(this.txtB);
-            this.asdad.Controls.Add(this.label48);
-            this.asdad.Controls.Add(this.label46);
-            this.asdad.Controls.Add(this.txtMaxA);
-            this.asdad.Controls.Add(this.txtMinA);
-            this.asdad.Controls.Add(this.afasf);
-            this.asdad.Controls.Add(this.label45);
-            this.asdad.Controls.Add(this.label7);
             this.asdad.Location = new System.Drawing.Point(764, 11);
             this.asdad.Name = "asdad";
-            this.asdad.Size = new System.Drawing.Size(807, 115);
+            this.asdad.Size = new System.Drawing.Size(566, 115);
             this.asdad.TabIndex = 520;
             this.asdad.TabStop = false;
             this.asdad.Text = "Parámetros ecuaciones diferencial";
@@ -890,7 +810,7 @@ namespace SIMULACION_TP1
             this.comboMetodo.Items.AddRange(new object[] {
             "Runge Kutta",
             "Euler"});
-            this.comboMetodo.Location = new System.Drawing.Point(659, 40);
+            this.comboMetodo.Location = new System.Drawing.Point(325, 35);
             this.comboMetodo.Name = "comboMetodo";
             this.comboMetodo.Size = new System.Drawing.Size(121, 21);
             this.comboMetodo.TabIndex = 17;
@@ -899,32 +819,15 @@ namespace SIMULACION_TP1
             // 
             this.label52.AutoSize = true;
             this.label52.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label52.Location = new System.Drawing.Point(656, 20);
+            this.label52.Location = new System.Drawing.Point(322, 15);
             this.label52.Name = "label52";
             this.label52.Size = new System.Drawing.Size(60, 16);
             this.label52.TabIndex = 16;
             this.label52.Text = "Método";
             // 
-            // txtXder0
-            // 
-            this.txtXder0.Location = new System.Drawing.Point(532, 71);
-            this.txtXder0.Name = "txtXder0";
-            this.txtXder0.Size = new System.Drawing.Size(100, 20);
-            this.txtXder0.TabIndex = 14;
-            // 
-            // label51
-            // 
-            this.label51.AutoSize = true;
-            this.label51.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label51.Location = new System.Drawing.Point(489, 71);
-            this.label51.Name = "label51";
-            this.label51.Size = new System.Drawing.Size(37, 16);
-            this.label51.TabIndex = 13;
-            this.label51.Text = "x\'(0)";
-            // 
             // txtX0
             // 
-            this.txtX0.Location = new System.Drawing.Point(532, 40);
+            this.txtX0.Location = new System.Drawing.Point(198, 35);
             this.txtX0.Name = "txtX0";
             this.txtX0.Size = new System.Drawing.Size(100, 20);
             this.txtX0.TabIndex = 12;
@@ -933,7 +836,7 @@ namespace SIMULACION_TP1
             // 
             this.label50.AutoSize = true;
             this.label50.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label50.Location = new System.Drawing.Point(493, 40);
+            this.label50.Location = new System.Drawing.Point(159, 35);
             this.label50.Name = "label50";
             this.label50.Size = new System.Drawing.Size(33, 16);
             this.label50.TabIndex = 11;
@@ -941,7 +844,7 @@ namespace SIMULACION_TP1
             // 
             // txtH
             // 
-            this.txtH.Location = new System.Drawing.Point(376, 41);
+            this.txtH.Location = new System.Drawing.Point(42, 36);
             this.txtH.Name = "txtH";
             this.txtH.Size = new System.Drawing.Size(100, 20);
             this.txtH.TabIndex = 10;
@@ -950,89 +853,11 @@ namespace SIMULACION_TP1
             // 
             this.label49.AutoSize = true;
             this.label49.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label49.Location = new System.Drawing.Point(353, 41);
+            this.label49.Location = new System.Drawing.Point(19, 36);
             this.label49.Name = "label49";
             this.label49.Size = new System.Drawing.Size(16, 16);
             this.label49.TabIndex = 9;
             this.label49.Text = "h";
-            // 
-            // txtC
-            // 
-            this.txtC.Location = new System.Drawing.Point(226, 68);
-            this.txtC.Name = "txtC";
-            this.txtC.Size = new System.Drawing.Size(100, 20);
-            this.txtC.TabIndex = 8;
-            // 
-            // txtB
-            // 
-            this.txtB.Location = new System.Drawing.Point(226, 41);
-            this.txtB.Name = "txtB";
-            this.txtB.Size = new System.Drawing.Size(100, 20);
-            this.txtB.TabIndex = 7;
-            // 
-            // label48
-            // 
-            this.label48.AutoSize = true;
-            this.label48.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label48.Location = new System.Drawing.Point(203, 68);
-            this.label48.Name = "label48";
-            this.label48.Size = new System.Drawing.Size(16, 16);
-            this.label48.TabIndex = 6;
-            this.label48.Text = "c";
-            // 
-            // label46
-            // 
-            this.label46.AutoSize = true;
-            this.label46.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label46.Location = new System.Drawing.Point(203, 41);
-            this.label46.Name = "label46";
-            this.label46.Size = new System.Drawing.Size(17, 16);
-            this.label46.TabIndex = 5;
-            this.label46.Text = "b";
-            // 
-            // txtMaxA
-            // 
-            this.txtMaxA.Location = new System.Drawing.Point(85, 68);
-            this.txtMaxA.Name = "txtMaxA";
-            this.txtMaxA.Size = new System.Drawing.Size(100, 20);
-            this.txtMaxA.TabIndex = 4;
-            // 
-            // txtMinA
-            // 
-            this.txtMinA.Location = new System.Drawing.Point(85, 42);
-            this.txtMinA.Name = "txtMinA";
-            this.txtMinA.Size = new System.Drawing.Size(100, 20);
-            this.txtMinA.TabIndex = 3;
-            // 
-            // afasf
-            // 
-            this.afasf.AutoSize = true;
-            this.afasf.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.afasf.Location = new System.Drawing.Point(38, 69);
-            this.afasf.Name = "afasf";
-            this.afasf.Size = new System.Drawing.Size(40, 16);
-            this.afasf.TabIndex = 2;
-            this.afasf.Text = "máx:";
-            // 
-            // label45
-            // 
-            this.label45.AutoSize = true;
-            this.label45.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label45.Location = new System.Drawing.Point(42, 42);
-            this.label45.Name = "label45";
-            this.label45.Size = new System.Drawing.Size(36, 16);
-            this.label45.TabIndex = 1;
-            this.label45.Text = "min:";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(20, 20);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(90, 16);
-            this.label7.TabIndex = 0;
-            this.label7.Text = "a (uniforme)";
             // 
             // tablaEuler
             // 
@@ -1046,8 +871,7 @@ namespace SIMULACION_TP1
             this.tablaEuler.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn15,
             this.dataGridViewTextBoxColumn26,
-            this.dataGridViewTextBoxColumn27,
-            this.dataGridViewTextBoxColumn28});
+            this.dataGridViewTextBoxColumn27});
             this.tablaEuler.Location = new System.Drawing.Point(764, 131);
             this.tablaEuler.Name = "tablaEuler";
             this.tablaEuler.ReadOnly = true;
@@ -1067,37 +891,19 @@ namespace SIMULACION_TP1
             // 
             // dataGridViewTextBoxColumn26
             // 
-            dataGridViewCellStyle77.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-            this.dataGridViewTextBoxColumn26.DefaultCellStyle = dataGridViewCellStyle77;
+            dataGridViewCellStyle72.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.dataGridViewTextBoxColumn26.DefaultCellStyle = dataGridViewCellStyle72;
             this.dataGridViewTextBoxColumn26.HeaderText = "x1";
             this.dataGridViewTextBoxColumn26.Name = "dataGridViewTextBoxColumn26";
             this.dataGridViewTextBoxColumn26.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn27
             // 
-            dataGridViewCellStyle78.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-            this.dataGridViewTextBoxColumn27.DefaultCellStyle = dataGridViewCellStyle78;
-            this.dataGridViewTextBoxColumn27.HeaderText = "Dx1=x2";
+            dataGridViewCellStyle73.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.dataGridViewTextBoxColumn27.DefaultCellStyle = dataGridViewCellStyle73;
+            this.dataGridViewTextBoxColumn27.HeaderText = "Dx1";
             this.dataGridViewTextBoxColumn27.Name = "dataGridViewTextBoxColumn27";
             this.dataGridViewTextBoxColumn27.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn28
-            // 
-            dataGridViewCellStyle79.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-            this.dataGridViewTextBoxColumn28.DefaultCellStyle = dataGridViewCellStyle79;
-            this.dataGridViewTextBoxColumn28.HeaderText = "Dx2";
-            this.dataGridViewTextBoxColumn28.Name = "dataGridViewTextBoxColumn28";
-            this.dataGridViewTextBoxColumn28.ReadOnly = true;
-            // 
-            // label53
-            // 
-            this.label53.AutoSize = true;
-            this.label53.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label53.Location = new System.Drawing.Point(761, 427);
-            this.label53.Name = "label53";
-            this.label53.Size = new System.Drawing.Size(126, 16);
-            this.label53.TabIndex = 18;
-            this.label53.Text = "SEGUNDO PICO:";
             // 
             // label54
             // 
@@ -1435,7 +1241,7 @@ namespace SIMULACION_TP1
             // 
             dataGridViewCellStyle32.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.paEstado.DefaultCellStyle = dataGridViewCellStyle32;
-            this.paEstado.HeaderText = "ENCASTRE - ESTADO";
+            this.paEstado.HeaderText = "PA - ESTADO";
             this.paEstado.Name = "paEstado";
             this.paEstado.ReadOnly = true;
             // 
@@ -1443,7 +1249,7 @@ namespace SIMULACION_TP1
             // 
             dataGridViewCellStyle33.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.p2Pedido.DefaultCellStyle = dataGridViewCellStyle33;
-            this.p2Pedido.HeaderText = "ENCASTRE - PEDIDO";
+            this.p2Pedido.HeaderText = "PA- PEDIDO";
             this.p2Pedido.Name = "p2Pedido";
             this.p2Pedido.ReadOnly = true;
             // 
@@ -1451,7 +1257,7 @@ namespace SIMULACION_TP1
             // 
             dataGridViewCellStyle34.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.p2Tiempo.DefaultCellStyle = dataGridViewCellStyle34;
-            this.p2Tiempo.HeaderText = "ENCASTRE - TIEMPO";
+            this.p2Tiempo.HeaderText = "PA - TIEMPO";
             this.p2Tiempo.Name = "p2Tiempo";
             this.p2Tiempo.ReadOnly = true;
             // 
@@ -1459,7 +1265,7 @@ namespace SIMULACION_TP1
             // 
             dataGridViewCellStyle35.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.p2ProxFin.DefaultCellStyle = dataGridViewCellStyle35;
-            this.p2ProxFin.HeaderText = "ENCASTRE - PROX FIN";
+            this.p2ProxFin.HeaderText = "PA - PROX FIN";
             this.p2ProxFin.Name = "p2ProxFin";
             this.p2ProxFin.ReadOnly = true;
             // 
@@ -1720,7 +1526,6 @@ namespace SIMULACION_TP1
             this.Controls.Add(this.lblTn);
             this.Controls.Add(this.label55);
             this.Controls.Add(this.label54);
-            this.Controls.Add(this.label53);
             this.Controls.Add(this.tablaEuler);
             this.Controls.Add(this.asdad);
             this.Controls.Add(this.tablaRK);
@@ -1783,44 +1588,26 @@ namespace SIMULACION_TP1
         internal System.Windows.Forms.TextBox txt_nroEnsamblesProbabilidad;
         internal System.Windows.Forms.DataGridView tablaRK;
         private System.Windows.Forms.GroupBox asdad;
-        private System.Windows.Forms.TextBox txtMaxA;
-        private System.Windows.Forms.TextBox txtMinA;
-        private System.Windows.Forms.Label afasf;
-        private System.Windows.Forms.Label label45;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox txtC;
-        private System.Windows.Forms.TextBox txtB;
-        private System.Windows.Forms.Label label48;
-        private System.Windows.Forms.Label label46;
         private System.Windows.Forms.TextBox txtH;
         private System.Windows.Forms.Label label49;
         private System.Windows.Forms.TextBox txtX0;
         private System.Windows.Forms.Label label50;
-        private System.Windows.Forms.TextBox txtXder0;
-        private System.Windows.Forms.Label label51;
         internal System.Windows.Forms.DataGridView tablaEuler;
+        private System.Windows.Forms.Label label52;
+        private System.Windows.Forms.ComboBox comboMetodo;
+        private System.Windows.Forms.Label label54;
+        private System.Windows.Forms.Label label55;
+        internal System.Windows.Forms.Label lblTn;
+        internal System.Windows.Forms.Label lblX1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn11;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn15;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn26;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn27;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn28;
-        private System.Windows.Forms.Label label52;
-        private System.Windows.Forms.ComboBox comboMetodo;
-        private System.Windows.Forms.Label label53;
-        private System.Windows.Forms.Label label54;
-        private System.Windows.Forms.Label label55;
-        internal System.Windows.Forms.Label lblTn;
-        internal System.Windows.Forms.Label lblX1;
         private System.Windows.Forms.DataGridViewTextBoxColumn nroEvento;
         private System.Windows.Forms.DataGridViewTextBoxColumn reloj;
         private System.Windows.Forms.DataGridViewTextBoxColumn evento;
